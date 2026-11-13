@@ -166,12 +166,57 @@
     "seo_text": {
       "type": "seo-text-collection",
       "settings": {}
+    },
+    "bw_nav": {
+      "type": "bw-collection-header",
+      "blocks": {
+        "nav_le": {
+          "type": "link",
+          "settings": {
+            "label": "Single offers",
+            "sub": "Fast Black Week-pris",
+            "url": "shopify://collections/black-week-limited-edition"
+          }
+        },
+        "nav_s3": {
+          "type": "link",
+          "settings": {
+            "label": "3 for 2",
+            "sub": "Den billigste er gratis",
+            "url": "shopify://collections/black-week-3for2"
+          }
+        },
+        "nav_s4": {
+          "type": "link",
+          "settings": {
+            "label": "4 for 2",
+            "sub": "De 2 billigste er gratis",
+            "url": "shopify://collections/black-week-4for2"
+          }
+        }
+      },
+      "block_order": [
+        "nav_le",
+        "nav_s3",
+        "nav_s4"
+      ],
+      "settings": {
+        "phases": "early live sidste",
+        "show_crumb": true,
+        "crumb_parent": "",
+        "badge": "",
+        "title": "",
+        "line": "",
+        "padding_bottom": 0,
+        "dark_page": false
+      }
     }
   },
   "order": [
     "countdown_banner_hzLRpW",
     "banner",
     "countdown_banner_NXAn4J",
+    "bw_nav",
     "main",
     "seo_text"
   ]

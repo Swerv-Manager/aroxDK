@@ -1,0 +1,97 @@
+{%- comment -%}
+BLACK WEEK 2026 · board 06 · "Fokus i 4 for 2" – image with overlay + caption on one side, text, two product tiles
+(packshot + label) and a button on the other.
+{%- endcomment -%}
+{%- assign s = section.settings -%}
+<div class="bw bw-fs{% render 'bw-only', phases: s.phases %}">
+  <style>
+    .bw-fs { display: grid; grid-template-columns: minmax(0, 1fr); }
+    @media (min-width: 768px) { .bw-fs { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+    .bw-fs__media { position: relative; min-height: clamp(380px, 36vw, 560px); overflow: hidden; background: var(--bw-black); }
+    .bw-fs__media img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: {{ s.focal_x }}% {{ s.focal_y }}%; }
+    .bw-fs__ov { position: absolute; inset: 0; background: rgba(10,10,10,{{ s.overlay | divided_by: 100.0 }}); }
+    .bw-fs__cap { position: absolute; left: 24px; bottom: 24px; color: #fff; font-size: 12px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; }
+    .bw-fs__txt { padding: var(--bw-pad-y) var(--bw-gutter); display: grid; gap: 20px; align-content: center; }
+    @media (min-width: 768px) { .bw-fs__txt { padding-left: 64px; } }
+    .bw-fs__tiles { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; max-width: 440px; }
+    .bw-fs__tile { display: grid; gap: 8px; text-decoration: none; color: #fff; }
+    .bw-fs__tile-img { aspect-ratio: 1 / 1; border-radius: 8px; overflow: hidden; background: #f8f8f8; }
+    .bw-fs__tile-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .bw-fs__tile span { font-size: 14px; font-weight: 600; }
+  </style>
+  <div class="bw-fs__media">
+    {%- if s.image != blank -%}
+      {{- s.image | image_url: width: 1600 | image_tag: loading: 'lazy', sizes: '(min-width: 768px) 50vw, 100vw', widths: '600,900,1200,1600', alt: s.caption | escape -}}
+    {%- else -%}
+      {{- 'lifestyle-2' | placeholder_svg_tag -}}
+    {%- endif -%}
+    <div class="bw-fs__ov"></div>
+    {%- if s.caption != blank -%}<div class="bw-fs__cap">{{ s.caption }}</div>{%- endif -%}
+  </div>
+  <div class="bw-fs__txt">
+    {%- if s.eyebrow != blank -%}<div class="bw-eyebrow bw-eyebrow--light">{{ s.eyebrow }}</div>{%- endif -%}
+    {%- if s.heading != blank -%}<h2 class="bw-h2">{{ s.heading | newline_to_br }}</h2>{%- endif -%}
+    {%- if s.text != blank -%}<div class="bw-body" style="font-size:clamp(15px,1.25vw,18px);max-width:480px">{{ s.text }}</div>{%- endif -%}
+    {%- if section.blocks.size > 0 -%}
+      <div class="bw-fs__tiles">
+        {%- for block in section.blocks -%}
+          {%- liquid
+            assign p = block.settings.product
+            assign img = block.settings.image | default: p.featured_image
+            assign lbl = block.settings.label | default: p.title
+            assign url = block.settings.url | default: p.url | default: '#'
+          -%}
+          <a href="{{ url }}" class="bw-fs__tile" {{ block.shopify_attributes }}>
+            <div class="bw-fs__tile-img">
+              {%- if img != blank -%}{{- img | image_url: width: 600 | image_tag: loading: 'lazy', sizes: '220px', alt: lbl | escape -}}{%- else -%}{{- 'product-1' | placeholder_svg_tag -}}{%- endif -%}
+            </div>
+            <span>{{ lbl }}</span>
+          </a>
+        {%- endfor -%}
+      </div>
+    {%- endif -%}
+    {%- if s.button_label != blank -%}<a href="{{ s.button_url | default: collection.url }}" class="bw-btn">{{ s.button_label }}</a>{%- endif -%}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "BW · Fokus (billede + tekst)",
+  "class": "bw-section",
+  "max_blocks": 2,
+  "settings": [
+    { "type": "text", "id": "phases", "label": "Vis kun i faser", "info": "pre, early, live, sidste · tom = altid" },
+    { "type": "image_picker", "id": "image", "label": "Billede" },
+    { "type": "range", "id": "focal_x", "label": "Billedfokus vandret", "min": 0, "max": 100, "step": 1, "unit": "%", "default": 50 },
+    { "type": "range", "id": "focal_y", "label": "Billedfokus lodret", "min": 0, "max": 100, "step": 1, "unit": "%", "default": 30 },
+    { "type": "range", "id": "overlay", "label": "Mørk overlay", "min": 0, "max": 100, "step": 1, "unit": "%", "default": 50 },
+    { "type": "text", "id": "caption", "label": "Billedtekst", "default": "SportsTech kvinde tank top" },
+    { "type": "text", "id": "eyebrow", "label": "Overlinje", "default": "Fokus i 4 for 2" },
+    { "type": "textarea", "id": "heading", "label": "Overskrift", "info": "Linjeskift = ny linje", "default": "SportsTech.\nHerre tights." },
+    { "type": "textarea", "id": "text", "label": "Tekst", "default": "Vores SportsTech-linje og herre tights er kernen i 4 for 2. Bland frit i hele kollektionen – til herre og kvinde." },
+    { "type": "text", "id": "button_label", "label": "Knaptekst", "default": "Shop 4 for 2" },
+    { "type": "url", "id": "button_url", "label": "Knaplink", "info": "Tom = kollektionen" }
+  ],
+  "blocks": [
+    {
+      "type": "tile",
+      "name": "Produktfelt",
+      "settings": [
+        { "type": "product", "id": "product", "label": "Produkt", "info": "Billede og link hentes fra produktet" },
+        { "type": "image_picker", "id": "image", "label": "Eget billede (valgfrit)" },
+        { "type": "text", "id": "label", "label": "Tekst", "default": "SportsTech t-shirts" },
+        { "type": "url", "id": "url", "label": "Link (valgfrit)" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "BW · Fokus (billede + tekst)",
+      "blocks": [
+        { "type": "tile", "settings": { "label": "SportsTech t-shirts" } },
+        { "type": "tile", "settings": { "label": "Herre tights" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

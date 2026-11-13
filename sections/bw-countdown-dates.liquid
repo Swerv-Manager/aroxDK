@@ -1,0 +1,78 @@
+{%- comment -%}
+BLACK WEEK 2026 · Nedtælling + "Datoer du skal kende".
+Layout "stacked" (02 Forside): countdown bar, then heading + date tiles.
+Layout "split" (03 Landingsside): eyebrow + heading left, countdown right, date tiles below.
+{%- endcomment -%}
+{%- assign s = section.settings -%}
+<style>
+  #shopify-section-{{ section.id }} .bw-cdbar { padding: 24px var(--bw-gutter); border-top: 1px solid var(--bw-line); background: var(--bw-black); }
+  #shopify-section-{{ section.id }} .bw-dates__h { margin-bottom: 8px; }
+  #shopify-section-{{ section.id }} .bw-dates__split { margin-bottom: 8px; display: flex; justify-content: space-between; gap: 24px 40px; flex-wrap: wrap; align-items: flex-end; }
+  #shopify-section-{{ section.id }} .bw-tile__t { font-size: 16px; font-weight: 800; letter-spacing: .06em; }
+  #shopify-section-{{ section.id }} .bw-tile__l { font-size: 15px; color: var(--bw-grey-200); }
+</style>
+<div class="bw{% render 'bw-only', phases: s.phases %}">
+  {%- if s.layout == 'stacked' and s.show_countdown -%}
+    <div class="bw-cdbar">{% render 'bw-countdown' %}</div>
+  {%- endif -%}
+  <div class="bw-sec bw-sec--line">
+    {%- if s.layout == 'split' -%}
+      <div class="bw-dates__split">
+        <div class="bw-head" style="margin:0">
+          {%- if s.eyebrow != blank -%}<div class="bw-eyebrow">{{ s.eyebrow }}</div>{%- endif -%}
+          <h2 class="bw-h2">{{ s.heading_1 }}{% if s.heading_2 != blank %}<br>{{ s.heading_2 }}{% endif %}</h2>
+        </div>
+        {%- if s.show_countdown -%}{% render 'bw-countdown' %}{%- endif -%}
+      </div>
+    {%- else -%}
+      <h2 class="bw-h2 bw-h2--md bw-dates__h">{{ s.heading_1 }}{% if s.heading_2 != blank %} {{ s.heading_2 }}{% endif %}</h2>
+    {%- endif -%}
+    <div class="bw-grid bw-grid-3">
+      {%- for block in section.blocks -%}
+        <div class="bw-tile" {{ block.shopify_attributes }}>
+          <div class="bw-tile__big">{{ block.settings.date }}</div>
+          <div class="bw-tile__t">{{ block.settings.time }}</div>
+          <div class="bw-tile__l">{{ block.settings.label }}</div>
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "BW · Nedtælling + datoer",
+  "tag": "section",
+  "class": "bw-section",
+  "max_blocks": 6,
+  "settings": [
+    { "type": "text", "id": "phases", "label": "Vis kun i faser", "info": "pre, early, live, sidste · tom = altid" },
+    { "type": "select", "id": "layout", "label": "Layout", "options": [ { "value": "stacked", "label": "Nedtællingsbjælke + datoer (forside)" }, { "value": "split", "label": "Overskrift + nedtælling side om side (landingsside)" } ], "default": "stacked" },
+    { "type": "checkbox", "id": "show_countdown", "label": "Vis nedtælling", "default": true, "info": "Tekst og sluttidspunkt følger fasen automatisk." },
+    { "type": "text", "id": "eyebrow", "label": "Overlinje (kun landingsside-layout)", "default": "Black Week 20.11–30.11" },
+    { "type": "text", "id": "heading_1", "label": "Overskrift linje 1", "default": "Datoer du skal kende" },
+    { "type": "text", "id": "heading_2", "label": "Overskrift linje 2" }
+  ],
+  "blocks": [
+    {
+      "type": "date",
+      "name": "Dato",
+      "settings": [
+        { "type": "text", "id": "date", "label": "Dato", "default": "FRE 20.11" },
+        { "type": "text", "id": "time", "label": "Tidspunkt", "default": "KL. 12:00" },
+        { "type": "text", "id": "label", "label": "Tekst", "default": "Presale for tilmeldte" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "BW · Nedtælling + datoer",
+      "blocks": [
+        { "type": "date", "settings": { "date": "FRE 20.11", "time": "KL. 12:00", "label": "Presale for tilmeldte" } },
+        { "type": "date", "settings": { "date": "SØN 22.11", "time": "KL. 20:00", "label": "Åbent for alle" } },
+        { "type": "date", "settings": { "date": "MAN 30.11", "time": "KL. 23:59", "label": "Slutter · Cyber Monday" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

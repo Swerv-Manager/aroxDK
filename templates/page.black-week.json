@@ -1,0 +1,195 @@
+{
+  "sections": {
+    "bw_hero": {
+      "type": "bw-hero",
+      "settings": {
+        "phases": "",
+        "image": "shopify://shop_images/Design_uden_navn-191.png",
+        "focal": "33% 40%",
+        "overlay": "right",
+        "align": "right",
+        "min_height": 600,
+        "min_height_mobile": 600,
+        "badge": "",
+        "date": "",
+        "eyebrow": "Black Week 20.11–30.11.2026",
+        "heading_size": "small",
+        "heading_1": "Black Week.",
+        "heading_2": "Sådan virker det.",
+        "text": "Limited edition, 3 for 2 og 4 for 2 på udvalgte varer. Rabatten trækkes automatisk i kurven – ingen kode nødvendig.",
+        "heading_1_pre": "",
+        "heading_2_pre": "",
+        "text_pre": "",
+        "heading_1_early": "",
+        "heading_2_early": "",
+        "text_early": "",
+        "heading_1_live": "",
+        "heading_2_live": "",
+        "text_live": "",
+        "heading_1_sidste": "",
+        "heading_2_sidste": "",
+        "text_sidste": "",
+        "button_label": "Se single offers",
+        "button_link": "/collections/black-week-limited-edition",
+        "button_label_pre": "",
+        "button_link_pre": "",
+        "button_size": "medium",
+        "button_arrow": true,
+        "note": ""
+      }
+    },
+    "bw_dates": {
+      "type": "bw-countdown-dates",
+      "blocks": {
+        "date_1": {
+          "type": "date",
+          "settings": {
+            "date": "FRE 20.11",
+            "time": "KL. 12:00",
+            "label": "Presale for tilmeldte"
+          }
+        },
+        "date_2": {
+          "type": "date",
+          "settings": {
+            "date": "SØN 22.11",
+            "time": "KL. 20:00",
+            "label": "Åbent for alle"
+          }
+        },
+        "date_3": {
+          "type": "date",
+          "settings": {
+            "date": "MAN 30.11",
+            "time": "KL. 23:59",
+            "label": "Slutter · Cyber Monday"
+          }
+        }
+      },
+      "block_order": [
+        "date_1",
+        "date_2",
+        "date_3"
+      ],
+      "settings": {
+        "phases": "",
+        "layout": "split",
+        "show_countdown": true,
+        "eyebrow": "Black Week 20.11–30.11",
+        "heading_1": "Datoer du",
+        "heading_2": "skal kende."
+      }
+    },
+    "bw_offer_cats": {
+      "type": "bw-offer-cats",
+      "blocks": {
+        "cat_1": {
+          "type": "category",
+          "settings": {
+            "badge": "Single offers",
+            "heading": "LIMITED BLACKOUT.",
+            "text": "Limited blackout og udvalgte favoritter til fast Black Week-pris. Limited findes kun i Black Week.",
+            "cta": "Se single offers",
+            "image": "shopify://shop_images/Billede-08011.jpg",
+            "overlay": 20,
+            "link": "/collections/black-week-limited-edition"
+          }
+        },
+        "cat_2": {
+          "type": "category",
+          "settings": {
+            "badge": "3 for 2",
+            "heading": "TAG 3. BETAL FOR 2.",
+            "text": "Læg 3 varer fra 3 for 2 i kurven, og betal for de 2 dyreste. Den billigste er gratis.",
+            "cta": "Shop 3 for 2",
+            "image": "shopify://shop_images/Billede-08431_c2413a7b-6dfc-42df-9b99-e1990905d132.jpg",
+            "overlay": 30,
+            "link": "/collections/black-week-3for2"
+          }
+        },
+        "cat_3": {
+          "type": "category",
+          "settings": {
+            "badge": "4 for 2",
+            "heading": "TAG 4. BETAL FOR 2.",
+            "text": "Læg 4 varer fra 4 for 2 i kurven, og betal for de 2 dyreste. De 2 billigste er gratis.",
+            "cta": "Shop 4 for 2",
+            "image": "shopify://shop_images/Billede-00931.jpg",
+            "overlay": 50,
+            "link": "/collections/black-week-4for2"
+          }
+        }
+      },
+      "block_order": [
+        "cat_1",
+        "cat_2",
+        "cat_3"
+      ],
+      "settings": {
+        "phases": "",
+        "eyebrow": "Sådan virker Black Week",
+        "heading_1": "Tre tilbud.",
+        "heading_2": "Én kurv.",
+        "footnote": "Rabatten trækkes automatisk i kurven – ingen kode nødvendig."
+      }
+    },
+    "bw_gift": {
+      "type": "bw-gift-block",
+      "blocks": {
+        "rule_1": {
+          "type": "rule",
+          "settings": {
+            "key": "De første 100 ordrer",
+            "value": "Gratis Thermo stålflaske 1,06 L",
+            "text": "Gælder de første 100 ordrer i Black Week."
+          }
+        },
+        "rule_2": {
+          "type": "rule",
+          "settings": {
+            "key": "Uanset beløb",
+            "value": "Ingen beløbsgrænse",
+            "text": "Det er rækkefølgen, der tæller – ikke beløbet."
+          }
+        }
+      },
+      "block_order": [
+        "rule_1",
+        "rule_2"
+      ],
+      "settings": {
+        "phases": "",
+        "style": "rules",
+        "eyebrow": "Gave i Black Week",
+        "heading_1": "Gave med hjem.",
+        "heading_2": "Oveni.",
+        "image": "shopify://shop_images/427_496bbe8d-72cc-421a-9db6-f83a5b270081.png",
+        "card_title": "Arox Thermo stålflaske 1,06 L",
+        "card_text": "",
+        "note": "",
+        "button_label": "Se gaverne",
+        "button_link": "/pages/black-week-gaver"
+      }
+    },
+    "bw_cta": {
+      "type": "bw-cta-strip",
+      "settings": {
+        "phases": "pre",
+        "eyebrow": "Presale",
+        "heading": "Shop før alle andre.",
+        "text": "Presale for tilmeldte fredag 20.11 kl. 12:00 · Åbent for alle søndag 22.11 kl. 20:00",
+        "button_label": "Tilmeld dig presale",
+        "button_link": "/#presale",
+        "link_label": "Vilkår og FAQ",
+        "link": "/pages/black-week-faq"
+      }
+    }
+  },
+  "order": [
+    "bw_hero",
+    "bw_dates",
+    "bw_offer_cats",
+    "bw_gift",
+    "bw_cta"
+  ]
+}

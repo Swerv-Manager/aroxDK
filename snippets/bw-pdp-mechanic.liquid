@@ -1,0 +1,87 @@
+{%- comment -%}
+BLACK WEEK 2026 · PDP mechanic box (board 08 "Mekanik-boks"), placed after price via a main-product liquid block:
+  {% render 'bw-pdp-mechanic', product: product %}
+Renders nothing for products outside the Black Week collections (see snippet bw-offer).
+Box: offer + "Black Week" badges · offer headline + lines · gift row (bw-pdp-gift) · key dates · compact countdown.
+"Limited blackout" products (title contains "blackout") get the extra "Limited blackout" badge and line.
+{%- endcomment -%}
+{%- capture bw_key -%}{%- render 'bw-offer', product: product, key: true -%}{%- endcapture -%}
+{%- assign bw_key = bw_key | strip -%}
+{%- if bw_key != blank -%}
+  {%- liquid
+    assign bw_title = product.title | downcase
+    assign bw_blackout = false
+    if bw_title contains 'blackout'
+      assign bw_blackout = true
+    endif
+    assign bw_on_sale = false
+    if product.compare_at_price > product.price
+      assign bw_on_sale = true
+    endif
+    case bw_key
+      when 'le'
+        assign bw_badge = 'Limited edition'
+        assign bw_h = 'Limited edition · fast Black Week-pris'
+      when 's3'
+        assign bw_badge = '3 for 2'
+        assign bw_h = '3 for 2 · betal for 2, få 3'
+      when 's4'
+        assign bw_badge = '4 for 2'
+        assign bw_h = '4 for 2 · betal for 2, få 4'
+    endcase
+  -%}
+  <style>
+    .bw-pdp-box { font-family: 'Archivo', 'Helvetica Neue', Arial, sans-serif; border: 1px solid #2b2b2b; background: #161616; color: #fff; border-radius: 8px; padding: 18px 20px; display: grid; gap: 14px; }
+    .bw-pdp-box__badges { display: flex; gap: 6px; flex-wrap: wrap; align-items: center; }
+    .bw-pdp-box__badge { background: #c8232c; color: #fff; font-size: 10px; font-weight: 800; letter-spacing: .04em; line-height: 1.2; text-transform: uppercase; padding: 3px 7px; border-radius: 4px; }
+    .bw-pdp-box__badge--dark { background: #0a0a0a; box-shadow: inset 0 0 0 1px #fff; }
+    .bw-pdp-box__mech { display: grid; gap: 6px; }
+    .bw-pdp-box__h { font-size: 15px; font-weight: 800; text-transform: uppercase; letter-spacing: .02em; }
+    .bw-pdp-box__l { font-size: 14px; line-height: 1.5; color: #e4e4e4; }
+    .bw-pdp-box__sep { padding-top: 14px; border-top: 1px solid #2b2b2b; }
+    .bw-pdp-box__dates { display: grid; gap: 8px; }
+    .bw-pdp-box__date { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; font-size: 13px; line-height: 1.4; }
+    .bw-pdp-box__date b { font-weight: 800; }
+    .bw-pdp-box__date span { color: #e4e4e4; }
+    .bw-pdp-gift { display: grid; grid-template-columns: auto 1fr; gap: 12px; align-items: center; padding-top: 14px; border-top: 1px solid #2b2b2b; }
+    .bw-pdp-gift__img { width: 52px; height: 52px; border-radius: 6px; overflow: hidden; background: #f8f8f8; }
+    .bw-pdp-gift__img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .bw-pdp-gift__txt { display: grid; gap: 4px; }
+    .bw-pdp-gift__k { font-size: 13px; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; }
+    .bw-pdp-gift__v { font-size: 14px; line-height: 1.45; color: #e4e4e4; }
+    .bw-pdp-box .bw-cd__top { color: #9b9b9b; }
+  </style>
+  <div class="bw-pdp-box">
+    <div class="bw-pdp-box__badges">
+      <span class="bw-pdp-box__badge">{{ bw_badge }}</span>
+      {%- if bw_blackout -%}<span class="bw-pdp-box__badge bw-pdp-box__badge--dark">Limited blackout</span>{%- endif -%}
+      <span class="bw-pdp-box__badge bw-pdp-box__badge--dark">Black Week</span>
+    </div>
+    <div class="bw-pdp-box__mech">
+      <div class="bw-pdp-box__h">{{ bw_h }}</div>
+      {%- case bw_key -%}
+        {%- when 'le' -%}
+          <div class="bw-pdp-box__l">Black Week-pris til og med mandag 30.11 kl. 23:59.</div>
+          {%- if bw_blackout -%}
+            <div class="bw-pdp-box__l">Limited blackout findes kun i Black Week.</div>
+          {%- elsif bw_title contains 'tape' -%}
+            <div class="bw-pdp-box__l">Vælg selv dine 10 ruller.</div>
+          {%- endif -%}
+          {%- if bw_on_sale -%}<div class="bw-pdp-box__l">Black Week-prisen gælder automatisk – ingen kode nødvendig.</div>{%- endif -%}
+        {%- when 's3' -%}
+          <div class="bw-pdp-box__l">Læg 3 varer fra 3 for 2 i kurven, og betal for de 2 dyreste.</div>
+          <div class="bw-pdp-box__l">Den billigste er gratis. Rabatten trækkes automatisk i kurven – ingen kode nødvendig.</div>
+        {%- when 's4' -%}
+          <div class="bw-pdp-box__l">Læg 4 varer fra 4 for 2 i kurven, og betal for de 2 dyreste.</div>
+          <div class="bw-pdp-box__l">De 2 billigste er gratis. Rabatten trækkes automatisk i kurven – ingen kode nødvendig.</div>
+      {%- endcase -%}
+    </div>
+    {%- render 'bw-pdp-gift', product: product -%}
+    <div class="bw-pdp-box__dates bw-pdp-box__sep">
+      <div class="bw-pdp-box__date"><b>FRE 20.11 KL. 12:00</b><span>Presale for tilmeldte</span></div>
+      <div class="bw-pdp-box__date"><b>SØN 22.11 KL. 20:00</b><span>Åbent for alle</span></div>
+      <div class="bw-pdp-box__date"><b>MAN 30.11 KL. 23:59</b><span>Slutter · Cyber Monday</span></div>
+    </div>
+    <div class="bw bw-pdp-box__sep" style="background:transparent">{%- render 'bw-countdown', compact: true -%}</div>
+  </div>
+{%- endif -%}

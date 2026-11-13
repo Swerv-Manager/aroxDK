@@ -1,0 +1,208 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "bw_header": {
+      "type": "bw-collection-header",
+      "blocks": {
+        "nav_le": {
+          "type": "link",
+          "settings": {
+            "label": "Single offers",
+            "sub": "Fast Black Week-pris",
+            "url": "shopify://collections/black-week-limited-edition"
+          }
+        },
+        "nav_s3": {
+          "type": "link",
+          "settings": {
+            "label": "3 for 2",
+            "sub": "Den billigste er gratis",
+            "url": "shopify://collections/black-week-3for2"
+          }
+        },
+        "nav_s4": {
+          "type": "link",
+          "settings": {
+            "label": "4 for 2",
+            "sub": "De 2 billigste er gratis",
+            "url": "shopify://collections/black-week-4for2"
+          }
+        }
+      },
+      "block_order": [
+        "nav_le",
+        "nav_s3",
+        "nav_s4"
+      ],
+      "settings": {
+        "phases": "",
+        "show_crumb": true,
+        "crumb_parent": "Black Week",
+        "crumb_parent_url": "shopify://pages/black-week",
+        "badge": "Black Week",
+        "title": "4 for 2",
+        "line": "Vælg 4 produkter blandt alle på denne side, og de 2 billigste er gratis.",
+        "padding_bottom": 0,
+        "dark_page": true
+      }
+    },
+    "bw_progress": {
+      "type": "bw-offer-progress",
+      "settings": {
+        "phases": "",
+        "n": "4",
+        "free": "2",
+        "todo": "Vælg [n] mere – de 2 billigste er gratis",
+        "done": "Rabatten trækkes automatisk i kurven.",
+        "note": "De 2 billigste af de 4 produkter er gratis. Rabatten trækkes automatisk i kurven.",
+        "heading": "",
+        "line": "",
+        "link_label": "",
+        "pad_top": 20,
+        "pad_bottom": 0
+      }
+    },
+    "main": {
+      "type": "main-collection",
+      "settings": {
+        "products_per_page": 30,
+        "products_per_row_mobile": "2",
+        "products_per_row_desktop": 4,
+        "filter_layout": "sidebar",
+        "show_sort_by": true,
+        "show_filters": true,
+        "show_filter_group_name": false,
+        "show_filter_values_count": true,
+        "open_first_filter_group": false
+      }
+    },
+    "bw_note": {
+      "type": "bw-offer-note",
+      "settings": {
+        "phases": "",
+        "note": "Fri fragt v. køb over 499 kr. · ellers fragt fra 35 kr.",
+        "note_light": true,
+        "pad_top": 0,
+        "pad_bottom": 48
+      }
+    },
+    "bw_steps": {
+      "type": "bw-offer-steps",
+      "blocks": {
+        "step_0": {
+          "type": "step",
+          "settings": {
+            "title": "Vælg 4 varer",
+            "text": "Bland SportsTech, herre tights og kvindetoppe fra 4 for 2."
+          }
+        },
+        "step_1": {
+          "type": "step",
+          "settings": {
+            "title": "Læg dem i kurven",
+            "text": "Rabatten trækkes automatisk i kurven – ingen kode nødvendig."
+          }
+        },
+        "step_2": {
+          "type": "step",
+          "settings": {
+            "title": "Betal for 2",
+            "text": "De 2 billigste af de 4 varer er gratis."
+          }
+        }
+      },
+      "block_order": [
+        "step_0",
+        "step_1",
+        "step_2"
+      ],
+      "settings": {
+        "phases": "",
+        "eyebrow": "Sådan virker 4 for 2"
+      }
+    },
+    "bw_focus": {
+      "type": "bw-focus-split",
+      "blocks": {
+        "tile_1": {
+          "type": "tile",
+          "settings": {
+            "label": "SportsTech t-shirts"
+          }
+        },
+        "tile_2": {
+          "type": "tile",
+          "settings": {
+            "label": "Herre tights"
+          }
+        }
+      },
+      "block_order": [
+        "tile_1",
+        "tile_2"
+      ],
+      "settings": {
+        "phases": "",
+        "image": "shopify://shop_images/Billede-00931.jpg",
+        "focal_x": 50,
+        "focal_y": 30,
+        "overlay": 50,
+        "caption": "SportsTech kvinde tank top",
+        "eyebrow": "Fokus i 4 for 2",
+        "heading": "SportsTech.\nHerre tights.",
+        "text": "Vores SportsTech-linje og herre tights er kernen i 4 for 2. Bland frit i hele kollektionen – til herre og kvinde.",
+        "button_label": "Shop 4 for 2"
+      }
+    },
+    "bw_hero": {
+      "type": "bw-offer-hero",
+      "settings": {
+        "phases": "",
+        "layout": "stacked",
+        "image": "shopify://shop_images/Billede-00921.jpg",
+        "focal_x": 50,
+        "focal_y": 30,
+        "scrim_top": 0,
+        "scrim_bottom": 55,
+        "min_height": 520,
+        "min_height_mobile": 480,
+        "badge": "4 for 2",
+        "eyebrow": "4 for 2 · SportsTech og herre tights",
+        "heading": "Tag 4.\nBetal for 2.",
+        "heading_tag": "h2",
+        "text": "Bland SportsTech-tees, langærmede, no sleeves, oversized, herre tights og kvindetoppe. De 2 billigste af de 4 er gratis.",
+        "button_label": "Shop 4 for 2"
+      }
+    },
+    "bw_gift": {
+      "type": "bw-gift-reminder",
+      "settings": {
+        "phases": "",
+        "image": "shopify://shop_images/427_496bbe8d-72cc-421a-9db6-f83a5b270081.png",
+        "heading": "Gave med hjem. Oveni.",
+        "text": "Gratis Thermo stålflaske til de første 100 ordrer.",
+        "button_label": "Se gaverne",
+        "button_url": "shopify://pages/black-week-gaver",
+        "line_top": false
+      }
+    }
+  },
+  "order": [
+    "bw_header",
+    "bw_progress",
+    "main",
+    "bw_note",
+    "bw_steps",
+    "bw_focus",
+    "bw_hero",
+    "bw_gift"
+  ]
+}

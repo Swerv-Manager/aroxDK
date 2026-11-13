@@ -1,0 +1,131 @@
+{%- comment -%}BLACK WEEK 2026 · Footer · Black Week-variant med tilmelding (12 Footer){%- endcomment -%}
+{%- assign s = section.settings -%}
+<style>
+  #shopify-section-{{ section.id }} .bw-ft__top { padding: var(--bw-pad-y) var(--bw-gutter); display: grid; gap: 40px 64px; grid-template-columns: minmax(0, 1fr); }
+  @media (min-width: 768px) { #shopify-section-{{ section.id }} .bw-ft__top { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  #shopify-section-{{ section.id }} .bw-ft__eyebrow { font-size: 12px; font-weight: 800; letter-spacing: .2em; text-transform: uppercase; color: var(--bw-ink-300); }
+  #shopify-section-{{ section.id }} .bw-ft__h { font-size: clamp(28px, 3vw, 44px); font-weight: 900; text-transform: uppercase; line-height: 1; letter-spacing: -.01em; }
+  #shopify-section-{{ section.id }} .bw-ft__p { font-size: 15px; line-height: 1.5; color: var(--bw-grey-200); max-width: 460px; }
+  #shopify-section-{{ section.id }} .bw-ft__row { display: flex; gap: 8px; flex-wrap: wrap; max-width: 520px; }
+  #shopify-section-{{ section.id }} .bw-ft__btn { height: 52px; padding: 0 28px; border-radius: 999px; border: 0; background: #fff; color: var(--bw-ink); font: inherit; font-size: 15px; font-weight: 700; cursor: pointer; }
+  #shopify-section-{{ section.id }} .bw-ft__small { font-size: 12px; color: var(--bw-ink-300); }
+  #shopify-section-{{ section.id }} .bw-ft__cols { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 28px; }
+  #shopify-section-{{ section.id }} .bw-ft__col { display: grid; gap: 4px; align-content: start; font-size: 14px; }
+  #shopify-section-{{ section.id }} .bw-ft__col a { display: flex; align-items: center; min-height: 40px; color: #fff; text-decoration: none; }
+  #shopify-section-{{ section.id }} .bw-ft__col a:hover { text-decoration: underline; text-underline-offset: 3px; }
+  #shopify-section-{{ section.id }} .bw-ft__contact { gap: 12px; }
+  #shopify-section-{{ section.id }} .bw-ft__contact p { margin: 0; }
+  #shopify-section-{{ section.id }} .bw-ft__bottom { padding: 20px var(--bw-gutter) 28px; border-top: 1px solid var(--bw-line); display: flex; flex-wrap: wrap; gap: 14px 24px; align-items: center; justify-content: space-between; font-size: 12px; color: var(--bw-ink-300); }
+  #shopify-section-{{ section.id }} .bw-ft__logo { width: {{ s.logo_width }}px; height: auto; display: block; }
+  #shopify-section-{{ section.id }} .bw-ft__pay { display: flex; gap: 6px; flex-wrap: wrap; }
+  #shopify-section-{{ section.id }} .bw-ft__pay span { border: 1px solid var(--bw-line-2); border-radius: 4px; padding: 3px 8px; color: var(--bw-grey-200); }
+  #shopify-section-{{ section.id }} .bw-ft__ok, #shopify-section-{{ section.id }} .bw-ft__err { font-size: 14px; padding: 10px 14px; border-radius: 4px; }
+  #shopify-section-{{ section.id }} .bw-ft__ok { border: 1px solid var(--bw-grey-200); }
+  #shopify-section-{{ section.id }} .bw-ft__err { background: var(--bw-red); }
+</style>
+<footer class="bw{% render 'bw-only', phases: s.phases %}">
+  <div class="bw-ft__top">
+    <div style="display:grid;gap:14px;align-content:start">
+      {%- if s.eyebrow != blank -%}<div class="bw-ft__eyebrow">{{ s.eyebrow }}</div>{%- endif -%}
+      <div class="bw-ft__h">{{ s.heading }}</div>
+      {%- if s.text != blank -%}<div class="bw-ft__p">{{ s.text }}</div>{%- endif -%}
+      {%- form 'customer', id: 'bw-footer-newsletter' -%}
+        {%- if form.posted_successfully? -%}
+          <div class="bw-ft__ok">{{ s.success }}</div>
+        {%- else -%}
+          {%- if form.errors -%}<div class="bw-ft__err">{{ form.errors | default_errors }}</div>{%- endif -%}
+          <input type="hidden" name="contact[tags]" value="{{ s.tags | escape }}" data-bw-tags>
+          <input type="hidden" name="contact[accepts_marketing]" value="true">
+          <div class="bw-ft__row">
+            <input class="bw-input" type="email" name="contact[email]" placeholder="{{ s.ph_email | escape }}" aria-label="{{ s.ph_email | escape }}" autocomplete="email" required>
+            <button type="submit" class="bw-ft__btn">{{ s.button }}</button>
+          </div>
+          <label class="bw-check"><input type="checkbox" data-bw-sms><span>{{ s.consent_sms }}</span></label>
+        {%- endif -%}
+      {%- endform -%}
+      {%- if s.legal_small != blank -%}<div class="bw-ft__small">{{ s.legal_small }}</div>{%- endif -%}
+    </div>
+
+    <div class="bw-ft__cols">
+      {%- if section.blocks.size > 0 -%}
+        <div class="bw-ft__col">
+          <div class="bw-ft__eyebrow">{{ s.bw_title }}</div>
+          {%- for block in section.blocks -%}
+            <a href="{{ block.settings.link | default: '#' }}" {{ block.shopify_attributes }}>{{ block.settings.label }}</a>
+          {%- endfor -%}
+        </div>
+      {%- endif -%}
+      {%- if s.menu != blank -%}
+        <div class="bw-ft__col">
+          <div class="bw-ft__eyebrow">{{ s.menu_title | default: s.menu.title }}</div>
+          {%- for link in s.menu.links -%}<a href="{{ link.url }}">{{ link.title }}</a>{%- endfor -%}
+        </div>
+      {%- endif -%}
+      {%- if s.contact != blank -%}
+        <div class="bw-ft__col bw-ft__contact">
+          <div class="bw-ft__eyebrow">{{ s.contact_title }}</div>
+          <div class="bw-rte" style="display:grid;gap:12px">{{ s.contact }}</div>
+        </div>
+      {%- endif -%}
+    </div>
+  </div>
+
+  <div class="bw-ft__bottom">
+    {%- if s.logo != blank -%}
+      {{ s.logo | image_url: width: 400 | image_tag: class: 'bw-ft__logo', loading: 'lazy', alt: shop.name }}
+    {%- endif -%}
+    {%- if s.payments != blank -%}
+      {%- assign pays = s.payments | split: ',' -%}
+      <div class="bw-ft__pay">{%- for p in pays -%}<span>{{ p | strip }}</span>{%- endfor -%}</div>
+    {%- endif -%}
+    <span>{{ s.copyright }}</span>
+  </div>
+</footer>
+<script>
+  (function () {
+    var f = document.getElementById('bw-footer-newsletter');
+    if (!f) return;
+    f.addEventListener('submit', function () {
+      var sms = f.querySelector('[data-bw-sms]'), tags = f.querySelector('[data-bw-tags]');
+      if (sms && tags && sms.checked && tags.value.indexOf('sms') === -1) tags.value += ',sms';
+    });
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "BW · Footer",
+  "tag": "section",
+  "class": "bw-section",
+  "enabled_on": { "groups": ["footer"] },
+  "max_blocks": 8,
+  "settings": [
+    { "type": "text", "id": "phases", "label": "Vis kun i faser", "info": "pre, early, live, sidste · tom = altid" },
+    { "type": "header", "content": "Tilmelding" },
+    { "type": "text", "id": "eyebrow", "label": "Overlinje", "default": "Black Week · SMS + mail" },
+    { "type": "text", "id": "heading", "label": "Overskrift", "default": "Tilmeld dig VIP nyhedsbrevet" },
+    { "type": "textarea", "id": "text", "label": "Tekst", "default": "Modtag rabatkoder, fri fragt kampagner, eksklusive tilbud og meget mere. I Black Week får du besked, når tilbuddene åbner." },
+    { "type": "text", "id": "ph_email", "label": "Felt: e-mail", "default": "E-mail" },
+    { "type": "text", "id": "button", "label": "Knaptekst", "default": "Abonnér" },
+    { "type": "text", "id": "consent_sms", "label": "Samtykke SMS", "default": "Ja tak til nyheder og tilbud på SMS" },
+    { "type": "text", "id": "legal_small", "label": "Småt", "default": "Du kan altid afmelde dig igen. Læs mere i vores privatlivspolitik." },
+    { "type": "text", "id": "success", "label": "Tak-tekst", "default": "Tak. Du er på listen." },
+    { "type": "text", "id": "tags", "label": "Kundetags", "default": "newsletter", "info": "\"sms\" tilføjes, når SMS er valgt." },
+    { "type": "header", "content": "Kolonner" },
+    { "type": "text", "id": "bw_title", "label": "Titel på Black Week-kolonnen (links = blokke)", "default": "Black Week" },
+    { "type": "link_list", "id": "menu", "label": "Menu (Information)" },
+    { "type": "text", "id": "menu_title", "label": "Menutitel", "default": "Information" },
+    { "type": "text", "id": "contact_title", "label": "Titel kundeservice", "default": "Kundeservice" },
+    { "type": "richtext", "id": "contact", "label": "Kundeservice", "default": "<p>support@aroxfitness.com</p><p>+45 21716275</p><p>Hverdage 10:00–13:00</p>" },
+    { "type": "header", "content": "Bund" },
+    { "type": "image_picker", "id": "logo", "label": "Logo (hvidt)" },
+    { "type": "range", "id": "logo_width", "label": "Logobredde", "min": 60, "max": 240, "step": 2, "unit": "px", "default": 126 },
+    { "type": "text", "id": "payments", "label": "Betalingsmetoder (kommasepareret)", "default": "Dankort, Visa, Mastercard, MobilePay" },
+    { "type": "text", "id": "copyright", "label": "Juridisk linje", "default": "© 2026, Arox Fitness Denmark. · Sai Fitness ApS · CVR 42582735 · Skolegade 7, 8000 Aarhus C" }
+  ],
+  "blocks": [
+    { "type": "link", "name": "Black Week-link", "settings": [ { "type": "text", "id": "label", "label": "Tekst", "default": "3 for 2" }, { "type": "url", "id": "link", "label": "Link" } ] }
+  ],
+  "presets": [ { "name": "BW · Footer" } ]
+}
+{% endschema %}

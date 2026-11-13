@@ -1,0 +1,99 @@
+{%- comment -%}
+BLACK WEEK 2026 · "Gave med hjem. Oveni."
+Style "card" (02 Forside · flaske-gaveblok): white product card with packshot + note + button.
+Style "rules" (03 Landingsside): numbered rule tiles (blocks) + packshot thumbnail + button.
+{%- endcomment -%}
+{%- assign s = section.settings -%}
+<style>
+  #shopify-section-{{ section.id }} .bw-gb__card { background: #fff; color: var(--bw-ink); border-radius: 12px; padding: 16px; display: grid; grid-template-columns: 112px 1fr; gap: 20px; align-items: center; }
+  @media (min-width: 768px) { #shopify-section-{{ section.id }} .bw-gb__card { grid-template-columns: clamp(112px, 12vw, 180px) 1fr; } }
+  #shopify-section-{{ section.id }} .bw-gb__cards { display: grid; gap: 16px; grid-template-columns: minmax(0, 1fr); }
+  @media (min-width: 768px) { #shopify-section-{{ section.id }} .bw-gb__cards { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  #shopify-section-{{ section.id }} .bw-gb__img { aspect-ratio: 1 / 1; border-radius: 8px; overflow: hidden; background: #f8f8f8; }
+  #shopify-section-{{ section.id }} .bw-gb__img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  #shopify-section-{{ section.id }} .bw-gb__thumb { width: 72px; flex: none; }
+  @media (min-width: 768px) { #shopify-section-{{ section.id }} .bw-gb__thumb { width: clamp(72px, 7vw, 96px); } }
+  #shopify-section-{{ section.id }} .bw-gb__t { font-size: 18px; font-weight: 900; text-transform: uppercase; }
+  #shopify-section-{{ section.id }} .bw-gb__d { font-size: 15px; line-height: 1.5; color: var(--bw-ink-700); }
+  #shopify-section-{{ section.id }} .bw-gb__foot { display: flex; gap: 16px 32px; align-items: center; flex-wrap: wrap; justify-content: space-between; }
+  #shopify-section-{{ section.id }} .bw-gb__note { font-size: 15px; line-height: 1.5; color: var(--bw-grey-200); }
+  #shopify-section-{{ section.id }} .bw-gb__rule .bw-step__k { font-size: 13px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: var(--bw-ink-300); }
+  #shopify-section-{{ section.id }} .bw-gb__rule .bw-step__d { font-size: 15px; line-height: 1.5; color: var(--bw-grey-200); }
+</style>
+<div class="bw{% render 'bw-only', phases: s.phases %}">
+  <div class="bw-sec" id="gaver">
+    <div class="bw-head">
+      {%- if s.eyebrow != blank -%}<div class="bw-eyebrow">{{ s.eyebrow }}</div>{%- endif -%}
+      <h2 class="bw-h2">{{ s.heading_1 }}{% if s.heading_2 != blank %}<br>{{ s.heading_2 }}{% endif %}</h2>
+    </div>
+
+    {%- if s.style == 'rules' -%}
+      <div class="bw-grid bw-grid-3">
+        {%- for block in section.blocks -%}
+          <div class="bw-step bw-gb__rule" {{ block.shopify_attributes }}>
+            <div class="bw-step__n">{{ forloop.index | prepend: '0' }}</div>
+            <div class="bw-step__k">{{ block.settings.key }}</div>
+            <div class="bw-step__t">{{ block.settings.value }}</div>
+            <div class="bw-step__d">{{ block.settings.text }}</div>
+          </div>
+        {%- endfor -%}
+      </div>
+      <div class="bw-gb__foot">
+        {%- if s.image != blank -%}
+          <div class="bw-gb__img bw-gb__thumb">{{ s.image | image_url: width: 300 | image_tag: loading: 'lazy', alt: s.card_title }}</div>
+        {%- endif -%}
+        {%- if s.button_label != blank -%}<a href="{{ s.button_link | default: '#' }}" class="bw-btn bw-btn--outline">{{ s.button_label }}</a>{%- endif -%}
+      </div>
+    {%- else -%}
+      <div class="bw-gb__cards">
+        <div class="bw-gb__card">
+          <div class="bw-gb__img">
+            {%- if s.image != blank -%}{{ s.image | image_url: width: 500 | image_tag: loading: 'lazy', widths: '200,360,500', sizes: '180px', alt: s.card_title }}{%- endif -%}
+          </div>
+          <div style="display:grid;gap:8px">
+            <div class="bw-gb__t">{{ s.card_title }}</div>
+            {%- if s.card_text != blank -%}<div class="bw-gb__d">{{ s.card_text }}</div>{%- endif -%}
+          </div>
+        </div>
+      </div>
+      <div class="bw-gb__foot">
+        {%- if s.note != blank -%}<div class="bw-gb__note">{{ s.note }}</div>{%- endif -%}
+        {%- if s.button_label != blank -%}<a href="{{ s.button_link | default: '#' }}" class="bw-btn bw-btn--outline">{{ s.button_label }}</a>{%- endif -%}
+      </div>
+    {%- endif -%}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "BW · Gaveblok",
+  "tag": "section",
+  "class": "bw-section",
+  "max_blocks": 3,
+  "settings": [
+    { "type": "text", "id": "phases", "label": "Vis kun i faser", "info": "pre, early, live, sidste · tom = altid" },
+    { "type": "select", "id": "style", "label": "Udseende", "options": [ { "value": "card", "label": "Produktkort (forside)" }, { "value": "rules", "label": "Gaveregler 01/02 (landingsside)" } ], "default": "card" },
+    { "type": "text", "id": "eyebrow", "label": "Overlinje", "default": "Gave i Black Week" },
+    { "type": "text", "id": "heading_1", "label": "Overskrift linje 1", "default": "Gave med hjem." },
+    { "type": "text", "id": "heading_2", "label": "Overskrift linje 2", "default": "Oveni." },
+    { "type": "image_picker", "id": "image", "label": "Gavebillede" },
+    { "type": "text", "id": "card_title", "label": "Gavens navn", "default": "Thermo stålflaske 1,06 L" },
+    { "type": "text", "id": "card_text", "label": "Gavetekst", "default": "Gratis Thermo stålflaske til de første 100 ordrer." },
+    { "type": "text", "id": "note", "label": "Note", "default": "Gælder de første 100 ordrer i Black Week 20.11–30.11.2026." },
+    { "type": "text", "id": "button_label", "label": "Knaptekst", "default": "Se gaverne" },
+    { "type": "url", "id": "button_link", "label": "Knaplink" }
+  ],
+  "blocks": [
+    {
+      "type": "rule",
+      "name": "Gaveregel",
+      "settings": [
+        { "type": "text", "id": "key", "label": "Overlinje", "default": "De første 100 ordrer" },
+        { "type": "text", "id": "value", "label": "Overskrift", "default": "Gratis Thermo stålflaske 1,06 L" },
+        { "type": "textarea", "id": "text", "label": "Tekst", "default": "Gælder de første 100 ordrer i Black Week." }
+      ]
+    }
+  ],
+  "presets": [ { "name": "BW · Gaveblok" } ]
+}
+{% endschema %}

@@ -1,0 +1,116 @@
+{%- comment -%}
+BLACK WEEK 2026 · board 07 (Kollektionssider) + 04/05/06 page header.
+Breadcrumb, "Black Week" outline badge + title, short offer line and the Black Week offer navigation
+(Single offers / 3 for 2 / 4 for 2, optionally Gaver / FAQ). The card whose link matches the current page is red.
+"Mørk side" also turns the live collection grid (main-collection) on this template dark.
+{%- endcomment -%}
+{%- liquid
+  assign bw_title = section.settings.title | default: collection.title | default: page.title
+  assign bw_here = request.path
+-%}
+<div class="bw bw-ch{% render 'bw-only', phases: section.settings.phases %}">
+  {%- if section.settings.dark_page -%}
+    <style>
+      body:has(.bw-ch) { background: #0a0a0a; }
+      .shopify-section[id$="__main"], .shopify-section[id$="__main"] .section {
+        --background: 10 10 10; --text-color: 255 255 255; --border-color: 43 43 43;
+        background: #0a0a0a; color: #fff;
+      }
+    </style>
+  {%- endif -%}
+  <style>
+    .bw-ch__top { padding: 18px var(--bw-gutter) 0; display: grid; gap: 8px; }
+    .bw-ch__crumb { font-size: 13px; color: var(--bw-grey-c9); }
+    .bw-ch__crumb a { text-decoration: none; color: inherit; }
+    .bw-ch__crumb a:hover { color: #fff; }
+    .bw-ch__row { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+    .bw-ch__pill { background: var(--bw-black); color: #fff; box-shadow: inset 0 0 0 1px #fff; font-size: 10px; font-weight: 800; letter-spacing: .06em; line-height: 1.2; text-transform: uppercase; padding: 3px 7px; border-radius: 4px; }
+    .bw-ch__title { margin: 0; font-size: clamp(26px, 2.8vw, 40px); font-weight: 900; text-transform: uppercase; letter-spacing: -.01em; line-height: 1; }
+    .bw-ch__line { font-size: 14px; line-height: 1.45; color: var(--bw-grey-200); }
+    .bw-ch__nav { padding: 14px var(--bw-gutter) {{ section.settings.padding_bottom }}px; }
+    .bw-ch__navrow { display: flex; gap: 10px; overflow-x: auto; padding-bottom: 2px; scrollbar-width: none; }
+    .bw-ch__card { flex: 1 0 200px; min-height: 60px; display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 10px 16px; border-radius: 8px; color: #fff; text-decoration: none; background: var(--bw-surface-2); box-shadow: inset 0 0 0 1px #2b2b2b; transition: box-shadow .15s ease-out; }
+    .bw-ch__card:hover { box-shadow: inset 0 0 0 1px #fff; }
+    .bw-ch__card[aria-current] { background: var(--bw-red); box-shadow: none; }
+    .bw-ch__l { display: grid; gap: 3px; }
+    .bw-ch__lt { font-size: 15px; font-weight: 900; text-transform: uppercase; line-height: 1.1; }
+    .bw-ch__ls { font-size: 12px; line-height: 1.3; color: var(--bw-ink-300); }
+    .bw-ch__card[aria-current] .bw-ch__ls { color: #fff; }
+  </style>
+  <div class="bw-ch__top">
+    {%- if section.settings.show_crumb -%}
+      <nav class="bw-ch__crumb" aria-label="Brødkrumme">
+        <a href="{{ routes.root_url }}">Forside</a> /
+        {%- if section.settings.crumb_parent != blank %}
+          {% if section.settings.crumb_parent_url != blank %}<a href="{{ section.settings.crumb_parent_url }}">{{ section.settings.crumb_parent }}</a>{% else %}{{ section.settings.crumb_parent }}{% endif %} /
+        {%- endif %}
+        <span>{{ bw_title }}</span>
+      </nav>
+    {%- endif -%}
+    <div class="bw-ch__row">
+      {%- if section.settings.badge != blank -%}<span class="bw-ch__pill">{{ section.settings.badge }}</span>{%- endif -%}
+      <h1 class="bw-ch__title">{{ bw_title }}</h1>
+    </div>
+    {%- if section.settings.line != blank -%}<div class="bw-ch__line">{{ section.settings.line }}</div>{%- endif -%}
+  </div>
+  {%- if section.blocks.size > 0 -%}
+    <div class="bw-ch__nav">
+      <div class="bw-ch__navrow">
+        {%- for block in section.blocks -%}
+          {%- liquid
+            assign bw_url = block.settings.url | default: '#'
+            assign bw_cur = false
+            if bw_url == bw_here or bw_url == collection.url or bw_url == page.url
+              assign bw_cur = true
+            endif
+          -%}
+          <a href="{{ bw_url }}" class="bw-ch__card" {% if bw_cur %}aria-current="page"{% endif %} {{ block.shopify_attributes }}>
+            <span class="bw-ch__l"><span class="bw-ch__lt">{{ block.settings.label }}</span>{% if block.settings.sub != blank %}<span class="bw-ch__ls">{{ block.settings.sub }}</span>{% endif %}</span>
+            {%- render 'bw-icon', name: 'arrow' -%}
+          </a>
+        {%- endfor -%}
+      </div>
+    </div>
+  {%- endif -%}
+</div>
+
+{% schema %}
+{
+  "name": "BW · Kollektionsheader",
+  "class": "bw-section",
+  "max_blocks": 6,
+  "settings": [
+    { "type": "paragraph", "content": "Black Week 2026 · board 07. Brødkrumme, titel, tilbudslinje og Black Week-navigation. Det kort hvis link matcher siden, bliver rødt." },
+    { "type": "text", "id": "phases", "label": "Vis kun i faser", "info": "pre, early, live, sidste · tom = altid" },
+    { "type": "checkbox", "id": "show_crumb", "label": "Vis brødkrumme", "default": true },
+    { "type": "text", "id": "crumb_parent", "label": "Brødkrumme-niveau", "default": "Black Week" },
+    { "type": "url", "id": "crumb_parent_url", "label": "Link til brødkrumme-niveau" },
+    { "type": "text", "id": "badge", "label": "Badge", "default": "Black Week" },
+    { "type": "text", "id": "title", "label": "Titel", "info": "Tom = kollektionens titel" },
+    { "type": "text", "id": "line", "label": "Tilbudslinje", "default": "Fast Black Week-pris til og med mandag 30.11 kl. 23:59." },
+    { "type": "range", "id": "padding_bottom", "label": "Afstand under navigation", "min": 0, "max": 48, "step": 2, "unit": "px", "default": 0 },
+    { "type": "checkbox", "id": "dark_page", "label": "Mørk side (gør kollektions-griddet sort)", "default": true }
+  ],
+  "blocks": [
+    {
+      "type": "link",
+      "name": "Navigationskort",
+      "settings": [
+        { "type": "text", "id": "label", "label": "Titel", "default": "3 for 2" },
+        { "type": "text", "id": "sub", "label": "Undertekst", "default": "Den billigste er gratis" },
+        { "type": "url", "id": "url", "label": "Link" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "BW · Kollektionsheader",
+      "blocks": [
+        { "type": "link", "settings": { "label": "Single offers", "sub": "Fast Black Week-pris" } },
+        { "type": "link", "settings": { "label": "3 for 2", "sub": "Den billigste er gratis" } },
+        { "type": "link", "settings": { "label": "4 for 2", "sub": "De 2 billigste er gratis" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -272,7 +272,7 @@
             "icon": "none",
             "icon_width": 20,
             "title": "Levering & returnering",
-            "content": "<p>Levering: Gratis for ordrer over 799 kr. med GLS pakkeshop. For ordrer under 799 kr. fås levering fra 35 kr. </p><p>Returnering: Læs vores retuneringspolitik <a href=\"/pages/returpolitik\" title=\"Returpolitik\">her</a></p>",
+            "content": "<p>Levering: Gratis for ordrer over 499 kr. med GLS pakkeshop. For ordrer under 499 kr. fås levering fra 35 kr. </p><p>Returnering: Læs vores retuneringspolitik <a href=\"/pages/returpolitik\" title=\"Returpolitik\">her</a></p>",
             "page": ""
           }
         },
@@ -341,6 +341,18 @@
             "background": "#eaf2ed",
             "text_color": "#00a341"
           }
+        },
+        "liquid_bw_mechanic": {
+          "type": "liquid",
+          "settings": {
+            "liquid": "{%- comment -%}BLACK WEEK 2026 · mekanik-boks{%- endcomment -%}{% render 'bw-pdp-mechanic', product: product %}"
+          }
+        },
+        "liquid_bw_gpsr": {
+          "type": "liquid",
+          "settings": {
+            "liquid": "{%- comment -%}BLACK WEEK 2026 · producent- og sikkerhedsinfo (GPSR){%- endcomment -%}{% render 'bw-pdp-gpsr' %}"
+          }
         }
       },
       "block_order": [
@@ -359,10 +371,12 @@
         "kaching_bundles_app_block_4yFaNx",
         "inventory_EWQMMk",
         "buy_buttons",
+        "liquid_bw_mechanic",
         "liquid_AprAYw",
         "description",
         "collapsible_text_9FQbce",
         "frequently_bought_app_block_fxNVB6",
+        "liquid_bw_gpsr",
         "payment_terms",
         "liquid_QTG6BY",
         "collapsible_text_QxFjrL",
@@ -625,11 +639,20 @@
         "background_gradient": "",
         "text_color": ""
       }
+    },
+    "bw_related": {
+      "type": "bw-related",
+      "settings": {
+        "phases": "",
+        "heading": "Relaterede produkter",
+        "limit": 4
+      }
     }
   },
   "order": [
     "countdown_banner_4QUc4c",
     "main",
+    "bw_related",
     "1741616568527fe349",
     "ss_product_vidoes_BnfWak",
     "related-products",

@@ -1,0 +1,198 @@
+{
+  "sections": {
+    "hero": {
+      "type": "bw-terms-hero",
+      "settings": {
+        "phases": "",
+        "eyebrow": "Kampagnevilkår · Black Week 20.11–30.11.2026",
+        "heading_1": "Black Week.",
+        "heading_2": "Vilkår og FAQ."
+      }
+    },
+    "terms": {
+      "type": "bw-terms",
+      "blocks": {
+        "term_1": {
+          "type": "term",
+          "settings": {
+            "key": "Kampagneperiode",
+            "value": "Black Week 20.11–30.11.2026."
+          }
+        },
+        "term_2": {
+          "type": "term",
+          "settings": {
+            "key": "Presale",
+            "value": "For tilmeldte fra fredag 20.11 kl. 12:00."
+          }
+        },
+        "term_3": {
+          "type": "term",
+          "settings": {
+            "key": "Åbent for alle",
+            "value": "Søndag 22.11 kl. 20:00."
+          }
+        },
+        "term_4": {
+          "type": "term",
+          "settings": {
+            "key": "Slut",
+            "value": "Mandag 30.11 kl. 23:59 (Cyber Monday)."
+          }
+        },
+        "term_5": {
+          "type": "term",
+          "settings": {
+            "key": "Rabat",
+            "value": "Trækkes automatisk i kurven. Ingen kode."
+          }
+        },
+        "term_6": {
+          "type": "term",
+          "settings": {
+            "key": "Limited edition",
+            "value": "Fast Black Week-pris. Limited-varer findes kun i Black Week."
+          }
+        },
+        "term_7": {
+          "type": "term",
+          "settings": {
+            "key": "3 for 2",
+            "value": "Ved 3 varer fra 3 for 2 er den billigste gratis."
+          }
+        },
+        "term_8": {
+          "type": "term",
+          "settings": {
+            "key": "4 for 2",
+            "value": "Ved 4 varer fra 4 for 2 er de 2 billigste gratis."
+          }
+        },
+        "term_9": {
+          "type": "term",
+          "settings": {
+            "key": "Gave",
+            "value": "Gratis Thermo stålflaske (1,06 L) til de første 100 ordrer i Black Week. Ingen beløbsgrænse."
+          }
+        },
+        "term_10": {
+          "type": "term",
+          "settings": {
+            "key": "Fortrydelse",
+            "value": "14 dages fortrydelsesret via Returportal eller \"Fortryd ordre\"."
+          }
+        },
+        "term_11": {
+          "type": "term",
+          "settings": {
+            "key": "Arrangør",
+            "value": "Sai Fitness ApS · CVR 42582735 · Skolegade 7, 8000 Aarhus C · support@aroxfitness.com"
+          }
+        }
+      },
+      "block_order": [
+        "term_1",
+        "term_2",
+        "term_3",
+        "term_4",
+        "term_5",
+        "term_6",
+        "term_7",
+        "term_8",
+        "term_9",
+        "term_10",
+        "term_11"
+      ],
+      "settings": {
+        "phases": "",
+        "heading": "Kampagnevilkår"
+      }
+    },
+    "faq": {
+      "type": "bw-faq",
+      "blocks": {
+        "faq_1": {
+          "type": "item",
+          "settings": {
+            "question": "Hvornår er Black Week?",
+            "answer": "<p>Presale for tilmeldte fredag 20.11 kl. 12:00. Åbent for alle søndag 22.11 kl. 20:00. Black Week slutter mandag 30.11 kl. 23:59 (Cyber Monday).</p>"
+          }
+        },
+        "faq_2": {
+          "type": "item",
+          "settings": {
+            "question": "Hvordan får jeg rabatten?",
+            "answer": "<p>Rabatten trækkes automatisk i kurven – ingen kode nødvendig. Ved 3 for 2 er den billigste af 3 varer gratis. Ved 4 for 2 er de 2 billigste af 4 varer gratis.</p>"
+          }
+        },
+        "faq_3": {
+          "type": "item",
+          "settings": {
+            "question": "Hvilke varer er med?",
+            "answer": "<p>Varer markeret med Limited edition, 3 for 2 eller 4 for 2. Du finder dem samlet i de tre Black Week-kollektioner.</p>"
+          }
+        },
+        "faq_4": {
+          "type": "item",
+          "settings": {
+            "question": "Hvad er Limited Blackout?",
+            "answer": "<p>Helsorte udgaver af anti slip grips, fusion grips, Elite-bæltet og speedrope elite. De findes kun i Black Week.</p>"
+          }
+        },
+        "faq_5": {
+          "type": "item",
+          "settings": {
+            "question": "Hvordan får jeg gaven?",
+            "answer": "<p>De første 100 ordrer i Black Week får en gratis Thermo stålflaske (1,06 L) med. Der er ingen beløbsgrænse.</p>"
+          }
+        },
+        "faq_6": {
+          "type": "item",
+          "settings": {
+            "question": "Hvad betyder \"de første 100 ordrer\"?",
+            "answer": "<p>De første 100 ordrer i Black Week får en gratis Thermo stålflaske – uanset hvad ordren koster.</p>"
+          }
+        },
+        "faq_7": {
+          "type": "item",
+          "settings": {
+            "question": "Hvad koster fragt?",
+            "answer": "<p>Levering: Gratis for ordrer over 499 kr. med GLS pakkeshop. For ordrer under 499 kr. fås levering fra 35 kr.</p>"
+          }
+        },
+        "faq_8": {
+          "type": "item",
+          "settings": {
+            "question": "Kan jeg fortryde eller returnere?",
+            "answer": "<p>Ja. Du har 14 dages fortrydelsesret. Brug Returportal eller \"Fortryd ordre\" nederst på siden. Læs mere i vores handelsbetingelser.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "faq_1",
+        "faq_2",
+        "faq_3",
+        "faq_4",
+        "faq_5",
+        "faq_6",
+        "faq_7",
+        "faq_8"
+      ],
+      "settings": {
+        "phases": "",
+        "eyebrow": "",
+        "heading": "Black Week.<br>Kort fortalt.",
+        "limit": 12,
+        "open_first": true,
+        "note": "<p>Mangler du et svar? Skriv til support@aroxfitness.com eller ring på +45 21716275, hverdage 10:00–13:00.</p>",
+        "link_label": "",
+        "link_url": ""
+      }
+    }
+  },
+  "order": [
+    "hero",
+    "terms",
+    "faq"
+  ]
+}

@@ -1,0 +1,78 @@
+{%- comment -%}
+BLACK WEEK 2026 · Billede + tekst side om side og en produktrække under (02 Forside: Limited Blackout-blok og 4 for 2-blok).
+Products come from the collection picker, or from the collection handle when the collection does not exist yet
+(e.g. black-week-limited-edition). Nothing is shown in the product row while the collection is empty.
+{%- endcomment -%}
+{%- liquid
+  assign s = section.settings
+  assign coll = s.collection
+  if coll == blank and s.collection_handle != blank
+    assign coll = collections[s.collection_handle]
+  endif
+-%}
+<style>
+  #shopify-section-{{ section.id }} .bw-fp__media { aspect-ratio: 5 / 4; border-radius: 8px; }
+  #shopify-section-{{ section.id }} .bw-fp__media img { object-position: {{ s.focal }}; }
+  #shopify-section-{{ section.id }} .bw-fp__txt { display: grid; gap: 16px; }
+  #shopify-section-{{ section.id }} .bw-fp__foot { display: flex; gap: 16px; align-items: center; flex-wrap: wrap; justify-content: space-between; }
+</style>
+<div class="bw{% render 'bw-only', phases: s.phases %}">
+  <div class="bw-sec"{% if s.anchor != blank %} id="{{ s.anchor | handle }}"{% endif %}>
+    <div class="bw-grid-2" style="margin-bottom:8px">
+      <div class="bw-media bw-fp__media">
+        {%- if s.image != blank -%}
+          {{ s.image | image_url: width: 1400 | image_tag: loading: 'lazy', sizes: '(min-width: 768px) 50vw, 100vw', widths: '600,900,1200,1400', alt: s.image.alt }}
+        {%- endif -%}
+        {%- if s.overlay > 0 -%}<div class="bw-media__ov" style="--ov: {{ s.overlay | divided_by: 100.0 }}"></div>{%- endif -%}
+        {%- if s.badge != blank -%}<span class="bw-badge bw-badge--abs">{{ s.badge }}</span>{%- endif -%}
+      </div>
+      <div class="bw-fp__txt">
+        {%- if s.eyebrow != blank -%}<div class="bw-eyebrow">{{ s.eyebrow }}</div>{%- endif -%}
+        <h2 class="bw-h2{% if s.heading_size == 'xl' %} bw-h2--xl{% endif %}">{{ s.heading_1 }}{% if s.heading_2 != blank %}<br>{{ s.heading_2 }}{% endif %}</h2>
+        {%- if s.text != blank -%}<div class="bw-lead">{{ s.text }}</div>{%- endif -%}
+        {%- if s.button_label != blank -%}<a href="{{ s.button_link | default: '#' }}" class="bw-btn">{{ s.button_label }}</a>{%- endif -%}
+      </div>
+    </div>
+    {%- if coll != blank and coll.products_count > 0 -%}
+      {%- render 'bw-product-grid', products: coll.products, limit: s.limit, badge: s.card_badge -%}
+    {%- endif -%}
+    {%- if s.bottom_button_label != blank or s.note != blank -%}
+      <div class="bw-fp__foot">
+        {%- if s.bottom_button_label != blank -%}<a href="{{ s.bottom_button_link | default: '#' }}" class="bw-btn bw-btn--outline">{{ s.bottom_button_label }}</a>{%- endif -%}
+        {%- if s.note != blank -%}<div class="bw-note">{{ s.note }}</div>{%- endif -%}
+      </div>
+    {%- endif -%}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "BW · Billede + produkter",
+  "tag": "section",
+  "class": "bw-section",
+  "settings": [
+    { "type": "text", "id": "phases", "label": "Vis kun i faser", "info": "pre, early, live, sidste · tom = altid" },
+    { "type": "text", "id": "anchor", "label": "Anker-id (valgfrit)", "info": "Fx single → link til #single" },
+    { "type": "image_picker", "id": "image", "label": "Billede" },
+    { "type": "text", "id": "focal", "label": "Billedfokus (CSS object-position)", "default": "50% 55%" },
+    { "type": "range", "id": "overlay", "label": "Mørk overlay", "min": 0, "max": 80, "step": 5, "unit": "%", "default": 0 },
+    { "type": "text", "id": "badge", "label": "Badge på billedet", "default": "Limited" },
+    { "type": "text", "id": "eyebrow", "label": "Overlinje", "default": "Limited edition · Limited blackout" },
+    { "type": "select", "id": "heading_size", "label": "Overskriftsstørrelse", "options": [ { "value": "l", "label": "Stor" }, { "value": "xl", "label": "Ekstra stor" } ], "default": "l" },
+    { "type": "text", "id": "heading_1", "label": "Overskrift linje 1", "default": "Limited blackout." },
+    { "type": "text", "id": "heading_2", "label": "Overskrift linje 2", "default": "Kun i Black Week." },
+    { "type": "textarea", "id": "text", "label": "Tekst", "default": "Helsort udgave af anti slip grips, fusion grips, Elite-bæltet og speedrope elite. Kun i Black Week." },
+    { "type": "text", "id": "button_label", "label": "Knaptekst", "default": "Se single offers" },
+    { "type": "url", "id": "button_link", "label": "Knaplink" },
+    { "type": "header", "content": "Produkter" },
+    { "type": "collection", "id": "collection", "label": "Kollektion" },
+    { "type": "text", "id": "collection_handle", "label": "…eller kollektions-handle", "info": "Bruges hvis kollektionen ikke er valgt ovenfor, fx black-week-limited-edition", "default": "black-week-limited-edition" },
+    { "type": "range", "id": "limit", "label": "Antal produkter", "min": 2, "max": 12, "step": 1, "default": 4 },
+    { "type": "text", "id": "card_badge", "label": "Badge på produktkort (tom = automatisk)" },
+    { "type": "text", "id": "bottom_button_label", "label": "Knap under produkterne" },
+    { "type": "url", "id": "bottom_button_link", "label": "Link" },
+    { "type": "text", "id": "note", "label": "Note", "default": "Fri fragt v. køb over 499 kr. · ellers fragt fra 35 kr." }
+  ],
+  "presets": [ { "name": "BW · Billede + produkter" } ]
+}
+{% endschema %}

@@ -1,0 +1,14 @@
+{%- comment -%}
+BLACK WEEK 2026 · gift line in the cart drawer (board 10): "Gratis Thermo stålflaske til de første 100 ordrer."
+Static info line, NOT a cart item (the cart cannot know if the order is among the first 100).
+Rendered by sections/cart-drawer.liquid when the cart has items; hidden in the presale phase.
+{%- endcomment -%}
+<div class="bw-cart-gift{% render 'bw-only', phases: 'early live sidste' %}" style="display:flex;gap:10px;align-items:center;margin-top:12px">
+  <div style="width:36px;height:36px;border-radius:4px;overflow:hidden;background:#f8f8f8;flex:none">
+    {%- assign bw_gift_img = images['427_496bbe8d-72cc-421a-9db6-f83a5b270081.png'] -%}
+    {%- if bw_gift_img != blank -%}
+      {{ bw_gift_img | image_url: width: 120 | image_tag: loading: 'lazy', alt: 'Arox Thermo stålflaske 1,06 L', style: 'width:100%;height:100%;object-fit:cover;display:block' }}
+    {%- endif -%}
+  </div>
+  <div style="font-size:13px;line-height:1.4;font-weight:600">Gratis Thermo stålflaske til de første 100 ordrer.</div>
+</div>

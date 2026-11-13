@@ -113,10 +113,46 @@
             "country_image": "shopify://shop_images/flag-round-250.png",
             "link": "https://aroxfitness.de"
           }
+        },
+        "anc_mobile_bw1": {
+          "type": "anc_mobile",
+          "settings": {
+            "anc_img_svg": "",
+            "text": "BLACK WEEK 20.11–30.11",
+            "link": ""
+          }
+        },
+        "anc_mobile_bw2": {
+          "type": "anc_mobile",
+          "settings": {
+            "anc_img_svg": "",
+            "text": "∙",
+            "link": ""
+          }
+        },
+        "anc_mobile_bw3": {
+          "type": "anc_mobile",
+          "settings": {
+            "anc_img_svg": "",
+            "text": "Limited edition, 3 for 2 og 4 for 2 på udvalgte varer",
+            "link": ""
+          }
+        },
+        "anc_mobile_bw4": {
+          "type": "anc_mobile",
+          "settings": {
+            "anc_img_svg": "",
+            "text": "∙",
+            "link": ""
+          }
         }
       },
       "block_order": [
         "anc_mobile_gLGFM7",
+        "anc_mobile_bw1",
+        "anc_mobile_bw2",
+        "anc_mobile_bw3",
+        "anc_mobile_bw4",
         "anc_mobile_XHerGw",
         "anc_mobile_azXhcx",
         "anc_mobile_NWnigM",
@@ -129,7 +165,7 @@
       "name": "Mini header",
       "settings": {
         "transition_delay": 16,
-        "background_d": "#c43637",
+        "background_d": "#0a0a0a",
         "text_color_d": "#ffffff",
         "padding_top": 5,
         "padding_bottom": 5
@@ -219,7 +255,7 @@
       "settings": {
         "enable_sticky": true,
         "hide_on_scroll": false,
-        "logo": "shopify://shop_images/Design_uden_navn-249.png",
+        "logo": "shopify://shop_images/bw26-arox-r-white.png",
         "logo_max_width": 120,
         "logo_mobile_max_width": 100,
         "menu": "main-menu",
@@ -238,11 +274,34 @@
         "background_opacity": 0,
         "background_blur_radius": 0
       }
+    },
+    "bw_announcement": {
+      "type": "bw-announcement",
+      "settings": {
+        "phases": "",
+        "text_pre": "BLACK WEEK 20.11–30.11 · Tilmeld dig presale og shop først fredag 20.11 kl. 12:00",
+        "link_pre": "/#presale",
+        "text_early": "BLACK WEEK · Tidlig adgang åben til søndag 22.11 kl. 20:00",
+        "link_early": "/pages/black-week",
+        "text_live": "BLACK WEEK 20.11–30.11 · Limited edition, 3 for 2 og 4 for 2 på udvalgte varer",
+        "link_live": "/pages/black-week",
+        "text_sidste": "SIDSTE DAG · Black Week slutter i aften, mandag 30.11 kl. 23:59",
+        "link_sidste": "/pages/black-week"
+      }
+    },
+    "bw_campaign_topbar": {
+      "type": "bw-campaign-topbar",
+      "settings": {
+        "phases": "",
+        "hide_on": "cart, login, account, password"
+      }
     }
   },
   "order": [
     "announcement-bar",
+    "bw_announcement",
     "cs_announcement_bar_RX8nib",
-    "header"
+    "header",
+    "bw_campaign_topbar"
   ]
 }

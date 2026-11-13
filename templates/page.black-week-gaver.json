@@ -1,0 +1,151 @@
+{
+  "sections": {
+    "hero": {
+      "type": "bw-gift-hero",
+      "blocks": {
+        "gift_1": {
+          "type": "gift",
+          "settings": {
+            "image": "shopify://shop_images/427_496bbe8d-72cc-421a-9db6-f83a5b270081.png",
+            "title": "Thermo stålflaske 1,06 L"
+          }
+        }
+      },
+      "block_order": [
+        "gift_1"
+      ],
+      "settings": {
+        "phases": "",
+        "eyebrow": "Gave i Black Week",
+        "heading_1": "Gave med hjem.",
+        "heading_2": "Oveni.",
+        "text": "Er din ordre blandt de første 100 i Black Week, får du en gratis Thermo stålflaske med. Uanset beløb.",
+        "btn1_label": "Se single offers",
+        "btn1_url": "/collections/black-week-limited-edition",
+        "btn2_label": "Shop 3 for 2",
+        "btn2_url": "/collections/black-week-3for2"
+      }
+    },
+    "rules": {
+      "type": "bw-gift-rules",
+      "blocks": {
+        "rule_1": {
+          "type": "rule",
+          "settings": {
+            "key": "De første 100 ordrer",
+            "value": "Gratis Thermo stålflaske 1,06 L",
+            "text": "Gælder de første 100 ordrer i Black Week."
+          }
+        },
+        "rule_2": {
+          "type": "rule",
+          "settings": {
+            "key": "Uanset beløb",
+            "value": "Ingen beløbsgrænse",
+            "text": "Det er rækkefølgen, der tæller – ikke beløbet."
+          }
+        }
+      },
+      "block_order": [
+        "rule_1",
+        "rule_2"
+      ],
+      "settings": {
+        "phases": "",
+        "eyebrow": "Sådan får du gaven",
+        "heading_1": "Én gave.",
+        "heading_2": "De første 100.",
+        "note": "Gælder ordrer i Black Week 20.11–30.11.2026."
+      }
+    },
+    "card": {
+      "type": "bw-gift-card",
+      "blocks": {
+        "gift_1": {
+          "type": "gift",
+          "settings": {
+            "image_1": "shopify://shop_images/427_496bbe8d-72cc-421a-9db6-f83a5b270081.png",
+            "image_2": "shopify://shop_images/428_720d86b7-f092-4cf7-803c-1e6214e6ae1f.png",
+            "label": "Gave · stål",
+            "title": "Thermo stålflaske 1,06 L",
+            "text": "Gratis Thermo stålflaske til de første 100 ordrer."
+          }
+        }
+      },
+      "block_order": [
+        "gift_1"
+      ],
+      "settings": {
+        "phases": ""
+      }
+    },
+    "guide": {
+      "type": "bw-gift-guide",
+      "blocks": {
+        "tab_300": {
+          "type": "tab",
+          "settings": {
+            "label": "Under 300 kr.",
+            "products": [
+              "stromper-3-pak",
+              "thermo-stal-drikkedunk-1-06-l"
+            ]
+          }
+        },
+        "tab_500": {
+          "type": "tab",
+          "settings": {
+            "label": "Under 500 kr.",
+            "products": [
+              "sportstech-unisex-t-shirt-sort",
+              "arox-wolverine-pro-grips-navy",
+              "hybrid-shorts-navy-blue",
+              "sportstech-kvinde-lang-top-sort"
+            ]
+          }
+        },
+        "tab_1000": {
+          "type": "tab",
+          "settings": {
+            "label": "Under 1000 kr.",
+            "products": [
+              "active-hoodie-sort",
+              "arox-anti-slip-grips",
+              "arox-dri-tech-performance-shorts-sort"
+            ]
+          }
+        }
+      },
+      "block_order": [
+        "tab_300",
+        "tab_500",
+        "tab_1000"
+      ],
+      "settings": {
+        "phases": "",
+        "eyebrow": "Gaveguide",
+        "heading": "Gaver under"
+      }
+    },
+    "cart": {
+      "type": "bw-gift-cart",
+      "settings": {
+        "phases": "",
+        "eyebrow": "I kurven",
+        "heading": "Du kan se det i kurven.",
+        "text": "Kurven minder dig om stålflasken til de første 100 ordrer. Rabatten trækkes automatisk.",
+        "link_label": "Se single offers",
+        "link_url": "/collections/black-week-limited-edition",
+        "image": "shopify://shop_images/427_496bbe8d-72cc-421a-9db6-f83a5b270081.png",
+        "line": "Gratis Thermo stålflaske til de første 100 ordrer."
+      }
+    }
+  },
+  "order": [
+    "hero",
+    "rules",
+    "card",
+    "guide",
+    "cart"
+  ]
+}

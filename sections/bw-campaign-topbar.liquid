@@ -1,0 +1,32 @@
+{%- comment -%}BLACK WEEK 2026 · Kampagne-topbar: slank nedtælling under headeren (02–08 m.fl.){%- endcomment -%}
+{%- liquid
+  assign s = section.settings
+  assign hide_list = s.hide_on | replace: ' ', '' | split: ','
+  assign hidden = false
+  if hide_list contains template.name
+    assign hidden = true
+  endif
+-%}
+{%- unless hidden -%}
+<style>
+  #shopify-section-{{ section.id }} .bw-topbar { padding: 12px var(--bw-gutter); border-bottom: 1px solid var(--bw-line); background: var(--bw-black); }
+</style>
+<div class="bw{% render 'bw-only', phases: s.phases %}">
+  <div class="bw-topbar">{% render 'bw-countdown', compact: true %}</div>
+</div>
+{%- endunless -%}
+
+{% schema %}
+{
+  "name": "BW · Kampagne-topbar",
+  "tag": "aside",
+  "class": "bw-section",
+  "enabled_on": { "groups": ["header"] },
+  "settings": [
+    { "type": "text", "id": "phases", "label": "Vis kun i faser", "info": "pre, early, live, sidste · tom = altid" },
+    { "type": "text", "id": "hide_on", "label": "Skjul på sidetyper", "default": "cart, login, account, password", "info": "Kommasepareret liste af template-navne, fx cart, page, search" },
+    { "type": "paragraph", "content": "Tekst og sluttidspunkt følger fasen automatisk (presale → tidlig adgang → live)." }
+  ],
+  "presets": [ { "name": "BW · Kampagne-topbar" } ]
+}
+{% endschema %}

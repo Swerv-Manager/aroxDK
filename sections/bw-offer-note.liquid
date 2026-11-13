@@ -1,0 +1,37 @@
+{%- comment -%}
+BLACK WEEK 2026 · boards 04–07 · small grey note under the product grid ("Fri fragt v. køb over 499 kr. …")
+and/or the red offer band ("Fast Black Week-pris ∙ Til og med mandag 30.11 kl. 23:59"). Band items are blocks.
+{%- endcomment -%}
+{%- assign s = section.settings -%}
+<div class="bw bw-on{% render 'bw-only', phases: s.phases %}">
+  {%- if s.note != blank -%}
+    <div class="bw-wrap" style="padding-top:{{ s.pad_top }}px;padding-bottom:{{ s.pad_bottom }}px;font-size:13px;color:{% if s.note_light %}#c9c9c9{% else %}#9b9b9b{% endif %}">{{ s.note }}</div>
+  {%- endif -%}
+  {%- if section.blocks.size > 0 -%}
+    <div class="bw-band">
+      {%- for block in section.blocks -%}
+        {%- unless forloop.first -%}<span aria-hidden="true">∙</span>{%- endunless -%}
+        <span {{ block.shopify_attributes }}>{{ block.settings.text }}</span>
+      {%- endfor -%}
+    </div>
+  {%- endif -%}
+</div>
+
+{% schema %}
+{
+  "name": "BW · Note + tilbudsbånd",
+  "class": "bw-section",
+  "max_blocks": 6,
+  "settings": [
+    { "type": "text", "id": "phases", "label": "Vis kun i faser", "info": "pre, early, live, sidste · tom = altid" },
+    { "type": "text", "id": "note", "label": "Note", "default": "Fri fragt v. køb over 499 kr. · ellers fragt fra 35 kr." },
+    { "type": "checkbox", "id": "note_light", "label": "Lys note", "default": true },
+    { "type": "range", "id": "pad_top", "label": "Afstand top", "min": 0, "max": 80, "step": 4, "unit": "px", "default": 0 },
+    { "type": "range", "id": "pad_bottom", "label": "Afstand bund", "min": 0, "max": 80, "step": 4, "unit": "px", "default": 48 }
+  ],
+  "blocks": [
+    { "type": "item", "name": "Båndtekst", "settings": [ { "type": "text", "id": "text", "label": "Tekst", "default": "Fast Black Week-pris" } ] }
+  ],
+  "presets": [ { "name": "BW · Note + tilbudsbånd" } ]
+}
+{% endschema %}

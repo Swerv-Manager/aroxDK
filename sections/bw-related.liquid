@@ -1,0 +1,60 @@
+{%- comment -%}
+BLACK WEEK 2026 · "Relaterede produkter" on product pages (board 08).
+Shows products from the same Black Week offer (fallback: the other Black Week offers). Renders nothing for
+products outside Black Week; then the theme's normal related-products section shows as before.
+When it renders, the standard related-products section on the page is hidden (CSS below).
+{%- endcomment -%}
+{%- capture bw_key -%}{%- render 'bw-offer', product: product, key: true -%}{%- endcapture -%}
+{%- assign bw_key = bw_key | strip -%}
+{%- if bw_key != blank -%}
+  {%- liquid
+    case bw_key
+      when 'le'
+        assign bw_order = 'black-week-limited-edition,black-week-3for2,black-week-4for2' | split: ','
+      when 's3'
+        assign bw_order = 'black-week-3for2,black-week-limited-edition,black-week-4for2' | split: ','
+      else
+        assign bw_order = 'black-week-4for2,black-week-3for2,black-week-limited-edition' | split: ','
+    endcase
+    assign bw_limit = section.settings.limit
+    assign bw_seen = product.handle | prepend: ','
+  -%}
+  <style>
+    body:has(.bw-related) .shopify-section--related-products { display: none; }
+  </style>
+  <div class="bw bw-related{% render 'bw-only', phases: section.settings.phases %}">
+    <div class="bw-sec" style="padding-top:0">
+      {%- if section.settings.heading != blank -%}
+        <h2 class="bw-h2" style="margin:0 0 8px;font-size:clamp(24px,2.4vw,34px)">{{ section.settings.heading }}</h2>
+      {%- endif -%}
+      <div class="bw-grid bw-grid-4">
+        {%- assign bw_n = 0 -%}
+        {%- for h in bw_order -%}
+          {%- for p in collections[h].products limit: 24 -%}
+            {%- if bw_n >= bw_limit -%}{%- break -%}{%- endif -%}
+            {%- assign bw_mark = p.handle | prepend: ',' | append: ',' -%}
+            {%- assign bw_seen_c = bw_seen | append: ',' -%}
+            {%- if bw_seen_c contains bw_mark or p.available == false -%}{%- continue -%}{%- endif -%}
+            {%- render 'bw-product-card', product: p -%}
+            {%- assign bw_seen = bw_seen | append: ',' | append: p.handle -%}
+            {%- assign bw_n = bw_n | plus: 1 -%}
+          {%- endfor -%}
+        {%- endfor -%}
+      </div>
+    </div>
+  </div>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "BW · Relaterede tilbud",
+  "class": "shopify-section--bw-related",
+  "settings": [
+    { "type": "text", "id": "phases", "label": "Vis kun i faser", "info": "pre, early, live, sidste · tom = altid" },
+    { "type": "text", "id": "heading", "label": "Overskrift", "default": "Relaterede produkter" },
+    { "type": "range", "id": "limit", "label": "Antal produkter", "min": 2, "max": 8, "step": 1, "default": 4 }
+  ],
+  "presets": [{ "name": "BW · Relaterede tilbud" }],
+  "enabled_on": { "templates": ["product"] }
+}
+{% endschema %}

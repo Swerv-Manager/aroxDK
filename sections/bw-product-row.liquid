@@ -1,0 +1,54 @@
+{%- comment -%}BLACK WEEK 2026 · Overskrift + produktrække (02 Forside: "Køb julegaverne i Black Week."){%- endcomment -%}
+{%- liquid
+  assign s = section.settings
+  assign coll = s.collection
+  if coll == blank and s.collection_handle != blank
+    assign coll = collections[s.collection_handle]
+  endif
+-%}
+<style>
+  #shopify-section-{{ section.id }} .bw-pr__head { margin-bottom: 8px; display: flex; justify-content: space-between; align-items: flex-end; gap: 16px 32px; flex-wrap: wrap; }
+  #shopify-section-{{ section.id }} .bw-pr__head > div { display: grid; gap: 12px; max-width: 640px; }
+  #shopify-section-{{ section.id }} .bw-pr__head .bw-lead { max-width: none; }
+</style>
+<div class="bw{% render 'bw-only', phases: s.phases %}">
+  <div class="bw-sec{% if s.border %} bw-sec--line{% endif %}"{% if s.anchor != blank %} id="{{ s.anchor | handle }}"{% endif %}>
+    <div class="bw-pr__head">
+      <div>
+        {%- if s.eyebrow != blank -%}<div class="bw-eyebrow">{{ s.eyebrow }}</div>{%- endif -%}
+        <h2 class="bw-h2">{{ s.heading_1 }}{% if s.heading_2 != blank %}<br>{{ s.heading_2 }}{% endif %}</h2>
+        {%- if s.text != blank -%}<div class="bw-lead">{{ s.text }}</div>{%- endif -%}
+      </div>
+      {%- if s.link_label != blank -%}<a href="{{ s.link | default: '#' }}" class="bw-link">{{ s.link_label }}</a>{%- endif -%}
+    </div>
+    {%- if s.products != blank -%}
+      {%- render 'bw-product-grid', products: s.products, limit: s.limit -%}
+    {%- elsif coll != blank -%}
+      {%- render 'bw-product-grid', products: coll.products, limit: s.limit -%}
+    {%- endif -%}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "BW · Produktrække",
+  "tag": "section",
+  "class": "bw-section",
+  "settings": [
+    { "type": "text", "id": "phases", "label": "Vis kun i faser", "info": "pre, early, live, sidste · tom = altid" },
+    { "type": "text", "id": "anchor", "label": "Anker-id (valgfrit)" },
+    { "type": "checkbox", "id": "border", "label": "Streg i toppen", "default": true },
+    { "type": "text", "id": "eyebrow", "label": "Overlinje", "default": "Julegaver" },
+    { "type": "text", "id": "heading_1", "label": "Overskrift linje 1", "default": "Køb julegaverne" },
+    { "type": "text", "id": "heading_2", "label": "Overskrift linje 2", "default": "i Black Week." },
+    { "type": "textarea", "id": "text", "label": "Tekst", "default": "Sjippetov, flasker, strømper og træningstøj til Black Week-pris. Find gaven til ham, hende eller hele holdet." },
+    { "type": "text", "id": "link_label", "label": "Linktekst", "default": "Se alle" },
+    { "type": "url", "id": "link", "label": "Link" },
+    { "type": "product_list", "id": "products", "label": "Produkter", "limit": 12 },
+    { "type": "collection", "id": "collection", "label": "…eller kollektion" },
+    { "type": "text", "id": "collection_handle", "label": "…eller kollektions-handle" },
+    { "type": "range", "id": "limit", "label": "Antal produkter", "min": 2, "max": 12, "step": 1, "default": 4 }
+  ],
+  "presets": [ { "name": "BW · Produktrække" } ]
+}
+{% endschema %}

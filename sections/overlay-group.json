@@ -39,10 +39,11 @@
         "show_shipping_text": false,
         "show_view_cart_button": false,
         "show_checkout_button": true,
-        "recommendations_title": "Dette trender lige nu",
+        "recommendations_title": "Du vil måske også synes om",
         "products": [],
         "product_card_background": "#ffffff",
-        "product_card_text_color": ""
+        "product_card_text_color": "",
+        "bw_offer_recommendations": true
       }
     },
     "search-drawer": {

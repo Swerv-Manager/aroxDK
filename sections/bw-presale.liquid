@@ -1,0 +1,112 @@
+{%- comment -%}
+BLACK WEEK 2026 · Presale-tilmelding SMS + mail (02 Forside, #presale). Shown in pre/early/sidste by default
+(hidden in live, as in the design). Texts switch between the presale texts (pre) and the standard texts.
+Signs up as a Shopify customer with marketing consent and the tags below (+ "sms" when the SMS box is ticked),
+so presale subscribers can be found and synced (e.g. to Klaviyo).
+{%- endcomment -%}
+{%- assign s = section.settings -%}
+<style>
+  #shopify-section-{{ section.id }} .bw-ps { position: relative; overflow: hidden; }
+  #shopify-section-{{ section.id }} .bw-ps__img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: {{ s.focal }}; }
+  #shopify-section-{{ section.id }} .bw-ps__ov { position: absolute; inset: 0; background: rgba(10,10,10,{{ s.overlay | divided_by: 100.0 }}); }
+  #shopify-section-{{ section.id }} .bw-ps__in { position: relative; padding: var(--bw-pad-y) var(--bw-gutter); display: grid; gap: 32px 64px; align-items: center; grid-template-columns: minmax(0, 1fr); }
+  @media (min-width: 768px) { #shopify-section-{{ section.id }} .bw-ps__in { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  #shopify-section-{{ section.id }} .bw-ps__txt { display: grid; gap: 16px; }
+  #shopify-section-{{ section.id }} .bw-ps__txt .bw-lead { max-width: 480px; }
+  #shopify-section-{{ section.id }} .bw-ps__form { display: grid; gap: 12px; max-width: 520px; }
+  #shopify-section-{{ section.id }} .bw-ps__in input[type="text"], #shopify-section-{{ section.id }} .bw-ps__in input[type="email"], #shopify-section-{{ section.id }} .bw-ps__in input[type="tel"] { height: 52px; border-radius: 4px; border: 1px solid var(--bw-grey-200); background: #fff; color: var(--bw-ink); padding: 0 16px; font: inherit; font-size: 16px; width: 100%; }
+  #shopify-section-{{ section.id }} .bw-ps__in .bw-check { font-size: 14px; color: #fff; }
+  #shopify-section-{{ section.id }} .bw-ps__btn { height: 52px; border-radius: 999px; border: 0; background: #fff; color: var(--bw-ink); font: inherit; font-size: 15px; font-weight: 700; cursor: pointer; }
+  #shopify-section-{{ section.id }} .bw-ps__small { font-size: 12px; line-height: 1.5; color: var(--bw-grey-200); }
+  #shopify-section-{{ section.id }} .bw-ps__ok { display: grid; gap: 12px; max-width: 520px; padding: 28px; border: 1px solid var(--bw-grey-200); border-radius: 12px; }
+  #shopify-section-{{ section.id }} .bw-ps__ok-h { font-size: 28px; font-weight: 900; text-transform: uppercase; line-height: 1; }
+  #shopify-section-{{ section.id }} .bw-ps__err { font-size: 14px; color: #fff; background: var(--bw-red); border-radius: 4px; padding: 10px 14px; }
+</style>
+<div class="bw{% render 'bw-only', phases: s.phases %}">
+  <div class="bw-ps" id="presale">
+    {%- if s.image != blank -%}
+      {{ s.image | image_url: width: 2000 | image_tag: class: 'bw-ps__img', loading: 'lazy', sizes: '100vw', widths: '800,1200,1600,2000', alt: '' }}
+    {%- endif -%}
+    <div class="bw-ps__ov"></div>
+    <div class="bw-ps__in">
+      <div class="bw-ps__txt">
+        <div class="bw-eyebrow" style="color:var(--bw-grey-200)"><span class="{% render 'bw-only', phases: 'pre' %}">{{ s.eyebrow_pre }}</span><span class="{% render 'bw-only', phases: 'early live sidste ended' %}">{{ s.eyebrow }}</span></div>
+        <h2 class="bw-h2 {% render 'bw-only', phases: 'pre' %}">{{ s.heading_1_pre }}<br>{{ s.heading_2_pre }}</h2>
+        <h2 class="bw-h2 {% render 'bw-only', phases: 'early live sidste ended' %}">{{ s.heading_1 }}<br>{{ s.heading_2 }}</h2>
+        <div class="bw-lead {% render 'bw-only', phases: 'pre' %}">{{ s.text_pre }}</div>
+        <div class="bw-lead {% render 'bw-only', phases: 'early live sidste ended' %}">{{ s.text }}</div>
+      </div>
+
+      {%- form 'customer', class: 'bw-ps__form', id: 'bw-presale-form' -%}
+        {%- if form.posted_successfully? -%}
+          <div class="bw-ps__ok">
+            <div class="bw-ps__ok-h">{{ s.ok_heading_1 }}<br>{{ s.ok_heading_2 }}</div>
+            <div class="bw-lead {% render 'bw-only', phases: 'pre' %}" style="font-size:15px">{{ s.ok_text_pre }}</div>
+            <div class="bw-lead {% render 'bw-only', phases: 'early live sidste ended' %}" style="font-size:15px">{{ s.ok_text }}</div>
+            <a href="{{ request.path }}#presale" class="bw-link" style="font-size:14px">{{ s.again_label }}</a>
+          </div>
+        {%- else -%}
+          {%- if form.errors -%}<div class="bw-ps__err">{{ form.errors | default_errors }}</div>{%- endif -%}
+          <input type="hidden" name="contact[tags]" value="{{ s.tags | escape }}" data-bw-tags>
+          <input type="text" name="contact[first_name]" placeholder="{{ s.ph_name | escape }}" autocomplete="given-name" aria-label="{{ s.ph_name | escape }}">
+          <input type="email" name="contact[email]" placeholder="{{ s.ph_email | escape }}" autocomplete="email" required aria-label="{{ s.ph_email | escape }}">
+          <input type="tel" name="contact[phone]" placeholder="{{ s.ph_phone | escape }}" autocomplete="tel" aria-label="{{ s.ph_phone | escape }}">
+          <label class="bw-check"><input type="checkbox" name="contact[accepts_marketing]" value="true" required><span>{{ s.consent_email }}</span></label>
+          <label class="bw-check"><input type="checkbox" data-bw-sms><span>{{ s.consent_sms }}</span></label>
+          <button type="submit" class="bw-ps__btn"><span class="{% render 'bw-only', phases: 'pre' %}">{{ s.button_pre }}</span><span class="{% render 'bw-only', phases: 'early live sidste ended' %}">{{ s.button }}</span></button>
+          <div class="bw-ps__small">{{ s.legal }}</div>
+        {%- endif -%}
+      {%- endform -%}
+    </div>
+  </div>
+</div>
+<script>
+  (function () {
+    var f = document.getElementById('bw-presale-form');
+    if (!f) return;
+    f.addEventListener('submit', function () {
+      var sms = f.querySelector('[data-bw-sms]'), tags = f.querySelector('[data-bw-tags]');
+      if (sms && tags && sms.checked && tags.value.indexOf('sms') === -1) tags.value += ',sms';
+    });
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "BW · Presale-tilmelding",
+  "tag": "section",
+  "class": "bw-section",
+  "settings": [
+    { "type": "text", "id": "phases", "label": "Vis kun i faser", "info": "pre, early, live, sidste · tom = altid", "default": "pre, early, sidste" },
+    { "type": "image_picker", "id": "image", "label": "Baggrundsbillede" },
+    { "type": "text", "id": "focal", "label": "Billedfokus (CSS object-position)", "default": "35% 40%" },
+    { "type": "range", "id": "overlay", "label": "Mørk overlay", "min": 0, "max": 90, "step": 2, "unit": "%", "default": 72 },
+    { "type": "text", "id": "tags", "label": "Kundetags", "default": "newsletter,bw26-presale", "info": "Kommasepareret. \"sms\" tilføjes, når SMS er valgt." },
+    { "type": "header", "content": "Presale (pre)" },
+    { "type": "text", "id": "eyebrow_pre", "label": "Overlinje", "default": "Presale" },
+    { "type": "text", "id": "heading_1_pre", "label": "Overskrift linje 1", "default": "TILMELD DIG." },
+    { "type": "text", "id": "heading_2_pre", "label": "Overskrift linje 2", "default": "SHOP FØR ALLE ANDRE." },
+    { "type": "textarea", "id": "text_pre", "label": "Tekst", "default": "Få adgang til Black Week fredag 20.11 kl. 12:00 – før vi åbner for alle søndag 22.11 kl. 20:00." },
+    { "type": "text", "id": "button_pre", "label": "Knaptekst", "default": "Tilmeld dig presale" },
+    { "type": "textarea", "id": "ok_text_pre", "label": "Tak-tekst", "default": "Vi giver dig besked, når presale åbner fredag 20.11 kl. 12:00." },
+    { "type": "header", "content": "Øvrige faser" },
+    { "type": "text", "id": "eyebrow", "label": "Overlinje", "default": "SMS + mail" },
+    { "type": "text", "id": "heading_1", "label": "Overskrift linje 1", "default": "TILMELD DIG." },
+    { "type": "text", "id": "heading_2", "label": "Overskrift linje 2", "default": "HØR DET FØRST." },
+    { "type": "textarea", "id": "text", "label": "Tekst", "default": "Få besked på SMS og mail, når vi har tilbud." },
+    { "type": "text", "id": "button", "label": "Knaptekst", "default": "Tilmeld dig" },
+    { "type": "textarea", "id": "ok_text", "label": "Tak-tekst", "default": "Vi giver dig besked, næste gang der sker noget." },
+    { "type": "header", "content": "Formular" },
+    { "type": "text", "id": "ph_name", "label": "Felt: fornavn", "default": "Fornavn" },
+    { "type": "text", "id": "ph_email", "label": "Felt: e-mail", "default": "E-mail" },
+    { "type": "text", "id": "ph_phone", "label": "Felt: telefon", "default": "Telefonnummer (valgfrit – til SMS)" },
+    { "type": "text", "id": "consent_email", "label": "Samtykke e-mail", "default": "Ja tak til nyheder og tilbud på e-mail" },
+    { "type": "text", "id": "consent_sms", "label": "Samtykke SMS", "default": "Ja tak til nyheder og tilbud på SMS" },
+    { "type": "text", "id": "legal", "label": "Småt", "default": "Du kan altid afmelde dig igen. Læs mere i vores privatlivspolitik." },
+    { "type": "text", "id": "ok_heading_1", "label": "Tak-overskrift linje 1", "default": "Tak." },
+    { "type": "text", "id": "ok_heading_2", "label": "Tak-overskrift linje 2", "default": "Du er på listen." },
+    { "type": "text", "id": "again_label", "label": "Link: tilmeld en til", "default": "Tilmeld en til" }
+  ],
+  "presets": [ { "name": "BW · Presale-tilmelding" } ]
+}
+{% endschema %}

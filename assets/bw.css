@@ -8,7 +8,7 @@ html.bw-pre .bw-hide-pre,
 html.bw-early .bw-hide-early,
 html.bw-live .bw-hide-live,
 html.bw-sidste .bw-hide-sidste,
-html.bw-ended .bw-hide-sidste { display: none !important; }
+html.bw-ended .bw-hide-ended { display: none !important; }
 
 /* ---------- Tokens ---------- */
 .bw {

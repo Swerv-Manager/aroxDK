@@ -1,0 +1,55 @@
+{%- comment -%}
+BLACK WEEK 2026 · board 04 · Limited edition product group (LIMITED BLACKOUT. / FAVORITTER TIL FAST PRIS. / TAPE.):
+heading + line + Black Week product cards, 5 per row on desktop. Products are picked in the product list;
+if the list is empty the section can fall back to a collection. Hidden on the storefront when it has no products.
+{%- endcomment -%}
+{%- liquid
+  assign s = section.settings
+  assign bw_products = s.products
+  if bw_products == blank and s.collection != blank
+    assign bw_products = s.collection.products
+  endif
+-%}
+{%- liquid
+  assign bw_has = false
+  if bw_products != blank and bw_products.size > 0
+    assign bw_has = true
+  endif
+-%}
+{%- if bw_has or request.design_mode -%}
+<div class="bw bw-sec bw-sec--line bw-pg{% render 'bw-only', phases: s.phases %}">
+  <style>
+    .bw-pg .bw-grid-4 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    @media (min-width: 768px) { .bw-pg .bw-grid-4 { grid-template-columns: repeat({{ s.columns }}, minmax(0, 1fr)); } }
+    .bw-pg__h { margin: 0; font-size: clamp(24px, 2.6vw, 36px); font-weight: 900; text-transform: uppercase; letter-spacing: -.005em; line-height: 1; }
+    .bw-pg__p { font-size: 15px; color: var(--bw-grey-200); }
+  </style>
+  <div class="bw-head" style="gap:8px">
+    {%- if s.heading != blank -%}<h2 class="bw-pg__h">{{ s.heading }}</h2>{%- endif -%}
+    {%- if s.text != blank -%}<div class="bw-pg__p">{{ s.text }}</div>{%- endif -%}
+  </div>
+  {%- if bw_has -%}
+    {%- render 'bw-product-grid', products: bw_products, limit: s.limit, badge: s.badge -%}
+  {%- else -%}
+    <div class="bw-note">Vælg produkter i sektionen (vises kun i temaeditoren).</div>
+  {%- endif -%}
+</div>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "BW · Produktgruppe",
+  "class": "bw-section",
+  "settings": [
+    { "type": "text", "id": "phases", "label": "Vis kun i faser", "info": "pre, early, live, sidste · tom = altid" },
+    { "type": "text", "id": "heading", "label": "Overskrift", "default": "LIMITED BLACKOUT." },
+    { "type": "text", "id": "text", "label": "Tekst", "default": "Helsorte udgaver. Kun i Black Week." },
+    { "type": "product_list", "id": "products", "label": "Produkter", "limit": 12 },
+    { "type": "collection", "id": "collection", "label": "Kollektion (hvis ingen produkter er valgt)" },
+    { "type": "range", "id": "limit", "label": "Maks. antal", "min": 1, "max": 12, "step": 1, "default": 5 },
+    { "type": "range", "id": "columns", "label": "Kolonner desktop", "min": 3, "max": 5, "step": 1, "default": 5 },
+    { "type": "text", "id": "badge", "label": "Badge på kort", "info": "Tom = automatisk (Limited edition / 3 for 2 / 4 for 2)" }
+  ],
+  "presets": [ { "name": "BW · Produktgruppe" } ]
+}
+{% endschema %}

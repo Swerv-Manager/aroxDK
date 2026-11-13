@@ -35,6 +35,9 @@
         {%- if settings.cart_show_free_shipping_threshold -%}
           {%- render 'free-shipping-bar' -%}
         {%- endif -%}
+
+        {%- comment -%}BLACK WEEK 2026: gavelinje (info, ikke en vare){%- endcomment -%}
+        {%- render 'bw-cart-gift' -%}
       </div>
 
       <div class="v-stack gap-6 sm:gap-8">
@@ -44,7 +47,36 @@
           {%- endfor -%}
         </div>
 
-        {%- if section.settings.products.count > 0 -%}
+        {%- comment -%}BLACK WEEK 2026: anbefalinger kun fra samme tilbud (eller de andre Black Week-tilbud){%- endcomment -%}
+        {%- liquid
+          assign bw_rec_products = section.settings.products
+          assign bw_rec_count = section.settings.products.count
+          if section.settings.bw_offer_recommendations
+            assign bw_rec_handle = ''
+            for line_item in cart.items
+              capture bw_line_key
+                render 'bw-offer', product: line_item.product, key: true
+              endcapture
+              assign bw_line_key = bw_line_key | strip
+              case bw_line_key
+                when 'le'
+                  assign bw_rec_handle = 'black-week-limited-edition'
+                when 's3'
+                  assign bw_rec_handle = 'black-week-3for2'
+                when 's4'
+                  assign bw_rec_handle = 'black-week-4for2'
+              endcase
+              if bw_rec_handle != ''
+                break
+              endif
+            endfor
+            if bw_rec_handle != '' and collections[bw_rec_handle].products_count > 0
+              assign bw_rec_products = collections[bw_rec_handle].products
+              assign bw_rec_count = collections[bw_rec_handle].products_count
+            endif
+          endif
+        -%}
+        {%- if bw_rec_count > 0 -%}
           <div class="cart-drawer__recommendations">
             <div class="v-stack gap-2.5 sm:gap-4">
               {%- capture carousel_id -%}cart-drawer-recommendations{%- endcapture -%}
@@ -60,7 +92,13 @@
                 assign rendered_recommendations = 0
 
                 capture recommendations
-                  for recommended_product in section.settings.products
+                  for recommended_product in bw_rec_products limit: 12
+                    if rendered_recommendations >= 6
+                      break
+                    endif
+                    if recommended_product.available == false
+                      continue
+                    endif
                     assign item_count_in_cart = cart | line_items_for: recommended_product
 
                     if item_count_in_cart.size == 0
@@ -101,13 +139,17 @@
 
     <div class="v-stack gap-4 sm:gap-6" slot="footer">
       <div class="v-stack gap-1">
-        {% for discount_application in cart.cart_level_discount_applications %}
-          <div class="h-stack gap-4 justify-between">
-            <div class="badge">
-              {%- render 'icon' with 'discount' -%} {{- discount_application.title -}}
-            </div>
-
-            <span class="text-subdued">-{{ discount_application.total_allocated_amount | money }}</span>
+        {%- comment -%}BLACK WEEK 2026: rabatlinje i rødt, fx "3 FOR 2 – rabat trukket automatisk" (alle rabatter, også linjerabatter){%- endcomment -%}
+        {% for discount_application in cart.discount_applications %}
+          <div class="h-stack gap-4 justify-between" style="color:#c8232c;font-weight:700">
+            <span>
+              {%- if discount_application.type == 'automatic' -%}
+                {{- discount_application.title | upcase }} – rabat trukket automatisk
+              {%- else -%}
+                {{- discount_application.title -}}
+              {%- endif -%}
+            </span>
+            <span>−{{ discount_application.total_allocated_amount | money }}</span>
           </div>
         {% endfor %}
 
@@ -116,7 +158,7 @@
           <span class="text-subdued text-base">{{ cart.original_total_price | money_with_currency }}</span>
         </div>
         
-        {% if cart.total_discount > 0 %}
+        {% if cart.total_discount > 0 and cart.discount_applications.size == 0 %}
           <div class="h-stack gap-4 justify-between">
             <span class="text-base">{{ 'cart.general.discount' | t }}</span>
             <span class="text-subdued text-base">{{- cart.total_discount | money_with_currency -}}</span>
@@ -239,6 +281,13 @@
     {
       "type": "header",
       "content": "Product recommendations"
+    },
+    {
+      "type": "checkbox",
+      "id": "bw_offer_recommendations",
+      "label": "Black Week: anbefal fra samme tilbud",
+      "info": "BLACK WEEK 2026. Viser varer fra samme Black Week-kollektion som første vare i kurven. Ellers bruges produktlisten nedenfor.",
+      "default": true
     },
     {
       "type": "text",

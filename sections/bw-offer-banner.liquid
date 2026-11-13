@@ -1,0 +1,67 @@
+{%- comment -%}BLACK WEEK 2026 · 3 for 2-blok: bredt billede med badge + overskrift, tekst, produktrække, knap (02 Forside){%- endcomment -%}
+{%- liquid
+  assign s = section.settings
+  assign coll = s.collection
+  if coll == blank and s.collection_handle != blank
+    assign coll = collections[s.collection_handle]
+  endif
+-%}
+<style>
+  #shopify-section-{{ section.id }} .bw-ob__media { height: 340px; }
+  @media (min-width: 768px) { #shopify-section-{{ section.id }} .bw-ob__media { height: clamp(340px, 32vw, 480px); } }
+  #shopify-section-{{ section.id }} .bw-ob__media img { object-position: {{ s.focal }}; }
+  #shopify-section-{{ section.id }} .bw-ob__ov { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(10,10,10,.2) 0%, rgba(10,10,10,.85) 100%); }
+  #shopify-section-{{ section.id }} .bw-ob__cap { position: absolute; left: var(--bw-gutter); right: var(--bw-gutter); bottom: clamp(28px, 3.4vw, 56px); display: grid; gap: 12px; color: #fff; }
+  #shopify-section-{{ section.id }} .bw-ob__body { padding: 32px var(--bw-gutter) var(--bw-pad-y); display: grid; gap: 24px; }
+  #shopify-section-{{ section.id }} .bw-ob__lead { font-size: clamp(15px, 1.25vw, 18px); line-height: 1.5; max-width: 720px; margin-bottom: 8px; }
+  #shopify-section-{{ section.id }} .bw-ob__foot { display: flex; gap: 16px; align-items: center; flex-wrap: wrap; justify-content: space-between; }
+  #shopify-section-{{ section.id }} .bw-ob__note { font-size: 13px; color: var(--bw-grey-c9); }
+</style>
+<div class="bw{% render 'bw-only', phases: s.phases %}"{% if s.anchor != blank %} id="{{ s.anchor | handle }}"{% endif %}>
+  <div class="bw-media bw-ob__media" style="background:var(--bw-black)">
+    {%- if s.image != blank -%}
+      {{ s.image | image_url: width: 2400 | image_tag: loading: 'lazy', sizes: '100vw', widths: '800,1200,1600,2000,2400', alt: s.image.alt }}
+    {%- endif -%}
+    <div class="bw-ob__ov"></div>
+    <div class="bw-ob__cap">
+      {%- if s.badge != blank -%}<span class="bw-badge">{{ s.badge }}</span>{%- endif -%}
+      <h2 class="bw-h2 bw-h2--xl">{{ s.heading_1 }}{% if s.heading_2 != blank %}<br>{{ s.heading_2 }}{% endif %}</h2>
+    </div>
+  </div>
+  <div class="bw-ob__body">
+    {%- if s.text != blank -%}<div class="bw-ob__lead">{{ s.text }}</div>{%- endif -%}
+    {%- if coll != blank and coll.products_count > 0 -%}
+      {%- render 'bw-product-grid', products: coll.products, limit: s.limit, badge: s.card_badge -%}
+    {%- endif -%}
+    <div class="bw-ob__foot">
+      {%- if s.button_label != blank -%}<a href="{{ s.button_link | default: '#' }}" class="bw-btn">{{ s.button_label }}</a>{%- endif -%}
+      {%- if s.note != blank -%}<div class="bw-ob__note">{{ s.note }}</div>{%- endif -%}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "BW · Tilbudsbanner + produkter",
+  "tag": "section",
+  "class": "bw-section",
+  "settings": [
+    { "type": "text", "id": "phases", "label": "Vis kun i faser", "info": "pre, early, live, sidste · tom = altid" },
+    { "type": "text", "id": "anchor", "label": "Anker-id (valgfrit)" },
+    { "type": "image_picker", "id": "image", "label": "Billede" },
+    { "type": "text", "id": "focal", "label": "Billedfokus (CSS object-position)", "default": "50% 40%" },
+    { "type": "text", "id": "badge", "label": "Badge", "default": "3 for 2" },
+    { "type": "text", "id": "heading_1", "label": "Overskrift linje 1", "default": "Tag 3." },
+    { "type": "text", "id": "heading_2", "label": "Overskrift linje 2", "default": "Betal for 2." },
+    { "type": "textarea", "id": "text", "label": "Tekst", "default": "Læg 3 varer fra 3 for 2 i kurven, og betal for de 2 dyreste. Den billigste er gratis. Rabatten trækkes automatisk i kurven – ingen kode nødvendig." },
+    { "type": "collection", "id": "collection", "label": "Kollektion" },
+    { "type": "text", "id": "collection_handle", "label": "…eller kollektions-handle", "default": "black-week-3for2" },
+    { "type": "range", "id": "limit", "label": "Antal produkter", "min": 2, "max": 12, "step": 1, "default": 4 },
+    { "type": "text", "id": "card_badge", "label": "Badge på produktkort (tom = automatisk)" },
+    { "type": "text", "id": "button_label", "label": "Knaptekst", "default": "Shop 3 for 2" },
+    { "type": "url", "id": "button_link", "label": "Knaplink" },
+    { "type": "text", "id": "note", "label": "Note", "default": "Fri fragt v. køb over 499 kr. · ellers fragt fra 35 kr." }
+  ],
+  "presets": [ { "name": "BW · Tilbudsbanner + produkter" } ]
+}
+{% endschema %}
