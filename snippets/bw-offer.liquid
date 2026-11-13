@@ -1,0 +1,31 @@
+{%- comment -%}
+BLACK WEEK · returns the campaign offer label for a product (empty if the product is not in a Black Week offer).
+Membership is read from the three Black Week collections:
+  black-week-limited-edition → "Limited edition"
+  black-week-3for2           → "3 for 2"
+  black-week-4for2           → "4 for 2"
+Usage: {%- capture offer -%}{% render 'bw-offer', product: product %}{%- endcapture -%}
+Pass key: true to get the short key instead (le / s3 / s4).
+{%- endcomment -%}
+{%- liquid
+  assign bw_handles = product.collections | map: 'handle'
+  if bw_handles contains 'black-week-limited-edition'
+    if key
+      echo 'le'
+    else
+      echo 'Limited edition'
+    endif
+  elsif bw_handles contains 'black-week-3for2'
+    if key
+      echo 's3'
+    else
+      echo '3 for 2'
+    endif
+  elsif bw_handles contains 'black-week-4for2'
+    if key
+      echo 's4'
+    else
+      echo '4 for 2'
+    endif
+  endif
+-%}

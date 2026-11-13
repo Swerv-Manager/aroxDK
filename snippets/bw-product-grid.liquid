@@ -1,0 +1,18 @@
+{%- comment -%}
+BLACK WEEK · grid of bw-product-card (2 columns mobile, 4 columns desktop, 16 px gap).
+Params:
+  products   array of products (e.g. section.settings.products or collection.products)
+  limit      max number of cards (default 4)
+  badge      optional badge override for all cards
+  available  if true (default), skip products that are not available for sale
+{%- endcomment -%}
+{%- assign bw_limit = limit | default: 4 -%}
+{%- assign bw_shown = 0 -%}
+<div class="bw-grid bw-grid-4">
+  {%- for p in products -%}
+    {%- if bw_shown >= bw_limit -%}{%- break -%}{%- endif -%}
+    {%- if available != false and p.available == false -%}{%- continue -%}{%- endif -%}
+    {%- render 'bw-product-card', product: p, badge: badge -%}
+    {%- assign bw_shown = bw_shown | plus: 1 -%}
+  {%- endfor -%}
+</div>

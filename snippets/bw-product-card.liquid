@@ -1,0 +1,108 @@
+{%- comment -%}
+BLACK WEEK · product card (design "BW Card"): white card, offer badge top-left (red), "Black Week" badge top-right
+(black, 1 px white 20 % ring), packshot contained on #f2f2f2, 2nd image on hover, title, Loox stars + count,
+price (red sale price + struck compare-at = Normalpris), colour swatches.
+Params:
+  product  (required)
+  badge    optional override of the offer label (defaults to snippet bw-offer)
+  loading  'eager' | 'lazy' (default lazy)
+{%- endcomment -%}
+{%- liquid
+  assign bw_badge = badge
+  if bw_badge == blank
+    capture bw_badge
+      render 'bw-offer', product: product
+    endcapture
+    assign bw_badge = bw_badge | strip
+  endif
+  assign bw_img = product.featured_media
+  assign bw_img2 = product.media[1]
+  assign bw_on_sale = false
+  if product.compare_at_price > product.price
+    assign bw_on_sale = true
+  endif
+  assign bw_count = product.metafields.loox.num_reviews | default: 0 | plus: 0
+-%}
+<div class="bw-card">
+  <a href="{{ product.url }}" class="bw-card__media" aria-label="{{ product.title | escape }}">
+    {%- if bw_img != blank -%}
+      {{- bw_img | image_url: width: 800 | image_tag: class: 'bw-card__img', loading: loading | default: 'lazy', sizes: '(min-width: 768px) 25vw, 50vw', widths: '300,400,600,800', alt: product.title -}}
+      {%- if bw_img2 != blank and bw_img2.media_type == 'image' -%}
+        {{- bw_img2 | image_url: width: 800 | image_tag: class: 'bw-card__img2', loading: 'lazy', sizes: '(min-width: 768px) 25vw, 50vw', widths: '300,400,600,800', alt: '' -}}
+      {%- endif -%}
+    {%- else -%}
+      <div class="bw-card__txt">{{ product.title }}</div>
+    {%- endif -%}
+    {%- if bw_badge != blank -%}<span class="bw-card__badge bw-card__badge--l">{{ bw_badge }}</span>{%- endif -%}
+    <span class="bw-card__badge bw-card__badge--r">Black Week</span>
+  </a>
+  <div class="bw-card__body">
+    <a href="{{ product.url }}" class="bw-card__title">{{ product.title }}</a>
+    {%- if bw_count > 0 -%}
+      <div class="bw-card__rv">
+        <span class="bw-card__stars">{%- for i in (1..5) -%}{% render 'bw-icon', name: 'star' %}{%- endfor -%}</span>
+        <span>{{ bw_count }} {% if bw_count == 1 %}anmeldelse{% else %}anmeldelser{% endif %}</span>
+      </div>
+    {%- endif -%}
+    <div class="bw-card__prices">
+      {%- if bw_on_sale -%}
+        <span class="bw-price bw-price--sale">{% if product.price_varies %}Fra {% endif %}{{ product.price | money }}</span>
+        <s class="bw-price--compare">{{ product.compare_at_price | money }}</s>
+      {%- else -%}
+        <span class="bw-price">{% if product.price_varies %}Fra {% endif %}{{ product.price | money }}</span>
+      {%- endif -%}
+    </div>
+    {%- for opt in product.options_with_values -%}
+      {%- assign opt_name = opt.name | downcase -%}
+      {%- if opt_name == 'farve' or opt_name == 'color' or opt_name == 'colour' or opt_name == 'färg' -%}
+        <div class="bw-card__sw">
+          {%- for v in opt.values limit: 6 -%}
+            {%- liquid
+              assign c = v.swatch.color
+              if c == blank
+                assign vn = v | downcase | strip
+                case vn
+                  when 'sort', 'black'
+                    assign c = '#111111'
+                  when 'light grey', 'lysegrå'
+                    assign c = '#c8c8c8'
+                  when 'ranger green'
+                    assign c = '#4a5440'
+                  when 'deep navy'
+                    assign c = '#1c2438'
+                  when 'navy', 'navy blue', 'navy blå'
+                    assign c = '#22304a'
+                  when 'dark brown'
+                    assign c = '#4a3a30'
+                  when 'brown'
+                    assign c = '#5a4334'
+                  when 'dark grey'
+                    assign c = '#4a4a4a'
+                  when 'dark navy'
+                    assign c = '#1f2a40'
+                  when 'army'
+                    assign c = '#5b5e44'
+                  when 'grå', 'grey', 'gray'
+                    assign c = '#9a9a9a'
+                  when 'khaki'
+                    assign c = '#9a8f6a'
+                  when 'gul', 'yellow'
+                    assign c = '#e5d23a'
+                  when 'lilla', 'purple'
+                    assign c = '#6b4fa0'
+                  when 'hvid', 'white'
+                    assign c = '#ffffff'
+                  else
+                    assign c = '#888888'
+                endcase
+              endif
+            -%}
+            <span class="bw-sw" style="background:{{ c }}" title="{{ v | escape }}"></span>
+          {%- endfor -%}
+          {%- if opt.values.size > 6 -%}<span class="bw-sw-more">+{{ opt.values.size | minus: 6 }}</span>{%- endif -%}
+        </div>
+        {%- break -%}
+      {%- endif -%}
+    {%- endfor -%}
+  </div>
+</div>

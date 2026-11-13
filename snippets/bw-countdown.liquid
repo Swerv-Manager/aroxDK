@@ -1,0 +1,17 @@
+{%- comment -%}
+BLACK WEEK · countdown. Text and target follow the current phase (window.BW.countdown in snippet bw-head):
+  presale → "Tidlig adgang starter om" · tidlig adgang → "Tidlig adgang slutter om" · live/sidste dag → "Black Week slutter om"
+Params: compact (bool) – the slim version used in the campaign topbar.
+{%- endcomment -%}
+<div class="bw-cd{% if compact %} bw-cd--compact{% endif %}" data-bw-cd>
+  <div class="bw-cd__txt">
+    <div class="bw-cd__top" data-bw-cd-top>Black Week slutter om</div>
+    <div class="bw-cd__label" data-bw-cd-label>Black Week slutter mandag 30.11 kl. 23:59</div>
+  </div>
+  <div class="bw-cd__boxes" role="timer">
+    {%- assign bw_units = 'Dage,Timer,Min,Sek' | split: ',' -%}
+    {%- for u in bw_units -%}
+      <div class="bw-cd__box"><span class="bw-cd__num" data-bw-cd-num>00</span><div class="bw-cd__unit">{{ u }}</div></div>
+    {%- endfor -%}
+  </div>
+</div>
