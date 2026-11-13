@@ -1,0 +1,238 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "countdown_banner_hzLRpW": {
+      "type": "countdown-banner",
+      "name": "Countdown Banner",
+      "settings": {
+        "title": "BLACK WEEK 2025",
+        "subtitle": "Årets VILDESTE tilbud slutter om --->",
+        "link_url": "https://www.aroxfitness.dk/collections/blackfriday",
+        "countdown_end_date": "2025-11-30T23:59:00",
+        "hide_when_expired": false,
+        "days_label": "DAGE",
+        "hours_label": "TIMER",
+        "minutes_label": "MIN",
+        "seconds_label": "SEK",
+        "timer_animation": true,
+        "use_gradient": true,
+        "background_gradient_start": "#1a1a1a",
+        "background_gradient_end": "#f83a3a",
+        "gradient_direction": "90deg",
+        "max_width": 1200,
+        "border_radius": 12,
+        "border_width": 0,
+        "border_color": "#000000",
+        "shadow_horizontal": 0,
+        "shadow_vertical": 8,
+        "shadow_blur": 24,
+        "shadow_color": "#0000004d",
+        "title_color": "#ffffff",
+        "title_font_size": 36,
+        "title_font_weight": "900",
+        "title_text_transform": "uppercase",
+        "title_letter_spacing": 2,
+        "title_margin_bottom": 8,
+        "subtitle_color": "#ffffff",
+        "subtitle_font_size": 14,
+        "subtitle_font_weight": "400",
+        "timer_value_color": "#ffffff",
+        "timer_value_font_size": 48,
+        "timer_value_font_weight": "700",
+        "timer_value_margin_bottom": 4,
+        "timer_label_color": "#999999",
+        "timer_label_font_size": 11,
+        "timer_label_font_weight": "600",
+        "timer_label_text_transform": "uppercase",
+        "timer_label_letter_spacing": 1,
+        "padding_top": 20,
+        "padding_bottom": 20,
+        "padding_horizontal": 20,
+        "content_padding": 30,
+        "timer_gap": 20,
+        "timer_item_min_width": 60,
+        "mobile_padding_vertical": 15,
+        "mobile_padding_horizontal": 15,
+        "mobile_content_padding": 20,
+        "mobile_timer_gap": 10,
+        "mobile_timer_item_min_width": 50,
+        "hide_on_mobile": false,
+        "hide_on_desktop": false
+      }
+    },
+    "image_link_blocks_GKL7Dk": {
+      "type": "image-link-blocks",
+      "blocks": {
+        "item_Rta7FJ": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/Blackweek_produkt_rul-9.png",
+            "stretch_image": true,
+            "link_text": "TØJ TILBUD",
+            "link_url": "shopify://collections/blackweektoj",
+            "background": "",
+            "text_color": "#ffffff",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        },
+        "item_cwLVEP": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/Blackweek_produkt_rul-9.png",
+            "stretch_image": true,
+            "link_text": "UDSTYR TILBUD",
+            "link_url": "shopify://collections/blackweekudstyr",
+            "background": "",
+            "text_color": "#ffffff",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        },
+        "item_VAVDB4": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/Blackweek_produkt_rul-9.png",
+            "stretch_image": true,
+            "link_text": "ALLE TILUD",
+            "link_url": "shopify://collections/blackfriday",
+            "background": "",
+            "text_color": "#ffffff",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        }
+      },
+      "block_order": [
+        "item_Rta7FJ",
+        "item_cwLVEP",
+        "item_VAVDB4"
+      ],
+      "name": "Image link blocks",
+      "settings": {
+        "full_width": false,
+        "block_size": "small",
+        "subheading": "",
+        "title": "",
+        "content": "",
+        "link_url": "",
+        "link_text": "",
+        "background": "",
+        "background_gradient": "",
+        "text_color": "",
+        "heading_color": "",
+        "heading_gradient": ""
+      }
+    },
+    "banner": {
+      "type": "collection-banner",
+      "disabled": true,
+      "settings": {
+        "full_width": false,
+        "allow_transparent_header": false,
+        "enable_parallax": true,
+        "show_collection_title": true,
+        "show_collection_description": true,
+        "show_collection_image": true,
+        "collection_title_size": "h0",
+        "image_size": "auto",
+        "mobile_text_position": "place-self-center text-center",
+        "desktop_text_position": "sm:place-self-center sm:text-center",
+        "featured_product": "",
+        "featured_product_heading": "Featured product",
+        "text_color": "#ffffff",
+        "overlay_color": "#000000",
+        "overlay_opacity": 30
+      }
+    },
+    "countdown_banner_NXAn4J": {
+      "type": "countdown-banner",
+      "disabled": true,
+      "name": "Countdown Banner",
+      "settings": {
+        "title": "BLACK FRIDAY EPIC DEALS",
+        "subtitle": "Hurry, these deals won't last long!",
+        "link_url": "",
+        "countdown_end_date": "2025-12-31T23:59:59",
+        "hide_when_expired": false,
+        "days_label": "DAYS",
+        "hours_label": "HOURS",
+        "minutes_label": "MINUTES",
+        "seconds_label": "SECONDS",
+        "timer_animation": true,
+        "use_gradient": true,
+        "background_gradient_start": "#7c3aed",
+        "background_gradient_end": "#a855f7",
+        "gradient_direction": "90deg",
+        "max_width": 1200,
+        "border_radius": 12,
+        "border_width": 0,
+        "border_color": "#000000",
+        "shadow_horizontal": 0,
+        "shadow_vertical": 8,
+        "shadow_blur": 24,
+        "shadow_color": "#ffffff",
+        "title_color": "#d4ff00",
+        "title_font_size": 36,
+        "title_font_weight": "900",
+        "title_text_transform": "uppercase",
+        "title_letter_spacing": 2,
+        "title_margin_bottom": 8,
+        "subtitle_color": "#ffb74a",
+        "subtitle_font_size": 14,
+        "subtitle_font_weight": "400",
+        "timer_value_color": "#ffffff",
+        "timer_value_font_size": 48,
+        "timer_value_font_weight": "700",
+        "timer_value_margin_bottom": 4,
+        "timer_label_color": "#ffffff",
+        "timer_label_font_size": 8,
+        "timer_label_font_weight": "600",
+        "timer_label_text_transform": "uppercase",
+        "timer_label_letter_spacing": 1,
+        "padding_top": 20,
+        "padding_bottom": 20,
+        "padding_horizontal": 20,
+        "content_padding": 30,
+        "timer_gap": 0,
+        "timer_item_min_width": 80,
+        "mobile_padding_vertical": 15,
+        "mobile_padding_horizontal": 15,
+        "mobile_content_padding": 20,
+        "mobile_timer_gap": 0,
+        "mobile_timer_item_min_width": 60,
+        "hide_on_mobile": false,
+        "hide_on_desktop": false
+      }
+    },
+    "main": {
+      "type": "main-collection",
+      "settings": {
+        "products_per_page": 41,
+        "products_per_row_mobile": "2",
+        "products_per_row_desktop": 4,
+        "filter_layout": "sidebar",
+        "show_sort_by": true,
+        "show_filters": true,
+        "show_filter_group_name": false,
+        "show_filter_values_count": true,
+        "open_first_filter_group": false
+      }
+    }
+  },
+  "order": [
+    "countdown_banner_hzLRpW",
+    "image_link_blocks_GKL7Dk",
+    "banner",
+    "countdown_banner_NXAn4J",
+    "main"
+  ]
+}

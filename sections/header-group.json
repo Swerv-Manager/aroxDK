@@ -1,0 +1,248 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "type": "header",
+  "name": "Header group",
+  "sections": {
+    "announcement-bar": {
+      "type": "announcement-bar",
+      "blocks": {
+        "message": {
+          "type": "message",
+          "disabled": true,
+          "settings": {
+            "text": "Bestil inden kl 14:00 og vi afsender samme dag",
+            "url": "shopify://collections/sommer-tilbud"
+          }
+        }
+      },
+      "block_order": [
+        "message"
+      ],
+      "settings": {
+        "enable_sticky": true,
+        "autoplay": false,
+        "cycle_speed": 4,
+        "text_size": "text-xs",
+        "navigation_mode": "scrolling",
+        "scrolling_speed": 30,
+        "background": "#ffffff",
+        "background_gradient": "",
+        "text_color": "#ffffff"
+      }
+    },
+    "cs_announcement_bar_RX8nib": {
+      "type": "cs-announcement-bar",
+      "blocks": {
+        "anc_mobile_gLGFM7": {
+          "type": "anc_mobile",
+          "disabled": true,
+          "settings": {
+            "anc_img_svg": "",
+            "text": "",
+            "link": ""
+          }
+        },
+        "anc_mobile_XHerGw": {
+          "type": "anc_mobile",
+          "settings": {
+            "anc_img_svg": "",
+            "text": "1-3 dages levering med GLS",
+            "link": ""
+          }
+        },
+        "anc_mobile_azXhcx": {
+          "type": "anc_mobile",
+          "settings": {
+            "anc_img_svg": "",
+            "text": "∙",
+            "link": ""
+          }
+        },
+        "anc_mobile_NWnigM": {
+          "type": "anc_mobile",
+          "settings": {
+            "anc_img_svg": "",
+            "text": "Over 30.000 glade kunder",
+            "link": ""
+          }
+        },
+        "anc_mobile_Bzrpth": {
+          "type": "anc_mobile",
+          "settings": {
+            "anc_img_svg": "",
+            "text": "∙",
+            "link": ""
+          }
+        },
+        "anc_mobile_GLjUXz": {
+          "type": "anc_mobile",
+          "settings": {
+            "anc_img_svg": "",
+            "text": "Fri fragt v. køb over 499,-",
+            "link": ""
+          }
+        },
+        "country_selector_BPF7jz": {
+          "type": "country_selector",
+          "settings": {
+            "current_store": true,
+            "country_image": "shopify://shop_images/svgexport-3_430x_2.svg",
+            "link": "https://aroxfitness.dk"
+          }
+        },
+        "country_selector_UEpJFm": {
+          "type": "country_selector",
+          "settings": {
+            "current_store": false,
+            "country_image": "shopify://shop_images/svgexport-4_430x_2.svg",
+            "link": "https://aroxfitness.se"
+          }
+        },
+        "country_selector_ewHGdN": {
+          "type": "country_selector",
+          "settings": {
+            "current_store": false,
+            "country_image": "shopify://shop_images/flag-round-250.png",
+            "link": "https://aroxfitness.de"
+          }
+        }
+      },
+      "block_order": [
+        "anc_mobile_gLGFM7",
+        "anc_mobile_XHerGw",
+        "anc_mobile_azXhcx",
+        "anc_mobile_NWnigM",
+        "anc_mobile_Bzrpth",
+        "anc_mobile_GLjUXz",
+        "country_selector_BPF7jz",
+        "country_selector_UEpJFm",
+        "country_selector_ewHGdN"
+      ],
+      "name": "Mini header",
+      "settings": {
+        "transition_delay": 16,
+        "background_d": "#c43637",
+        "text_color_d": "#ffffff",
+        "padding_top": 5,
+        "padding_bottom": 5
+      }
+    },
+    "header": {
+      "type": "header",
+      "blocks": {
+        "mega_menu_J4Yrkk": {
+          "type": "mega_menu",
+          "settings": {
+            "menu_item": "Træningsudstyr",
+            "layout": "horizontal",
+            "submenu_style": "bold_heading",
+            "image_heading_1": "",
+            "image_link_1": "",
+            "image_text_color_1": "#ffffff",
+            "image_heading_2": "",
+            "image_link_2": "",
+            "image_text_color_2": "#ffffff",
+            "image_heading_3": "",
+            "image_link_3": "",
+            "image_text_color_3": "#ffffff",
+            "product": "",
+            "product_card_background": "",
+            "product_card_text_color": "",
+            "promo_content_layout": "grid",
+            "stretch_promo": false,
+            "drawer_link_image": "hide"
+          }
+        },
+        "mega_menu_er6c3X": {
+          "type": "mega_menu",
+          "settings": {
+            "menu_item": "Træningstøj",
+            "layout": "horizontal",
+            "submenu_style": "bold_heading",
+            "image_heading_1": "",
+            "image_link_1": "",
+            "image_text_color_1": "#ffffff",
+            "image_heading_2": "",
+            "image_link_2": "",
+            "image_text_color_2": "#ffffff",
+            "image_heading_3": "",
+            "image_link_3": "",
+            "image_text_color_3": "#ffffff",
+            "product": "",
+            "product_card_background": "",
+            "product_card_text_color": "",
+            "promo_content_layout": "grid",
+            "stretch_promo": false,
+            "drawer_link_image": "hide"
+          }
+        },
+        "country_selector_ci8Cmh": {
+          "type": "country_selector",
+          "settings": {
+            "current_store": true,
+            "country_image": "shopify://shop_images/svgexport-3_430x_2.svg",
+            "link": "https://www.aroxfitness.dk/"
+          }
+        },
+        "country_selector_mK6eFF": {
+          "type": "country_selector",
+          "settings": {
+            "current_store": false,
+            "country_image": "shopify://shop_images/svgexport-4_430x_2.svg",
+            "link": "https://aroxfitness.se/"
+          }
+        },
+        "country_selector_EjzqMQ": {
+          "type": "country_selector",
+          "settings": {
+            "current_store": false,
+            "country_image": "shopify://shop_images/flag-round-250.png",
+            "link": "https://aroxfitness.de"
+          }
+        }
+      },
+      "block_order": [
+        "mega_menu_J4Yrkk",
+        "mega_menu_er6c3X",
+        "country_selector_ci8Cmh",
+        "country_selector_mK6eFF",
+        "country_selector_EjzqMQ"
+      ],
+      "settings": {
+        "enable_sticky": true,
+        "hide_on_scroll": false,
+        "logo": "shopify://shop_images/Design_uden_navn-249.png",
+        "logo_max_width": 120,
+        "logo_mobile_max_width": 100,
+        "menu": "main-menu",
+        "sidebar_menu": "",
+        "secondary_menu": "",
+        "menu_open_trigger": "hover",
+        "opening_from": "left",
+        "layout": "logo_center_navigation_inline",
+        "show_social_media": true,
+        "show_locale_selector": false,
+        "show_country_selector": false,
+        "show_country_flag": false,
+        "show_country_name": false,
+        "transparent_header_text_color": "#ffffff",
+        "reduce_padding": false,
+        "background_opacity": 0,
+        "background_blur_radius": 0
+      }
+    }
+  },
+  "order": [
+    "announcement-bar",
+    "cs_announcement_bar_RX8nib",
+    "header"
+  ]
+}

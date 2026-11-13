@@ -1,0 +1,948 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "custom_liquid_BQWVna": {
+      "type": "custom-liquid",
+      "name": "Custom Liquid",
+      "settings": {
+        "full_width": true,
+        "remove_vertical_spacing": true,
+        "remove_horizontal_spacing": true,
+        "liquid": "<style>\n  .arox-banner-wrapper {\n    background-color: #000000;\n    color: #ffffff;\n    padding: 12px 16px;\n    font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif;\n    border-bottom: 2px solid #E31B23;\n    width: 100%;\n    box-sizing: border-box;\n  }\n\n  .arox-banner-container {\n    max-width: 1200px;\n    margin: 0 auto;\n    display: flex;\n    align-items: center;\n    justify-content: space-between;\n    gap: 16px;\n  }\n\n  .arox-banner-content {\n    display: flex;\n    align-items: center;\n    gap: 12px;\n  }\n\n  .arox-badge {\n    background-color: #E31B23;\n    color: #ffffff;\n    font-size: 11px;\n    font-weight: 900;\n    padding: 4px 8px;\n    border-radius: 3px;\n    letter-spacing: 1px;\n    text-transform: uppercase;\n    white-space: nowrap;\n  }\n\n  .arox-title {\n    font-size: 14px;\n    font-weight: 800;\n    letter-spacing: 0.5px;\n    text-transform: uppercase;\n    margin: 0;\n    color: #ffffff;\n  }\n\n  /* Countdown timere */\n  .arox-timer {\n    display: flex;\n    align-items: center;\n    gap: 6px;\n  }\n\n  .arox-timer-unit {\n    background: rgba(255, 255, 255, 0.08);\n    border: 1px solid rgba(255, 255, 255, 0.15);\n    border-radius: 6px;\n    padding: 4px 8px;\n    min-width: 46px;\n    text-align: center;\n  }\n\n  .arox-timer-val {\n    font-size: 16px;\n    font-weight: 900;\n    line-height: 1;\n    color: #ffffff;\n    font-variant-numeric: tabular-nums;\n  }\n\n  .arox-timer-lbl {\n    font-size: 8px;\n    font-weight: 700;\n    color: #a0a0a0;\n    text-transform: uppercase;\n    margin-top: 2px;\n    letter-spacing: 0.5px;\n  }\n\n  .arox-timer-divider {\n    font-size: 14px;\n    font-weight: 800;\n    color: rgba(255, 255, 255, 0.4);\n  }\n\n  /* CTA Knap */\n  .arox-btn {\n    background-color: #E31B23;\n    color: #ffffff;\n    text-decoration: none;\n    font-size: 12px;\n    font-weight: 800;\n    padding: 8px 18px;\n    border-radius: 4px;\n    letter-spacing: 1px;\n    text-transform: uppercase;\n    transition: transform 0.15s ease, background-color 0.15s ease;\n    white-space: nowrap;\n    display: inline-block;\n  }\n\n  .arox-btn:hover {\n    background-color: #ff2a33;\n    transform: translateY(-1px);\n  }\n\n  /* Mobiloptimering */\n  @media (max-width: 768px) {\n    .arox-banner-container {\n      flex-direction: column;\n      justify-content: center;\n      text-align: center;\n      gap: 10px;\n    }\n\n    .arox-banner-content {\n      justify-content: center;\n      flex-wrap: wrap;\n      gap: 6px;\n    }\n\n    .arox-title {\n      font-size: 12px;\n    }\n\n    .arox-timer-unit {\n      min-width: 40px;\n      padding: 3px 6px;\n    }\n\n    .arox-timer-val {\n      font-size: 14px;\n    }\n\n    .arox-btn {\n      width: 100%;\n      text-align: center;\n      box-sizing: border-box;\n      padding: 10px 12px;\n      font-size: 11px;\n    }\n  }\n</style>\n\n<div class=\"arox-banner-wrapper\" id=\"arox-birthday-banner\">\n  <div class=\"arox-banner-container\">\n    \n    <div class=\"arox-banner-content\">\n      <span class=\"arox-badge\">5 ÅR</span>\n      <h3 class=\"arox-title\">FEJR 5 ÅR MED AROX – EKSKLUSIVE TILBUD</h3>\n    </div>\n\n    <div class=\"arox-timer\">\n      <div class=\"arox-timer-unit\">\n        <div class=\"arox-timer-val\" id=\"arox-d\">00</div>\n        <div class=\"arox-timer-lbl\">DAGE</div>\n      </div>\n      <span class=\"arox-timer-divider\">:</span>\n      <div class=\"arox-timer-unit\">\n        <div class=\"arox-timer-val\" id=\"arox-h\">00</div>\n        <div class=\"arox-timer-lbl\">TIMER</div>\n      </div>\n      <span class=\"arox-timer-divider\">:</span>\n      <div class=\"arox-timer-unit\">\n        <div class=\"arox-timer-val\" id=\"arox-m\">00</div>\n        <div class=\"arox-timer-lbl\">MIN</div>\n      </div>\n      <span class=\"arox-timer-divider\">:</span>\n      <div class=\"arox-timer-unit\">\n        <div class=\"arox-timer-val\" id=\"arox-s\">00</div>\n        <div class=\"arox-timer-lbl\">SEK</div>\n      </div>\n    </div>\n\n    <!-- Ret href til din specifikke tilbudsside -->\n    <a href=\"https://aroxfitness.dk/collections/5-ar-med-arox\" class=\"arox-btn\">SE FØDSELSDAGSTILBUD</a>\n\n  </div>\n</div>\n\n<script>\n  (function() {\n    const currentYear = new Date().getFullYear();\n    const targetDate = new Date(`${currentYear}-09-14T23:59:59`).getTime();\n\n    function updateCounter() {\n      const now = new Date().getTime();\n      const diff = targetDate - now;\n\n      if (diff <= 0) {\n        const banner = document.getElementById('arox-birthday-banner');\n        if (banner) banner.style.display = 'none';\n        return;\n      }\n\n      const days = Math.floor(diff / (1000 * 60 * 60 * 24));\n      const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));\n      const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));\n      const seconds = Math.floor((diff % (1000 * 60)) / 1000);\n\n      document.getElementById('arox-d').innerText = String(days).padStart(2, '0');\n      document.getElementById('arox-h').innerText = String(hours).padStart(2, '0');\n      document.getElementById('arox-m').innerText = String(minutes).padStart(2, '0');\n      document.getElementById('arox-s').innerText = String(seconds).padStart(2, '0');\n    }\n\n    updateCounter();\n    setInterval(updateCounter, 1000);\n  })();\n</script>",
+        "background": "",
+        "background_gradient": "",
+        "text_color": ""
+      }
+    },
+    "countdown_banner_trREHG": {
+      "type": "countdown-banner",
+      "disabled": true,
+      "name": "Countdown Banner",
+      "settings": {
+        "title": "",
+        "subtitle": "",
+        "link_url": "shopify://collections/5-ar-med-arox",
+        "countdown_end_date": "2026-09-14T23:59:59",
+        "hide_when_expired": true,
+        "days_label": "DAGE",
+        "hours_label": "TIMER",
+        "minutes_label": "MIN",
+        "seconds_label": "SEK",
+        "timer_animation": true,
+        "use_gradient": true,
+        "background_gradient_start": "#1a1a1a",
+        "background_gradient_end": "#000000",
+        "gradient_direction": "90deg",
+        "max_width": 1350,
+        "border_radius": 0,
+        "border_width": 1,
+        "border_color": "#e31b23",
+        "shadow_horizontal": 0,
+        "shadow_vertical": 8,
+        "shadow_blur": 24,
+        "shadow_color": "#0000004d",
+        "title_color": "#ffffff",
+        "title_font_size": 26,
+        "title_font_weight": "900",
+        "title_text_transform": "uppercase",
+        "title_letter_spacing": 2,
+        "title_margin_bottom": 8,
+        "subtitle_color": "#ffffff",
+        "subtitle_font_size": 14,
+        "subtitle_font_weight": "400",
+        "timer_value_color": "#ffffff",
+        "timer_value_font_size": 30,
+        "timer_value_font_weight": "700",
+        "timer_value_margin_bottom": 0,
+        "timer_label_color": "#999999",
+        "timer_label_font_size": 11,
+        "timer_label_font_weight": "600",
+        "timer_label_text_transform": "uppercase",
+        "timer_label_letter_spacing": 4.5,
+        "padding_top": 5,
+        "padding_bottom": 0,
+        "padding_horizontal": 20,
+        "content_padding": 15,
+        "timer_gap": 25,
+        "timer_item_min_width": 60,
+        "mobile_padding_vertical": 15,
+        "mobile_padding_horizontal": 5,
+        "mobile_content_padding": 5,
+        "mobile_timer_gap": 15,
+        "mobile_timer_item_min_width": 45,
+        "hide_on_mobile": false,
+        "hide_on_desktop": false
+      }
+    },
+    "image_with_text_overlay_6T4BJc": {
+      "type": "image-with-text-overlay",
+      "blocks": {
+        "subheading_UnWqAV": {
+          "type": "subheading",
+          "settings": {
+            "text": "UDVIKLET AF DANSKE ATLETER"
+          }
+        },
+        "heading_Y8gr6T": {
+          "type": "heading",
+          "settings": {
+            "text": "FUNKTIONELT UDSTYR OG TØJ",
+            "heading_tag": "h3"
+          }
+        },
+        "richtext_U7YgUE": {
+          "type": "richtext",
+          "settings": {
+            "content": "<p>Gå op opdagelse i et dansk udviklet univers af funktionelt trænings- udstyr og tøj</p>"
+          }
+        }
+      },
+      "block_order": [
+        "subheading_UnWqAV",
+        "heading_Y8gr6T",
+        "richtext_U7YgUE"
+      ],
+      "disabled": true,
+      "name": "Image with text overlay",
+      "settings": {
+        "full_width": true,
+        "allow_transparent_header": false,
+        "enable_parallax": false,
+        "image_size": "auto",
+        "image": "shopify://shop_images/Design_uden_navn-261.png",
+        "mobile_image": "shopify://shop_images/Design_uden_navn-265.png",
+        "mobile_text_position": "place-self-end-center text-center",
+        "desktop_text_position": "sm:place-self-center sm:text-center",
+        "text_color": "#ffffff",
+        "overlay_color": "#000000",
+        "overlay_opacity": 10
+      }
+    },
+    "ss_hero_26_NcaBDk": {
+      "type": "ss-hero-26",
+      "blocks": {
+        "text_aLJNjW": {
+          "type": "text",
+          "settings": {
+            "text": "",
+            "text_custom": false,
+            "text_font": "josefin_sans_n4",
+            "text_size": 13,
+            "text_size_mobile": 13,
+            "text_height": 150,
+            "text_mt": 0,
+            "text_mt_mobile": 0,
+            "text_color": "#f1f1f1"
+          }
+        },
+        "heading_T7AeRm": {
+          "type": "heading",
+          "settings": {
+            "heading": "<h1>DANSK UDVIKLET UDSTYR</h1>",
+            "heading_custom": false,
+            "heading_font": "josefin_sans_n4",
+            "heading_size": 48,
+            "heading_size_mobile": 32,
+            "heading_height": 130,
+            "heading_mt": 6,
+            "heading_mt_mobile": 6,
+            "heading_color": "#ffffff"
+          }
+        },
+        "button_7gbpr6": {
+          "type": "button",
+          "settings": {
+            "button": "SE UDVALGET HER",
+            "button_url": "shopify://collections/cross-traening-udstyr",
+            "button_custom": false,
+            "button_font": "josefin_sans_n4",
+            "button_size": 14,
+            "button_size_mobile": 14,
+            "button_height": 100,
+            "button_padding_vertical": 20,
+            "button_padding_vertical_mobile": 18,
+            "button_padding_horizontal": 90,
+            "button_padding_horizontal_mobile": 24,
+            "button_radius": 16,
+            "button_border_thickness": 1,
+            "button_mt": 20,
+            "button_mt_mobile": 20,
+            "button_style": "non_outline",
+            "button_color": "#f1f1f1",
+            "button_hover_color": "#ffffff",
+            "button_bg_color": "#d71920",
+            "button_bg_hover_color": "#121212",
+            "button_border_color": "#121212",
+            "button_border_hover_color": "#121212"
+          }
+        },
+        "reference_Ffdmk6": {
+          "type": "reference",
+          "disabled": true,
+          "settings": {
+            "title": "Store message",
+            "text": "Add important information here",
+            "url": ""
+          }
+        },
+        "reference_BKpned": {
+          "type": "reference",
+          "disabled": true,
+          "settings": {
+            "title": "Store message",
+            "text": "Add important information here",
+            "url": ""
+          }
+        }
+      },
+      "block_order": [
+        "text_aLJNjW",
+        "heading_T7AeRm",
+        "button_7gbpr6",
+        "reference_Ffdmk6",
+        "reference_BKpned"
+      ],
+      "name": "SS - Hero #26",
+      "settings": {
+        "layout_height": "fixed_height",
+        "layout_fixed_height": 690,
+        "layout_fixed_height_mobile": 570,
+        "main_width": 50,
+        "content_align": "left",
+        "content_align_mobile": "center",
+        "content_vertical_align": "end",
+        "layout_bg_type": "image",
+        "bg_image": "shopify://shop_images/Design_uden_navn-261.png",
+        "bg_video_url": "",
+        "image_overlay": 0.2,
+        "reference_block_width": 400,
+        "reference_block_padding_horizontal": 20,
+        "reference_block_padding_horizontal_mobile": 20,
+        "reference_block_padding_vertical": 20,
+        "reference_block_padding_vertical_mobile": 20,
+        "reference_block_radius": 16,
+        "reference_block_border_thickness": 0,
+        "reference_align": "left",
+        "reference_align_mobile": "left",
+        "autoplay": true,
+        "autoplay_delay": 5,
+        "title_custom": false,
+        "title_font": "josefin_sans_n4",
+        "title_size": 16,
+        "title_size_mobile": 16,
+        "title_height": 130,
+        "text_custom": false,
+        "text_font": "josefin_sans_n4",
+        "text_size": 14,
+        "text_size_mobile": 13,
+        "text_height": 150,
+        "text_mt": 6,
+        "text_mt_mobile": 6,
+        "dots_size": 10,
+        "dots_size_mobile": 10,
+        "dots_show_desktop": true,
+        "dots_show_mobile": true,
+        "title_color": "#e31b23",
+        "text_color": "#e31b23",
+        "reference_block_bg_color": "#ffffff",
+        "reference_block_border_color": "#121212",
+        "dots_color": "#121212",
+        "image_overlay_color": "#121212",
+        "background_color": "#ffffff",
+        "background_gradient": "",
+        "border_color": "#121212",
+        "margin_top": 0,
+        "margin_bottom": 0,
+        "margin_horizontal": 0,
+        "margin_horizontal_mobile": 0,
+        "padding_top": 20,
+        "padding_bottom": 16,
+        "padding_horizontal": 5,
+        "padding_horizontal_mobile": 1.5,
+        "full_width": true,
+        "content_width": 1200,
+        "border_thickness": 0,
+        "section_radius": 0,
+        "lazy": false
+      }
+    },
+    "ss_countdown_bar_dBRcxm": {
+      "type": "ss-countdown-bar",
+      "blocks": {
+        "text_q4dPQK": {
+          "type": "text",
+          "settings": {
+            "heading": "  <meta charset=\"UTF-8\">  <title>Eksempel på hyperlink</title>  <h1>Velkommen til min side</h1>  <p>    Klik her for at besøge    <a href=\"https://www.aroxfitness.dk/collections/sommerudsalg\" target=\"_blank\">Google</a>.  </p>",
+            "color": "#ffffff",
+            "font_size": 24
+          }
+        },
+        "timer_Ydw4cf": {
+          "type": "timer",
+          "settings": {
+            "year": "2025",
+            "month": "10",
+            "day": "04",
+            "hour": "23",
+            "minute": "59",
+            "hide_timer_on_completed": false,
+            "color": "#ffffff",
+            "font_size_number": 20,
+            "font_size_text": 10
+          }
+        }
+      },
+      "block_order": [
+        "text_q4dPQK",
+        "timer_Ydw4cf"
+      ],
+      "disabled": true,
+      "name": "SS - Countdown Timer Bar",
+      "settings": {
+        "target_selector": ".header, .pageheader, .section-header, #announcement, .toolbar, .header__wrapper, .onboarding-header",
+        "use_cross": false,
+        "days_text": "DAGE",
+        "hours_text": "TIMER",
+        "mins_text": "MIN",
+        "seconds_text": "Secs",
+        "background-color": "#000000"
+      }
+    },
+    "ss_circle_menu_2_rUrTaP": {
+      "type": "ss-circle-menu-2",
+      "blocks": {
+        "item_WzFBd8": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/Design_uden_navn-224.png",
+            "title": "UDSTYR",
+            "tag": "",
+            "url": "shopify://collections/cross-traening-udstyr"
+          }
+        },
+        "item_NjrqY4": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/MenT-Shirt_Navy_0.png",
+            "title": "TØJ",
+            "tag": "",
+            "url": "shopify://collections/traeningstoj"
+          }
+        },
+        "item_8DaEi8": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/DC292B4B-8681-4FCD-BA81-964BDF3107F0.png",
+            "title": "BESTSELLERE",
+            "tag": "",
+            "url": "shopify://collections/cross-traeningbestsellers"
+          }
+        },
+        "item_rGkcXY": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/26_46c0ca51-1c2e-4e9b-aa01-a8fad2fed795.png",
+            "title": "TILBEHØR",
+            "tag": "",
+            "url": "shopify://collections/cross-traeningtilbehor"
+          }
+        },
+        "item_xXLGU6": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/ANTI_SLIP_GRIPS_PRO.png",
+            "title": "GRIPS",
+            "tag": "GRIPS",
+            "url": "shopify://collections/cross-traening-grips"
+          }
+        },
+        "item_eeTKAb": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/15_28d03d67-9fe8-4ebb-8018-fe238f92b7c9.png",
+            "title": "SJIPPETOVE",
+            "tag": "SJIPPETOVE",
+            "url": "shopify://collections/sjippetove"
+          }
+        },
+        "item_Xq43yr": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/204.png",
+            "title": "KNÆBIND",
+            "tag": "KNÆBIND",
+            "url": "shopify://collections/knaebind"
+          }
+        },
+        "item_zPFfcx": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/466_af20dcfc-168d-4f28-8bf2-f74c1a9591b0.png",
+            "title": "TAPE",
+            "tag": "TAPE",
+            "url": "shopify://collections/flextape"
+          }
+        },
+        "item_qy7A3F": {
+          "type": "item",
+          "disabled": true,
+          "settings": {
+            "image": "shopify://shop_images/273_09c4b42a-1f57-45f4-b7fa-dd1467a7c57d.png",
+            "title": "PAKKE TILBUD",
+            "tag": "",
+            "url": "shopify://pages/lav-din-egen-pakke"
+          }
+        }
+      },
+      "block_order": [
+        "item_WzFBd8",
+        "item_NjrqY4",
+        "item_8DaEi8",
+        "item_rGkcXY",
+        "item_xXLGU6",
+        "item_eeTKAb",
+        "item_Xq43yr",
+        "item_zPFfcx",
+        "item_qy7A3F"
+      ],
+      "settings": {
+        "slider_view": 6,
+        "slider_view_mobile": 4.3,
+        "slider_gap": 22,
+        "slider_gap_mobile": 20,
+        "item_border_thickness": 3,
+        "tag_custom": true,
+        "tag_font": "mono",
+        "tag_size": 0,
+        "tag_size_mobile": 0,
+        "tag_height": 50,
+        "tag_padding_vertical": 0,
+        "tag_padding_vertical_mobile": 0,
+        "tag_padding_horizontal": 0,
+        "tag_padding_horizontal_mobile": 0,
+        "tag_border_radius": 0,
+        "tag_bottom": false,
+        "title_custom": true,
+        "title_font": "barlow_n6",
+        "title_size": 13,
+        "title_size_mobile": 11,
+        "title_height": 130,
+        "title_spacing": 8,
+        "title_spacing_mobile": 4,
+        "title_color": "#000000",
+        "tag_color": "#000000",
+        "item_border_color": "#c43637",
+        "tag_bg_color": "#0099ff",
+        "tag_bg_gradient": "linear-gradient(125deg, rgba(196, 54, 55, 1), rgba(0, 153, 255, 1) 14%, rgba(24, 119, 242, 1) 36%, rgba(24, 119, 242, 1) 43%, rgba(24, 119, 242, 1) 52%, rgba(0, 0, 128, 1) 73%, rgba(0, 0, 128, 1) 84%, rgba(0, 0, 128, 1) 89%, rgba(0, 0, 128, 1) 100%)",
+        "background_color": "#ffffff",
+        "background_gradient": "",
+        "border_color": "#000000",
+        "full_width": false,
+        "content_width": 60,
+        "border_thickness": 0,
+        "section_radius": 0,
+        "lazy": true,
+        "margin_top": 0,
+        "margin_bottom": 0,
+        "margin_horizontal": 0,
+        "margin_horizontal_mobile": 0,
+        "padding_top": 12,
+        "padding_bottom": 0,
+        "padding_horizontal": 5,
+        "padding_horizontal_mobile": 1.5
+      }
+    },
+    "media-grid": {
+      "type": "media-grid",
+      "blocks": {
+        "item-1": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/3-4.webp",
+            "title": "Velkommen til AROX",
+            "heading_tag": "h4",
+            "link_url": "shopify://collections/cross-traening-udstyr",
+            "link_text": "Se vores udvalg her",
+            "mobile_text_position": "place-self-center text-center",
+            "desktop_column_span": 2,
+            "desktop_row_span": 2,
+            "desktop_text_position": "sm:place-self-center sm:text-center",
+            "background": "#000000",
+            "background_gradient": "",
+            "text_color": "#ffffff",
+            "text_gradient": "",
+            "button_background": "#000000",
+            "button_text_color": "#ffffff",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        },
+        "item-2": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/4-3.png",
+            "title": "Vægtløftning",
+            "heading_tag": "h4",
+            "link_url": "shopify://collections/vaegtloftning",
+            "link_text": "",
+            "mobile_text_position": "place-self-center text-center",
+            "desktop_column_span": 1,
+            "desktop_row_span": 1,
+            "desktop_text_position": "sm:place-self-center sm:text-center",
+            "background": "#000000",
+            "background_gradient": "",
+            "text_color": "#ffffff",
+            "text_gradient": "",
+            "button_background": "#000000",
+            "button_text_color": "#ffffff",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        },
+        "item-3": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/2-2.png",
+            "title": "Udstyr",
+            "heading_tag": "h4",
+            "link_url": "shopify://collections/cross-traening-udstyr",
+            "link_text": "",
+            "mobile_text_position": "place-self-center text-center",
+            "desktop_column_span": 1,
+            "desktop_row_span": 1,
+            "desktop_text_position": "sm:place-self-center sm:text-center",
+            "background": "#000000",
+            "background_gradient": "",
+            "text_color": "#ffffff",
+            "text_gradient": "",
+            "button_background": "#000000",
+            "button_text_color": "#ffffff",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        },
+        "29246d34-c6e0-4373-84f6-b15e57736a00": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/1-2.png",
+            "title": "Grips",
+            "heading_tag": "h4",
+            "link_url": "shopify://collections/cross-traening-grips",
+            "link_text": "",
+            "mobile_text_position": "place-self-center text-center",
+            "desktop_column_span": 2,
+            "desktop_row_span": 1,
+            "desktop_text_position": "sm:place-self-center sm:text-center",
+            "background": "#000000",
+            "background_gradient": "",
+            "text_color": "#ffffff",
+            "text_gradient": "",
+            "button_background": "#000000",
+            "button_text_color": "#ffffff",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        }
+      },
+      "block_order": [
+        "item-1",
+        "item-2",
+        "item-3",
+        "29246d34-c6e0-4373-84f6-b15e57736a00"
+      ],
+      "disabled": true,
+      "settings": {
+        "full_width": true,
+        "reduce_width": false,
+        "desktop_row_height": 290,
+        "mobile_row_height": 150,
+        "background": "",
+        "background_gradient": ""
+      }
+    },
+    "featured-collection": {
+      "type": "featured-collection",
+      "settings": {
+        "collection": "cross-traeningbestsellers",
+        "products": [],
+        "full_width": true,
+        "stack_products": false,
+        "show_progress_bar": false,
+        "products_count": 6,
+        "products_per_row_mobile": "2",
+        "products_per_row_desktop": 4,
+        "subheading": "",
+        "title": "BESTSELLERE LIGE NU",
+        "content": "",
+        "link_url": "",
+        "link_text": "Se alle",
+        "background": "",
+        "background_gradient": "",
+        "text_color": "",
+        "heading_color": "",
+        "heading_gradient": "",
+        "product_card_background": "",
+        "product_card_text_color": ""
+      }
+    },
+    "featured_collection_tNKUdK": {
+      "type": "featured-collection",
+      "settings": {
+        "collection": "knaebind",
+        "products": [],
+        "full_width": false,
+        "stack_products": false,
+        "show_progress_bar": false,
+        "products_count": 32,
+        "products_per_row_mobile": "2",
+        "products_per_row_desktop": 4,
+        "subheading": "",
+        "title": "SHOP KNÆBIND",
+        "content": "",
+        "link_url": "",
+        "link_text": "Se alle",
+        "background": "",
+        "background_gradient": "",
+        "text_color": "",
+        "heading_color": "",
+        "heading_gradient": "",
+        "product_card_background": "",
+        "product_card_text_color": ""
+      }
+    },
+    "image_with_text_overlay_Dh7Hw7": {
+      "type": "image-with-text-overlay",
+      "blocks": {
+        "subheading_LfVTaQ": {
+          "type": "subheading",
+          "settings": {
+            "text": "HOLD FAST I SELV DEN GLATTESTE PULL-UP BAR"
+          }
+        },
+        "heading_AVJga3": {
+          "type": "heading",
+          "settings": {
+            "text": "AROX® ANTI SLIP GRIPS",
+            "heading_tag": "h1"
+          }
+        },
+        "button_jgLyzW": {
+          "type": "button",
+          "settings": {
+            "style": "fill",
+            "size": "lg",
+            "text": "SHOP NU",
+            "url": "shopify://products/arox-anti-slip-grips",
+            "background": "#ffffff",
+            "text_color": "#1a1a1a"
+          }
+        }
+      },
+      "block_order": [
+        "subheading_LfVTaQ",
+        "heading_AVJga3",
+        "button_jgLyzW"
+      ],
+      "settings": {
+        "full_width": true,
+        "allow_transparent_header": false,
+        "enable_parallax": false,
+        "image_size": "auto",
+        "image": "shopify://shop_images/Design_uden_navn-186.png",
+        "mobile_text_position": "place-self-center text-center",
+        "desktop_text_position": "sm:place-self-center-start sm:text-start",
+        "text_color": "#ffffff",
+        "overlay_color": "#000000",
+        "overlay_opacity": 30
+      }
+    },
+    "featured_collection_T6XnhH": {
+      "type": "featured-collection",
+      "settings": {
+        "collection": "cross-traenings-toj",
+        "products": [],
+        "full_width": true,
+        "stack_products": false,
+        "show_progress_bar": false,
+        "products_count": 39,
+        "products_per_row_mobile": "2",
+        "products_per_row_desktop": 4,
+        "subheading": "",
+        "title": "SHOP OVERDELE",
+        "content": "",
+        "link_url": "",
+        "link_text": "Se alle",
+        "background": "",
+        "background_gradient": "",
+        "text_color": "",
+        "heading_color": "",
+        "heading_gradient": "",
+        "product_card_background": "",
+        "product_card_text_color": ""
+      }
+    },
+    "featured_collection_Ewz9xE": {
+      "type": "featured-collection",
+      "settings": {
+        "collection": "",
+        "products": [
+          "arox-anti-slip-grips",
+          "arox-wolverine-pro-grips-navy",
+          "arox-commander-pro-grips",
+          "arox-wolverine-pro-grips-3-hul-navy",
+          "spongeb-grips-serie-4-0",
+          "commander-pro-grips-3-hul"
+        ],
+        "full_width": true,
+        "stack_products": false,
+        "show_progress_bar": false,
+        "products_count": 6,
+        "products_per_row_mobile": "2",
+        "products_per_row_desktop": 4,
+        "subheading": "",
+        "title": "SHOP GRIPS",
+        "content": "",
+        "link_url": "shopify://collections/cross-traening-grips",
+        "link_text": "Se alle",
+        "background": "",
+        "background_gradient": "",
+        "text_color": "",
+        "heading_color": "",
+        "heading_gradient": "",
+        "product_card_background": "",
+        "product_card_text_color": ""
+      }
+    },
+    "image_with_text_overlay_wPUkYp": {
+      "type": "image-with-text-overlay",
+      "blocks": {
+        "subheading_AJfcwN": {
+          "type": "subheading",
+          "settings": {
+            "text": "FRA IDE TIL VIRKELIG"
+          }
+        },
+        "heading_pFBwnD": {
+          "type": "heading",
+          "settings": {
+            "text": "DANSK UDVIKLET GEAR",
+            "heading_tag": "h1"
+          }
+        },
+        "button_UbeLD8": {
+          "type": "button",
+          "settings": {
+            "style": "fill",
+            "size": "lg",
+            "text": "SE ALLE PRODUKTER",
+            "url": "shopify://collections/cross-traening-udstyr",
+            "background": "#ffffff",
+            "text_color": "#1a1a1a"
+          }
+        }
+      },
+      "block_order": [
+        "subheading_AJfcwN",
+        "heading_pFBwnD",
+        "button_UbeLD8"
+      ],
+      "settings": {
+        "full_width": true,
+        "allow_transparent_header": false,
+        "enable_parallax": false,
+        "image_size": "auto",
+        "image": "shopify://shop_images/Design_uden_navn-191.png",
+        "mobile_text_position": "place-self-center text-center",
+        "desktop_text_position": "sm:place-self-center-end sm:text-end",
+        "text_color": "#ffffff",
+        "overlay_color": "#000000",
+        "overlay_opacity": 30
+      }
+    },
+    "featured_collection_kVMkYB": {
+      "type": "featured-collection",
+      "settings": {
+        "collection": "sjippetove",
+        "products": [],
+        "full_width": false,
+        "stack_products": false,
+        "show_progress_bar": false,
+        "products_count": 6,
+        "products_per_row_mobile": "2",
+        "products_per_row_desktop": 4,
+        "subheading": "",
+        "title": "SHOP SJIPPETOVE",
+        "content": "",
+        "link_url": "shopify://collections/sjippetove",
+        "link_text": "Se alle",
+        "background": "",
+        "background_gradient": "",
+        "text_color": "",
+        "heading_color": "",
+        "heading_gradient": "",
+        "product_card_background": "",
+        "product_card_text_color": ""
+      }
+    },
+    "rich_text_rEWTfY": {
+      "type": "rich-text",
+      "blocks": {
+        "subheading_fGWCC7": {
+          "type": "subheading",
+          "settings": {
+            "text": "AROX ER DANSK & DET ER VI STOLTE AF SAMMEN MED"
+          }
+        },
+        "heading_F9VkHw": {
+          "type": "heading",
+          "settings": {
+            "text": "OVER 20.000 DANSKE KUNDER",
+            "heading_tag": "h2",
+            "text_color": "",
+            "gradient": ""
+          }
+        }
+      },
+      "block_order": [
+        "subheading_fGWCC7",
+        "heading_F9VkHw"
+      ],
+      "settings": {
+        "full_width": true,
+        "content_width": "small",
+        "text_position": "center",
+        "background": "",
+        "background_gradient": "",
+        "text_color": ""
+      }
+    },
+    "173479793484726472": {
+      "type": "apps",
+      "blocks": {
+        "loox_reviews_loox_video_slider_Ft9TqB": {
+          "type": "shopify://apps/loox-reviews/blocks/loox-video-slider/5c3b337f-fd14-4df5-b1d6-80ec13e6e28e",
+          "settings": {
+            "show-by-tag": false,
+            "layout": "spotlight",
+            "shadow": "",
+            "show-rating": true,
+            "show-reviewer-name": true,
+            "hide-arrows-mobile": true,
+            "auto-play": true,
+            "show-border": false,
+            "border-width": 1,
+            "border-radius": 16,
+            "text-color": "",
+            "rating-icon-color": "",
+            "border-color": "",
+            "play-button-color": "",
+            "shadow-color": "",
+            "product-id": ""
+          }
+        }
+      },
+      "block_order": [
+        "loox_reviews_loox_video_slider_Ft9TqB"
+      ],
+      "settings": {
+        "full_width": true,
+        "remove_vertical_spacing": false,
+        "remove_horizontal_spacing": false,
+        "background": "",
+        "background_gradient": "",
+        "text_color": ""
+      }
+    },
+    "slideshow_gx7BRe": {
+      "type": "slideshow",
+      "blocks": {
+        "image_xj9VqA": {
+          "type": "image",
+          "settings": {
+            "mobile_image": "shopify://shop_images/4_FOR_2-7.png",
+            "content_max_width": 780,
+            "mobile_text_position": "place-self-center text-center",
+            "desktop_text_position": "sm:place-self-center sm:text-center",
+            "subheading": "Tell your story",
+            "title": "Slide 1",
+            "heading_tag": "h0",
+            "button_text": "",
+            "button_link": "",
+            "text_color": "#ffffff",
+            "button_background": "#ffffff",
+            "button_text_color": "#000000",
+            "overlay_color": "#000000",
+            "overlay_opacity": 30,
+            "background": "",
+            "background_gradient": ""
+          }
+        },
+        "image_U3pXtV": {
+          "type": "image",
+          "settings": {
+            "content_max_width": 780,
+            "mobile_text_position": "place-self-center text-center",
+            "desktop_text_position": "sm:place-self-center sm:text-center",
+            "subheading": "Tell your story",
+            "title": "Slide 2",
+            "heading_tag": "h0",
+            "button_text": "",
+            "button_link": "",
+            "text_color": "#ffffff",
+            "button_background": "#ffffff",
+            "button_text_color": "#000000",
+            "overlay_color": "#000000",
+            "overlay_opacity": 30,
+            "background": "",
+            "background_gradient": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_xj9VqA",
+        "image_U3pXtV"
+      ],
+      "disabled": true,
+      "name": "Slideshow",
+      "settings": {
+        "full_width": true,
+        "allow_transparent_header": true,
+        "show_initial_transition": false,
+        "image_size": "auto",
+        "controls_type": "dots",
+        "transition_type": "fade_with_text",
+        "autoplay": false,
+        "cycle_speed": 6,
+        "background": "#f2f2f2",
+        "background_gradient": ""
+      }
+    }
+  },
+  "order": [
+    "custom_liquid_BQWVna",
+    "countdown_banner_trREHG",
+    "image_with_text_overlay_6T4BJc",
+    "ss_hero_26_NcaBDk",
+    "ss_countdown_bar_dBRcxm",
+    "ss_circle_menu_2_rUrTaP",
+    "media-grid",
+    "featured-collection",
+    "featured_collection_tNKUdK",
+    "image_with_text_overlay_Dh7Hw7",
+    "featured_collection_T6XnhH",
+    "featured_collection_Ewz9xE",
+    "image_with_text_overlay_wPUkYp",
+    "featured_collection_kVMkYB",
+    "rich_text_rEWTfY",
+    "173479793484726472",
+    "slideshow_gx7BRe"
+  ]
+}

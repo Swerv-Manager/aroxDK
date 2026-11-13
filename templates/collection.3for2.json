@@ -1,0 +1,239 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "banner": {
+      "type": "collection-banner",
+      "disabled": true,
+      "settings": {
+        "full_width": false,
+        "allow_transparent_header": false,
+        "enable_parallax": true,
+        "show_collection_title": true,
+        "show_collection_description": true,
+        "show_collection_image": true,
+        "collection_title_size": "h0",
+        "image_size": "auto",
+        "mobile_text_position": "place-self-center text-center",
+        "desktop_text_position": "sm:place-self-center sm:text-center",
+        "featured_product": "",
+        "featured_product_heading": "Featured product",
+        "text_color": "#ffffff",
+        "overlay_color": "#000000",
+        "overlay_opacity": 30
+      }
+    },
+    "countdown_banner_NXAn4J": {
+      "type": "countdown-banner",
+      "disabled": true,
+      "name": "Countdown Banner",
+      "settings": {
+        "title": "BLACK FRIDAY EPIC DEALS",
+        "subtitle": "Hurry, these deals won't last long!",
+        "link_url": "",
+        "countdown_end_date": "2025-12-31T23:59:59",
+        "hide_when_expired": false,
+        "days_label": "DAYS",
+        "hours_label": "HOURS",
+        "minutes_label": "MINUTES",
+        "seconds_label": "SECONDS",
+        "timer_animation": true,
+        "use_gradient": true,
+        "background_gradient_start": "#7c3aed",
+        "background_gradient_end": "#a855f7",
+        "gradient_direction": "90deg",
+        "max_width": 1200,
+        "border_radius": 12,
+        "border_width": 0,
+        "border_color": "#000000",
+        "shadow_horizontal": 0,
+        "shadow_vertical": 8,
+        "shadow_blur": 24,
+        "shadow_color": "#ffffff",
+        "title_color": "#d4ff00",
+        "title_font_size": 36,
+        "title_font_weight": "900",
+        "title_text_transform": "uppercase",
+        "title_letter_spacing": 2,
+        "title_margin_bottom": 8,
+        "subtitle_color": "#ffb74a",
+        "subtitle_font_size": 14,
+        "subtitle_font_weight": "400",
+        "timer_value_color": "#ffffff",
+        "timer_value_font_size": 48,
+        "timer_value_font_weight": "700",
+        "timer_value_margin_bottom": 4,
+        "timer_label_color": "#ffffff",
+        "timer_label_font_size": 8,
+        "timer_label_font_weight": "600",
+        "timer_label_text_transform": "uppercase",
+        "timer_label_letter_spacing": 1,
+        "padding_top": 20,
+        "padding_bottom": 20,
+        "padding_horizontal": 20,
+        "content_padding": 30,
+        "timer_gap": 0,
+        "timer_item_min_width": 80,
+        "mobile_padding_vertical": 15,
+        "mobile_padding_horizontal": 15,
+        "mobile_content_padding": 20,
+        "mobile_timer_gap": 0,
+        "mobile_timer_item_min_width": 60,
+        "hide_on_mobile": false,
+        "hide_on_desktop": false
+      }
+    },
+    "slideshow_Fd8FaN": {
+      "type": "slideshow",
+      "blocks": {
+        "image_mKkEhc": {
+          "type": "image",
+          "disabled": true,
+          "settings": {
+            "content_max_width": 780,
+            "mobile_text_position": "place-self-center text-center",
+            "desktop_text_position": "sm:place-self-center sm:text-center",
+            "subheading": "Tell your story",
+            "title": "Slide 2",
+            "heading_tag": "h0",
+            "button_text": "",
+            "button_link": "",
+            "text_color": "#ffffff",
+            "button_background": "#ffffff",
+            "button_text_color": "#000000",
+            "overlay_color": "#000000",
+            "overlay_opacity": 30,
+            "background": "",
+            "background_gradient": ""
+          }
+        },
+        "image_dCtyrR": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/TILFOeJ_3_VARER-2.png",
+            "mobile_image": "shopify://shop_images/TILFOeJ_3_VARER-4.png",
+            "content_max_width": 780,
+            "mobile_text_position": "place-self-center text-center",
+            "desktop_text_position": "sm:place-self-start-center sm:text-center",
+            "subheading": "",
+            "title": "",
+            "heading_tag": "h0",
+            "button_text": "",
+            "button_link": "",
+            "text_color": "#ffffff",
+            "button_background": "#ffffff",
+            "button_text_color": "#000000",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0,
+            "background": "",
+            "background_gradient": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_mKkEhc",
+        "image_dCtyrR"
+      ],
+      "name": "Slideshow",
+      "settings": {
+        "full_width": true,
+        "allow_transparent_header": false,
+        "show_initial_transition": false,
+        "image_size": "auto",
+        "controls_type": "dots",
+        "transition_type": "fade_with_text",
+        "autoplay": false,
+        "cycle_speed": 6,
+        "background": "#f2f2f2",
+        "background_gradient": ""
+      }
+    },
+    "countdown_banner_7MDT88": {
+      "type": "countdown-banner",
+      "name": "Countdown Banner",
+      "settings": {
+        "title": "TILBUDDET UDLØBER OM",
+        "subtitle": "",
+        "link_url": "",
+        "countdown_end_date": "2026-03-15T23:59:59",
+        "hide_when_expired": true,
+        "days_label": "DAGE",
+        "hours_label": "TIMER",
+        "minutes_label": "MIN",
+        "seconds_label": "SEK",
+        "timer_animation": true,
+        "use_gradient": false,
+        "background_gradient_start": "#1a1a1a",
+        "background_gradient_end": "#1a1a1a",
+        "gradient_direction": "90deg",
+        "max_width": 1200,
+        "border_radius": 0,
+        "border_width": 0,
+        "border_color": "#000000",
+        "shadow_horizontal": 6,
+        "shadow_vertical": -20,
+        "shadow_blur": 0,
+        "shadow_color": "#ffffff",
+        "title_color": "#ffffff",
+        "title_font_size": 22,
+        "title_font_weight": "900",
+        "title_text_transform": "uppercase",
+        "title_letter_spacing": 1,
+        "title_margin_bottom": 0,
+        "subtitle_color": "#d4ff00",
+        "subtitle_font_size": 16,
+        "subtitle_font_weight": "400",
+        "timer_value_color": "#ffffff",
+        "timer_value_font_size": 26,
+        "timer_value_font_weight": "700",
+        "timer_value_margin_bottom": 4,
+        "timer_label_color": "#ffffff",
+        "timer_label_font_size": 11,
+        "timer_label_font_weight": "600",
+        "timer_label_text_transform": "uppercase",
+        "timer_label_letter_spacing": 1,
+        "padding_top": 20,
+        "padding_bottom": 20,
+        "padding_horizontal": 20,
+        "content_padding": 30,
+        "timer_gap": 20,
+        "timer_item_min_width": 40,
+        "mobile_padding_vertical": 15,
+        "mobile_padding_horizontal": 15,
+        "mobile_content_padding": 20,
+        "mobile_timer_gap": 10,
+        "mobile_timer_item_min_width": 50,
+        "hide_on_mobile": false,
+        "hide_on_desktop": false
+      }
+    },
+    "main": {
+      "type": "main-collection",
+      "settings": {
+        "products_per_page": 30,
+        "products_per_row_mobile": "2",
+        "products_per_row_desktop": 3,
+        "filter_layout": "sidebar",
+        "show_sort_by": true,
+        "show_filters": true,
+        "show_filter_group_name": false,
+        "show_filter_values_count": true,
+        "open_first_filter_group": false
+      }
+    }
+  },
+  "order": [
+    "banner",
+    "countdown_banner_NXAn4J",
+    "slideshow_Fd8FaN",
+    "countdown_banner_7MDT88",
+    "main"
+  ]
+}

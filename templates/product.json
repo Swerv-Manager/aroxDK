@@ -1,0 +1,639 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "countdown_banner_4QUc4c": {
+      "type": "countdown-banner",
+      "disabled": true,
+      "name": "Countdown Banner",
+      "settings": {
+        "title": "SE VORES BLACK WEEK TILBUD HER",
+        "subtitle": "",
+        "link_url": "shopify://collections/blackfriday",
+        "countdown_end_date": "2025-11-30T23:59:59",
+        "hide_when_expired": false,
+        "days_label": "DAGE",
+        "hours_label": "TIMER",
+        "minutes_label": "MIN",
+        "seconds_label": "SEK",
+        "timer_animation": true,
+        "use_gradient": true,
+        "background_gradient_start": "#1a1a1a",
+        "background_gradient_end": "#e22c2c",
+        "gradient_direction": "90deg",
+        "max_width": 1150,
+        "border_radius": 12,
+        "border_width": 0,
+        "border_color": "#000000",
+        "shadow_horizontal": 0,
+        "shadow_vertical": 8,
+        "shadow_blur": 24,
+        "shadow_color": "#0000004d",
+        "title_color": "#ffffff",
+        "title_font_size": 22,
+        "title_font_weight": "900",
+        "title_text_transform": "uppercase",
+        "title_letter_spacing": 1,
+        "title_margin_bottom": 0,
+        "subtitle_color": "#ffffff",
+        "subtitle_font_size": 11,
+        "subtitle_font_weight": "400",
+        "timer_value_color": "#ffffff",
+        "timer_value_font_size": 42,
+        "timer_value_font_weight": "700",
+        "timer_value_margin_bottom": 0,
+        "timer_label_color": "#999999",
+        "timer_label_font_size": 14,
+        "timer_label_font_weight": "600",
+        "timer_label_text_transform": "uppercase",
+        "timer_label_letter_spacing": 1,
+        "padding_top": 35,
+        "padding_bottom": 25,
+        "padding_horizontal": 20,
+        "content_padding": 30,
+        "timer_gap": 20,
+        "timer_item_min_width": 40,
+        "mobile_padding_vertical": 15,
+        "mobile_padding_horizontal": 10,
+        "mobile_content_padding": 5,
+        "mobile_timer_gap": 10,
+        "mobile_timer_item_min_width": 40,
+        "hide_on_mobile": false,
+        "hide_on_desktop": false
+      }
+    },
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "loox_reviews_loox_rating_hAnUWP": {
+          "type": "shopify://apps/loox-reviews/blocks/loox-rating/5c3b337f-fd14-4df5-b1d6-80ec13e6e28e",
+          "settings": {
+            "contentSize": 17,
+            "pattern": "[count] anmeldelser",
+            "hideText": false,
+            "alignment": "",
+            "layout": "",
+            "textColor": "#1a1a1a",
+            "starColor": "#00b67a",
+            "showAllReviews": false,
+            "looxOpenFloatingWidget": false,
+            "emptyRatingWidget": false
+          }
+        },
+        "title": {
+          "type": "title",
+          "settings": {
+            "heading_tag": "h3"
+          }
+        },
+        "badges": {
+          "type": "badges",
+          "settings": {}
+        },
+        "price": {
+          "type": "price",
+          "settings": {
+            "show_taxes_notice": true
+          }
+        },
+        "countdown_timer_QiHzAX": {
+          "type": "countdown-timer",
+          "disabled": true,
+          "settings": {
+            "title": "BLACK FRIDAY EPIC DEALS",
+            "subtitle": "Hurry, these deals won't last long!",
+            "link_url": "",
+            "countdown_end_date": "2025-12-31T23:59:59",
+            "hide_when_expired": false,
+            "days_label": "DAYS",
+            "hours_label": "HOURS",
+            "minutes_label": "MINUTES",
+            "seconds_label": "SECONDS",
+            "timer_animation": true,
+            "use_gradient": true,
+            "background_gradient_start": "#7c3aed",
+            "background_gradient_end": "#a855f7",
+            "gradient_direction": "90deg",
+            "max_width": 1200,
+            "border_radius": 12,
+            "border_width": 0,
+            "border_color": "#000000",
+            "shadow_horizontal": 0,
+            "shadow_vertical": 0,
+            "shadow_blur": 16,
+            "shadow_color": "#ffffff",
+            "title_color": "#d4ff00",
+            "title_font_size": 18,
+            "title_font_weight": "900",
+            "title_text_transform": "uppercase",
+            "title_letter_spacing": 0,
+            "title_margin_bottom": 4,
+            "subtitle_color": "#d4ff00",
+            "subtitle_font_size": 12,
+            "subtitle_font_weight": "400",
+            "timer_value_color": "#ffffff",
+            "timer_value_font_size": 18,
+            "timer_value_font_weight": "700",
+            "timer_value_margin_bottom": 4,
+            "timer_label_color": "#ffffff",
+            "timer_label_font_size": 8,
+            "timer_label_font_weight": "600",
+            "timer_label_text_transform": "uppercase",
+            "timer_label_letter_spacing": 0,
+            "padding_top": 0,
+            "padding_bottom": 0,
+            "padding_horizontal": 0,
+            "content_padding": 20,
+            "timer_gap": 5,
+            "timer_item_min_width": 40,
+            "mobile_padding_vertical": 0,
+            "mobile_padding_horizontal": 0,
+            "mobile_content_padding": 15,
+            "mobile_timer_gap": 5,
+            "mobile_timer_item_min_width": 40,
+            "hide_on_mobile": false,
+            "hide_on_desktop": false
+          }
+        },
+        "product_info_block_QP8x6U": {
+          "type": "product_info_block",
+          "settings": {
+            "icon": "picto-coupon"
+          }
+        },
+        "bundle_builder_link_KiUFty": {
+          "type": "bundle-builder-link",
+          "disabled": true,
+          "settings": {
+            "customizer_tag": "BTDK",
+            "customizer_link": "shopify://pages/toj-build-your-bundle",
+            "text_alignment": "start",
+            "icon_position": "aligned",
+            "icon": "picto-coupon",
+            "icon_width": 20,
+            "title": "Spar op til 20%",
+            "content": "<p>Tilføj 3 stk og spar automatisk 20% - Du kan blande frit mellem farver & størrelser</p>",
+            "background": "#eaf2ed",
+            "text_color": "#00a341"
+          }
+        },
+        "bundle_builder_link_hXqw4t": {
+          "type": "bundle-builder-link",
+          "disabled": true,
+          "settings": {
+            "customizer_tag": "UTDK",
+            "customizer_link": "shopify://pages/udstyr-build-your-bundle",
+            "text_alignment": "start",
+            "icon_position": "aligned",
+            "icon": "picto-coupon",
+            "icon_width": 20,
+            "title": "Spar 25% ekstra!",
+            "content": "<p>Denne vare er en del af vores \"Byg din rabatpakke\".<br/><strong>-&gt; Klik her for at bygge din rabatpakke</strong></p>",
+            "background": "#eaf2ed",
+            "text_color": "#00a341"
+          }
+        },
+        "liquid_rpCmtK": {
+          "type": "liquid",
+          "settings": {
+            "liquid": "{% assign variants_collection = nil %}\n\n{% for collection in product.collections %}\n    {% if collection.handle contains 'Colour' or collection.title contains 'Colour' %}\n        {% assign variants_collection = collection %}\n        {% break %}\n    {% endif %}\n{% endfor %}\n\n{% if variants_collection != blank %}\n    <div class=\"product-single__colors\">\n        <h4 class=\"VariantHeading Heading u-h6\">Andre farver:\n <span style=\"color:black\">{% assign parts = product.title | split: \" - \" %}\n{% if parts.size > 1 %}\n  {{ parts | last }}\n{% else %}\n  {{ product.title }}\n{% endif %}\n<span> </h4>\n        <div class=\"colors__row\">\n            {% assign counter = 0 %}\n            {% for variants_product in variants_collection.products %}\n                {% if counter < 7 %}\n                    <a href=\"{{ variants_product.url }}\" class=\"colors__item {% if product.handle == variants_product.handle %}active{% endif %}\" title=\"{{ variants_product.title }}\">\n                        <img src=\"{{ variants_product.images[0] | img_url: 'x' }}\" class=\"product-image {% if product.handle == variants_product.handle %}current-product{% endif %}\" alt=\"{{ variants_product.title }}\" />\n                    </a>\n                    {% assign counter = counter | plus: 1 %}\n                {% endif %}\n            {% endfor %}\n        </div>\n    </div>\n{% endif %}\n\n<style>\n.colors__row {\n    text-align: initial;\n    display: flex;\n    flex-wrap: wrap;\n    gap: 15px; \n    margin-bottom: 20px;\n}\n\n.product-single__colors h4 {\n    margin-bottom: 10px; /* Reduced to make the gap smaller between text and images */\n}\n\n.product-image {\n    width: 90%;\n}\n\n.product-image.current-product {\n    border: 2px solid #000;\n    width: calc(93% - 4px);\n}\n</style>"
+          }
+        },
+        "variant_picker": {
+          "type": "variant_picker",
+          "settings": {
+            "hide_sold_out_variants": false,
+            "stack_blocks": true,
+            "selector_style": "block",
+            "swatch_selector_style": "block_swatch",
+            "variant_image_options": "",
+            "size_chart_page": ""
+          }
+        },
+        "liquid_QymwME": {
+          "type": "liquid",
+          "settings": {
+            "liquid": "{% render 'pasform' %}"
+          }
+        },
+        "quantity_selector": {
+          "type": "quantity_selector",
+          "settings": {}
+        },
+        "kaching_bundles_app_block_4yFaNx": {
+          "type": "shopify://apps/kaching-bundles/blocks/app-block/6c637362-a106-4a32-94ac-94dcfd68cdb8",
+          "settings": {
+            "product": "{{product}}",
+            "manual_deal_block_id": ""
+          }
+        },
+        "inventory_EWQMMk": {
+          "type": "inventory",
+          "disabled": true,
+          "settings": {
+            "low_inventory_threshold": 12
+          }
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_payment_button": false,
+            "show_gift_card_recipient": false,
+            "atc_button_background": "#00b67a",
+            "atc_button_text_color": "#ffffff",
+            "payment_button_background": "#00b67a",
+            "payment_button_text_color": "#00b67a"
+          }
+        },
+        "liquid_AprAYw": {
+          "type": "liquid",
+          "settings": {
+            "liquid": "<div class=\"mabala-cta-trust\">\n  \n  <!-- Betalingsikoner via Shopify Liquid -->\n  <span class=\"methods-of-payment\">\n    <img src=\"{{ 'klarna' | payment_type_img_url }}\" alt=\"Klarna\" />\n    <img src=\"{{ 'visa' | payment_type_img_url }}\" alt=\"Visa\" />\n    <img src=\"{{ 'master' | payment_type_img_url }}\" alt=\"Mastercard\" />\n    <img src=\"{{ 'mobilepay' | payment_type_img_url }}\" alt=\"MobilePay\" />\n  </span>\n\n  <!-- Trustpilot stjerner (beholdt som SVG) -->\n  <div class=\"mabala-trust\">\n    <div class=\"mabala-tp\">\n      <a href=\"https://www.google.com/search?q=arox+fitness+anmeldelser&oq=arox+fitness+anmeldelser&gs_lcrp=EgZjaHJvbWUyCwgAEEUYChg5GKABMgYIARBFGDzSAQgzMDk5ajBqN6gCALACAA&sourceid=chrome&ie=UTF-8\" target=\"_blank\">\n        <svg viewBox=\"0 0 347 66\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n          <path d=\"M0 8.1286C0 3.825 3.48876 0.336243 7.79236 0.336243H57.2569C61.5605 0.336243 65.0492 3.825 65.0492 8.1286V57.5931C65.0492 61.8967 61.5605 65.3855 57.2569 65.3855H7.79236C3.48876 65.3855 0 61.8967 0 57.5931V8.1286ZM70.47 8.1286C70.47 3.825 73.9587 0.336243 78.2624 0.336243H127.727C132.03 0.336243 135.519 3.825 135.519 8.1286V57.5931C135.519 61.8967 132.03 65.3855 127.727 65.3855H78.2624C73.9587 65.3855 70.47 61.8967 70.47 57.5931V8.1286ZM140.94 8.1286C140.94 3.825 144.429 0.336243 148.732 0.336243H198.197C202.5 0.336243 205.989 3.825 205.989 8.1286V57.5931C205.989 61.8967 202.5 65.3855 198.197 65.3855H148.732C144.429 65.3855 140.94 61.8967 140.94 57.5931V8.1286ZM211.41 8.1286C211.41 3.825 214.899 0.336243 219.202 0.336243H268.667C272.97 0.336243 276.459 3.825 276.459 8.1286V57.5931C276.459 61.8967 272.97 65.3855 268.667 65.3855H219.202C214.899 65.3855 211.41 61.8967 211.41 57.5931V8.1286ZM281.88 8.1286C281.88 3.825 285.369 0.336243 289.672 0.336243H339.137C343.44 0.336243 346.929 3.825 346.929 8.1286V57.5931C346.929 61.8967 343.44 65.3855 339.137 65.3855H289.672C285.369 65.3855 281.88 61.8967 281.88 57.5931V8.1286Z\" fill=\"#38B77B\"></path>\n          <path d=\"M102.032 14.9762C102.344 14.0564 103.645 14.0564 103.957 14.9762L108.161 27.3682C108.301 27.7806 108.688 28.0581 109.124 28.0581L122.632 28.0581C123.627 28.0581 124.029 29.3403 123.212 29.9088L112.361 37.4599C111.989 37.7185 111.833 38.1919 111.979 38.6207L116.141 50.8906C116.456 51.8193 115.403 52.6116 114.598 52.0514L103.575 44.3811C103.226 44.1383 102.763 44.1383 102.414 44.3811L91.391 52.0514C90.586 52.6116 89.5329 51.8193 89.848 50.8906L94.0106 38.6207C94.1561 38.1919 94.0003 37.7185 93.6286 37.4599L82.7769 29.9088C81.96 29.3403 82.3622 28.0581 83.3574 28.0581L96.8655 28.0581C97.301 28.0581 97.6881 27.7806 97.828 27.3682L102.032 14.9762Z\" fill=\"white\"></path>\n          <path d=\"M32.5785 14.9762C32.8906 14.0564 34.1915 14.0564 34.5036 14.9762L38.7076 27.3682C38.8475 27.7806 39.2346 28.0581 39.6701 28.0581L53.1782 28.0581C54.1734 28.0581 54.5757 29.3403 53.7588 29.9088L42.9071 37.4599C42.5353 37.7185 42.3796 38.1919 42.5251 38.6207L46.6877 50.8906C47.0028 51.8193 45.9497 52.6116 45.1446 52.0514L34.1216 44.3811C33.7726 44.1383 33.3095 44.1383 32.9605 44.3811L21.9375 52.0514C21.1324 52.6116 20.0793 51.8193 20.3944 50.8906L24.557 38.6207C24.7025 38.1919 24.5468 37.7185 24.1751 37.4599L13.3233 29.9088C12.5064 29.3403 12.9087 28.0581 13.9039 28.0581L27.412 28.0581C27.8475 28.0581 28.2346 27.7806 28.3745 27.3682L32.5785 14.9762Z\" fill=\"white\"></path>\n          <path d=\"M172.502 14.9762C172.814 14.0564 174.115 14.0564 174.427 14.9762L178.631 27.3682C178.771 27.7806 179.158 28.0581 179.594 28.0581L193.102 28.0581C194.097 28.0581 194.499 29.3403 193.682 29.9088L182.831 37.4599C182.459 37.7185 182.303 38.1919 182.449 38.6207L186.611 50.8906C186.926 51.8193 185.873 52.6116 185.068 52.0514L174.045 44.3811C173.696 44.1383 173.233 44.1383 172.884 44.3811L161.861 52.0514C161.056 52.6116 160.003 51.8193 160.318 50.8906L164.481 38.6207C164.626 38.1919 164.47 37.7185 164.099 37.4599L153.247 29.9088C152.43 29.3403 152.832 28.0581 153.827 28.0581L167.336 28.0581C167.771 28.0581 168.158 27.7806 168.298 27.3682L172.502 14.9762Z\" fill=\"white\"></path>\n          <path d=\"M312.764 14.9762C313.077 14.0564 314.377 14.0564 314.69 14.9762L318.894 27.3682C319.033 27.7806 319.421 28.0581 319.856 28.0581L333.364 28.0581C334.359 28.0581 334.762 29.3403 333.945 29.9088L323.093 37.4599C322.721 37.7185 322.566 38.1919 322.711 38.6207L326.874 50.8906C327.189 51.8193 326.136 52.6116 325.331 52.0514L314.308 44.3811C313.959 44.1383 313.495 44.1383 313.146 44.3811L302.123 52.0514C301.318 52.6116 300.265 51.8193 300.58 50.8906L304.743 38.6207C304.888 38.1919 304.733 37.7185 304.361 37.4599L293.509 29.9088C292.692 29.3403 293.095 28.0581 294.09 28.0581L307.598 28.0581C308.033 28.0581 308.421 27.7806 308.56 27.3682L312.764 14.9762Z\" fill=\"white\"></path>\n          <path d=\"M242.633 14.9762C242.945 14.0564 244.246 14.0564 244.558 14.9762L248.762 27.3682C248.902 27.7806 249.289 28.0581 249.725 28.0581L263.233 28.0581C264.228 28.0581 264.63 29.3403 263.814 29.9088L252.962 37.4599C252.59 37.7185 252.434 38.1919 252.58 38.6207L256.742 50.8906C257.058 51.8193 256.004 52.6116 255.199 52.0514L244.176 44.3811C243.827 44.1383 243.364 44.1383 243.015 44.3811L231.992 52.0514C231.187 52.6116 230.134 51.8193 230.449 50.8906L234.612 38.6207C234.757 38.1919 234.602 37.7185 234.23 37.4599L223.378 29.9088C222.561 29.3403 222.963 28.0581 223.959 28.0581L237.467 28.0581C237.902 28.0581 238.289 27.7806 238.429 27.3682L242.633 14.9762Z\" fill=\"white\"></path>\n          <rect x=\"33.541\" y=\"10.4828\" width=\"26.0875\" height=\"49.8033\" fill=\"#38B77B\" fill-opacity=\"0.19\"></rect>\n          <rect x=\"102.995\" y=\"8.45001\" width=\"26.0875\" height=\"49.8033\" fill=\"#38B77B\" fill-opacity=\"0.19\"></rect>\n          <rect x=\"173.465\" y=\"8.45001\" width=\"26.0875\" height=\"49.8033\" fill=\"#38B77B\" fill-opacity=\"0.19\"></rect>\n          <rect x=\"243.596\" y=\"8.45001\" width=\"26.0875\" height=\"49.8033\" fill=\"#38B77B\" fill-opacity=\"0.19\"></rect>\n          <path d=\"M313.727 8.45001H339.814V58.2533H313.727V8.45001Z\" fill=\"#38B77B\" fill-opacity=\"0.19\"></path>\n        </svg>\n      </a>\n    </div>\n\n    <p>4.9/5 på Trustpilot</p>\n  </div>\n\n  <style>\n    /* Hovedcontaineren: Holder det hele på én linje */\n    .mabala-cta-trust {\n      display: flex;\n      justify-content: space-between;\n      align-items: center; \n      gap: 20px;\n      padding-bottom: 24px;\n    }\n\n    /* Styling til betalingsikonerne (din kode, integreret) */\n    .methods-of-payment {\n      display: flex;\n      align-items: center;\n      gap: 5px;\n    }\n    \n    .methods-of-payment img {\n      padding: 0.2em;\n      height: 25px; /* Sat til 25px så de matcher Trustpilot stjernernes højde på desktop */\n      width: auto;\n    }\n\n    .lt-ie9 .methods-of-payment, .ie8 .methods-of-payment, .oldie .methods-of-payment { \n      display: none; \n    }\n\n    /* Styling til Trustpilot delen */\n    .mabala-trust {\n      display: flex;\n      flex-direction: column;\n      align-items: flex-end;\n    }\n\n    .mabala-tp {\n      display: flex;\n      gap: 0px;\n    }\n\n    .mabala-tp svg {\n      height: 25px;\n      width: 132px;\n      display: block;\n    }\n\n    .mabala-trust p {\n      font-size: 12px;\n      color: rgba(0, 0, 0, 0.52);\n      line-height: 12px;\n      font-weight: 600;\n      margin-top: 5px !important;\n      margin-bottom: 0 !important;\n      padding-bottom: 0 !important;\n    }\n\n    /* SPECIFIKT FOR MOBIL: Bliver på samme linje */\n    @media (max-width: 540px) {\n      .mabala-cta-trust {\n        flex-direction: row; \n        gap: 10px;\n        padding-bottom: 20px;\n      }\n\n      .methods-of-payment img {\n        padding: 0;\n        height: 20px; /* Gjort lidt mindre på mobil, så der er plads til det hele */\n        max-width: 32px; \n      }\n\n      .mabala-tp svg {\n        height: 20px;\n        width: 105px;\n      }\n\n      .mabala-trust p {\n        font-size: 10px;\n        margin-top: 4px !important;\n      }\n    }\n  </style>\n</div>"
+          }
+        },
+        "description": {
+          "type": "description",
+          "settings": {
+            "icon": "none",
+            "icon_width": 20,
+            "collapse_content": true
+          }
+        },
+        "collapsible_text_9FQbce": {
+          "type": "collapsible_text",
+          "settings": {
+            "icon": "none",
+            "icon_width": 20,
+            "title": "Levering & returnering",
+            "content": "<p>Levering: Gratis for ordrer over 799 kr. med GLS pakkeshop. For ordrer under 799 kr. fås levering fra 35 kr. </p><p>Returnering: Læs vores retuneringspolitik <a href=\"/pages/returpolitik\" title=\"Returpolitik\">her</a></p>",
+            "page": ""
+          }
+        },
+        "frequently_bought_app_block_fxNVB6": {
+          "type": "shopify://apps/frequently-bought/blocks/app-block/b1a8cbea-c844-4842-9529-7c62dbab1b1f",
+          "disabled": true,
+          "settings": {}
+        },
+        "payment_terms": {
+          "type": "payment_terms",
+          "settings": {}
+        },
+        "liquid_QTG6BY": {
+          "type": "liquid",
+          "settings": {
+            "liquid": "<div id='ss-product-videos'></div>"
+          }
+        },
+        "collapsible_text_QxFjrL": {
+          "type": "collapsible_text",
+          "disabled": true,
+          "settings": {
+            "icon": "none",
+            "icon_width": 20,
+            "title": "Ofte Stillede Spørgsmål",
+            "content": "<p>Se vores <a href=\"/pages/ofte-stillede-sporgsmal\" title=\"Ofte Stillede Spørgsmål\">ofte stillede spørgsmål her</a></p>",
+            "page": ""
+          }
+        },
+        "loox_reviews_loox_snippets_widget_nDp6Hj": {
+          "type": "shopify://apps/loox-reviews/blocks/loox-snippets-widget/5c3b337f-fd14-4df5-b1d6-80ec13e6e28e",
+          "settings": {
+            "reviews-type": "product-reviews",
+            "reviews-limit": 10,
+            "alignment": "left",
+            "max-width": "",
+            "color-scheme": "default",
+            "shadow": "",
+            "show-rating": true,
+            "show-image": true,
+            "hide-arrows-mobile": false,
+            "font-size": 14,
+            "show-border": false,
+            "border-radius": 16,
+            "background-color": "",
+            "text-color": "",
+            "name-color": "",
+            "rating-icon-color": "",
+            "border-color": "",
+            "shadow-color": "",
+            "product_selection": ""
+          }
+        },
+        "bundle_builder_link_H8JAFN": {
+          "type": "bundle-builder-link",
+          "disabled": true,
+          "settings": {
+            "customizer_tag": "UTDK",
+            "customizer_link": "shopify://pages/udstyr-build-your-bundle",
+            "text_alignment": "start",
+            "icon_position": "aligned",
+            "icon": "picto-coupon",
+            "icon_width": 20,
+            "title": "Shipping",
+            "content": "<p>Short content about your shipping rates or discounts.</p>",
+            "background": "#eaf2ed",
+            "text_color": "#00a341"
+          }
+        }
+      },
+      "block_order": [
+        "loox_reviews_loox_rating_hAnUWP",
+        "title",
+        "badges",
+        "price",
+        "countdown_timer_QiHzAX",
+        "product_info_block_QP8x6U",
+        "bundle_builder_link_KiUFty",
+        "bundle_builder_link_hXqw4t",
+        "liquid_rpCmtK",
+        "variant_picker",
+        "liquid_QymwME",
+        "quantity_selector",
+        "kaching_bundles_app_block_4yFaNx",
+        "inventory_EWQMMk",
+        "buy_buttons",
+        "liquid_AprAYw",
+        "description",
+        "collapsible_text_9FQbce",
+        "frequently_bought_app_block_fxNVB6",
+        "payment_terms",
+        "liquid_QTG6BY",
+        "collapsible_text_QxFjrL",
+        "loox_reviews_loox_snippets_widget_nDp6Hj",
+        "bundle_builder_link_H8JAFN"
+      ],
+      "settings": {
+        "full_width": true,
+        "show_fixed_add_to_cart": true,
+        "desktop_media_width": 55,
+        "desktop_media_layout": "carousel_thumbnails_bottom",
+        "mobile_media_size": "contained",
+        "mobile_carousel_control": "free_scroll",
+        "enable_video_autoplay": false,
+        "enable_video_looping": true,
+        "enable_image_zoom": true,
+        "max_image_zoom_level": 3,
+        "background": "",
+        "background_gradient": "",
+        "text_color": "",
+        "input_background": "rgba(0,0,0,0)",
+        "input_text_color": ""
+      }
+    },
+    "1741616568527fe349": {
+      "type": "apps",
+      "blocks": {
+        "kaching_bundles_app_block_LrKNhw": {
+          "type": "shopify://apps/kaching-bundles/blocks/app-block/6c637362-a106-4a32-94ac-94dcfd68cdb8",
+          "disabled": true,
+          "settings": {
+            "product": "1-stk-flextape-ultra-sticky-sort",
+            "manual_deal_block_id": ""
+          }
+        }
+      },
+      "block_order": [
+        "kaching_bundles_app_block_LrKNhw"
+      ],
+      "settings": {
+        "full_width": true,
+        "remove_vertical_spacing": false,
+        "remove_horizontal_spacing": false,
+        "background": "",
+        "background_gradient": "",
+        "text_color": ""
+      }
+    },
+    "ss_product_vidoes_BnfWak": {
+      "type": "ss-product-vidoes",
+      "blocks": {
+        "video_Qdhrpp": {
+          "type": "video",
+          "settings": {
+            "video": "{{ product.metafields.custom.product_videos_block.value }}",
+            "video_url": "",
+            "modal_heading": "<h4>Modal Heading</h4>",
+            "modal_text": "<p>Modal Text</p>",
+            "video_title": "<h4>Om produktet</h4>"
+          }
+        },
+        "video_zkehKL": {
+          "type": "video",
+          "settings": {
+            "video": "shopify://files/videos/Fragt.mp4",
+            "video_url": "",
+            "modal_heading": "<h4>Modal Heading</h4>",
+            "modal_text": "<p>Modal Text</p>",
+            "video_title": "<h4>Leverings info</h4>"
+          }
+        }
+      },
+      "block_order": [
+        "video_Qdhrpp",
+        "video_zkehKL"
+      ],
+      "settings": {
+        "videos_position": "above_description",
+        "use_metafield": false,
+        "heading": "",
+        "heading_custom": false,
+        "heading_font": "josefin_sans_n4",
+        "heading_size": 18,
+        "heading_size_mobile": 18,
+        "heading_height": 130,
+        "heading_align": "center",
+        "heading_align_mobile": "center",
+        "slider_view": 3,
+        "slider_view_mobile": 3,
+        "slider_gap": 16,
+        "slider_gap_mobile": 16,
+        "slider_mt": 20,
+        "card_radius": 10,
+        "card_border_thickness": 0,
+        "card_shadow": true,
+        "video_ratio": "portrait",
+        "video_ratio_mobile": "portrait",
+        "video_overlay": 0,
+        "icon_size": 34,
+        "icon_size_mobile": 34,
+        "icon_border_thickness": 1,
+        "icon_position_mobile": "top_left",
+        "icon_position": "top_left",
+        "hide_icon": false,
+        "arrow_size": 35,
+        "arrow_size_mobile": 35,
+        "arrow_radius": 5,
+        "arrow_border_thickness": 0,
+        "arrow_hover_shadow": true,
+        "arrow_show_desktop": true,
+        "arrow_show_mobile": true,
+        "show_content": false,
+        "modal_width": 30,
+        "modal_width_mobile": 95,
+        "modal_padding_vertical": 0,
+        "modal_padding_vertical_mobile": 0,
+        "modal_padding_horizontal": 0,
+        "modal_padding_horizontal_mobile": 0,
+        "modal_radius": 16,
+        "modal_border_thickness": 0,
+        "modal_overlay": 50,
+        "close_size": 42,
+        "close_size_mobile": 42,
+        "close_radius": 8,
+        "close_border_thickness": 0,
+        "buttons_size": 48,
+        "buttons_size_mobile": 48,
+        "buttons_radius": 8,
+        "buttons_border_thickness": 0,
+        "modal_video_radius": 0,
+        "modal_video_border_thickness": 0,
+        "modal_video_ratio": "portrait",
+        "modal_video_ratio_mobile": "portrait",
+        "modal_heading_custom": false,
+        "modal_heading_font": "josefin_sans_n4",
+        "modal_heading_size": 28,
+        "modal_heading_size_mobile": 28,
+        "modal_heading_height": 130,
+        "modal_heading_align": "center",
+        "modal_heading_align_mobile": "center",
+        "modal_text_custom": false,
+        "modal_text_font": "josefin_sans_n4",
+        "modal_text_size": 16,
+        "modal_text_size_mobile": 16,
+        "modal_text_height": 130,
+        "modal_text_align": "center",
+        "modal_text_align_mobile": "center",
+        "modal_text_mt": 16,
+        "card_bg_color": "#ffffff",
+        "card_border_color": "#000000",
+        "card_shadow_color": "#000000",
+        "video_overlay_color": "#000000",
+        "icon_bg_color": "#000000",
+        "icon_border_color": "#ffffff",
+        "icon_color": "#ffffff",
+        "arrow_bg_color": "#ffffff",
+        "arrow_bg_hover_color": "#ffffff",
+        "arrow_border_color": "#000000",
+        "arrow_border_hover_color": "#000000",
+        "arrow_icon_color": "#1c1c1c",
+        "arrow_icon_hover_color": "#1c1c1c",
+        "modal_bg_color": "#ffffff",
+        "modal_border_color": "#000000",
+        "close_bg_color": "#ffffff",
+        "close_border_color": "#000000",
+        "close_icon_color": "#ffffff",
+        "buttons_bg_color": "#ffffff",
+        "buttons_border_color": "#000000",
+        "buttons_icon_color": "#ffffff",
+        "modal_video_border_color": "#000000",
+        "modal_content_bg_color": "#ffffff",
+        "modal_content_border_color": "#000000",
+        "modal_heading_color": "#000000",
+        "modal_text_color": "#000000",
+        "heading_color": "#000000",
+        "background_color": "#ffffff",
+        "background_gradient": "",
+        "border_color": "#000000",
+        "margin_top": 0,
+        "margin_bottom": 0,
+        "padding_top": 20,
+        "padding_bottom": 20,
+        "padding_horizontal": 0,
+        "padding_horizontal_mobile": 0,
+        "border_thickness": 0,
+        "lazy": true
+      }
+    },
+    "related-products": {
+      "type": "related-products",
+      "settings": {
+        "recommendations_count": 6,
+        "products": [],
+        "full_width": true,
+        "stack_products": false,
+        "show_progress_bar": false,
+        "products_per_row_mobile": "1",
+        "products_per_row_desktop": 4,
+        "subheading": "",
+        "title": "Kundernes favoritter",
+        "content": "",
+        "background": "",
+        "background_gradient": "",
+        "text_color": "",
+        "heading_color": "",
+        "heading_gradient": "",
+        "product_card_background": "",
+        "product_card_text_color": ""
+      }
+    },
+    "17347935761a60b3ea": {
+      "type": "apps",
+      "blocks": {
+        "loox_reviews_loox_dynamic_section_3WtJVd": {
+          "type": "shopify://apps/loox-reviews/blocks/loox-dynamic-section/5c3b337f-fd14-4df5-b1d6-80ec13e6e28e",
+          "settings": {
+            "reviews_to_display": "product_store_reviews",
+            "default_tab": "automatic",
+            "only_photos": false,
+            "aggregated": false,
+            "limit": 20,
+            "hide_thumbnails": false,
+            "maxwidth": 1080,
+            "is_sample": true
+          }
+        }
+      },
+      "block_order": [
+        "loox_reviews_loox_dynamic_section_3WtJVd"
+      ],
+      "settings": {
+        "full_width": true,
+        "remove_vertical_spacing": false,
+        "remove_horizontal_spacing": false,
+        "background": "",
+        "background_gradient": "",
+        "text_color": ""
+      }
+    },
+    "173581325033b64ae9": {
+      "type": "apps",
+      "blocks": {
+        "kiwi_size_chart_recommender_kiwi_sizing_HrwLxC": {
+          "type": "shopify://apps/kiwi-size-chart-recommender/blocks/kiwiSizing/b7369922-bf15-44ce-a121-a22a8fcbc4b0",
+          "settings": {
+            "fallbackToBlockPosition": false,
+            "waitForElementSelector": "",
+            "waitForElementDelay": 5
+          }
+        }
+      },
+      "block_order": [
+        "kiwi_size_chart_recommender_kiwi_sizing_HrwLxC"
+      ],
+      "settings": {
+        "full_width": true,
+        "remove_vertical_spacing": false,
+        "remove_horizontal_spacing": false,
+        "background": "",
+        "background_gradient": "",
+        "text_color": ""
+      }
+    }
+  },
+  "order": [
+    "countdown_banner_4QUc4c",
+    "main",
+    "1741616568527fe349",
+    "ss_product_vidoes_BnfWak",
+    "related-products",
+    "17347935761a60b3ea",
+    "173581325033b64ae9"
+  ]
+}

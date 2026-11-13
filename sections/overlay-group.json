@@ -1,0 +1,179 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "type": "custom.overlay",
+  "name": "Overlay group",
+  "sections": {
+    "newsletter-popup": {
+      "type": "newsletter-popup",
+      "disabled": true,
+      "settings": {
+        "apparition_delay": 5,
+        "show_only_on_index": true,
+        "show_only_for_visitors": true,
+        "show_only_once": true,
+        "title": "Signup for our newsletter",
+        "button_text": "Subscribe",
+        "subtext": "Describe what your customers will receive when subscribing to your newsletter."
+      }
+    },
+    "privacy-banner": {
+      "type": "privacy-banner",
+      "disabled": true,
+      "settings": {
+        "privacy_bar_title": "Cookie policy",
+        "privacy_bar_content": "<p>We use cookies and similar technologies to provide the best experience on our website. Refer to our Privacy Policy for more information.</p>"
+      }
+    },
+    "cart-drawer": {
+      "type": "cart-drawer",
+      "settings": {
+        "show_cart_note": true,
+        "show_shipping_text": false,
+        "show_view_cart_button": false,
+        "show_checkout_button": true,
+        "recommendations_title": "Dette trender lige nu",
+        "products": [],
+        "product_card_background": "#ffffff",
+        "product_card_text_color": ""
+      }
+    },
+    "search-drawer": {
+      "type": "search-drawer",
+      "settings": {
+        "full_width": false,
+        "show_article_category": true,
+        "search_menu": "",
+        "search_menu_show_title": true
+      }
+    },
+    "ss_circle_menu_2_P6TBGW": {
+      "type": "ss-circle-menu-2",
+      "blocks": {
+        "item_wWxakw": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/Design_uden_navn-224.png",
+            "title": "GRIPS",
+            "tag": "",
+            "url": "shopify://collections/cross-traening-grips"
+          }
+        },
+        "item_7cPrxw": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/48_a5121e6c-24f9-43ff-8b2d-922fdb0403a0.png",
+            "title": "SJIPPETOVE",
+            "tag": "",
+            "url": "shopify://collections/sjippetove"
+          }
+        },
+        "item_HJMEH9": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/204.png",
+            "title": "KNÆBIND",
+            "tag": "",
+            "url": "shopify://collections/knaebind-baelter"
+          }
+        },
+        "item_V9VNXf": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/26_46c0ca51-1c2e-4e9b-aa01-a8fad2fed795.png",
+            "title": "TILBEHØR",
+            "tag": "",
+            "url": "shopify://collections/cross-traeningtilbehor"
+          }
+        },
+        "item_GgwV93": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/140_af0229da-2d4c-436d-a9fa-65749cd9050a.png",
+            "title": "BÆLTER",
+            "tag": "",
+            "url": "shopify://collections/vaegtloftningsbaelter"
+          }
+        },
+        "item_6hxfKi": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/534FE855-3E25-4F0B-A4E6-DC8A46A82ED2_b638eb5c-9736-415f-9fe3-421620a72fd4.png",
+            "title": "TØJ",
+            "tag": "",
+            "url": "shopify://collections/traeningstoj"
+          }
+        }
+      },
+      "block_order": [
+        "item_wWxakw",
+        "item_7cPrxw",
+        "item_HJMEH9",
+        "item_V9VNXf",
+        "item_GgwV93",
+        "item_6hxfKi"
+      ],
+      "disabled": true,
+      "settings": {
+        "slider_view": 6,
+        "slider_view_mobile": 4.3,
+        "slider_gap": 16,
+        "slider_gap_mobile": 12,
+        "item_border_thickness": 3,
+        "tag_custom": false,
+        "tag_font": "assistant_n4",
+        "tag_size": 0,
+        "tag_size_mobile": 0,
+        "tag_height": 50,
+        "tag_padding_vertical": 0,
+        "tag_padding_vertical_mobile": 0,
+        "tag_padding_horizontal": 0,
+        "tag_padding_horizontal_mobile": 0,
+        "tag_border_radius": 0,
+        "tag_bottom": false,
+        "title_custom": false,
+        "title_font": "barlow_n6",
+        "title_size": 13,
+        "title_size_mobile": 11,
+        "title_height": 120,
+        "title_spacing": 8,
+        "title_spacing_mobile": 4,
+        "title_color": "#000000",
+        "tag_color": "#000000",
+        "item_border_color": "#1877f2",
+        "tag_bg_color": "#0099ff",
+        "tag_bg_gradient": "linear-gradient(125deg, rgba(190, 140, 60, 1), rgba(211, 177, 95, 1) 14%, rgba(250, 240, 160, 1) 36%, rgba(255, 255, 176, 1) 43%, rgba(250, 240, 160, 1) 53%, rgba(211, 177, 95, 1) 73%, rgba(190, 140, 60, 1) 84%, rgba(177, 123, 50, 1) 90%, rgba(164, 105, 42, 1) 100%)",
+        "background_color": "#ffffff",
+        "background_gradient": "",
+        "border_color": "#000000",
+        "full_width": false,
+        "content_width": 60,
+        "border_thickness": 0,
+        "section_radius": 0,
+        "lazy": true,
+        "margin_top": 0,
+        "margin_bottom": 0,
+        "margin_horizontal": 0,
+        "margin_horizontal_mobile": 0,
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "padding_horizontal": 5,
+        "padding_horizontal_mobile": 1.5
+      }
+    }
+  },
+  "order": [
+    "newsletter-popup",
+    "privacy-banner",
+    "cart-drawer",
+    "search-drawer",
+    "ss_circle_menu_2_P6TBGW"
+  ]
+}
