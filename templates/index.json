@@ -22,66 +22,6 @@
         "text_color": ""
       }
     },
-    "countdown_banner_trREHG": {
-      "type": "countdown-banner",
-      "disabled": true,
-      "name": "Countdown Banner",
-      "settings": {
-        "title": "",
-        "subtitle": "",
-        "link_url": "shopify://collections/5-ar-med-arox",
-        "countdown_end_date": "2026-09-14T23:59:59",
-        "hide_when_expired": true,
-        "days_label": "DAGE",
-        "hours_label": "TIMER",
-        "minutes_label": "MIN",
-        "seconds_label": "SEK",
-        "timer_animation": true,
-        "use_gradient": true,
-        "background_gradient_start": "#1a1a1a",
-        "background_gradient_end": "#000000",
-        "gradient_direction": "90deg",
-        "max_width": 1350,
-        "border_radius": 0,
-        "border_width": 1,
-        "border_color": "#e31b23",
-        "shadow_horizontal": 0,
-        "shadow_vertical": 8,
-        "shadow_blur": 24,
-        "shadow_color": "#0000004d",
-        "title_color": "#ffffff",
-        "title_font_size": 26,
-        "title_font_weight": "900",
-        "title_text_transform": "uppercase",
-        "title_letter_spacing": 2,
-        "title_margin_bottom": 8,
-        "subtitle_color": "#ffffff",
-        "subtitle_font_size": 14,
-        "subtitle_font_weight": "400",
-        "timer_value_color": "#ffffff",
-        "timer_value_font_size": 30,
-        "timer_value_font_weight": "700",
-        "timer_value_margin_bottom": 0,
-        "timer_label_color": "#999999",
-        "timer_label_font_size": 11,
-        "timer_label_font_weight": "600",
-        "timer_label_text_transform": "uppercase",
-        "timer_label_letter_spacing": 4.5,
-        "padding_top": 5,
-        "padding_bottom": 0,
-        "padding_horizontal": 20,
-        "content_padding": 15,
-        "timer_gap": 25,
-        "timer_item_min_width": 60,
-        "mobile_padding_vertical": 15,
-        "mobile_padding_horizontal": 5,
-        "mobile_content_padding": 5,
-        "mobile_timer_gap": 15,
-        "mobile_timer_item_min_width": 45,
-        "hide_on_mobile": false,
-        "hide_on_desktop": false
-      }
-    },
     "image_with_text_overlay_6T4BJc": {
       "type": "image-with-text-overlay",
       "blocks": {
@@ -275,48 +215,6 @@
       },
       "disabled": true
     },
-    "ss_countdown_bar_dBRcxm": {
-      "type": "ss-countdown-bar",
-      "blocks": {
-        "text_q4dPQK": {
-          "type": "text",
-          "settings": {
-            "heading": "  <meta charset=\"UTF-8\">  <title>Eksempel på hyperlink</title>  <h1>Velkommen til min side</h1>  <p>    Klik her for at besøge    <a href=\"https://www.aroxfitness.dk/collections/sommerudsalg\" target=\"_blank\">Google</a>.  </p>",
-            "color": "#ffffff",
-            "font_size": 24
-          }
-        },
-        "timer_Ydw4cf": {
-          "type": "timer",
-          "settings": {
-            "year": "2025",
-            "month": "10",
-            "day": "04",
-            "hour": "23",
-            "minute": "59",
-            "hide_timer_on_completed": false,
-            "color": "#ffffff",
-            "font_size_number": 20,
-            "font_size_text": 10
-          }
-        }
-      },
-      "block_order": [
-        "text_q4dPQK",
-        "timer_Ydw4cf"
-      ],
-      "disabled": true,
-      "name": "SS - Countdown Timer Bar",
-      "settings": {
-        "target_selector": ".header, .pageheader, .section-header, #announcement, .toolbar, .header__wrapper, .onboarding-header",
-        "use_cross": false,
-        "days_text": "DAGE",
-        "hours_text": "TIMER",
-        "mins_text": "MIN",
-        "seconds_text": "Secs",
-        "background-color": "#000000"
-      }
-    },
     "ss_circle_menu_2_rUrTaP": {
       "type": "ss-circle-menu-2",
       "blocks": {
@@ -505,114 +403,6 @@
         "padding_bottom": 32,
         "padding_horizontal": 5,
         "padding_horizontal_mobile": 1.5
-      }
-    },
-    "media-grid": {
-      "type": "media-grid",
-      "blocks": {
-        "item-1": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/3-4.webp",
-            "title": "Velkommen til AROX",
-            "heading_tag": "h4",
-            "link_url": "shopify://collections/cross-traening-udstyr",
-            "link_text": "Se vores udvalg her",
-            "mobile_text_position": "place-self-center text-center",
-            "desktop_column_span": 2,
-            "desktop_row_span": 2,
-            "desktop_text_position": "sm:place-self-center sm:text-center",
-            "background": "#000000",
-            "background_gradient": "",
-            "text_color": "#ffffff",
-            "text_gradient": "",
-            "button_background": "#000000",
-            "button_text_color": "#ffffff",
-            "overlay_color": "#000000",
-            "overlay_opacity": 0
-          }
-        },
-        "item-2": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/4-3.png",
-            "title": "Vægtløftning",
-            "heading_tag": "h4",
-            "link_url": "shopify://collections/vaegtloftning",
-            "link_text": "",
-            "mobile_text_position": "place-self-center text-center",
-            "desktop_column_span": 1,
-            "desktop_row_span": 1,
-            "desktop_text_position": "sm:place-self-center sm:text-center",
-            "background": "#000000",
-            "background_gradient": "",
-            "text_color": "#ffffff",
-            "text_gradient": "",
-            "button_background": "#000000",
-            "button_text_color": "#ffffff",
-            "overlay_color": "#000000",
-            "overlay_opacity": 0
-          }
-        },
-        "item-3": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/2-2.png",
-            "title": "Udstyr",
-            "heading_tag": "h4",
-            "link_url": "shopify://collections/cross-traening-udstyr",
-            "link_text": "",
-            "mobile_text_position": "place-self-center text-center",
-            "desktop_column_span": 1,
-            "desktop_row_span": 1,
-            "desktop_text_position": "sm:place-self-center sm:text-center",
-            "background": "#000000",
-            "background_gradient": "",
-            "text_color": "#ffffff",
-            "text_gradient": "",
-            "button_background": "#000000",
-            "button_text_color": "#ffffff",
-            "overlay_color": "#000000",
-            "overlay_opacity": 0
-          }
-        },
-        "29246d34-c6e0-4373-84f6-b15e57736a00": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/1-2.png",
-            "title": "Grips",
-            "heading_tag": "h4",
-            "link_url": "shopify://collections/cross-traening-grips",
-            "link_text": "",
-            "mobile_text_position": "place-self-center text-center",
-            "desktop_column_span": 2,
-            "desktop_row_span": 1,
-            "desktop_text_position": "sm:place-self-center sm:text-center",
-            "background": "#000000",
-            "background_gradient": "",
-            "text_color": "#ffffff",
-            "text_gradient": "",
-            "button_background": "#000000",
-            "button_text_color": "#ffffff",
-            "overlay_color": "#000000",
-            "overlay_opacity": 0
-          }
-        }
-      },
-      "block_order": [
-        "item-1",
-        "item-2",
-        "item-3",
-        "29246d34-c6e0-4373-84f6-b15e57736a00"
-      ],
-      "disabled": true,
-      "settings": {
-        "full_width": true,
-        "reduce_width": false,
-        "desktop_row_height": 290,
-        "mobile_row_height": 150,
-        "background": "",
-        "background_gradient": ""
       }
     },
     "featured-collection": {
@@ -919,70 +709,6 @@
         "background": "",
         "background_gradient": "",
         "text_color": ""
-      }
-    },
-    "slideshow_gx7BRe": {
-      "type": "slideshow",
-      "blocks": {
-        "image_xj9VqA": {
-          "type": "image",
-          "settings": {
-            "mobile_image": "shopify://shop_images/4_FOR_2-7.png",
-            "content_max_width": 780,
-            "mobile_text_position": "place-self-center text-center",
-            "desktop_text_position": "sm:place-self-center sm:text-center",
-            "subheading": "Tell your story",
-            "title": "Slide 1",
-            "heading_tag": "h0",
-            "button_text": "",
-            "button_link": "",
-            "text_color": "#ffffff",
-            "button_background": "#ffffff",
-            "button_text_color": "#000000",
-            "overlay_color": "#000000",
-            "overlay_opacity": 30,
-            "background": "",
-            "background_gradient": ""
-          }
-        },
-        "image_U3pXtV": {
-          "type": "image",
-          "settings": {
-            "content_max_width": 780,
-            "mobile_text_position": "place-self-center text-center",
-            "desktop_text_position": "sm:place-self-center sm:text-center",
-            "subheading": "Tell your story",
-            "title": "Slide 2",
-            "heading_tag": "h0",
-            "button_text": "",
-            "button_link": "",
-            "text_color": "#ffffff",
-            "button_background": "#ffffff",
-            "button_text_color": "#000000",
-            "overlay_color": "#000000",
-            "overlay_opacity": 30,
-            "background": "",
-            "background_gradient": ""
-          }
-        }
-      },
-      "block_order": [
-        "image_xj9VqA",
-        "image_U3pXtV"
-      ],
-      "disabled": true,
-      "name": "Slideshow",
-      "settings": {
-        "full_width": true,
-        "allow_transparent_header": true,
-        "show_initial_transition": false,
-        "image_size": "auto",
-        "controls_type": "dots",
-        "transition_type": "fade_with_text",
-        "autoplay": false,
-        "cycle_speed": 6,
-        "background": "#f2f2f2",
-        "background_gradient": ""
       }
     },
     "bw_hero": {
@@ -1435,17 +1161,14 @@
   },
   "order": [
     "custom_liquid_BQWVna",
-    "countdown_banner_trREHG",
     "image_with_text_overlay_6T4BJc",
     "ss_hero_26_NcaBDk",
     "bw_hero",
     "bw_dates",
     "bw_band",
-    "ss_countdown_bar_dBRcxm",
     "ss_circle_menu_2_rUrTaP",
     "bw_offer_cats",
     "bw_limited",
-    "media-grid",
     "featured-collection",
     "bw_3for2",
     "bw_4for2",
@@ -1461,7 +1184,6 @@
     "featured_collection_T6XnhH",
     "featured_collection_Ewz9xE",
     "featured_collection_kVMkYB",
-    "173479793484726472",
-    "slideshow_gx7BRe"
+    "173479793484726472"
   ]
 }
