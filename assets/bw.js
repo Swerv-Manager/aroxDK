@@ -108,6 +108,29 @@
 
   ['cart:change', 'cart:refresh', 'variant:add'].forEach(function (ev) { document.addEventListener(ev, function () { setTimeout(initProgress, 300); }); });
 
+  /* ---------- Collection filter + sort bar [data-bw-filters] (snippet bw-coll-toolbar) ----------
+     A plain GET form: a ticked value or a new sort order submits it at once; price fields submit with "Vis varer".
+     Empty fields are left out of the URL. Only one dropdown is open at a time; a click outside closes it. */
+  document.addEventListener('change', function (e) {
+    var f = e.target.closest && e.target.closest('form[data-bw-filters]');
+    if (!f || e.target.type === 'number') return;
+    if (f.requestSubmit) f.requestSubmit(); else f.submit();
+  });
+  document.addEventListener('submit', function (e) {
+    var f = e.target;
+    if (!f.matches || !f.matches('form[data-bw-filters]')) return;
+    f.querySelectorAll('input').forEach(function (i) { if ((i.type === 'number' || i.type === 'hidden') && i.value === '') i.disabled = true; });
+  });
+  document.addEventListener('toggle', function (e) {
+    var d = e.target;
+    if (!d.matches || !d.matches('.bw-fp') || !d.open) return;
+    document.querySelectorAll('.bw-fp[open]').forEach(function (o) { if (o !== d) o.open = false; });
+  }, true);
+  document.addEventListener('click', function (e) {
+    if (e.target.closest && e.target.closest('.bw-fp')) return;
+    document.querySelectorAll('.bw-fp[open]').forEach(function (o) { o.open = false; });
+  });
+
   /* ---------- Cart drawer: stepped progress bar [data-bw-cart-progress] ----------
      Impact re-renders the drawer from the bundled section HTML but waits 1.25 s before it swaps the line items after a
      quantity change. Swap the progress bar at once and animate the fill from its old width. */

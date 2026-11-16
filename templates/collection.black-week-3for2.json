@@ -49,9 +49,12 @@
         "crumb_parent_url": "shopify://pages/black-week",
         "badge": "Black Week",
         "title": "3 for 2",
-        "line": "",
+        "line": "Vælg 3 produkter blandt alle på denne side, og den billigste er gratis.",
         "padding_bottom": 0,
-        "dark_page": true
+        "dark_page": true,
+        "show_toolbar": true,
+        "filter_hide": "Brand",
+        "filter_rename": "Produkttype=Kategori"
       }
     },
     "bw_progress": {
@@ -63,9 +66,9 @@
         "todo": "Vælg [n] mere – få den billigste gratis",
         "done": "Rabatten trækkes automatisk i kurven.",
         "note": "Den billigste af de 3 produkter er gratis. Rabatten trækkes automatisk i kurven.",
-        "heading": "Med i 3 for 2",
-        "line": "Vælg 3 produkter blandt alle på denne side, og den billigste er gratis.",
-        "link_label": "Se alle",
+        "heading": "",
+        "line": "",
+        "link_label": "",
         "pad_top": 20,
         "pad_bottom": 0
       }
@@ -128,7 +131,8 @@
       "settings": {
         "phases": "",
         "eyebrow": "Sådan virker 3 for 2"
-      }
+      },
+      "disabled": true
     },
     "bw_hero": {
       "type": "bw-offer-hero",
@@ -148,7 +152,8 @@
         "heading_tag": "h2",
         "text": "Bland pro grips, shorts, hoodies og performance tights. Den billigste af de 3 er gratis.",
         "button_label": ""
-      }
+      },
+      "disabled": true
     },
     "bw_gift": {
       "type": "bw-gift-reminder",
@@ -160,7 +165,8 @@
         "button_label": "Se gaverne",
         "button_url": "shopify://pages/black-week-gaver",
         "line_top": false
-      }
+      },
+      "disabled": true
     },
     "bw_grid": {
       "type": "bw-collection-grid",

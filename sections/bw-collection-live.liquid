@@ -1,0 +1,104 @@
+{%- comment -%}
+BLACK WEEK 2026 · board 07d · ordinary collection pages during Black Week ("Grips" in the design): breadcrumb,
+"Black Week" badge + title, optional line, the Black Week offer navigation, filter + sort bar and a grid of Black Week
+product cards (the "Black Week" badge only on products that are in an offer).
+Static section, rendered by layout/theme.liquid on collection pages, so it covers every ordinary collection template
+listed under "Skabeloner" without editing them. In the chosen phases it hides the template's own circle menu,
+countdown banner and main-collection (CSS only, nothing is removed); outside those phases the page is unchanged.
+{%- endcomment -%}
+{%- liquid
+  assign s = section.settings
+  assign bw_tpl = template.suffix | default: 'standard'
+  assign bw_list = s.templates | default: '' | replace: ',', ' ' | split: ' '
+  assign bw_on = false
+  if template.name == 'collection' and bw_list contains bw_tpl
+    assign bw_on = true
+  endif
+-%}
+{%- if bw_on -%}
+  {%- liquid
+    assign bw_phases = s.phases | default: '' | replace: ',', ' ' | split: ' '
+    capture bw_scope
+      if bw_phases.size == 0
+        echo 'html'
+      else
+        echo ':is('
+        for p in bw_phases
+          unless forloop.first
+            echo ','
+          endunless
+          echo 'html.bw-' | append: p
+        endfor
+        echo ')'
+      endif
+    endcapture
+
+    assign bw_crumb = ''
+    assign bw_crumb_url = ''
+    assign bw_map = s.crumb_map | default: '' | split: ';'
+    for row in bw_map
+      assign bw_r = row | split: '='
+      assign bw_k = bw_r[0] | strip
+      if bw_k == bw_tpl
+        assign bw_crumb = bw_r[1] | strip
+        assign bw_crumb_url = bw_r[2] | strip
+      endif
+    endfor
+    if bw_crumb_url == collection.url
+      assign bw_crumb = ''
+    endif
+
+    assign bw_line = ''
+    assign bw_lines = s.lines | default: '' | newline_to_br | split: '<br />'
+    for row in bw_lines
+      assign bw_r = row | strip | split: '='
+      assign bw_k = bw_r[0] | strip
+      if bw_k == collection.handle
+        assign bw_line = row | strip | remove_first: bw_r[0] | remove_first: '=' | strip
+      endif
+    endfor
+  -%}
+  <style>
+    {{ bw_scope }} main > .shopify-section[id$="__main"],
+    {{ bw_scope }} main > .shopify-section[id*="ss_circle_menu"],
+    {{ bw_scope }} main > .shopify-section[id*="countdown_banner"] { display: none !important; }
+    {{ bw_scope }} body { background: #0a0a0a; }
+  </style>
+  <div class="bw bw-ch bw-cl{% render 'bw-only', phases: s.phases %}">
+    {%- render 'bw-coll-head',
+      title: collection.title,
+      show_crumb: s.show_crumb,
+      crumb_parent: bw_crumb,
+      crumb_parent_url: bw_crumb_url,
+      badge: s.badge,
+      line: bw_line,
+      nav: s.nav,
+      padding_bottom: 0
+    -%}
+    {%- render 'bw-coll-toolbar', hide: s.filter_hide, rename: s.filter_rename -%}
+    <div class="bw-cl__body" style="container-type:inline-size">
+      {%- render 'bw-coll-grid', offer_only: true -%}
+      {%- if s.note != blank -%}<div class="bw-cl__note">{{ s.note }}</div>{%- endif -%}
+    </div>
+  </div>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "BW · Kollektion (live)",
+  "class": "bw-section",
+  "settings": [
+    { "type": "paragraph", "content": "Black Week 2026 · board 07d. Almindelige kollektioner i Black Week-layout: navigation, filtre, sortering og Black Week-produktkort. Temaets egen cirkelmenu og kollektionsgrid skjules i de valgte faser." },
+    { "type": "text", "id": "phases", "label": "Vis kun i faser", "info": "pre, early, live, sidste · tom = altid", "default": "early live sidste" },
+    { "type": "text", "id": "templates", "label": "Skabeloner", "info": "Kollektionsskabeloner med Black Week-layout. standard = uden skabelon.", "default": "standard traeningsudstyr traeningstoej hyrox elektrolytter" },
+    { "type": "checkbox", "id": "show_crumb", "label": "Vis brødkrumme", "default": true },
+    { "type": "text", "id": "crumb_map", "label": "Brødkrumme pr. skabelon", "info": "skabelon=Navn=/link; adskilt af semikolon", "default": "traeningsudstyr=Træningsudstyr=/collections/cross-traening-udstyr; traeningstoej=Træningstøj=/collections/traeningstoj" },
+    { "type": "text", "id": "badge", "label": "Badge", "default": "Black Week" },
+    { "type": "textarea", "id": "nav", "label": "Navigation", "info": "Titel|Undertekst|/link; adskilt af semikolon", "default": "Single offers|Fast Black Week-pris|/collections/black-week-limited-edition; 3 for 2|Den billigste er gratis|/collections/black-week-3for2; 4 for 2|De 2 billigste er gratis|/collections/black-week-4for2" },
+    { "type": "textarea", "id": "lines", "label": "Tilbudslinje pr. kollektion", "info": "Én pr. linje: kollektions-handle=tekst", "default": "cross-traening-grips=Black Week 20.11–30.11: pro grips er med i 3 for 2." },
+    { "type": "text", "id": "filter_hide", "label": "Skjul filtre", "info": "Filternavne adskilt af komma", "default": "Brand" },
+    { "type": "text", "id": "filter_rename", "label": "Omdøb filtre", "info": "Fx Produkttype=Kategori", "default": "Produkttype=Kategori" },
+    { "type": "text", "id": "note", "label": "Note under produkterne", "default": "Fri fragt v. køb over 499 kr. · ellers fragt fra 35 kr." }
+  ]
+}
+{% endschema %}

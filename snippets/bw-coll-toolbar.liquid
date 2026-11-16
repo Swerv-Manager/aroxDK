@@ -1,0 +1,97 @@
+{%- comment -%}
+BLACK WEEK 2026 · board 07 · filter + sort bar of a collection page: one pill per storefront filter (dropdown with
+the filter's values), "N produkter" and "Sortér: …". It is a plain GET form, so Shopify's own filtering and
+sorting do the work; assets/bw.js submits it when a value changes. Styles: .bw-tb* / .bw-fp* in assets/bw.css.
+Params: hide ('Brand, Pris': filter labels not shown) · rename ('Produkttype=Kategori; …': label → design label)
+{%- endcomment -%}
+{%- liquid
+  assign bw_hide = hide | default: '' | downcase | split: ','
+  assign bw_ren = rename | default: '' | split: ';'
+  assign bw_sort = collection.sort_by | default: collection.default_sort_by
+  assign bw_sort_name = ''
+  for option in collection.sort_options
+    if option.value == bw_sort
+      assign bw_sort_name = option.name
+    endif
+  endfor
+  assign bw_active = 0
+  assign bw_chev = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg>'
+-%}
+<div class="bw-tb">
+  <form class="bw-tb__row" action="{{ collection.url }}" method="get" data-bw-filters>
+    <div class="bw-tb__pills">
+      {%- for filter in collection.filters -%}
+        {%- liquid
+          assign bw_label = filter.label
+          assign bw_key = filter.label | downcase | strip
+          assign bw_skip = false
+          for h in bw_hide
+            assign bw_h = h | strip
+            if bw_h == bw_key
+              assign bw_skip = true
+            endif
+          endfor
+          for pair in bw_ren
+            assign bw_pp = pair | split: '='
+            assign bw_from = bw_pp[0] | strip | downcase
+            if bw_from == bw_key and bw_pp[1] != blank
+              assign bw_label = bw_pp[1] | strip
+            endif
+          endfor
+          assign bw_n = filter.active_values.size
+          if filter.type == 'price_range'
+            assign bw_n = 0
+            if filter.min_value.value != nil or filter.max_value.value != nil
+              assign bw_n = 1
+            endif
+          endif
+          if bw_n > 0
+            assign bw_active = bw_active | plus: bw_n
+          endif
+        -%}
+        {%- if bw_skip -%}
+          {%- comment -%}keep hidden filters that are active, so submitting the form does not drop them{%- endcomment -%}
+          {%- for v in filter.active_values -%}<input type="hidden" name="{{ v.param_name }}" value="{{ v.value | escape }}">{%- endfor -%}
+          {%- continue -%}
+        {%- endif -%}
+        <details class="bw-fp">
+          <summary class="bw-fp__pill">{{ bw_label }}{% if bw_n > 0 %} ({{ bw_n }}){% endif %}{{ bw_chev }}</summary>
+          <div class="bw-fp__panel">
+            {%- case filter.type -%}
+              {%- when 'price_range' -%}
+                <div class="bw-fp__price">
+                  <label><span>Fra</span><input type="number" inputmode="numeric" min="0" name="{{ filter.min_value.param_name }}" value="{{ filter.min_value.value | money_without_currency | remove: ',00' }}" placeholder="0"></label>
+                  <label><span>Til</span><input type="number" inputmode="numeric" min="0" name="{{ filter.max_value.param_name }}" value="{{ filter.max_value.value | money_without_currency | remove: ',00' }}" placeholder="{{ filter.range_max | money_without_currency | remove: ',00' }}"></label>
+                </div>
+                <button type="submit" class="bw-fp__apply">Vis varer</button>
+              {%- else -%}
+                {%- for value in filter.values -%}
+                  <label class="bw-fp__opt{% if value.count == 0 and value.active == false %} is-empty{% endif %}">
+                    <input type="checkbox" name="{{ value.param_name }}" value="{{ value.value | escape }}" {% if value.active %}checked{% endif %} {% if value.count == 0 and value.active == false %}disabled{% endif %}>
+                    <span>{{ value.label }}</span><span class="bw-fp__n">{{ value.count }}</span>
+                  </label>
+                {%- endfor -%}
+            {%- endcase -%}
+            {%- if bw_n > 0 -%}<a class="bw-fp__clear" href="{{ filter.url_to_remove }}">Ryd {{ bw_label | downcase }}</a>{%- endif -%}
+          </div>
+        </details>
+      {%- endfor -%}
+      {%- if bw_active > 0 -%}
+        <a class="bw-tb__clear" href="{{ collection.url }}{% if collection.sort_by != blank %}?sort_by={{ collection.sort_by }}{% endif %}">Ryd alle</a>
+      {%- endif -%}
+    </div>
+    <div class="bw-tb__right">
+      <span class="bw-tb__count">{{ collection.products_count }} {% if collection.products_count == 1 %}produkt{% else %}produkter{% endif %}</span>
+      {%- if collection.sort_options.size > 0 -%}
+        <details class="bw-fp bw-fp--sort">
+          <summary class="bw-tb__sort">Sortér: {{ bw_sort_name }}{{ bw_chev }}</summary>
+          <div class="bw-fp__panel bw-fp__panel--end">
+            {%- for option in collection.sort_options -%}
+              <label class="bw-fp__opt"><input type="radio" name="sort_by" value="{{ option.value }}" {% if option.value == bw_sort %}checked{% endif %}><span>{{ option.name }}</span></label>
+            {%- endfor -%}
+          </div>
+        </details>
+      {%- endif -%}
+    </div>
+  </form>
+</div>

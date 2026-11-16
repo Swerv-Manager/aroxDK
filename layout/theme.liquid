@@ -100,6 +100,10 @@ NOTE TO DEVELOPERS: welcome to Impact theme! We hope that you will enjoy editing
     {%- endif -%}
 
     <main role="main" id="main" class="anchor">
+      {%- comment -%}BLACK WEEK 2026 · board 07d: Black Week layout on ordinary collections (only in its phases/templates){%- endcomment -%}
+      {%- if request.page_type == 'collection' -%}
+        {%- section 'bw-collection-live' -%}
+      {%- endif -%}
       {{ content_for_layout }}
 
       {%- comment -%}

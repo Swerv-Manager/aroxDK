@@ -1,0 +1,159 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "bw_header": {
+      "type": "bw-collection-header",
+      "blocks": {
+        "nav_le": {
+          "type": "link",
+          "settings": {
+            "label": "Single offers",
+            "sub": "Fast Black Week-pris",
+            "url": "shopify://collections/black-week-limited-edition",
+            "active": true
+          }
+        },
+        "nav_s3": {
+          "type": "link",
+          "settings": {
+            "label": "3 for 2",
+            "sub": "Den billigste er gratis",
+            "url": "shopify://collections/black-week-3for2"
+          }
+        },
+        "nav_s4": {
+          "type": "link",
+          "settings": {
+            "label": "4 for 2",
+            "sub": "De 2 billigste er gratis",
+            "url": "shopify://collections/black-week-4for2"
+          }
+        }
+      },
+      "block_order": [
+        "nav_le",
+        "nav_s3",
+        "nav_s4"
+      ],
+      "settings": {
+        "phases": "",
+        "show_crumb": true,
+        "crumb_parent": "Black Week",
+        "crumb_parent_url": "shopify://pages/black-week",
+        "badge": "Black Week",
+        "title": "Limited edition",
+        "line": "Fast Black Week-pris til og med mandag 30.11 kl. 23:59.",
+        "padding_bottom": 0,
+        "dark_page": true
+      }
+    },
+    "bw_group_blackout": {
+      "type": "bw-product-group",
+      "settings": {
+        "phases": "",
+        "heading": "LIMITED BLACKOUT.",
+        "text": "Helsorte udgaver. Kun i Black Week.",
+        "limit": 5,
+        "columns": 5,
+        "badge": "",
+        "products": [
+          "limited-blackout-anti-slip-grips-blackfriday-edition"
+        ]
+      }
+    },
+    "bw_group_fav": {
+      "type": "bw-product-group",
+      "settings": {
+        "phases": "",
+        "heading": "FAVORITTER TIL FAST PRIS.",
+        "text": "Fast Black Week-pris til og med mandag 30.11 kl. 23:59.",
+        "limit": 5,
+        "columns": 5,
+        "badge": "",
+        "products": [
+          "uden-titel-2-okt-_14-38",
+          "thermo-stal-drikkedunk-1-06-l",
+          "stromper-3-pak"
+        ]
+      }
+    },
+    "bw_group_tape": {
+      "type": "bw-product-group",
+      "settings": {
+        "phases": "",
+        "heading": "TAPE.",
+        "text": "Bland selv 10 ruller.",
+        "limit": 5,
+        "columns": 5,
+        "badge": "",
+        "products": [
+          "arox-flextape-10-ruller-uden-lim-rester-kopi"
+        ]
+      }
+    },
+    "bw_note": {
+      "type": "bw-offer-note",
+      "settings": {
+        "phases": "",
+        "note": "Fri fragt v. køb over 499 kr. · ellers fragt fra 35 kr. · Rabatten trækkes automatisk i kurven – ingen kode nødvendig.",
+        "note_light": false,
+        "pad_top": 0,
+        "pad_bottom": 48
+      },
+      "blocks": {
+        "band_0": {
+          "type": "item",
+          "settings": {
+            "text": "Fast Black Week-pris"
+          }
+        },
+        "band_1": {
+          "type": "item",
+          "settings": {
+            "text": "Til og med mandag 30.11 kl. 23:59"
+          }
+        }
+      },
+      "block_order": [
+        "band_0",
+        "band_1"
+      ]
+    },
+    "bw_hero": {
+      "type": "bw-offer-hero",
+      "settings": {
+        "phases": "",
+        "layout": "overlay",
+        "image": "shopify://shop_images/Billede-08057.jpg",
+        "focal_x": 50,
+        "focal_y": 55,
+        "scrim_top": 15,
+        "scrim_bottom": 90,
+        "min_height": 580,
+        "min_height_mobile": 560,
+        "badge": "Limited · kun i Black Week",
+        "eyebrow": "",
+        "heading": "Limited blackout.\nKun i Black Week.",
+        "heading_tag": "h2",
+        "text": "Helsorte udgaver af anti slip grips, fusion grips, Elite-bæltet og speedrope elite – plus udvalgte favoritter til fast Black Week-pris. Limited findes kun i Black Week.",
+        "button_label": ""
+      }
+    }
+  },
+  "order": [
+    "bw_header",
+    "bw_group_blackout",
+    "bw_group_fav",
+    "bw_group_tape",
+    "bw_note",
+    "bw_hero"
+  ]
+}
