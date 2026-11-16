@@ -1,0 +1,40 @@
+/* Arox Fitness — spacing, radii, borders, shadows, motion. */
+:root {
+  /* 4px spacing scale */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --space-20: 80px;
+
+  /* Radii — restrained. Cards barely rounded, CTAs pill. */
+  --radius-sm: 4px;     /* badges, swatch chips */
+  --radius-md: 8px;     /* inputs, cards */
+  --radius-lg: 12px;    /* media blocks, drawers */
+  --radius-pill: 999px; /* primary CTAs */
+
+  /* Borders */
+  --border-thin: 1px solid var(--line);
+  --border-strong: 1px solid var(--line-strong);
+
+  /* Shadows — flat by default; soft lift only for floating layers */
+  --shadow-card: none;
+  --shadow-pop: 0 8px 28px rgba(10, 10, 10, 0.14);
+  --shadow-drawer: -16px 0 48px rgba(10, 10, 10, 0.18);
+
+  /* Motion — quick and matter-of-fact, no bounce */
+  --ease-out: cubic-bezier(0.2, 0.7, 0.2, 1); /* @kind other */
+  --duration-fast: 120ms; /* @kind other */
+  --duration-base: 220ms; /* @kind other */
+  --duration-slow: 400ms; /* @kind other */
+
+  /* Layout */
+  --page-max: 1280px;
+  --gutter: 24px;
+}

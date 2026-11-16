@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="_ds/arox-fitness-design-system-84b1f47b-d8b1-4d6f-a27a-eda04f8a6336/tokens/fonts.css">
+  <link rel="stylesheet" href="_ds/arox-fitness-design-system-84b1f47b-d8b1-4d6f-a27a-eda04f8a6336/tokens/colors.css">
+  <link rel="stylesheet" href="_ds/arox-fitness-design-system-84b1f47b-d8b1-4d6f-a27a-eda04f8a6336/tokens/typography.css">
+  <link rel="stylesheet" href="_ds/arox-fitness-design-system-84b1f47b-d8b1-4d6f-a27a-eda04f8a6336/tokens/spacing.css">
+  <link rel="stylesheet" href="_ds/arox-fitness-design-system-84b1f47b-d8b1-4d6f-a27a-eda04f8a6336/tokens/base.css">
+  <link rel="stylesheet" href="_ds/arox-fitness-design-system-84b1f47b-d8b1-4d6f-a27a-eda04f8a6336/styles.css">
+  <script src="_ds/arox-fitness-design-system-84b1f47b-d8b1-4d6f-a27a-eda04f8a6336/_ds_bundle.js"></script>
+</helmet>
+<div style="font-family:var(--font-sans);background:#fff;color:#111;height:100%;min-height:844px;display:flex;flex-direction:column;box-shadow:-16px 0 48px rgba(10,10,10,.18)">
+  <div style="display:flex;align-items:center;justify-content:space-between;padding:16px 20px;border-bottom:1px solid #e4e4e4">
+    <div style="font-size:17px;font-weight:700">Din kurv · {{ c.count }} vare(r)</div>
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="1.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+  </div>
+    <div style="padding:14px 18px;border-bottom:1px solid #222;display:flex;gap:10px;align-items:center"><div style="width:36px;height:36px;border-radius:4px;overflow:hidden;background:#f8f8f8;flex:none"><img loading="lazy" decoding="async" src="img/gift_thermo_427.jpg" alt="Arox Thermo stålflaske 1,06 L" style="width:100%;height:100%;object-fit:cover;display:block"></div><div style="font-size:13px;line-height:1.4;font-weight:600;color:#fff">Gratis Thermo stålflaske til de første 100 ordrer.</div></div>
+  </div>
+  <div style="padding:10px 20px;border-bottom:1px solid #e4e4e4;font-size:13px;color:#3a3a3a">{{ c.fragt }}</div>
+  <div style="flex:1;padding:16px 20px;display:grid;gap:16px;align-content:start">
+    <sc-if value="{{ c.empty }}" hint-placeholder-val="{{ false }}">
+      <div style="text-align:center;padding-top:40px;display:grid;gap:16px;justify-items:center">
+        <div style="font-size:17px;font-weight:700;text-transform:uppercase">Din kurv er tom</div>
+        <x-import component-from-global-scope="AroxFitnessDesignSystem_84b1f4.Button" variant="secondary" size="sm" hint-size="auto,36px">Fortsæt med at handle</x-import>
+      </div>
+    </sc-if>
+    <sc-for list="{{ c.items }}" as="it" hint-placeholder-count="3">
+      <div style="display:grid;grid-template-columns:72px 1fr auto;gap:12px;align-items:start">
+        <div style="width:72px;height:72px;border-radius:8px;overflow:hidden;background:#111"><img src="{{ it.img }}" alt="" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+        <div style="display:grid;gap:4px">
+          <div style="font-size:13px;font-weight:500;line-height:1.3">{{ it.title }}</div>
+          <div style="font-size:12px;color:#3a3a3a">{{ it.variant }}</div>
+          <div style="display:flex;gap:4px"><x-import component-from-global-scope="AroxFitnessDesignSystem_84b1f4.Badge" variant="sale" style="{{ smallBadge }}" hint-size="auto,18px">{{ it.badge }}</x-import></div>
+        </div>
+        <div style="font-size:13px;font-weight:700;text-align:right;white-space:nowrap">{{ it.price }}</div>
+      </div>
+    </sc-for>
+    <sc-if value="{{ c.hasDisc }}" hint-placeholder-val="{{ false }}">
+      <div style="display:flex;justify-content:space-between;gap:12px;padding:10px 12px;border-radius:8px;background:#f0f0f0;font-size:13px">
+        <span style="font-weight:700">{{ c.discLabel }}</span><span style="font-weight:700;color:#c8232c;white-space:nowrap">{{ c.disc }}</span>
+      </div>
+    </sc-if>
+  </div>
+  <sc-if value="{{ c.full }}" hint-placeholder-val="{{ true }}">
+    <div style="padding:16px 20px 20px;border-top:1px solid #e4e4e4;display:grid;gap:10px">
+      <div style="display:flex;justify-content:space-between;font-size:15px;font-weight:700"><span>Subtotal</span><span>{{ c.total }}</span></div>
+      <div style="font-size:12px;color:#3a3a3a;line-height:1.45">Rabatten trækkes automatisk i kurven – ingen kode nødvendig. Inkl. moms. Moms og levering beregnes ved kassen</div>
+      <x-import component-from-global-scope="AroxFitnessDesignSystem_84b1f4.Button" size="lg" full-width="{{ true }}" hint-size="100%,52px">Gå til kassen</x-import>
+      <div style="text-align:center;font-size:11px;color:#3a3a3a">Dankort · Visa · Mastercard · MobilePay</div>
+    </div>
+  </sc-if>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:&quot;390px&quot;,&quot;height&quot;:&quot;844px&quot;},&quot;cart&quot;:{&quot;editor&quot;:null,&quot;tsType&quot;:&quot;object&quot;}}">
+class Component extends DCLogic {
+  renderVals() {
+    const c = this.props.cart ?? { count: 0, bars: [], items: [], empty: true, full: false, fragt: '', hasDisc: false };
+    return { c, smallBadge: { fontSize: 10, padding: '2px 6px' } };
+  }
+}
+</script>
+</body>
+</html>

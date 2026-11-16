@@ -1,0 +1,54 @@
+/* Arox Fitness — color tokens.
+   Monochrome athletic palette: near-black ink on light grey (#f0f0f0 is the
+   shop's declared theme color), white product cards, red reserved for sale. */
+:root {
+  /* Base scales */
+  --black: #0a0a0a;
+  --ink-900: #111111;
+  --ink-700: #3a3a3a;
+  --ink-500: #6e6e6e;
+  --ink-300: #9b9b9b;
+  --grey-200: #e4e4e4;
+  --grey-100: #f0f0f0;
+  --grey-50: #f7f7f7;
+  --white: #ffffff;
+
+  /* Brand accents (used sparingly) */
+  --red-600: #c8232c;   /* sale / udsalg */
+  --red-700: #a81c24;
+  --navy-700: #1f2a3d;  /* product colorway navy, imagery tone */
+  --volt-400: #d6e34a;  /* grips strap accent — decorative only */
+
+  /* Semantic — surfaces */
+  --bg-page: var(--grey-100);
+  --bg-inverse: var(--black);
+  --surface-card: var(--white);
+  --surface-sunken: var(--grey-50);
+  --line: var(--grey-200);
+  --line-strong: var(--ink-900);
+
+  /* Semantic — text */
+  --text-heading: var(--ink-900);
+  --text-body: var(--ink-700);
+  --text-muted: var(--ink-500);
+  --text-inverse: var(--white);
+  --text-price: var(--ink-900);
+  --text-sale: var(--red-600);
+  --text-compare: var(--ink-500); /* struck-through Normalpris */
+
+  /* Semantic — interactive */
+  --btn-primary-bg: var(--ink-900);
+  --btn-primary-fg: var(--white);
+  --btn-primary-bg-hover: #2b2b2b;
+  --btn-secondary-fg: var(--ink-900);
+  --btn-secondary-border: var(--ink-900);
+  --focus-ring: 0 0 0 2px var(--white), 0 0 0 4px var(--ink-900);
+
+  /* Semantic — badges */
+  --badge-default-bg: var(--ink-900);
+  --badge-default-fg: var(--white);
+  --badge-sale-bg: var(--red-600);
+  --badge-sale-fg: var(--white);
+  --badge-soft-bg: var(--white);
+  --badge-soft-fg: var(--ink-900);
+}

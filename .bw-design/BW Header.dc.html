@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="_ds/arox-fitness-design-system-84b1f47b-d8b1-4d6f-a27a-eda04f8a6336/tokens/fonts.css">
+  <link rel="stylesheet" href="_ds/arox-fitness-design-system-84b1f47b-d8b1-4d6f-a27a-eda04f8a6336/tokens/colors.css">
+  <link rel="stylesheet" href="_ds/arox-fitness-design-system-84b1f47b-d8b1-4d6f-a27a-eda04f8a6336/tokens/typography.css">
+  <link rel="stylesheet" href="_ds/arox-fitness-design-system-84b1f47b-d8b1-4d6f-a27a-eda04f8a6336/tokens/spacing.css">
+  <link rel="stylesheet" href="_ds/arox-fitness-design-system-84b1f47b-d8b1-4d6f-a27a-eda04f8a6336/tokens/base.css">
+  <link rel="stylesheet" href="_ds/arox-fitness-design-system-84b1f47b-d8b1-4d6f-a27a-eda04f8a6336/styles.css">
+  <script src="_ds/arox-fitness-design-system-84b1f47b-d8b1-4d6f-a27a-eda04f8a6336/_ds_bundle.js"></script>
+</helmet>
+<div style="font-family:var(--font-sans);width:100%">
+  <div style="background:#0a0a0a;color:#fff;font-size:13px;font-weight:600;line-height:1.35;padding:9px 16px;text-align:center;letter-spacing:.02em;border-bottom:1px solid #2b2b2b">{{ ann }}</div>
+  <x-import component-from-global-scope="AroxFitnessDesignSystem_84b1f4.AnnouncementBar" items="{{ ticker }}" style="{{ tickerStyle }}" hint-size="100%,36px"></x-import>
+  <sc-if value="{{ isM }}" hint-placeholder-val="{{ true }}">
+    <div style="background:#fff;border-bottom:1px solid #e4e4e4;height:56px;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;padding:0 12px">
+      <div style="display:flex;align-items:center;height:44px"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="1.5" stroke-linecap="round"><line x1="4" y1="6" x2="20" y2="6"></line><line x1="4" y1="12" x2="20" y2="12"></line><line x1="4" y1="18" x2="20" y2="18"></line></svg></div>
+      <img src="uploads/shopify_logo_Arox_Black.png" alt="Arox Fitness" style="height:18px;display:block">
+      <div style="display:flex;justify-content:flex-end;gap:14px;align-items:center;height:44px">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="1.5" stroke-linecap="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+      </div>
+    </div>
+  </sc-if>
+  <sc-if value="{{ isD }}" hint-placeholder-val="{{ false }}">
+    <div style="background:#fff;border-bottom:1px solid #e4e4e4">
+      <div style="max-width:1280px;margin:0 auto;padding:0 24px;height:68px;display:grid;grid-template-columns:1fr auto 1fr;align-items:center">
+        <nav style="display:flex;gap:28px;align-items:center">
+          <div style="display:flex;align-items:center;gap:6px;font-size:15px;font-weight:500">Træningsudstyr<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="1.5"><polyline points="6 9 12 15 18 9"></polyline></svg></div>
+          <div style="display:flex;align-items:center;gap:6px;font-size:15px;font-weight:500">Træningstøj<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="1.5"><polyline points="6 9 12 15 18 9"></polyline></svg></div>
+          <div style="font-size:15px;font-weight:700;color:#c8232c">UDSALG</div>
+        </nav>
+        <img src="uploads/shopify_logo_Arox_Black.png" alt="Arox Fitness" style="height:22px;display:block">
+        <div style="display:flex;justify-content:flex-end;gap:18px;align-items:center">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="1.5" stroke-linecap="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+        </div>
+      </div>
+    </div>
+  </sc-if>
+  <div style="background:#0a0a0a">
+    <div style="max-width:1280px;margin:0 auto;display:flex;gap:8px;overflow-x:auto;padding:8px 16px;align-items:center">
+      <sc-if value="{{ isD }}" hint-placeholder-val="{{ false }}"><div style="flex:none;color:#9b9b9b;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin-right:8px">Black Week 20.11–30.11</div></sc-if>
+      <sc-for list="{{ chips }}" as="c" hint-placeholder-count="5">
+        <sc-if value="{{ c.on }}" hint-placeholder-val="{{ false }}"><a href="{{ c.href }}" style="flex:none;display:inline-flex;align-items:center;height:40px;padding:0 16px;border-radius:999px;background:#fff;color:#0a0a0a;font-size:12px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;white-space:nowrap">{{ c.label }}</a></sc-if>
+        <sc-if value="{{ c.off }}" hint-placeholder-val="{{ true }}"><a href="{{ c.href }}" style="flex:none;display:inline-flex;align-items:center;height:40px;padding:0 16px;border-radius:999px;border:1px solid rgba(255,255,255,.4);color:#fff;font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;white-space:nowrap">{{ c.label }}</a></sc-if>
+      </sc-for>
+    </div>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:&quot;390px&quot;,&quot;height&quot;:&quot;180px&quot;},&quot;m&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;},&quot;ann&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;BLACK WEEK 20.11–30.11 · Single offers, 3 for 2 og 4 for 2 på udvalgte varer&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;active&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;&quot;,&quot;single&quot;,&quot;3for2&quot;,&quot;4for2&quot;,&quot;gaver&quot;,&quot;faq&quot;],&quot;default&quot;:&quot;&quot;,&quot;tsType&quot;:&quot;string&quot;}}">
+class Component extends DCLogic {
+  renderVals() {
+    const m = this.props.m ?? true;
+    const a = this.props.active ?? '';
+    const defs = [
+      ['single', 'Single offers', '/collections/black-week-limited'],
+      ['3for2', '3 for 2', '/collections/black-week-3for2'],
+      ['4for2', '4 for 2', '/collections/black-week-4for2'],
+      ['gaver', 'Gaver', '/pages/black-week-gaver'],
+      ['faq', 'FAQ', '/pages/black-week-vilkaar'],
+    ];
+    return {
+      ann: this.props.ann ?? 'BLACK WEEK 20.11–30.11 · Single offers, 3 for 2 og 4 for 2 på udvalgte varer',
+      isM: m, isD: !m,
+      ticker: ['1-3 dages levering med GLS', 'Over 30.000 glade kunder', 'Fri fragt over 499 kr.'],
+      tickerStyle: { background: '#111' },
+      chips: defs.map(([k, label, href]) => ({ label, href, on: k === a, off: k !== a })),
+    };
+  }
+}
+</script>
+</body>
+</html>

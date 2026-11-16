@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="_ds/arox-fitness-design-system-84b1f47b-d8b1-4d6f-a27a-eda04f8a6336/tokens/fonts.css">
+  <link rel="stylesheet" href="_ds/arox-fitness-design-system-84b1f47b-d8b1-4d6f-a27a-eda04f8a6336/tokens/colors.css">
+  <link rel="stylesheet" href="_ds/arox-fitness-design-system-84b1f47b-d8b1-4d6f-a27a-eda04f8a6336/tokens/typography.css">
+  <link rel="stylesheet" href="_ds/arox-fitness-design-system-84b1f47b-d8b1-4d6f-a27a-eda04f8a6336/tokens/spacing.css">
+  <link rel="stylesheet" href="_ds/arox-fitness-design-system-84b1f47b-d8b1-4d6f-a27a-eda04f8a6336/tokens/base.css">
+  <link rel="stylesheet" href="_ds/arox-fitness-design-system-84b1f47b-d8b1-4d6f-a27a-eda04f8a6336/styles.css">
+  <script src="_ds/arox-fitness-design-system-84b1f47b-d8b1-4d6f-a27a-eda04f8a6336/_ds_bundle.js"></script>
+</helmet>
+<div style="font-family:var(--font-sans);width:100%">
+  <div style="background:#fff;border-top:1px solid #e4e4e4">
+    <sc-if value="{{ isD }}" hint-placeholder-val="{{ false }}">
+      <div style="max-width:1280px;margin:0 auto;padding:48px 24px">
+        <x-import component-from-global-scope="AroxFitnessDesignSystem_84b1f4.UspRow" items="{{ usps }}" hint-size="100%,110px"></x-import>
+      </div>
+    </sc-if>
+    <sc-if value="{{ isM }}" hint-placeholder-val="{{ true }}">
+      <div style="padding:32px 20px;display:grid;gap:20px">
+        <sc-for list="{{ usps }}" as="u" hint-placeholder-count="3">
+          <div style="display:grid;gap:2px;text-align:center">
+            <div style="font-size:15px;font-weight:700">{{ u.title }}</div>
+            <div style="font-size:13px;color:#3a3a3a">{{ u.body }}</div>
+          </div>
+        </sc-for>
+      </div>
+    </sc-if>
+  </div>
+  <div style="background:#111;color:#fff;border-bottom:1px solid #2b2b2b">
+    <div style="max-width:1280px;margin:0 auto;padding:28px 24px;display:flex;flex-wrap:wrap;gap:16px 32px;align-items:center;justify-content:space-between">
+      <div style="display:grid;gap:4px;flex:1 1 300px">
+        <div style="font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#9b9b9b">Black Week 20.11–30.11.2026</div>
+        <div style="font-size:22px;font-weight:900;text-transform:uppercase;line-height:1.05">Slutter mandag 30.11. Kl. 23:59.</div>
+      </div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <x-import component-from-global-scope="AroxFitnessDesignSystem_84b1f4.Button" variant="inverse" size="sm" href="/collections/black-week-limited" hint-size="auto,36px">Se single offers</x-import>
+        <x-import component-from-global-scope="AroxFitnessDesignSystem_84b1f4.Button" variant="secondary" size="sm" href="/collections/black-week-3for2" style="{{ outlineW }}" hint-size="auto,36px">Shop 3 for 2</x-import>
+        <x-import component-from-global-scope="AroxFitnessDesignSystem_84b1f4.Button" variant="secondary" size="sm" href="/collections/black-week-4for2" style="{{ outlineW }}" hint-size="auto,36px">Shop 4 for 2</x-import>
+      </div>
+    </div>
+  </div>
+  <sc-if value="{{ isD }}" hint-placeholder-val="{{ false }}">
+    <x-import component-from-global-scope="AroxFitnessDesignSystem_84b1f4.SiteFooter" logo-src="uploads/drive_brand_arox-r-white.png" menu-links="{{ links }}" hint-size="100%,340px"></x-import>
+  </sc-if>
+  <sc-if value="{{ isM }}" hint-placeholder-val="{{ true }}">
+    <div style="background:#0a0a0a;color:#fff;padding:40px 20px 24px;display:grid;gap:28px">
+      <div style="display:grid;gap:10px">
+        <img src="uploads/drive_brand_arox-r-white.png" alt="Arox Fitness" style="height:22px;width:auto;display:block;justify-self:start">
+        <div style="font-size:15px;font-weight:600;margin-top:12px">Tilmeld dig VIP nyhedsbrevet</div>
+        <div style="font-size:13px;color:#9b9b9b;line-height:1.5">Modtag rabatkoder, fri fragt kampagner, eksklusive tilbud og meget mere</div>
+        <div style="display:flex;gap:8px;margin-top:6px">
+          <input placeholder="E-mail" style="flex:1;min-width:0;height:44px;padding:0 16px;border-radius:999px;border:1px solid rgba(255,255,255,.35);background:transparent;color:#fff;font-family:inherit;font-size:13px;outline:none">
+          <x-import component-from-global-scope="AroxFitnessDesignSystem_84b1f4.Button" variant="inverse" hint-size="auto,44px">Abonnér</x-import>
+        </div>
+      </div>
+      <div style="display:grid;gap:10px">
+        <div style="font-size:13px;font-weight:600;letter-spacing:.5em;text-transform:uppercase">Menu</div>
+        <sc-for list="{{ links }}" as="l" hint-placeholder-count="8"><a href="#" style="color:#e4e4e4;font-size:13px;text-decoration:none">{{ l }}</a></sc-for>
+      </div>
+      <div style="display:grid;gap:8px;font-size:13px">
+        <div style="font-size:13px;font-weight:600;letter-spacing:.5em;text-transform:uppercase;margin-bottom:2px">Kundeservice</div>
+        <div><strong>Email:</strong> <span style="color:#e4e4e4">support@aroxfitness.com</span></div>
+        <div><strong>Telefon:</strong> <span style="color:#e4e4e4">+45 21 71 62 75</span></div>
+        <div style="color:#e4e4e4">Hverdage 10:00–13:00</div>
+      </div>
+      <div style="font-size:11px;color:#9b9b9b">© 2026, Arox Fitness Denmark</div>
+    </div>
+  </sc-if>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:&quot;390px&quot;,&quot;height&quot;:&quot;900px&quot;},&quot;m&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;}}">
+class Component extends DCLogic {
+  renderVals() {
+    const m = this.props.m ?? true;
+    return {
+      isM: m, isD: !m,
+      outlineW: { color: '#fff', borderColor: '#fff' },
+      usps: [
+        { icon: 'truck', title: 'Fri fragt over 499 kr.', body: 'Vi leverer med GLS hos Arox Fitness' },
+        { icon: 'mapPin', title: 'Over 50 danske forhandlere', body: 'Find en butik nær dig' },
+        { icon: 'chat', title: 'Ring ind mellem 10:00–13:00', body: 'Direkte på telf: 21716275' },
+      ],
+      links: ['Tryk af logo på tøj?', 'Bliv B2B forhandler', 'Find en butik nær dig', 'Ofte Stillede Spørgsmål', 'Handelsbetingelser', 'BLOG', 'Returportal', 'Fortryd ordre'],
+    };
+  }
+}
+</script>
+</body>
+</html>
