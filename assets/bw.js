@@ -116,6 +116,52 @@
   }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', openDescription); else openDescription();
 
+  /* Size guide apps (Kiwi "Størrelsesguide") insert their link next to the add-to-cart button after load, which
+     pushed "Læg i kurv" off the quantity row. Move such elements into a slot right under the size picker, also when
+     they are inserted again after a variant change. */
+  function initPdpExtras() {
+    var info = document.querySelector('.shopify-section--main-product .product-info');
+    if (!info || info.__bwExtras) return;
+    info.__bwExtras = true;
+    var native = /^(FORM|BUY-BUTTONS|INPUT|SCRIPT|STYLE|TEMPLATE|NOSCRIPT|LABEL|QUANTITY-SELECTOR|BUTTON)$/;
+    function slot() {
+      var s = info.querySelector(':scope > .bw-pdp-extra');
+      if (!s) {
+        s = document.createElement('div');
+        s.className = 'bw-pdp-extra';
+        var vp = info.querySelector(':scope > [data-block-type="variant-picker"]');
+        if (vp) vp.after(s); else info.prepend(s);
+      }
+      return s;
+    }
+    function isForeign(el) {
+      var id = (el.id || '') + ' ' + (typeof el.className === 'string' ? el.className : '');
+      return /kiwi|(^|\s)ks-|size-?chart|sizing/i.test(id) || (/størrelsesguide|size ?guide/i.test(el.textContent || '') && !el.querySelector('form, buy-buttons'));
+    }
+    function sweep() {
+      var hosts = info.querySelectorAll(':scope > [data-block-type="buy-buttons"], :scope > [data-block-type="quantity-selector"]');
+      hosts.forEach(function (host) {
+        host.querySelectorAll('*').forEach(function (el) {
+          if (native.test(el.tagName) || !el.isConnected || !host.contains(el)) return;
+          if (el.closest('form buy-buttons, .shopify-payment-button, quantity-selector')) return;
+          if (isForeign(el)) slot().appendChild(el);
+        });
+      });
+      Array.prototype.forEach.call(info.children, function (el) {
+        if (el.hasAttribute('data-block-type') || el.classList.contains('bw-pdp-extra') || el.classList.contains('product-info__block-group')) return;
+        if (isForeign(el)) slot().appendChild(el);
+      });
+    }
+    var queued = false;
+    new MutationObserver(function () {
+      if (queued) return;
+      queued = true;
+      requestAnimationFrame(function () { queued = false; sweep(); });
+    }).observe(info, { childList: true, subtree: true });
+    sweep();
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', initPdpExtras); else initPdpExtras();
+
   /* ---------- Collection filter + sort bar [data-bw-filters] (snippet bw-coll-toolbar) ----------
      A plain GET form: a ticked value or a new sort order submits it at once; price fields submit with "Vis varer".
      Empty fields are left out of the URL. Only one dropdown is open at a time; a click outside closes it. */

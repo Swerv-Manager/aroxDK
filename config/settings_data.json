@@ -91,7 +91,7 @@
       },
       "7698122941617543805": {
         "type": "shopify://apps/na-side-cart/blocks/side-cart/0e3f5d04-2a58-4b48-9557-7e4bfd02bf87",
-        "disabled": false,
+        "disabled": true,
         "settings": {}
       },
       "11724500921838622758": {
