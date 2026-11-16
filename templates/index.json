@@ -20,7 +20,8 @@
         "background": "",
         "background_gradient": "",
         "text_color": ""
-      }
+      },
+      "disabled": true
     },
     "ss_hero_26_NcaBDk": {
       "type": "ss-hero-26",
@@ -726,7 +727,8 @@
         "heading_gradient": "",
         "product_card_background": "",
         "product_card_text_color": ""
-      }
+      },
+      "disabled": true
     },
     "featured_collection_T6XnhH": {
       "type": "featured-collection",
@@ -751,7 +753,8 @@
         "heading_gradient": "",
         "product_card_background": "",
         "product_card_text_color": ""
-      }
+      },
+      "disabled": true
     },
     "featured_collection_Ewz9xE": {
       "type": "featured-collection",
@@ -783,7 +786,8 @@
         "heading_gradient": "",
         "product_card_background": "",
         "product_card_text_color": ""
-      }
+      },
+      "disabled": true
     },
     "featured_collection_kVMkYB": {
       "type": "featured-collection",
@@ -808,7 +812,8 @@
         "heading_gradient": "",
         "product_card_background": "",
         "product_card_text_color": ""
-      }
+      },
+      "disabled": true
     },
     "173479793484726472": {
       "type": "apps",
@@ -845,7 +850,8 @@
         "background": "",
         "background_gradient": "",
         "text_color": ""
-      }
+      },
+      "disabled": true
     }
   },
   "order": [
