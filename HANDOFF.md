@@ -79,6 +79,16 @@ The separate per-phase announcement bar stays hidden (user decision): pages show
   (3) Loox reviews section under related products: dark section, Loox widget in a white rounded card (Loox draws its
   own colours; a fully dark widget needs the colours changed in the Loox admin).
 
+- 16.11 (round 3): quick add on Black Week cards in collection grids (`<bw-quick-add>`: one variant → straight in the
+  cart, otherwise a variant picker on the card; drawer opens). Free gifts: cart drawer outputs `[data-bw-gifts]`;
+  bw.js adds the 799 gift (Hydration Bottle) as its own line with property `_bw_gift=g2`, the 1299 gift (Strømper
+  3-pak, 8 variants) via a picker in the drawer (`g3`), removes gifts below the tier, and removes a gift again if it is
+  not free (no discount) — so nothing is charged while the discounts are missing. Presale form: foreign 40/48 px form
+  padding removed, button text centred. Landing hero: text column fixed at 512 px (overflowed above 1440).
+- Discounts: on 16.11 there are NO active automatic discounts for 3 for 2, 4 for 2 or the gifts, so the cart shows
+  no "3 FOR 2 – rabat trukket automatisk" line and gifts are taken out again. They must be created in Shopify admin
+  (automatic Buy X get Y; see the session report for the proposed set-up).
+
 ## Fast workflow (needs network access to aroxfitness.myshopify.com and aroxfitness.dk)
 
 The environment's network policy now allows the store (added 16.11); `cdn.shopify.com` is still blocked, which only
