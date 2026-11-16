@@ -1,0 +1,38 @@
+{%- comment -%}
+BLACK WEEK 2026 · boards 04–06 · product grid of the offer collection pages, ported from the design's
+"Med i 3 for 2" block: Black Week product cards (white, title + price + swatches), 4 per row on desktop and 2 on
+mobile, 16 px gap, no filter sidebar. Replaces Impact's main-collection on the Black Week collection templates
+(main-collection is disabled there, not deleted). Only products that are available for sale are shown.
+{%- endcomment -%}
+{%- assign s = section.settings -%}
+<div class="bw bw-cg{% render 'bw-only', phases: s.phases %}" style="container-type:inline-size;padding:{{ s.pad_top }}px var(--bw-gutter) {{ s.pad_bottom }}px">
+  {%- if s.heading != blank -%}
+    <h2 style="margin:0 0 24px;font-size:clamp(24px,2.6vw,36px);font-weight:900;text-transform:uppercase;letter-spacing:-.005em;line-height:1">{{ s.heading }}</h2>
+  {%- endif -%}
+  {%- paginate collection.products by 48 -%}
+    {%- render 'bw-product-grid', products: collection.products, limit: 48, badge: s.badge -%}
+    {%- if paginate.pages > 1 -%}
+      <nav style="display:flex;gap:16px;justify-content:center;align-items:center;padding-top:32px;font-size:15px;font-weight:700" aria-label="Sider">
+        {%- if paginate.previous -%}<a href="{{ paginate.previous.url }}" style="color:#fff;text-decoration:underline;text-underline-offset:4px">Forrige</a>{%- endif -%}
+        <span style="color:#c9c9c9">Side {{ paginate.current_page }} af {{ paginate.pages }}</span>
+        {%- if paginate.next -%}<a href="{{ paginate.next.url }}" style="color:#fff;text-decoration:underline;text-underline-offset:4px">Næste</a>{%- endif -%}
+      </nav>
+    {%- endif -%}
+  {%- endpaginate -%}
+</div>
+
+{% schema %}
+{
+  "name": "BW · Kollektionsgrid",
+  "class": "bw-section",
+  "settings": [
+    { "type": "paragraph", "content": "Viser kollektionens varer som Black Week-produktkort (kun varer der kan købes)." },
+    { "type": "text", "id": "phases", "label": "Vis kun i faser", "info": "pre, early, live, sidste · tom = altid" },
+    { "type": "text", "id": "heading", "label": "Overskrift" },
+    { "type": "text", "id": "badge", "label": "Badge på alle kort", "info": "Tom = tilbuddet fra Black Week-kollektionen" },
+    { "type": "range", "id": "pad_top", "label": "Afstand top", "min": 0, "max": 80, "step": 4, "unit": "px", "default": 24 },
+    { "type": "range", "id": "pad_bottom", "label": "Afstand bund", "min": 0, "max": 80, "step": 4, "unit": "px", "default": 24 }
+  ],
+  "presets": [ { "name": "BW · Kollektionsgrid" } ]
+}
+{% endschema %}

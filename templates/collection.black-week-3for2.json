@@ -63,9 +63,9 @@
         "todo": "Vælg [n] mere – få den billigste gratis",
         "done": "Rabatten trækkes automatisk i kurven.",
         "note": "Den billigste af de 3 produkter er gratis. Rabatten trækkes automatisk i kurven.",
-        "heading": "",
-        "line": "",
-        "link_label": "",
+        "heading": "Med i 3 for 2",
+        "line": "Vælg 3 produkter blandt alle på denne side, og den billigste er gratis.",
+        "link_label": "Se alle",
         "pad_top": 20,
         "pad_bottom": 0
       }
@@ -82,7 +82,8 @@
         "show_filter_group_name": false,
         "show_filter_values_count": true,
         "open_first_filter_group": false
-      }
+      },
+      "disabled": true
     },
     "bw_note": {
       "type": "bw-offer-note",
@@ -160,12 +161,23 @@
         "button_url": "shopify://pages/black-week-gaver",
         "line_top": false
       }
+    },
+    "bw_grid": {
+      "type": "bw-collection-grid",
+      "settings": {
+        "phases": "",
+        "heading": "",
+        "badge": "",
+        "pad_top": 24,
+        "pad_bottom": 24
+      }
     }
   },
   "order": [
     "bw_header",
     "bw_progress",
     "main",
+    "bw_grid",
     "bw_note",
     "bw_steps",
     "bw_hero",

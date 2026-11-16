@@ -99,7 +99,8 @@
         "show_filter_group_name": false,
         "show_filter_values_count": true,
         "open_first_filter_group": false
-      }
+      },
+      "disabled": true
     },
     "bw_note": {
       "type": "bw-offer-note",
@@ -148,6 +149,16 @@
         "text": "Helsorte udgaver af anti slip grips, fusion grips, Elite-bæltet og speedrope elite – plus udvalgte favoritter til fast Black Week-pris. Limited findes kun i Black Week.",
         "button_label": ""
       }
+    },
+    "bw_grid": {
+      "type": "bw-collection-grid",
+      "settings": {
+        "phases": "",
+        "heading": "",
+        "badge": "",
+        "pad_top": 24,
+        "pad_bottom": 24
+      }
     }
   },
   "order": [
@@ -156,6 +167,7 @@
     "bw_group_fav",
     "bw_group_tape",
     "main",
+    "bw_grid",
     "bw_note",
     "bw_hero"
   ]
