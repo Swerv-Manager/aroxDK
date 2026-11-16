@@ -85,15 +85,22 @@ The separate per-phase announcement bar stays hidden (user decision): pages show
   3-pak, 8 variants) via a picker in the drawer (`g3`), removes gifts below the tier, and removes a gift again if it is
   not free (no discount) — so nothing is charged while the discounts are missing. Presale form: foreign 40/48 px form
   padding removed, button text centred. Landing hero: text column fixed at 512 px (overflowed above 1440).
-- Discounts (created 16.11 on the client's go, tag `black-week-2026`, all combine with product + shipping discounts,
-  not with order discounts):
-  automatic Buy X get Y, 20.11 12:00 → 30.11 23:59 CET (live store, all visitors):
-  "3 for 2 · Black Week" (buy 2 from black-week-3for2, 1 more free; the title "3 for 2" was taken by an expired
-  discount, the cart shows the part before " · "), "4 for 2" (buy 2, 2 more free, black-week-4for2),
-  "Gratis Hydration Bottle" (min. 799 kr. from "Alle produkter minus workshops" → bottle 100 %, 1 per order),
-  "Gratis 3-pak strømper" (min. 1299 kr. → Strømper 3-pak 100 %, 1 per order).
-  Private test codes with the same rules, active now → 20.11 11:59, 20 uses each (tag `test`, delete after testing):
-  BWTEST3FOR2, BWTEST4FOR2, BWTESTGAVE799, BWTESTGAVE1299. Apply via /discount/CODE (or cart/update.js discount).
+- Discounts (created 16.11 on the client's go, tag `black-week-2026`, combine with product + shipping discounts, not
+  with order discounts): automatic Buy X get Y, 20.11 12:00 → 30.11 23:59 CET (live store, all visitors):
+  "3 for 2 · Black Week" (buy 2 from black-week-3for2, 1 more free; "3 for 2" was taken by an expired discount, the
+  cart shows the title up to " · ") and "4 for 2" (buy 2, 2 more free, black-week-4for2). Private test codes, active
+  now → 20.11 11:59, 20 uses each (tags `black-week-2026`, `test`; delete after testing): BWTEST3FOR2, BWTEST4FOR2.
+  Apply via /discount/CODE. Tested: 3 for 2, 4 for 2 and both together work.
+- Free gifts (16.11): Shopify does not let Buy X get Y gifts combine with 3 for 2 / 4 for 2 or with each other
+  (items used for one discount don't count for the next), so on the client's choice the gifts are two hidden 0 kr.
+  products: "AROX Hydration Bottle 1000 ml (gave)" (`bw-gave-hydration-bottle`) and "Strømper 3-pak (gave)"
+  (`bw-gave-stromper-3-pak`, 8 variants). Tag `bw-gave`, product type Gave, same SKUs as the real items, inventory not
+  tracked, seo.hidden = 1, published to Webshop only, not in any collection. The theme adds/removes them (bw.js
+  syncGifts, recognises them by property or product id) and never lists bw-gave products. The two gift BXGY discounts
+  and gift test codes were deleted. Check with the warehouse (Peak WMS) that orders with these SKUs are picked as the
+  real items and that stock is handled. A technically skilled visitor could add a 0 kr. gift outside the theme (e.g.
+  a cart permalink); the theme removes it on the next cart view below the tier, checkout does not.
+  Tested end to end: 3 for 2 + bottle at 1247 kr., socks picked at 1746 kr., both removed below 799.
 
 ## Fast workflow (needs network access to aroxfitness.myshopify.com and aroxfitness.dk)
 
