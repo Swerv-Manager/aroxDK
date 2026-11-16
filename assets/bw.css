@@ -360,8 +360,7 @@ body:has(.shopify-section--main-product) { background: #0a0a0a; }
 .shopify-section--main-product .sizebox .sizeinfo { font-size: 12px; color: #c9c9c9; }
 /* Loox reviews (app section under related products): Loox draws the widget in its own colours, so it sits in a white
    rounded card on the dark page, like the Black Week product cards. */
-body:has(.shopify-section--main-product) .shopify-section--apps #looxReviews { background: #fff; color: #111; border-radius: 12px; padding: 24px 20px; box-sizing: border-box; max-width: 1080px !important; margin: 0 max(20px, calc((100% - 1080px) / 2)) !important; }
-@media (min-width: 1120px) { body:has(.shopify-section--main-product) .shopify-section--apps #looxReviews { margin: 0 auto !important; } }
+body:has(.shopify-section--main-product) .shopify-section--apps #looxReviews { background: #fff; color: #111; border-radius: 12px; padding: 24px 20px; box-sizing: border-box; max-width: 1080px !important; margin: 0 auto !important; }
 /* Kiwi "Størrelsesguide" is moved here by bw.js (it would otherwise push "Læg i kurv" onto a new line) */
 .shopify-section--main-product .bw-pdp-extra:empty { display: none; }
 .shopify-section--main-product .bw-pdp-extra { font-size: 13px; }
