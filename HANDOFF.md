@@ -72,6 +72,13 @@ The separate per-phase announcement bar stays hidden (user decision): pages show
   environment, so they were not visible in the checks; the Loox section below related products keeps its own
   (white) background.
 
+- Fixes 16.11 after the client's check in a real browser: (1) the "na-side-cart" app embed (green side cart with
+  upsells and "Vælg et godt formål") took over the cart in real browsers; it is switched off in this work theme
+  (config/settings_data.json, App embeds), so the Black Week drawer with the 3-step bar shows. The live theme keeps
+  the app. (2) Kiwi "Størrelsesguide" pushed "Læg i kurv" onto a new line; bw.js moves it under the size picker.
+  (3) Loox reviews section under related products: dark section, Loox widget in a white rounded card (Loox draws its
+  own colours; a fully dark widget needs the colours changed in the Loox admin).
+
 ## Fast workflow (needs network access to aroxfitness.myshopify.com and aroxfitness.dk)
 
 The environment's network policy now allows the store (added 16.11); `cdn.shopify.com` is still blocked, which only
