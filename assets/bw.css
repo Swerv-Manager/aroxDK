@@ -29,6 +29,8 @@ html.bw-ended .bw-hide-ended { display: none !important; }
   --bw-gutter: max(20px, calc((100% - 1312px) / 2));
   --bw-pad-y: 48px;
   font-family: var(--bw-font);
+  line-height: normal;
+  letter-spacing: normal;
   -webkit-font-smoothing: antialiased;
   background: var(--bw-black);
   color: #fff;
