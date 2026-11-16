@@ -49,7 +49,7 @@
         "crumb_parent_url": "shopify://pages/black-week",
         "badge": "Black Week",
         "title": "3 for 2",
-        "line": "Vælg 3 produkter blandt alle på denne side, og den billigste er gratis.",
+        "line": "",
         "padding_bottom": 0,
         "dark_page": true
       }
