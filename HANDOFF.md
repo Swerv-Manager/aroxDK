@@ -85,9 +85,15 @@ The separate per-phase announcement bar stays hidden (user decision): pages show
   3-pak, 8 variants) via a picker in the drawer (`g3`), removes gifts below the tier, and removes a gift again if it is
   not free (no discount) — so nothing is charged while the discounts are missing. Presale form: foreign 40/48 px form
   padding removed, button text centred. Landing hero: text column fixed at 512 px (overflowed above 1440).
-- Discounts: on 16.11 there are NO active automatic discounts for 3 for 2, 4 for 2 or the gifts, so the cart shows
-  no "3 FOR 2 – rabat trukket automatisk" line and gifts are taken out again. They must be created in Shopify admin
-  (automatic Buy X get Y; see the session report for the proposed set-up).
+- Discounts (created 16.11 on the client's go, tag `black-week-2026`, all combine with product + shipping discounts,
+  not with order discounts):
+  automatic Buy X get Y, 20.11 12:00 → 30.11 23:59 CET (live store, all visitors):
+  "3 for 2 · Black Week" (buy 2 from black-week-3for2, 1 more free; the title "3 for 2" was taken by an expired
+  discount, the cart shows the part before " · "), "4 for 2" (buy 2, 2 more free, black-week-4for2),
+  "Gratis Hydration Bottle" (min. 799 kr. from "Alle produkter minus workshops" → bottle 100 %, 1 per order),
+  "Gratis 3-pak strømper" (min. 1299 kr. → Strømper 3-pak 100 %, 1 per order).
+  Private test codes with the same rules, active now → 20.11 11:59, 20 uses each (tag `test`, delete after testing):
+  BWTEST3FOR2, BWTEST4FOR2, BWTESTGAVE799, BWTESTGAVE1299. Apply via /discount/CODE (or cart/update.js discount).
 
 ## Fast workflow (needs network access to aroxfitness.myshopify.com and aroxfitness.dk)
 
