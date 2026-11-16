@@ -1,10 +1,12 @@
-{%- comment -%}BLACK WEEK 2026 · Rødt tilbudsbånd (02 Forside){%- endcomment -%}
-<div class="bw{% render 'bw-only', phases: section.settings.phases %}">
-  <div class="bw-band">
-    {%- for block in section.blocks -%}
-      {%- unless forloop.first -%}<span aria-hidden="true">∙</span>{%- endunless -%}
-      <span {{ block.shopify_attributes }}>{{ block.settings.text }}</span>
-    {%- endfor -%}
+{%- comment -%}BLACK WEEK 2026 · Rødt tilbudsbånd, ported 1:1 from the design. Items separated by "|".{%- endcomment -%}
+{%- liquid
+  assign s = section.settings
+  assign G = 'max(clamp(20px,calc((100cqw - 767px)*1000),64px),calc((100cqw - 1312px)/2))'
+  assign items = s.items | split: '|'
+-%}
+<div class="bw{% render 'bw-only', phases: s.phases %}" style="container-type:inline-size">
+  <div style="background:#c8232c;color:#fff;padding:14px {{ G }};display:flex;flex-wrap:wrap;gap:6px 22px;align-items:center;justify-content:center;font-size:13px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;text-align:center">
+    {%- for it in items -%}{%- unless forloop.first -%}<span>∙</span>{%- endunless -%}<span>{{ it | strip }}</span>{%- endfor -%}
   </div>
 </div>
 
@@ -14,21 +16,9 @@
   "tag": "section",
   "class": "bw-section",
   "settings": [
-    { "type": "text", "id": "phases", "label": "Vis kun i faser", "info": "pre, early, live, sidste · tom = altid" }
+    { "type": "text", "id": "phases", "label": "Vis kun i faser", "info": "pre, early, live, sidste · tom = altid" },
+    { "type": "text", "id": "items", "label": "Tekster", "info": "Adskil med |", "default": "Limited edition|3 for 2|4 for 2|Rabatten trækkes automatisk i kurven" }
   ],
-  "blocks": [
-    { "type": "item", "name": "Tekst", "settings": [ { "type": "text", "id": "text", "label": "Tekst", "default": "3 for 2" } ] }
-  ],
-  "presets": [
-    {
-      "name": "BW · Tilbudsbånd",
-      "blocks": [
-        { "type": "item", "settings": { "text": "Limited edition" } },
-        { "type": "item", "settings": { "text": "3 for 2" } },
-        { "type": "item", "settings": { "text": "4 for 2" } },
-        { "type": "item", "settings": { "text": "Rabatten trækkes automatisk i kurven" } }
-      ]
-    }
-  ]
+  "presets": [ { "name": "BW · Tilbudsbånd" } ]
 }
 {% endschema %}

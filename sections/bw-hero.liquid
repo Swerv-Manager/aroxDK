@@ -1,116 +1,46 @@
 {%- comment -%}
-BLACK WEEK 2026 · Kampagne-hero (02 Forside) / Landingshero (03). Heading, lead and button can differ per phase:
-the "standard" texts are used in every phase that has no own text.
+BLACK WEEK 2026 · Kampagne-hero (board 02), ported 1:1 from the design markup.
+Headline and button change per phase: presale / tidlig adgang / live / sidste dag.
 {%- endcomment -%}
 {%- liquid
   assign s = section.settings
+  assign G = 'max(clamp(20px,calc((100cqw - 767px)*1000),64px),calc((100cqw - 1312px)/2))'
   assign phases_all = 'pre,early,live,sidste' | split: ','
 -%}
 <style>
-  #shopify-section-{{ section.id }} .bw-hero { position: relative; min-height: {{ s.min_height_mobile }}px; overflow: hidden; display: flex; align-items: flex-end; {% if s.align == 'right' %}justify-content: flex-end;{% endif %} }
-  @media (min-width: 768px) { #shopify-section-{{ section.id }} .bw-hero { min-height: clamp({{ s.min_height_mobile }}px, 54vw, {{ s.min_height }}px); } }
-  #shopify-section-{{ section.id }} .bw-hero__img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: {{ s.focal }}; }
-  #shopify-section-{{ section.id }} .bw-hero__ov1 { position: absolute; inset: 0; background: {% if s.overlay == 'right' %}linear-gradient(180deg,rgba(10,10,10,.25) 0%,rgba(10,10,10,.35) 40%,rgba(10,10,10,.9) 100%){% else %}linear-gradient(180deg,rgba(10,10,10,.85) 0%,rgba(10,10,10,.35) 30%,rgba(10,10,10,.45) 55%,rgba(10,10,10,.92) 100%){% endif %}; }
-  #shopify-section-{{ section.id }} .bw-hero__ov2 { position: absolute; inset: 0; background: {% if s.overlay == 'right' %}linear-gradient(90deg,rgba(10,10,10,0) 30%,rgba(10,10,10,.7) 100%){% else %}linear-gradient(90deg,rgba(10,10,10,.6) 0%,rgba(10,10,10,0) 65%){% endif %}; }
-  #shopify-section-{{ section.id }} .bw-hero__in { position: relative; width: 100%; padding: 32px var(--bw-gutter); display: grid; gap: 18px; grid-template-columns: minmax(0, 1fr); }
-  #shopify-section-{{ section.id }} .bw-hero__in--narrow { width: min(640px, 100%); }
-  @media (min-width: 768px) { #shopify-section-{{ section.id }} .bw-hero__in { padding-block: clamp(32px, 4.4vw, 72px); gap: clamp(18px, 1.8vw, 26px); } }
-  #shopify-section-{{ section.id }} .bw-hero__badges { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
-  #shopify-section-{{ section.id }} .bw-hero__date { font-size: clamp(16px, 1.5vw, 22px); font-weight: 900; letter-spacing: .06em; }
-  #shopify-section-{{ section.id }} .bw-hero__h1 { max-width: 1100px; }
-  #shopify-section-{{ section.id }} .bw-hero__h1--sm { font-size: clamp(42px, 6.6vw, 100px); letter-spacing: -.015em; line-height: .95; }
-  #shopify-section-{{ section.id }} .bw-hero__eyebrow { font-size: 12px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; }
-  #shopify-section-{{ section.id }} .bw-hero__offers { display: grid; gap: 12px; max-width: 980px; grid-template-columns: minmax(0, 1fr); }
-  @media (min-width: 768px) { #shopify-section-{{ section.id }} .bw-hero__offers { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
-  #shopify-section-{{ section.id }} .bw-offer { display: grid; gap: 6px; min-height: 44px; padding: 16px 18px; border: 1px solid rgba(255,255,255,.3); border-radius: 8px; background: rgba(10,10,10,.6); color: #fff; text-decoration: none; transition: border-color .15s ease-out, background-color .15s ease-out; }
-  #shopify-section-{{ section.id }} .bw-offer:hover { border-color: #fff; background-color: rgba(10,10,10,.82); }
-  #shopify-section-{{ section.id }} .bw-offer__h { display: flex; justify-content: space-between; align-items: center; gap: 12px; font-size: clamp(18px, 1.6vw, 24px); font-weight: 900; text-transform: uppercase; line-height: 1; }
-  #shopify-section-{{ section.id }} .bw-offer__d { font-size: 14px; line-height: 1.4; color: var(--bw-grey-200); }
-  #shopify-section-{{ section.id }} .bw-hero__cta { display: flex; gap: 14px 24px; align-items: center; flex-wrap: wrap; }
-  #shopify-section-{{ section.id }} .bw-hero__note { font-size: 14px; color: var(--bw-grey-200); }
+  #shopify-section-{{ section.id }} .bwhero-tile { border-color: rgba(255,255,255,.3); background-color: rgba(10,10,10,.6); }
+  #shopify-section-{{ section.id }} .bwhero-tile:hover { border-color: #fff; background-color: rgba(10,10,10,.82); opacity: 1; }
+  #shopify-section-{{ section.id }} a:hover { opacity: 1; }
 </style>
-
-<div class="bw{% render 'bw-only', phases: s.phases %}">
-  <div class="bw-hero">
+<div class="bw{% render 'bw-only', phases: s.phases %}" style="container-type:inline-size">
+  <div style="position:relative;min-height:clamp(660px,54cqw,800px);background:#0a0a0a;overflow:hidden;color:#fff;display:flex;align-items:flex-end">
     {%- if s.image != blank -%}
-      {%- if s.mobile_image != blank -%}
-        <picture>
-          <source media="(max-width: 767px)" srcset="{{ s.mobile_image | image_url: width: 800 }} 800w, {{ s.mobile_image | image_url: width: 1200 }} 1200w">
-          {{ s.image | image_url: width: 2400 | image_tag: class: 'bw-hero__img', loading: 'eager', fetchpriority: 'high', sizes: '100vw', widths: '800,1200,1600,2000,2400', alt: s.image.alt }}
-        </picture>
-      {%- else -%}
-        {{ s.image | image_url: width: 2400 | image_tag: class: 'bw-hero__img', loading: 'eager', fetchpriority: 'high', sizes: '100vw', widths: '800,1200,1600,2000,2400', alt: s.image.alt }}
-      {%- endif -%}
+      {{ s.image | image_url: width: 2800 | image_tag: loading: 'eager', fetchpriority: 'high', sizes: '100vw', widths: '750,1100,1500,2000,2800', alt: s.image.alt, style: 'position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:58% 55%' }}
     {%- endif -%}
-    <div class="bw-hero__ov1"></div>
-    <div class="bw-hero__ov2"></div>
-
-    <div class="bw-hero__in{% if s.align == 'right' %} bw-hero__in--narrow{% endif %}">
-      {%- if s.badge != blank or s.date != blank -%}
-        <div class="bw-hero__badges">
-          {%- if s.badge != blank -%}<span class="bw-badge bw-badge--lg">{{ s.badge }}</span>{%- endif -%}
-          {%- if s.date != blank -%}<span class="bw-hero__date">{{ s.date }}</span>{%- endif -%}
-        </div>
-      {%- endif -%}
-      {%- if s.eyebrow != blank -%}<div class="bw-hero__eyebrow">{{ s.eyebrow }}</div>{%- endif -%}
-
-      {%- comment -%} Heading per phase {%- endcomment -%}
-      {%- assign h_default = '' -%}
+    <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,10,10,.85) 0%,rgba(10,10,10,.35) 30%,rgba(10,10,10,.45) 55%,rgba(10,10,10,.92) 100%)"></div>
+    <div style="position:absolute;inset:0;background:linear-gradient(90deg,rgba(10,10,10,.6) 0%,rgba(10,10,10,0) 65%)"></div>
+    <div style="position:relative;width:100%;box-sizing:border-box;padding:clamp(32px,4.4cqw,72px) {{ G }};display:grid;gap:clamp(18px,1.8cqw,26px);grid-template-columns:minmax(0,1fr)">
+      <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap"><span style="background:#c8232c;color:#fff;font-size:13px;font-weight:900;letter-spacing:.08em;text-transform:uppercase;padding:7px 12px;border-radius:4px">{{ s.badge }}</span><span style="font-size:clamp(16px,1.5cqw,22px);font-weight:900;letter-spacing:.06em">{{ s.dates }}</span></div>
       {%- for p in phases_all -%}
-        {%- assign k1 = 'heading_1_' | append: p -%}
-        {%- assign k2 = 'heading_2_' | append: p -%}
-        {%- if s[k1] == blank and s[k2] == blank -%}
-          {%- assign h_default = h_default | append: p | append: ' ' -%}
-          {%- if p == 'sidste' -%}{%- assign h_default = h_default | append: 'ended ' -%}{%- endif -%}
-        {%- else -%}
-          {%- assign pp = p -%}{%- if p == 'sidste' -%}{%- assign pp = 'sidste ended' -%}{%- endif -%}
-          <h1 class="bw-h1 bw-hero__h1{% if s.heading_size == 'small' %} bw-hero__h1--sm{% endif %}{% render 'bw-only', phases: pp %}">{{ s[k1] }}{% if s[k2] != blank %}<br>{{ s[k2] }}{% endif %}</h1>
-        {%- endif -%}
+        {%- capture k1 -%}h1a_{{ p }}{%- endcapture -%}{%- capture k2 -%}h1b_{{ p }}{%- endcapture -%}
+        {%- assign pp = p -%}{%- if p == 'sidste' -%}{%- assign pp = 'sidste ended' -%}{%- endif -%}
+        <h1 class="{% render 'bw-only', phases: pp %}" style="margin:0;font-size:clamp(46px,7cqw,112px);font-weight:900;text-transform:uppercase;letter-spacing:-.02em;line-height:.9;max-width:1100px;font-family:inherit;color:#fff">{{ s[k1] }}<br>{{ s[k2] }}</h1>
       {%- endfor -%}
-      {%- if h_default != blank -%}
-        <h1 class="bw-h1 bw-hero__h1{% if s.heading_size == 'small' %} bw-hero__h1--sm{% endif %}{% render 'bw-only', phases: h_default %}">{{ s.heading_1 }}{% if s.heading_2 != blank %}<br>{{ s.heading_2 }}{% endif %}</h1>
-      {%- endif -%}
-
-      {%- comment -%} Lead per phase {%- endcomment -%}
-      {%- assign l_default = '' -%}
-      {%- for p in phases_all -%}
-        {%- assign k = 'text_' | append: p -%}
-        {%- if s[k] == blank -%}
-          {%- assign l_default = l_default | append: p | append: ' ' -%}
-          {%- if p == 'sidste' -%}{%- assign l_default = l_default | append: 'ended ' -%}{%- endif -%}
-        {%- else -%}
-          {%- assign pp = p -%}{%- if p == 'sidste' -%}{%- assign pp = 'sidste ended' -%}{%- endif -%}
-          <div class="bw-lead{% render 'bw-only', phases: pp %}">{{ s[k] }}</div>
-        {%- endif -%}
-      {%- endfor -%}
-      {%- if s.text != blank and l_default != blank -%}
-        <div class="bw-lead{% render 'bw-only', phases: l_default %}">{{ s.text }}</div>
-      {%- endif -%}
-
       {%- if section.blocks.size > 0 -%}
-        <div class="bw-hero__offers">
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,max(200px,calc((100% - 24px)/3))),1fr));gap:12px;max-width:980px">
           {%- for block in section.blocks -%}
-            <a href="{{ block.settings.link | default: '#' }}" class="bw-offer" {{ block.shopify_attributes }}>
-              <div class="bw-offer__h"><span>{{ block.settings.title }}</span>{% render 'bw-icon', name: 'arrow' %}</div>
-              {%- if block.settings.text != blank -%}<div class="bw-offer__d">{{ block.settings.text }}</div>{%- endif -%}
+            <a href="{{ block.settings.url | default: '#' }}" class="bwhero-tile" {{ block.shopify_attributes }} style="display:grid;gap:6px;min-height:44px;box-sizing:border-box;padding:16px 18px;border-width:1px;border-style:solid;border-radius:8px;color:#fff;text-decoration:none;cursor:pointer;transition:border-color .15s ease-out,background-color .15s ease-out">
+              <div style="display:flex;justify-content:space-between;align-items:center;gap:12px"><div style="font-size:clamp(18px,1.6cqw,24px);font-weight:900;text-transform:uppercase;line-height:1">{{ block.settings.title }}</div><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="flex:none"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="13 6 19 12 13 18"></polyline></svg></div>
+              <div style="font-size:14px;line-height:1.4;color:#e4e4e4">{{ block.settings.text }}</div>
             </a>
           {%- endfor -%}
         </div>
       {%- endif -%}
-
-      {%- if s.button_label != blank or s.note != blank or s.button_label_pre != blank -%}
-        <div class="bw-hero__cta">
-          {%- if s.button_label_pre != blank -%}
-            <a href="{{ s.button_link_pre | default: '#' }}" class="bw-btn{% if s.button_size == 'large' %} bw-btn--lg{% endif %}{% render 'bw-only', phases: 'pre' %}">{{ s.button_label_pre }}</a>
-            {%- if s.button_label != blank -%}
-              <a href="{{ s.button_link | default: '#' }}" class="bw-btn{% if s.button_size == 'large' %} bw-btn--lg{% endif %}{% render 'bw-only', phases: 'early live sidste ended' %}">{{ s.button_label }}{% if s.button_arrow %}{% render 'bw-icon', name: 'arrow' %}{% endif %}</a>
-            {%- endif -%}
-          {%- elsif s.button_label != blank -%}
-            <a href="{{ s.button_link | default: '#' }}" class="bw-btn{% if s.button_size == 'large' %} bw-btn--lg{% endif %}">{{ s.button_label }}{% if s.button_arrow %}{% render 'bw-icon', name: 'arrow' %}{% endif %}</a>
-          {%- endif -%}
-          {%- if s.note != blank -%}<div class="bw-hero__note">{{ s.note }}</div>{%- endif -%}
-        </div>
-      {%- endif -%}
+      <div style="display:flex;gap:14px 24px;align-items:center;flex-wrap:wrap">
+        <a href="{{ s.cta_url_pre | default: '#presale' }}" class="{% render 'bw-only', phases: 'pre' %}" style="display:inline-flex;align-items:center;justify-content:center;height:56px;padding:0 36px;border-radius:999px;background:#fff;color:#111;font-size:16px;font-weight:800;text-decoration:none">{{ s.cta_pre }}</a>
+        <a href="{{ s.cta_url | default: '#' }}" class="{% render 'bw-only', phases: 'early live sidste ended' %}" style="display:inline-flex;align-items:center;justify-content:center;height:56px;padding:0 36px;border-radius:999px;background:#fff;color:#111;font-size:16px;font-weight:800;text-decoration:none">{{ s.cta }}</a>
+        {%- if s.note != blank -%}<div style="font-size:14px;color:#e4e4e4">{{ s.note }}</div>{%- endif -%}
+      </div>
     </div>
   </div>
 </div>
@@ -124,43 +54,22 @@ the "standard" texts are used in every phase that has no own text.
   "settings": [
     { "type": "text", "id": "phases", "label": "Vis kun i faser", "info": "pre, early, live, sidste · tom = altid" },
     { "type": "image_picker", "id": "image", "label": "Billede" },
-    { "type": "image_picker", "id": "mobile_image", "label": "Billede (mobil, valgfrit)" },
-    { "type": "text", "id": "focal", "label": "Billedfokus (CSS object-position)", "default": "58% 55%" },
-    { "type": "select", "id": "overlay", "label": "Overlay", "options": [ { "value": "left", "label": "Mørk top/bund + venstre (forside)" }, { "value": "right", "label": "Mørk bund + højre (landingsside)" } ], "default": "left" },
-    { "type": "select", "id": "align", "label": "Tekstplacering", "options": [ { "value": "left", "label": "Venstre, fuld bredde" }, { "value": "right", "label": "Højre, smal" } ], "default": "left" },
-    { "type": "range", "id": "min_height", "label": "Højde desktop", "min": 500, "max": 900, "step": 10, "unit": "px", "default": 800 },
-    { "type": "range", "id": "min_height_mobile", "label": "Højde mobil", "min": 400, "max": 800, "step": 10, "unit": "px", "default": 660 },
     { "type": "text", "id": "badge", "label": "Badge", "default": "Black Week" },
-    { "type": "text", "id": "date", "label": "Datoer ved badge", "default": "20.11–30.11" },
-    { "type": "text", "id": "eyebrow", "label": "Overlinje" },
-    { "type": "select", "id": "heading_size", "label": "Overskriftsstørrelse", "options": [ { "value": "large", "label": "Stor (forside)" }, { "value": "small", "label": "Mindre (landingsside)" } ], "default": "large" },
-    { "type": "header", "content": "Overskrift" },
-    { "type": "text", "id": "heading_1", "label": "Linje 1", "default": "BLACK WEEK ER I GANG." },
-    { "type": "text", "id": "heading_2", "label": "Linje 2", "default": "SHOP BLACK WEEK." },
-    { "type": "textarea", "id": "text", "label": "Tekst" },
-    { "type": "header", "content": "Presale (pre)" },
-    { "type": "text", "id": "heading_1_pre", "label": "Linje 1", "default": "DU SHOPPER FØRST." },
-    { "type": "text", "id": "heading_2_pre", "label": "Linje 2", "default": "ALLE ANDRE BAGEFTER." },
-    { "type": "textarea", "id": "text_pre", "label": "Tekst" },
-    { "type": "header", "content": "Tidlig adgang (early)" },
-    { "type": "text", "id": "heading_1_early", "label": "Linje 1" },
-    { "type": "text", "id": "heading_2_early", "label": "Linje 2" },
-    { "type": "textarea", "id": "text_early", "label": "Tekst" },
-    { "type": "header", "content": "Live" },
-    { "type": "text", "id": "heading_1_live", "label": "Linje 1" },
-    { "type": "text", "id": "heading_2_live", "label": "Linje 2" },
-    { "type": "textarea", "id": "text_live", "label": "Tekst" },
-    { "type": "header", "content": "Sidste dag (sidste)" },
-    { "type": "text", "id": "heading_1_sidste", "label": "Linje 1", "default": "SIDSTE DAG." },
-    { "type": "text", "id": "heading_2_sidste", "label": "Linje 2", "default": "SLUTTER KL. 23:59." },
-    { "type": "textarea", "id": "text_sidste", "label": "Tekst" },
+    { "type": "text", "id": "dates", "label": "Datoer", "default": "20.11–30.11" },
+    { "type": "header", "content": "Overskrift pr. fase" },
+    { "type": "text", "id": "h1a_pre", "label": "Presale linje 1", "default": "DU SHOPPER FØRST." },
+    { "type": "text", "id": "h1b_pre", "label": "Presale linje 2", "default": "ALLE ANDRE BAGEFTER." },
+    { "type": "text", "id": "h1a_early", "label": "Tidlig adgang linje 1", "default": "BLACK WEEK ER I GANG." },
+    { "type": "text", "id": "h1b_early", "label": "Tidlig adgang linje 2", "default": "SHOP BLACK WEEK." },
+    { "type": "text", "id": "h1a_live", "label": "Live linje 1", "default": "BLACK WEEK ER I GANG." },
+    { "type": "text", "id": "h1b_live", "label": "Live linje 2", "default": "SHOP BLACK WEEK." },
+    { "type": "text", "id": "h1a_sidste", "label": "Sidste dag linje 1", "default": "SIDSTE DAG." },
+    { "type": "text", "id": "h1b_sidste", "label": "Sidste dag linje 2", "default": "SLUTTER KL. 23:59." },
     { "type": "header", "content": "Knap" },
-    { "type": "text", "id": "button_label", "label": "Knaptekst", "default": "Shop Black Week" },
-    { "type": "url", "id": "button_link", "label": "Knaplink" },
-    { "type": "text", "id": "button_label_pre", "label": "Knaptekst i presale (valgfri)", "default": "Tilmeld dig presale" },
-    { "type": "url", "id": "button_link_pre", "label": "Knaplink i presale" },
-    { "type": "select", "id": "button_size", "label": "Knapstørrelse", "options": [ { "value": "large", "label": "Stor" }, { "value": "medium", "label": "Normal" } ], "default": "large" },
-    { "type": "checkbox", "id": "button_arrow", "label": "Pil i knappen", "default": false },
+    { "type": "text", "id": "cta_pre", "label": "Knap i presale", "default": "Tilmeld dig presale" },
+    { "type": "url", "id": "cta_url_pre", "label": "Link i presale" },
+    { "type": "text", "id": "cta", "label": "Knap efter presale", "default": "Shop Black Week" },
+    { "type": "url", "id": "cta_url", "label": "Link efter presale" },
     { "type": "text", "id": "note", "label": "Note ved knappen", "default": "Rabatten trækkes automatisk i kurven." }
   ],
   "blocks": [
@@ -170,7 +79,7 @@ the "standard" texts are used in every phase that has no own text.
       "settings": [
         { "type": "text", "id": "title", "label": "Titel", "default": "3 for 2" },
         { "type": "text", "id": "text", "label": "Tekst", "default": "Tag 3, betal for 2. Den billigste er gratis." },
-        { "type": "url", "id": "link", "label": "Link" }
+        { "type": "url", "id": "url", "label": "Link" }
       ]
     }
   ],

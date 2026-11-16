@@ -1,31 +1,45 @@
-{%- comment -%}BLACK WEEK 2026 · Overskrift + produktrække (02 Forside: "Køb julegaverne i Black Week."){%- endcomment -%}
+{%- comment -%}BLACK WEEK 2026 · Heading + product row (board 02 "Bestsellere lige nu" and "Køb julegaverne i Black Week"), ported 1:1 from the design.{%- endcomment -%}
 {%- liquid
   assign s = section.settings
+  assign G = 'max(clamp(20px,calc((100cqw - 767px)*1000),64px),calc((100cqw - 1312px)/2))'
+  assign PY = 'clamp(48px,calc((100cqw - 767px)*1000),80px)'
   assign coll = s.collection
   if coll == blank and s.collection_handle != blank
     assign coll = collections[s.collection_handle]
   endif
+  if s.products != blank and s.products.count > 0
+    assign plist = s.products
+  else
+    assign plist = coll.products
+  endif
 -%}
-<style>
-  #shopify-section-{{ section.id }} .bw-pr__head { margin-bottom: 8px; display: flex; justify-content: space-between; align-items: flex-end; gap: 16px 32px; flex-wrap: wrap; }
-  #shopify-section-{{ section.id }} .bw-pr__head > div { display: grid; gap: 12px; max-width: 640px; }
-  #shopify-section-{{ section.id }} .bw-pr__head .bw-lead { max-width: none; }
-</style>
-<div class="bw{% render 'bw-only', phases: s.phases %}">
-  <div class="bw-sec{% if s.border %} bw-sec--line{% endif %}"{% if s.anchor != blank %} id="{{ s.anchor | handle }}"{% endif %}>
-    <div class="bw-pr__head">
-      <div>
-        {%- if s.eyebrow != blank -%}<div class="bw-eyebrow">{{ s.eyebrow }}</div>{%- endif -%}
-        <h2 class="bw-h2">{{ s.heading_1 }}{% if s.heading_2 != blank %}<br>{{ s.heading_2 }}{% endif %}</h2>
-        {%- if s.text != blank -%}<div class="bw-lead">{{ s.text }}</div>{%- endif -%}
+<style>#shopify-section-{{ section.id }} a:hover { opacity: 1; } #shopify-section-{{ section.id }} .bw-card:hover .bw-card__img2 { opacity: 1 !important; }</style>
+<div class="bw{% render 'bw-only', phases: s.phases %}" style="container-type:inline-size">
+  <div style="background:#0a0a0a;color:#fff;padding:{{ PY }} {{ G }};display:grid;gap:24px{% if s.border_top %};border-top:1px solid #222{% endif %}">
+    {%- if s.heading_size == 'sm' -%}
+      <div style="margin-bottom:8px;display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap">
+        <h2 style="margin:0;font-size:clamp(26px,3cqw,40px);font-weight:900;text-transform:uppercase;letter-spacing:-.005em;line-height:1;font-family:inherit;color:#fff">{{ s.heading_1 }}{% if s.heading_2 != blank %} {{ s.heading_2 }}{% endif %}</h2>
+        {%- if s.link_label != blank -%}<a href="{{ s.link_url | default: '#' }}" style="color:#fff;font-size:15px;font-weight:700;text-decoration:underline;text-underline-offset:4px">{{ s.link_label }}</a>{%- endif -%}
       </div>
-      {%- if s.link_label != blank -%}<a href="{{ s.link | default: '#' }}" class="bw-link">{{ s.link_label }}</a>{%- endif -%}
-    </div>
-    {%- if s.products != blank -%}
-      {%- render 'bw-product-grid', products: s.products, limit: s.limit -%}
-    {%- elsif coll != blank -%}
-      {%- render 'bw-product-grid', products: coll.products, limit: s.limit -%}
+    {%- else -%}
+      <div style="margin-bottom:8px;display:flex;justify-content:space-between;align-items:flex-end;gap:16px 32px;flex-wrap:wrap">
+        <div style="display:grid;gap:12px;max-width:640px">
+          {%- if s.eyebrow != blank -%}<div style="font-size:12px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#9b9b9b">{{ s.eyebrow }}</div>{%- endif -%}
+          <h2 style="margin:0;font-size:clamp(34px,4.6cqw,68px);font-weight:900;text-transform:uppercase;letter-spacing:-.01em;line-height:1;font-family:inherit;color:#fff">{{ s.heading_1 }}{% if s.heading_2 != blank %}<br>{{ s.heading_2 }}{% endif %}</h2>
+          {%- if s.text != blank -%}<div style="font-size:clamp(15px,1.25cqw,18px);line-height:1.5;color:#e4e4e4">{{ s.text }}</div>{%- endif -%}
+        </div>
+        {%- if s.link_label != blank -%}<a href="{{ s.link_url | default: '#' }}" style="color:#fff;font-size:15px;font-weight:700;text-decoration:underline;text-underline-offset:4px">{{ s.link_label }}</a>{%- endif -%}
+      </div>
     {%- endif -%}
+    {%- assign shown = 0 -%}
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(max(160px,calc((100% - 48px)/4)),1fr));gap:16px">
+      {%- for p in plist -%}
+        {%- if shown >= s.limit -%}{%- break -%}{%- endif -%}
+        {%- if p.available == false -%}{%- continue -%}{%- endif -%}
+        {%- render 'bw-product-card', product: p -%}
+        {%- assign shown = shown | plus: 1 -%}
+      {%- endfor -%}
+    </div>
   </div>
 </div>
 
@@ -36,14 +50,14 @@
   "class": "bw-section",
   "settings": [
     { "type": "text", "id": "phases", "label": "Vis kun i faser", "info": "pre, early, live, sidste · tom = altid" },
-    { "type": "text", "id": "anchor", "label": "Anker-id (valgfrit)" },
-    { "type": "checkbox", "id": "border", "label": "Streg i toppen", "default": true },
+    { "type": "select", "id": "heading_size", "label": "Layout", "options": [ { "value": "sm", "label": "Lille overskrift (Bestsellere)" }, { "value": "lg", "label": "Stor overskrift + tekst (Julegaver)" } ], "default": "lg" },
+    { "type": "checkbox", "id": "border_top", "label": "Streg over", "default": false },
     { "type": "text", "id": "eyebrow", "label": "Overlinje", "default": "Julegaver" },
     { "type": "text", "id": "heading_1", "label": "Overskrift linje 1", "default": "Køb julegaverne" },
     { "type": "text", "id": "heading_2", "label": "Overskrift linje 2", "default": "i Black Week." },
-    { "type": "textarea", "id": "text", "label": "Tekst", "default": "Sjippetov, flasker, strømper og træningstøj til Black Week-pris. Find gaven til ham, hende eller hele holdet." },
+    { "type": "textarea", "id": "text", "label": "Tekst" },
     { "type": "text", "id": "link_label", "label": "Linktekst", "default": "Se alle" },
-    { "type": "url", "id": "link", "label": "Link" },
+    { "type": "url", "id": "link_url", "label": "Link" },
     { "type": "product_list", "id": "products", "label": "Produkter", "limit": 12 },
     { "type": "collection", "id": "collection", "label": "…eller kollektion" },
     { "type": "text", "id": "collection_handle", "label": "…eller kollektions-handle" },

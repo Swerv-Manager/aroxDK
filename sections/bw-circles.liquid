@@ -1,0 +1,44 @@
+{%- comment -%}BLACK WEEK 2026 · Cirkelmenu (board 02), ported 1:1 from the design. Each circle: image (or product image) + label + link.{%- endcomment -%}
+{%- liquid
+  assign s = section.settings
+  assign G = 'max(clamp(20px,calc((100cqw - 767px)*1000),64px),calc((100cqw - 1312px)/2))'
+-%}
+<style>#shopify-section-{{ section.id }} a:hover { opacity: 1; }</style>
+<div class="bw{% render 'bw-only', phases: s.phases %}" style="container-type:inline-size">
+  <div style="background:#0a0a0a;color:#fff;padding:28px {{ G }} 32px">
+    <div style="display:flex;gap:clamp(16px,2.2cqw,32px);overflow-x:auto;justify-content:safe center">
+      {%- for block in section.blocks -%}
+        {%- assign img = block.settings.image | default: block.settings.product.featured_image -%}
+        <a href="{{ block.settings.url | default: block.settings.product.url | default: '#' }}" {{ block.shopify_attributes }} style="flex:none;display:grid;justify-items:center;gap:10px;width:clamp(84px,8.4cqw,120px);text-decoration:none;color:#fff">
+          <div style="width:clamp(84px,8.4cqw,120px);aspect-ratio:1/1;border-radius:999px;overflow:hidden;background:#f8f8f8;box-shadow:0 0 0 2px #fff">{%- if img != blank -%}{{ img | image_url: width: 360 | image_tag: loading: 'lazy', alt: '', style: 'width:100%;height:100%;object-fit:cover;display:block' }}{%- endif -%}</div>
+          <span style="font-size:13px;font-weight:800;letter-spacing:.04em;text-transform:uppercase;text-align:center">{{ block.settings.label }}</span>
+        </a>
+      {%- endfor -%}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "BW · Cirkelmenu",
+  "tag": "section",
+  "class": "bw-section",
+  "max_blocks": 10,
+  "settings": [
+    { "type": "text", "id": "phases", "label": "Vis kun i faser", "info": "pre, early, live, sidste · tom = altid" }
+  ],
+  "blocks": [
+    {
+      "type": "item",
+      "name": "Cirkel",
+      "settings": [
+        { "type": "image_picker", "id": "image", "label": "Billede" },
+        { "type": "product", "id": "product", "label": "…eller produktbillede" },
+        { "type": "text", "id": "label", "label": "Tekst", "default": "3 for 2" },
+        { "type": "url", "id": "url", "label": "Link" }
+      ]
+    }
+  ],
+  "presets": [ { "name": "BW · Cirkelmenu" } ]
+}
+{% endschema %}

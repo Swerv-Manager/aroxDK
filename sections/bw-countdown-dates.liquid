@@ -1,42 +1,35 @@
 {%- comment -%}
-BLACK WEEK 2026 · Nedtælling + "Datoer du skal kende".
-Layout "stacked" (02 Forside): countdown bar, then heading + date tiles.
-Layout "split" (03 Landingsside): eyebrow + heading left, countdown right, date tiles below.
+BLACK WEEK 2026 · Nedtælling + "Datoer du skal kende", ported 1:1 from the design.
+Layout "stacked" (02 Forside): countdown row, then heading + date tiles.
+Layout "split" (03 Landingsside): eyebrow + 2-line heading left, countdown right, date tiles below.
 {%- endcomment -%}
-{%- assign s = section.settings -%}
-<style>
-  #shopify-section-{{ section.id }} .bw-cdbar { padding: 24px var(--bw-gutter); border-top: 1px solid var(--bw-line); background: var(--bw-black); }
-  #shopify-section-{{ section.id }} .bw-dates__h { margin-bottom: 8px; }
-  #shopify-section-{{ section.id }} .bw-dates__split { margin-bottom: 8px; display: flex; justify-content: space-between; gap: 24px 40px; flex-wrap: wrap; align-items: flex-end; }
-  #shopify-section-{{ section.id }} .bw-tile__t { font-size: 16px; font-weight: 800; letter-spacing: .06em; }
-  #shopify-section-{{ section.id }} .bw-tile__l { font-size: 15px; color: var(--bw-grey-200); }
-</style>
-<div class="bw{% render 'bw-only', phases: s.phases %}">
-  {%- if s.layout == 'stacked' and s.show_countdown -%}
-    <div class="bw-cdbar">{% render 'bw-countdown' %}</div>
-  {%- endif -%}
-  <div class="bw-sec bw-sec--line">
-    {%- if s.layout == 'split' -%}
-      <div class="bw-dates__split">
-        <div class="bw-head" style="margin:0">
-          {%- if s.eyebrow != blank -%}<div class="bw-eyebrow">{{ s.eyebrow }}</div>{%- endif -%}
-          <h2 class="bw-h2">{{ s.heading_1 }}{% if s.heading_2 != blank %}<br>{{ s.heading_2 }}{% endif %}</h2>
-        </div>
-        {%- if s.show_countdown -%}{% render 'bw-countdown' %}{%- endif -%}
-      </div>
-    {%- else -%}
-      <h2 class="bw-h2 bw-h2--md bw-dates__h">{{ s.heading_1 }}{% if s.heading_2 != blank %} {{ s.heading_2 }}{% endif %}</h2>
-    {%- endif -%}
-    <div class="bw-grid bw-grid-3">
+{%- liquid
+  assign s = section.settings
+  assign G = 'max(clamp(20px,calc((100cqw - 767px)*1000),64px),calc((100cqw - 1312px)/2))'
+  assign PY = 'clamp(48px,calc((100cqw - 767px)*1000),80px)'
+-%}
+<div class="bw{% render 'bw-only', phases: s.phases %}" style="container-type:inline-size">
+  {%- capture tiles -%}
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(max(220px,calc((100% - 32px)/3)),1fr));gap:16px">
       {%- for block in section.blocks -%}
-        <div class="bw-tile" {{ block.shopify_attributes }}>
-          <div class="bw-tile__big">{{ block.settings.date }}</div>
-          <div class="bw-tile__t">{{ block.settings.time }}</div>
-          <div class="bw-tile__l">{{ block.settings.label }}</div>
-        </div>
+        <div {{ block.shopify_attributes }} style="border:1px solid #333;border-radius:8px;padding:24px;display:grid;gap:8px;background:#111"><div style="font-size:clamp(30px,3cqw,44px);font-weight:900;line-height:1">{{ block.settings.date }}</div><div style="font-size:16px;font-weight:800;letter-spacing:.06em">{{ block.settings.time }}</div><div style="font-size:15px;color:#e4e4e4">{{ block.settings.label }}</div></div>
       {%- endfor -%}
     </div>
-  </div>
+  {%- endcapture -%}
+  {%- if s.layout == 'split' -%}
+    <div style="background:#0a0a0a;color:#fff;padding:{{ PY }} {{ G }};display:grid;gap:24px;border-top:1px solid #222">
+      <div style="margin-bottom:8px;display:flex;justify-content:space-between;gap:24px 40px;flex-wrap:wrap;align-items:flex-end">
+        <div style="display:grid;gap:12px">{%- if s.eyebrow != blank -%}<div style="font-size:12px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#9b9b9b">{{ s.eyebrow }}</div>{%- endif -%}<h2 style="margin:0;font-size:clamp(34px,4.6cqw,68px);font-weight:900;text-transform:uppercase;letter-spacing:-.01em;line-height:1;font-family:inherit;color:#fff">{{ s.heading_1 }}{% if s.heading_2 != blank %}<br>{{ s.heading_2 }}{% endif %}</h2></div>
+        {%- if s.show_countdown -%}{% render 'bw-countdown' %}{%- endif -%}
+      </div>
+      {{ tiles }}
+    </div>
+  {%- else -%}
+    {%- if s.show_countdown -%}
+      <div style="background:#0a0a0a;color:#fff;border-top:1px solid #222;padding:24px {{ G }}">{% render 'bw-countdown' %}</div>
+    {%- endif -%}
+    <div style="background:#0a0a0a;color:#fff;border-top:1px solid #222;padding:{{ PY }} {{ G }};display:grid;gap:24px"><h2 style="margin:0 0 8px;font-size:clamp(28px,3.4cqw,48px);font-weight:900;text-transform:uppercase;letter-spacing:-.01em;line-height:1;font-family:inherit;color:#fff">{{ s.heading_1 }}{% if s.heading_2 != blank %} {{ s.heading_2 }}{% endif %}</h2>{{ tiles }}</div>
+  {%- endif -%}
 </div>
 
 {% schema %}
@@ -49,7 +42,7 @@ Layout "split" (03 Landingsside): eyebrow + heading left, countdown right, date 
     { "type": "text", "id": "phases", "label": "Vis kun i faser", "info": "pre, early, live, sidste · tom = altid" },
     { "type": "select", "id": "layout", "label": "Layout", "options": [ { "value": "stacked", "label": "Bjælke + datoer (forside)" }, { "value": "split", "label": "Side om side (landingsside)" } ], "default": "stacked" },
     { "type": "checkbox", "id": "show_countdown", "label": "Vis nedtælling", "default": true, "info": "Tekst og sluttidspunkt følger fasen automatisk." },
-    { "type": "text", "id": "eyebrow", "label": "Overlinje (kun landingsside-layout)", "default": "Black Week 20.11–30.11" },
+    { "type": "text", "id": "eyebrow", "label": "Overlinje (landingsside)", "default": "Black Week 20.11–30.11" },
     { "type": "text", "id": "heading_1", "label": "Overskrift linje 1", "default": "Datoer du skal kende" },
     { "type": "text", "id": "heading_2", "label": "Overskrift linje 2" }
   ],
