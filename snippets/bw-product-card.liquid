@@ -25,6 +25,7 @@ picker on the card; assets/bw.js <bw-quick-add>)
     echo product.compare_at_price | money_without_currency | remove: ',00' | append: ' kr.'
   endcapture
 -%}
+{%- if product.tags contains 'bw-gave' -%}{%- comment -%}0 kr. Black Week gift products are never listed{%- endcomment -%}{%- else -%}
 <div class="bw-card" style="background:#fff;border-radius:8px;overflow:hidden;display:grid;align-content:start;color:#111">
   <div class="bw-card__mwrap" style="position:relative">
   <a href="{{ product.url }}" style="position:relative;aspect-ratio:1/1;background:#f2f2f2;overflow:hidden;display:block" aria-label="{{ product.title | escape }}">
@@ -141,3 +142,4 @@ picker on the card; assets/bw.js <bw-quick-add>)
     {%- endfor -%}
   </div>
 </div>
+{%- endif -%}

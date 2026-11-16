@@ -38,7 +38,7 @@ Param: line_item (required)
     assign bw_free = true
   endif
   assign bw_gift = false
-  if line_item.properties._bw_gift != blank
+  if line_item.properties._bw_gift != blank or line_item.product.tags contains 'bw-gave'
     assign bw_gift = true
   endif
   capture bw_price

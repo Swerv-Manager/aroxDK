@@ -10,7 +10,8 @@ bar in right away (Impact waits 1.25 s before it replaces the line items).
 Params (all from the cart drawer section settings):
   amounts: '499,799,1299' (kr.) · labels: 'Fri fragt|Hydration Bottle|3-pak strømper'
   messages: 'text before step 1|before step 2|before step 3' with [beløb] for the remaining amount · done: text when all are reached
-  gift2, gift3: optional gift products for step 2 and 3 (their label links to the product) · phases: bw-only phase list
+  gift2, gift3: optional gift products for step 2 and 3 (their label links to the product) · item2, item3: the 0 kr.
+  gift products that go into the cart (tag bw-gave) · phases: bw-only phase list
 {%- endcomment -%}
 {%- liquid
   assign bw_amounts = amounts | default: '499,799,1299' | split: ','
@@ -24,11 +25,11 @@ Params (all from the cart drawer section settings):
   assign bw_has_g2 = false
   assign bw_has_g3 = false
   for it in cart.items
-    if it.properties._bw_gift != blank
+    if it.properties._bw_gift != blank or it.product.tags contains 'bw-gave'
       assign bw_total = bw_total | minus: it.final_line_price
-      if it.properties._bw_gift == 'g2'
+      if it.properties._bw_gift == 'g2' or it.product_id == item2.id
         assign bw_has_g2 = true
-      elsif it.properties._bw_gift == 'g3'
+      elsif it.properties._bw_gift == 'g3' or it.product_id == item3.id
         assign bw_has_g3 = true
       endif
     endif
@@ -125,12 +126,12 @@ Params (all from the cart drawer section settings):
       assign bw_key = 'g' | append: forloop.index
       assign bw_prod = nil
       if forloop.index == 2
-        assign bw_prod = gift2
+        assign bw_prod = item2 | default: gift2
         if bw_has_g2
           continue
         endif
       elsif forloop.index == 3
-        assign bw_prod = gift3
+        assign bw_prod = item3 | default: gift3
         if bw_has_g3
           continue
         endif

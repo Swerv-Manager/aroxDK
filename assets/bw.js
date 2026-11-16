@@ -261,10 +261,11 @@
   }
 
   /* ---------- Free gifts in the cart (config [data-bw-gifts] from sections/cart-drawer.liquid) ----------
-     When the cart (without gift lines) reaches a tier, the gift is added as its own line with the property _bw_gift;
-     below the tier it is removed again. A gift with one variant is added automatically; one with sizes is picked in the
-     drawer (snippet bw-cart-progress). A gift stays only if a discount makes it free (the automatic discounts are set
-     up in Shopify admin); otherwise it is taken out again, so nobody pays for a "free" gift. */
+     The gifts are separate 0 kr. products (tag bw-gave: "AROX Hydration Bottle 1000 ml (gave)", "Strømper 3-pak
+     (gave)"), so they need no discount and combine with 3 for 2 / 4 for 2. When the cart without gift lines reaches a
+     tier, the gift is added as its own line (property _bw_gift); below the tier it is removed again, also if it was put
+     in the cart by hand. A gift with one variant is added automatically; one with sizes is picked in the drawer
+     (snippet bw-cart-progress). Safety net: a gift line that is not free is taken out again. */
   function ss(k, v) {
     try {
       if (v === undefined) return sessionStorage.getItem(k);
@@ -293,11 +294,14 @@
     giftClasses(cfg);
     var getCart = cart && cart.items ? Promise.resolve(cart) : fetch(ROOT + 'cart.js').then(function (r) { return r.json(); });
     getCart.then(function (cart) {
+      var tiers = cfg.tiers || [];
+      var giftIds = tiers.map(function (t) { return t.product; });
+      var isGiftLine = function (it) { return (it.properties && it.properties._bw_gift) || giftIds.indexOf(it.product_id) > -1; };
       var base = 0;
-      cart.items.forEach(function (it) { if (!(it.properties && it.properties._bw_gift)) base += it.final_line_price; });
+      cart.items.forEach(function (it) { if (!isGiftLine(it)) base += it.final_line_price; });
       var job = null;
-      (cfg.tiers || []).some(function (t) {
-        var lines = cart.items.filter(function (it) { return it.properties && it.properties._bw_gift === t.key; });
+      tiers.some(function (t) {
+        var lines = cart.items.filter(function (it) { return (it.properties && it.properties._bw_gift === t.key) || it.product_id === t.product; });
         var reached = base >= t.min;
         if (!reached) {
           ss('bw_gift_added_' + t.key, null); ss('bw_gift_removed_' + t.key, null);
