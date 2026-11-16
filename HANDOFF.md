@@ -27,10 +27,28 @@ The separate per-phase announcement bar stays hidden (user decision): pages show
   (`Black Week 2026 → Vis fase i temaeditoren`, editor only), automatic phase switching (snippet `bw-head`).
 - Homepage (board 02), landing page (03, template `page.black-week`), footer (12): ported 1:1 from the design markup;
   see the git log / agent report for what is compared.
+- Cart drawer (board 10), 16.11: `sections/cart-drawer.liquid` + snippets `bw-cart-line`, `bw-cart-progress`,
+  `bw-cart-gift`, styles `.bw-cart` in `assets/bw.css`. Dark drawer 440 px on desktop, full width on mobile.
+  Quantity input and "Fjern" are kept (not in the design) so the cart still works. Total no longer adds the 35 kr.
+  base freight (design: "Levering · Fra 35 kr.", total excl. shipping). Recommendations: 2 `bw-product-card`s from the
+  first cart item's Black Week collection, else the drawer's product list (empty today, so non-BW carts show none).
+- Stepped progress bar in the cart drawer (client request 16.11, not in the design file): 499 kr. fri fragt ·
+  799 kr. gratis Hydration Bottle (`arox-hydration-bottle-1000-ml`) · 1299 kr. gratis 3-pak strømper (`stromper-3-pak`).
+  Steps are evenly spaced, reached at `cart.total_price >=` amount. Amounts, texts, gift products and phases
+  (default `pre early live sidste`; theme's own free shipping bar in the other phases) are cart drawer settings.
+  `bw.js` swaps the bar at once on `cart:change`. Tested at 0–1500 kr. with `.bw-tools/progress-test.js` and in the
+  preview with `.bw-tools/cart.js` / `qty.js`.
 - Not yet design-matched: collections + offer pages (boards 04–07), product pages (08), gift page (09),
-  cart drawer (10), terms + FAQ (11).
+  terms + FAQ (11).
 
-## Fast workflow (needs network access to aroxfitness.myshopify.com)
+## Fast workflow (needs network access to aroxfitness.myshopify.com and aroxfitness.dk)
+
+The environment's network policy now allows the store (added 16.11); `cdn.shopify.com` is still blocked, which only
+affects a few third-party scripts in the preview. `theme_bash` returned upstream errors on 16.11; not needed.
+Tools: copy `.bw-tools/*.js` to a scratch folder and run `npm i react@18.3.1 react-dom@18.3.1 @babel/standalone@7.29.0
+@shopify/liquid-html-parser liquidjs` there (scripts expect `node_modules` next to them; the repo is at
+/home/user/aroxDK). `node ref.js live <out> 10` renders only board 10; `node cart.js 390 live out.png
+stromper-3-pak:2 …` fills a cart in the work-theme preview and screenshots the drawer.
 
 1. Design references: render the design locally with Playwright (React/Babel are routed to local npm copies because
    unpkg is not reachable from the browser) and screenshot each board's 390/1440 frame per phase:
@@ -71,9 +89,18 @@ pages `black-week-gaver` and `black-week-vilkaar` with their templates; free shi
 checkout message ("Black Week · rabatten er trukket" / "Rabatten er trukket automatisk. Er din ordre blandt de første
 100, får du en gratis Thermo stålflaske 1,06 L med."); publish the theme after approval.
 
+Gift steps in the cart progress bar: on 16.11 no active automatic discount gives the Hydration Bottle or the
+3-pak strømper (active automatic discounts: "Fast Bundle (DO NOT DELETE)" and "Kaching Bundles"). Two automatic
+Buy X get Y discounts are needed (minimum 799 kr. → Hydration Bottle 100 %, minimum 1299 kr. → Strømper 3-pak
+100 %). The socks have sizes, so the customer adds them in their size; the step label links to the product.
+A 0 kr. gift line shows "Gratis gave" in the drawer. Shipping is calculated by the "Zippendo Shipping" app; check
+that its free shipping rule also applies at exactly 499 kr. (the bar and the "Levering" line use >= 499).
+
 ## Tools (`.bw-tools/`, not part of the theme)
 
-`ref.js` design reference renderer · `cmp.py` side-by-side crops · `lint.js` Liquid/JSON parse check
+`ref.js` design reference renderer (optional 3rd arg: board prefix, e.g. `10`) · `cart.js` cart drawer screenshot in
+the preview · `qty.js` live quantity-change check · `progress-test.js` progress bar at many cart totals (liquidjs) ·
+`cmp.py` side-by-side crops · `lint.js` Liquid/JSON parse check
 (needs `@shopify/liquid-html-parser`) · `schemacheck.py` Shopify schema limits · `xcheck.py` / `valcheck.py`
 template ↔ schema checks · `tj.py` load/dump theme JSON keeping the comment header. Paths inside are from the old
 session; adjust before use.
