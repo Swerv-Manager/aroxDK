@@ -50,7 +50,27 @@ The separate per-phase announcement bar stays hidden (user decision): pages show
   (Limited blackout / Favoritter til fast pris / Tape) have no products picked yet, because the products are drafts;
   pick them when they are activated (then the grid below can be hidden).
 - Gift page (09) and terms + FAQ (11) are live and close to the design (compared at 1440).
-- Not yet design-matched: board 07 (ordinary collection pages with the Black Week navigation) and product pages (08).
+- Board 07 (16.11): /collections/black-week-* use the live collection layout of the design: head with offer line,
+  offer nav (chevron cards), filter + sort bar (snippet `bw-coll-toolbar`: the store's own storefront filters as
+  pills, "Brand" hidden, "Produkttype" shown as "Kategori"; plain GET form, `bw.js` submits on change), progress
+  panel (3 for 2 / 4 for 2), `bw-coll-grid` and the note. 07d: static section `bw-collection-live`, rendered from
+  `layout/theme.liquid` on collection pages, gives ordinary collections (templates standard, traeningsudstyr,
+  traeningstoej, hyrox, elektrolytter; editable list) the same layout in early/live/sidste and hides the template's
+  circle menu, countdown banner and main-collection by CSS in those phases only. Its nav/crumbs/lines are text settings
+  (url defaults are not allowed in static section defaults). Filters and sorting tested in the preview.
+- Boards 04–06 (16.11): the offer landing pages are now real pages as in the design: `/pages/limited-blackout`,
+  `/pages/3-for-2`, `/pages/4-for-2` (templates page.limited-blackout / page.3-for-2 / page.4-for-2, published).
+  Their content (Med i …, steps, hero, focus, gift reminder, Limited groups) is disabled on the collection templates.
+- Board 08 (16.11): product pages restyled (Impact main-product keeps variants/gallery/add to cart): breadcrumb
+  section `bw-pdp-crumb`, dark section colours, uppercase title, offer + "Limited blackout" badges, price block
+  `bw-pdp-price` ("Salgspris / Normalpris", re-rendered on variant change), USP list, size pills, quantity + white
+  "Læg i kurv" on one row, mechanic box, Trustpilot line, delivery line, accordions with +/– (Beskrivelse open via
+  bw.js), "Kundernes favoritter" accordion (`bw-pdp-favs`, cross-traeningbestsellers), producer box, related products.
+  Disabled (not deleted): Loox stars under the title, Impact price block, empty USP block, payment icons/Trustpilot
+  widget, product video section + anchor, Impact "Kundernes favoritter" section. Variant change and add to cart tested.
+  App widgets (Loox reviews, Kiwi size chart, Kaching) load from cdn.shopify.com, which is blocked in the cloud
+  environment, so they were not visible in the checks; the Loox section below related products keeps its own
+  (white) background.
 
 ## Fast workflow (needs network access to aroxfitness.myshopify.com and aroxfitness.dk)
 
@@ -115,7 +135,7 @@ that its free shipping rule also applies at exactly 499 kr. (the bar and the "Le
 ## Tools (`.bw-tools/`, not part of the theme)
 
 `ref.js` design reference renderer (optional 3rd arg: board prefix, e.g. `10`) · `page.js` full-page preview
-screenshot + section list · `overview.py` theme vs design side by side · `cart.js` cart drawer screenshot in
+screenshot + section list · `filter.js` filter/sort check · `pdp.js` variant + add-to-cart check · `overview.py` theme vs design side by side · `cart.js` cart drawer screenshot in
 the preview · `qty.js` live quantity-change check · `progress-test.js` progress bar at many cart totals (liquidjs) ·
 `cmp.py` side-by-side crops · `lint.js` Liquid/JSON parse check
 (needs `@shopify/liquid-html-parser`) · `schemacheck.py` Shopify schema limits · `xcheck.py` / `valcheck.py`
