@@ -113,7 +113,7 @@ html.bw-ended .bw-hide-ended { display: none !important; }
 .bw-card__media { position: relative; aspect-ratio: 1 / 1; background: #f2f2f2; overflow: hidden; display: block; }
 .bw-card__img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; }
 .bw-card__img2 { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity .22s ease-out; }
-@media (hover: hover) { .bw-card:hover .bw-card__img2 { opacity: 1; } }
+@media (hover: hover) { .bw-card:hover .bw-card__img2 { opacity: 1 !important; } }
 .bw-card__txt { position: absolute; inset: 0; background: var(--bw-surface-2); color: #fff; display: grid; align-content: end; padding: 12px; font-size: 14px; font-weight: 900; text-transform: uppercase; line-height: 1.05; }
 .bw-card__badge { position: absolute; top: 4px; z-index: 1; background: var(--bw-red); color: #fff; font-size: 8px; font-weight: 800; letter-spacing: .16px; line-height: 1.2; text-transform: uppercase; padding: 2px 5px; border-radius: 2px; white-space: nowrap; }
 .bw-card__badge--l { left: 4px; }

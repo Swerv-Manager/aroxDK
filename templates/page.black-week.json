@@ -1,41 +1,16 @@
 {
   "sections": {
     "bw_hero": {
-      "type": "bw-hero",
+      "type": "bw-landing-hero",
       "settings": {
         "phases": "",
         "image": "shopify://shop_images/Design_uden_navn-191.png",
-        "focal": "33% 40%",
-        "overlay": "right",
-        "align": "right",
-        "min_height": 600,
-        "min_height_mobile": 600,
-        "badge": "",
-        "date": "",
         "eyebrow": "Black Week 20.11–30.11.2026",
-        "heading_size": "small",
         "heading_1": "Black Week.",
         "heading_2": "Sådan virker det.",
         "text": "Limited edition, 3 for 2 og 4 for 2 på udvalgte varer. Rabatten trækkes automatisk i kurven – ingen kode nødvendig.",
-        "heading_1_pre": "",
-        "heading_2_pre": "",
-        "text_pre": "",
-        "heading_1_early": "",
-        "heading_2_early": "",
-        "text_early": "",
-        "heading_1_live": "",
-        "heading_2_live": "",
-        "text_live": "",
-        "heading_1_sidste": "",
-        "heading_2_sidste": "",
-        "text_sidste": "",
         "button_label": "Se single offers",
-        "button_link": "/collections/black-week-limited-edition",
-        "button_label_pre": "",
-        "button_link_pre": "",
-        "button_size": "medium",
-        "button_arrow": true,
-        "note": ""
+        "button_url": "/collections/black-week-limited-edition"
       }
     },
     "bw_dates": {
@@ -86,37 +61,37 @@
         "cat_1": {
           "type": "category",
           "settings": {
+            "image": "shopify://shop_images/Billede-08011.jpg",
+            "overlay": 20,
             "badge": "Single offers",
             "heading": "LIMITED BLACKOUT.",
             "text": "Limited blackout og udvalgte favoritter til fast Black Week-pris. Limited findes kun i Black Week.",
             "cta": "Se single offers",
-            "image": "shopify://shop_images/Billede-08011.jpg",
-            "overlay": 20,
-            "link": "/collections/black-week-limited-edition"
+            "url": "/collections/black-week-limited-edition"
           }
         },
         "cat_2": {
           "type": "category",
           "settings": {
+            "image": "shopify://shop_images/Billede-08431_c2413a7b-6dfc-42df-9b99-e1990905d132.jpg",
+            "overlay": 30,
             "badge": "3 for 2",
             "heading": "TAG 3. BETAL FOR 2.",
             "text": "Læg 3 varer fra 3 for 2 i kurven, og betal for de 2 dyreste. Den billigste er gratis.",
             "cta": "Shop 3 for 2",
-            "image": "shopify://shop_images/Billede-08431_c2413a7b-6dfc-42df-9b99-e1990905d132.jpg",
-            "overlay": 30,
-            "link": "/collections/black-week-3for2"
+            "url": "/collections/black-week-3for2"
           }
         },
         "cat_3": {
           "type": "category",
           "settings": {
+            "image": "shopify://shop_images/Billede-00931.jpg",
+            "overlay": 50,
             "badge": "4 for 2",
             "heading": "TAG 4. BETAL FOR 2.",
             "text": "Læg 4 varer fra 4 for 2 i kurven, og betal for de 2 dyreste. De 2 billigste er gratis.",
             "cta": "Shop 4 for 2",
-            "image": "shopify://shop_images/Billede-00931.jpg",
-            "overlay": 50,
-            "link": "/collections/black-week-4for2"
+            "url": "/collections/black-week-4for2"
           }
         }
       },
@@ -130,7 +105,7 @@
         "eyebrow": "Sådan virker Black Week",
         "heading_1": "Tre tilbud.",
         "heading_2": "Én kurv.",
-        "footnote": "Rabatten trækkes automatisk i kurven – ingen kode nødvendig."
+        "note": "Rabatten trækkes automatisk i kurven – ingen kode nødvendig."
       }
     },
     "bw_gift": {
@@ -139,16 +114,18 @@
         "rule_1": {
           "type": "rule",
           "settings": {
-            "key": "De første 100 ordrer",
-            "value": "Gratis Thermo stålflaske 1,06 L",
+            "number": "01",
+            "kicker": "De første 100 ordrer",
+            "title": "Gratis Thermo stålflaske 1,06 L",
             "text": "Gælder de første 100 ordrer i Black Week."
           }
         },
         "rule_2": {
           "type": "rule",
           "settings": {
-            "key": "Uanset beløb",
-            "value": "Ingen beløbsgrænse",
+            "number": "02",
+            "kicker": "Uanset beløb",
+            "title": "Ingen beløbsgrænse",
             "text": "Det er rækkefølgen, der tæller – ikke beløbet."
           }
         }
@@ -159,16 +136,16 @@
       ],
       "settings": {
         "phases": "",
-        "style": "rules",
+        "layout": "rules",
         "eyebrow": "Gave i Black Week",
         "heading_1": "Gave med hjem.",
         "heading_2": "Oveni.",
         "image": "shopify://shop_images/427_496bbe8d-72cc-421a-9db6-f83a5b270081.png",
-        "card_title": "Arox Thermo stålflaske 1,06 L",
-        "card_text": "",
+        "card_title": "Thermo stålflaske 1,06 L",
+        "card_text": "Gratis Thermo stålflaske til de første 100 ordrer.",
         "note": "",
         "button_label": "Se gaverne",
-        "button_link": "/pages/black-week-gaver"
+        "button_url": "/pages/black-week-gaver"
       }
     },
     "bw_cta": {

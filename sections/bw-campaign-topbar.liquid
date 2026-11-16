@@ -8,11 +8,8 @@
   endif
 -%}
 {%- unless hidden -%}
-<style>
-  #shopify-section-{{ section.id }} .bw-topbar { padding: 12px var(--bw-gutter); border-bottom: 1px solid var(--bw-line); background: var(--bw-black); }
-</style>
-<div class="bw{% render 'bw-only', phases: s.phases %}">
-  <div class="bw-topbar">{% render 'bw-countdown', compact: true %}</div>
+<div class="bw{% render 'bw-only', phases: s.phases %}" style="container-type:inline-size">
+  <div style="background:#0a0a0a;color:#fff;border-bottom:1px solid #222;padding:12px max(clamp(20px,calc((100cqw - 767px)*1000),64px),calc((100cqw - 1312px)/2))">{% render 'bw-countdown', compact: true %}</div>
 </div>
 {%- endunless -%}
 

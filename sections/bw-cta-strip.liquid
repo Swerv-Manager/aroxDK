@@ -1,21 +1,20 @@
-{%- comment -%}BLACK WEEK 2026 · Presale-CTA bjælke (03 Landingsside · kun i presale som standard){%- endcomment -%}
-{%- assign s = section.settings -%}
-<style>
-  #shopify-section-{{ section.id }} .bw-cta { padding: var(--bw-pad-y) var(--bw-gutter); display: flex; flex-wrap: wrap; gap: 20px 40px; align-items: center; justify-content: space-between; border-top: 1px solid #2b2b2b; }
-  #shopify-section-{{ section.id }} .bw-cta__h { font-size: clamp(24px, 2.6vw, 36px); font-weight: 900; text-transform: uppercase; line-height: 1; }
-  #shopify-section-{{ section.id }} .bw-cta__d { font-size: 15px; color: var(--bw-grey-c9); }
-  #shopify-section-{{ section.id }} .bw-cta__acts { display: flex; gap: 16px; align-items: center; flex-wrap: wrap; }
-</style>
-<div class="bw{% render 'bw-only', phases: s.phases %}">
-  <div class="bw-cta">
+{%- comment -%}BLACK WEEK 2026 · Presale-CTA bjælke (board 03, only in presale by default), ported 1:1 from the design.{%- endcomment -%}
+{%- liquid
+  assign s = section.settings
+  assign G = 'max(clamp(20px,calc((100cqw - 767px)*1000),64px),calc((100cqw - 1312px)/2))'
+  assign PY = 'clamp(48px,calc((100cqw - 767px)*1000),80px)'
+-%}
+<style>#shopify-section-{{ section.id }} a:hover { opacity: 1; }</style>
+<div class="bw{% render 'bw-only', phases: s.phases %}" style="container-type:inline-size">
+  <div style="background:#0a0a0a;color:#fff;padding:{{ PY }} {{ G }};display:flex;flex-wrap:wrap;gap:20px 40px;align-items:center;justify-content:space-between;border-top:1px solid #2b2b2b">
     <div style="display:grid;gap:8px">
-      {%- if s.eyebrow != blank -%}<div class="bw-eyebrow bw-eyebrow--light">{{ s.eyebrow }}</div>{%- endif -%}
-      <div class="bw-cta__h">{{ s.heading }}</div>
-      {%- if s.text != blank -%}<div class="bw-cta__d">{{ s.text }}</div>{%- endif -%}
+      {%- if s.eyebrow != blank -%}<div style="font-size:12px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#c9c9c9">{{ s.eyebrow }}</div>{%- endif -%}
+      <div style="font-size:clamp(24px,2.6cqw,36px);font-weight:900;text-transform:uppercase;line-height:1">{{ s.heading }}</div>
+      {%- if s.text != blank -%}<div style="font-size:15px;color:#c9c9c9">{{ s.text }}</div>{%- endif -%}
     </div>
-    <div class="bw-cta__acts">
-      {%- if s.button_label != blank -%}<a href="{{ s.button_link | default: '#' }}" class="bw-btn">{{ s.button_label }}</a>{%- endif -%}
-      {%- if s.link_label != blank -%}<a href="{{ s.link | default: '#' }}" class="bw-link">{{ s.link_label }}</a>{%- endif -%}
+    <div style="display:flex;gap:16px;align-items:center;flex-wrap:wrap">
+      {%- if s.button_label != blank -%}<a href="{{ s.button_link | default: '#' }}" style="display:inline-flex;align-items:center;justify-content:center;height:48px;padding:0 28px;border-radius:999px;font-size:15px;font-weight:700;text-decoration:none;background:#fff;color:#111">{{ s.button_label }}</a>{%- endif -%}
+      {%- if s.link_label != blank -%}<a href="{{ s.link | default: '#' }}" style="color:#fff;font-size:15px;font-weight:700;text-decoration:underline;text-underline-offset:4px">{{ s.link_label }}</a>{%- endif -%}
     </div>
   </div>
 </div>

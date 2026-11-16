@@ -22,50 +22,6 @@
         "text_color": ""
       }
     },
-    "image_with_text_overlay_6T4BJc": {
-      "type": "image-with-text-overlay",
-      "blocks": {
-        "subheading_UnWqAV": {
-          "type": "subheading",
-          "settings": {
-            "text": "UDVIKLET AF DANSKE ATLETER"
-          }
-        },
-        "heading_Y8gr6T": {
-          "type": "heading",
-          "settings": {
-            "text": "FUNKTIONELT UDSTYR OG TØJ",
-            "heading_tag": "h3"
-          }
-        },
-        "richtext_U7YgUE": {
-          "type": "richtext",
-          "settings": {
-            "content": "<p>Gå op opdagelse i et dansk udviklet univers af funktionelt trænings- udstyr og tøj</p>"
-          }
-        }
-      },
-      "block_order": [
-        "subheading_UnWqAV",
-        "heading_Y8gr6T",
-        "richtext_U7YgUE"
-      ],
-      "disabled": true,
-      "name": "Image with text overlay",
-      "settings": {
-        "full_width": true,
-        "allow_transparent_header": false,
-        "enable_parallax": false,
-        "image_size": "auto",
-        "image": "shopify://shop_images/Design_uden_navn-261.png",
-        "mobile_image": "shopify://shop_images/Design_uden_navn-265.png",
-        "mobile_text_position": "place-self-end-center text-center",
-        "desktop_text_position": "sm:place-self-center sm:text-center",
-        "text_color": "#ffffff",
-        "overlay_color": "#000000",
-        "overlay_opacity": 10
-      }
-    },
     "ss_hero_26_NcaBDk": {
       "type": "ss-hero-26",
       "blocks": {
@@ -215,568 +171,56 @@
       },
       "disabled": true
     },
-    "ss_circle_menu_2_rUrTaP": {
-      "type": "ss-circle-menu-2",
-      "blocks": {
-        "item_WzFBd8": {
-          "type": "item",
-          "settings": {
-            "image": "shopify://shop_images/Design_uden_navn-224.png",
-            "title": "UDSTYR",
-            "tag": "",
-            "url": "shopify://collections/cross-traening-udstyr"
-          },
-          "disabled": true
-        },
-        "item_NjrqY4": {
-          "type": "item",
-          "settings": {
-            "image": "shopify://shop_images/MenT-Shirt_Navy_0.png",
-            "title": "TRÆNINGSTØJ",
-            "tag": "",
-            "url": "shopify://collections/traeningstoj"
-          }
-        },
-        "item_8DaEi8": {
-          "type": "item",
-          "settings": {
-            "image": "shopify://shop_images/DC292B4B-8681-4FCD-BA81-964BDF3107F0.png",
-            "title": "BESTSELLERE",
-            "tag": "",
-            "url": "shopify://collections/cross-traeningbestsellers"
-          },
-          "disabled": true
-        },
-        "item_rGkcXY": {
-          "type": "item",
-          "settings": {
-            "image": "shopify://shop_images/26_46c0ca51-1c2e-4e9b-aa01-a8fad2fed795.png",
-            "title": "TILBEHØR",
-            "tag": "",
-            "url": "shopify://collections/cross-traeningtilbehor"
-          },
-          "disabled": true
-        },
-        "item_xXLGU6": {
-          "type": "item",
-          "settings": {
-            "image": "shopify://shop_images/ANTI_SLIP_GRIPS_PRO.png",
-            "title": "GRIPS",
-            "tag": "",
-            "url": "shopify://collections/cross-traening-grips"
-          }
-        },
-        "item_eeTKAb": {
-          "type": "item",
-          "settings": {
-            "image": "shopify://shop_images/15_28d03d67-9fe8-4ebb-8018-fe238f92b7c9.png",
-            "title": "SJIPPETOVE",
-            "tag": "SJIPPETOVE",
-            "url": "shopify://collections/sjippetove"
-          },
-          "disabled": true
-        },
-        "item_Xq43yr": {
-          "type": "item",
-          "settings": {
-            "image": "shopify://shop_images/204.png",
-            "title": "KNÆBIND",
-            "tag": "KNÆBIND",
-            "url": "shopify://collections/knaebind"
-          },
-          "disabled": true
-        },
-        "item_zPFfcx": {
-          "type": "item",
-          "settings": {
-            "image": "shopify://shop_images/466_af20dcfc-168d-4f28-8bf2-f74c1a9591b0.png",
-            "title": "TAPE",
-            "tag": "TAPE",
-            "url": "shopify://collections/flextape"
-          },
-          "disabled": true
-        },
-        "item_qy7A3F": {
-          "type": "item",
-          "disabled": true,
-          "settings": {
-            "image": "shopify://shop_images/273_09c4b42a-1f57-45f4-b7fa-dd1467a7c57d.png",
-            "title": "PAKKE TILBUD",
-            "tag": "",
-            "url": "shopify://pages/lav-din-egen-pakke"
-          }
-        },
-        "item_bw1": {
-          "type": "item",
-          "settings": {
-            "image": "shopify://shop_images/Billede-08011.jpg",
-            "title": "SINGLE OFFERS",
-            "tag": "",
-            "url": "/collections/black-week-limited-edition"
-          }
-        },
-        "item_bw2": {
-          "type": "item",
-          "settings": {
-            "image": "shopify://shop_images/Billede-08431_c2413a7b-6dfc-42df-9b99-e1990905d132.jpg",
-            "title": "3 FOR 2",
-            "tag": "",
-            "url": "/collections/black-week-3for2"
-          }
-        },
-        "item_bw3": {
-          "type": "item",
-          "settings": {
-            "image": "shopify://shop_images/Billede-00931.jpg",
-            "title": "4 FOR 2",
-            "tag": "",
-            "url": "/collections/black-week-4for2"
-          }
-        },
-        "item_bw4": {
-          "type": "item",
-          "settings": {
-            "image": "shopify://shop_images/427_496bbe8d-72cc-421a-9db6-f83a5b270081.png",
-            "title": "GAVER",
-            "tag": "",
-            "url": "/pages/black-week-gaver"
-          }
-        }
-      },
-      "block_order": [
-        "item_bw1",
-        "item_bw2",
-        "item_bw3",
-        "item_bw4",
-        "item_xXLGU6",
-        "item_NjrqY4",
-        "item_WzFBd8",
-        "item_8DaEi8",
-        "item_rGkcXY",
-        "item_eeTKAb",
-        "item_Xq43yr",
-        "item_zPFfcx",
-        "item_qy7A3F"
-      ],
-      "settings": {
-        "slider_view": 6,
-        "slider_view_mobile": 4.3,
-        "slider_gap": 22,
-        "slider_gap_mobile": 20,
-        "item_border_thickness": 2,
-        "tag_custom": true,
-        "tag_font": "mono",
-        "tag_size": 0,
-        "tag_size_mobile": 0,
-        "tag_height": 50,
-        "tag_padding_vertical": 0,
-        "tag_padding_vertical_mobile": 0,
-        "tag_padding_horizontal": 0,
-        "tag_padding_horizontal_mobile": 0,
-        "tag_border_radius": 0,
-        "tag_bottom": false,
-        "title_custom": true,
-        "title_font": "barlow_n6",
-        "title_size": 13,
-        "title_size_mobile": 11,
-        "title_height": 130,
-        "title_spacing": 8,
-        "title_spacing_mobile": 4,
-        "title_color": "#ffffff",
-        "tag_color": "#000000",
-        "item_border_color": "#ffffff",
-        "tag_bg_color": "#0099ff",
-        "tag_bg_gradient": "linear-gradient(125deg, rgba(196, 54, 55, 1), rgba(0, 153, 255, 1) 14%, rgba(24, 119, 242, 1) 36%, rgba(24, 119, 242, 1) 43%, rgba(24, 119, 242, 1) 52%, rgba(0, 0, 128, 1) 73%, rgba(0, 0, 128, 1) 84%, rgba(0, 0, 128, 1) 89%, rgba(0, 0, 128, 1) 100%)",
-        "background_color": "#0a0a0a",
-        "background_gradient": "",
-        "border_color": "#000000",
-        "full_width": false,
-        "content_width": 60,
-        "border_thickness": 0,
-        "section_radius": 0,
-        "lazy": true,
-        "margin_top": 0,
-        "margin_bottom": 0,
-        "margin_horizontal": 0,
-        "margin_horizontal_mobile": 0,
-        "padding_top": 28,
-        "padding_bottom": 32,
-        "padding_horizontal": 5,
-        "padding_horizontal_mobile": 1.5
-      }
-    },
-    "featured-collection": {
-      "type": "featured-collection",
-      "settings": {
-        "collection": "",
-        "products": [
-          "arox-anti-slip-grips",
-          "active-hoodie-sort",
-          "sportstech-oversized-t-shirt-sort",
-          "hybrid-shorts-navy-blue"
-        ],
-        "full_width": true,
-        "stack_products": false,
-        "show_progress_bar": false,
-        "products_count": 4,
-        "products_per_row_mobile": "2",
-        "products_per_row_desktop": 4,
-        "subheading": "",
-        "title": "Bestsellere lige nu",
-        "content": "",
-        "link_url": "shopify://collections/cross-traeningbestsellers",
-        "link_text": "Se alle",
-        "background": "#0a0a0a",
-        "background_gradient": "",
-        "text_color": "#ffffff",
-        "heading_color": "#ffffff",
-        "heading_gradient": "",
-        "product_card_background": "#ffffff",
-        "product_card_text_color": "#111111"
-      }
-    },
-    "featured_collection_tNKUdK": {
-      "type": "featured-collection",
-      "settings": {
-        "collection": "knaebind",
-        "products": [],
-        "full_width": false,
-        "stack_products": false,
-        "show_progress_bar": false,
-        "products_count": 32,
-        "products_per_row_mobile": "2",
-        "products_per_row_desktop": 4,
-        "subheading": "",
-        "title": "SHOP KNÆBIND",
-        "content": "",
-        "link_url": "",
-        "link_text": "Se alle",
-        "background": "",
-        "background_gradient": "",
-        "text_color": "",
-        "heading_color": "",
-        "heading_gradient": "",
-        "product_card_background": "",
-        "product_card_text_color": ""
-      }
-    },
-    "image_with_text_overlay_Dh7Hw7": {
-      "type": "image-with-text-overlay",
-      "blocks": {
-        "subheading_LfVTaQ": {
-          "type": "subheading",
-          "settings": {
-            "text": "Dansk udviklet · Lavet til at holde"
-          }
-        },
-        "heading_AVJga3": {
-          "type": "heading",
-          "settings": {
-            "text": "Til hård træning. Hele året.",
-            "heading_tag": "h2"
-          }
-        },
-        "richtext_bw": {
-          "type": "richtext",
-          "settings": {
-            "content": "<p>Grips, bælter og træningstøj udviklet sammen med vores ambassadører og interne atleter. Testet i boksen, WOD efter WOD.</p>"
-          }
-        },
-        "button_jgLyzW": {
-          "type": "button",
-          "settings": {
-            "style": "fill",
-            "size": "lg",
-            "text": "Se single offers",
-            "url": "/collections/black-week-limited-edition",
-            "background": "#ffffff",
-            "text_color": "#111111"
-          }
-        }
-      },
-      "block_order": [
-        "subheading_LfVTaQ",
-        "heading_AVJga3",
-        "richtext_bw",
-        "button_jgLyzW"
-      ],
-      "settings": {
-        "full_width": true,
-        "allow_transparent_header": false,
-        "enable_parallax": false,
-        "image_size": "auto",
-        "image": "shopify://shop_images/bw26-Billede-08199.jpg",
-        "mobile_text_position": "place-self-end-start text-start",
-        "desktop_text_position": "sm:place-self-end-start sm:text-start",
-        "text_color": "#ffffff",
-        "overlay_color": "#0a0a0a",
-        "overlay_opacity": 45
-      }
-    },
-    "featured_collection_T6XnhH": {
-      "type": "featured-collection",
-      "settings": {
-        "collection": "cross-traenings-toj",
-        "products": [],
-        "full_width": true,
-        "stack_products": false,
-        "show_progress_bar": false,
-        "products_count": 39,
-        "products_per_row_mobile": "2",
-        "products_per_row_desktop": 4,
-        "subheading": "",
-        "title": "SHOP OVERDELE",
-        "content": "",
-        "link_url": "",
-        "link_text": "Se alle",
-        "background": "",
-        "background_gradient": "",
-        "text_color": "",
-        "heading_color": "",
-        "heading_gradient": "",
-        "product_card_background": "",
-        "product_card_text_color": ""
-      }
-    },
-    "featured_collection_Ewz9xE": {
-      "type": "featured-collection",
-      "settings": {
-        "collection": "",
-        "products": [
-          "arox-anti-slip-grips",
-          "arox-wolverine-pro-grips-navy",
-          "arox-commander-pro-grips",
-          "arox-wolverine-pro-grips-3-hul-navy",
-          "spongeb-grips-serie-4-0",
-          "commander-pro-grips-3-hul"
-        ],
-        "full_width": true,
-        "stack_products": false,
-        "show_progress_bar": false,
-        "products_count": 6,
-        "products_per_row_mobile": "2",
-        "products_per_row_desktop": 4,
-        "subheading": "",
-        "title": "SHOP GRIPS",
-        "content": "",
-        "link_url": "shopify://collections/cross-traening-grips",
-        "link_text": "Se alle",
-        "background": "",
-        "background_gradient": "",
-        "text_color": "",
-        "heading_color": "",
-        "heading_gradient": "",
-        "product_card_background": "",
-        "product_card_text_color": ""
-      }
-    },
-    "image_with_text_overlay_wPUkYp": {
-      "type": "image-with-text-overlay",
-      "blocks": {
-        "subheading_AJfcwN": {
-          "type": "subheading",
-          "settings": {
-            "text": "FRA IDE TIL VIRKELIG"
-          }
-        },
-        "heading_pFBwnD": {
-          "type": "heading",
-          "settings": {
-            "text": "DANSK UDVIKLET GEAR",
-            "heading_tag": "h1"
-          }
-        },
-        "button_UbeLD8": {
-          "type": "button",
-          "settings": {
-            "style": "fill",
-            "size": "lg",
-            "text": "SE ALLE PRODUKTER",
-            "url": "shopify://collections/cross-traening-udstyr",
-            "background": "#ffffff",
-            "text_color": "#1a1a1a"
-          }
-        }
-      },
-      "block_order": [
-        "subheading_AJfcwN",
-        "heading_pFBwnD",
-        "button_UbeLD8"
-      ],
-      "settings": {
-        "full_width": true,
-        "allow_transparent_header": false,
-        "enable_parallax": false,
-        "image_size": "auto",
-        "image": "shopify://shop_images/Design_uden_navn-191.png",
-        "mobile_text_position": "place-self-center text-center",
-        "desktop_text_position": "sm:place-self-center-end sm:text-end",
-        "text_color": "#ffffff",
-        "overlay_color": "#000000",
-        "overlay_opacity": 30
-      },
-      "disabled": true
-    },
-    "featured_collection_kVMkYB": {
-      "type": "featured-collection",
-      "settings": {
-        "collection": "sjippetove",
-        "products": [],
-        "full_width": false,
-        "stack_products": false,
-        "show_progress_bar": false,
-        "products_count": 6,
-        "products_per_row_mobile": "2",
-        "products_per_row_desktop": 4,
-        "subheading": "",
-        "title": "SHOP SJIPPETOVE",
-        "content": "",
-        "link_url": "shopify://collections/sjippetove",
-        "link_text": "Se alle",
-        "background": "",
-        "background_gradient": "",
-        "text_color": "",
-        "heading_color": "",
-        "heading_gradient": "",
-        "product_card_background": "",
-        "product_card_text_color": ""
-      }
-    },
-    "rich_text_rEWTfY": {
-      "type": "rich-text",
-      "blocks": {
-        "subheading_fGWCC7": {
-          "type": "subheading",
-          "settings": {
-            "text": "AROX ER DANSK & DET ER VI STOLTE AF SAMMEN MED"
-          }
-        },
-        "heading_F9VkHw": {
-          "type": "heading",
-          "settings": {
-            "text": "OVER 20.000 DANSKE KUNDER",
-            "heading_tag": "h2",
-            "text_color": "",
-            "gradient": ""
-          }
-        }
-      },
-      "block_order": [
-        "subheading_fGWCC7",
-        "heading_F9VkHw"
-      ],
-      "settings": {
-        "full_width": true,
-        "content_width": "small",
-        "text_position": "center",
-        "background": "#0a0a0a",
-        "background_gradient": "",
-        "text_color": "#ffffff"
-      }
-    },
-    "173479793484726472": {
-      "type": "apps",
-      "blocks": {
-        "loox_reviews_loox_video_slider_Ft9TqB": {
-          "type": "shopify://apps/loox-reviews/blocks/loox-video-slider/5c3b337f-fd14-4df5-b1d6-80ec13e6e28e",
-          "settings": {
-            "show-by-tag": false,
-            "layout": "spotlight",
-            "shadow": "",
-            "show-rating": true,
-            "show-reviewer-name": true,
-            "hide-arrows-mobile": true,
-            "auto-play": true,
-            "show-border": false,
-            "border-width": 1,
-            "border-radius": 16,
-            "text-color": "",
-            "rating-icon-color": "",
-            "border-color": "",
-            "play-button-color": "",
-            "shadow-color": "",
-            "product-id": ""
-          }
-        }
-      },
-      "block_order": [
-        "loox_reviews_loox_video_slider_Ft9TqB"
-      ],
-      "settings": {
-        "full_width": true,
-        "remove_vertical_spacing": false,
-        "remove_horizontal_spacing": false,
-        "background": "",
-        "background_gradient": "",
-        "text_color": ""
-      }
-    },
     "bw_hero": {
       "type": "bw-hero",
       "blocks": {
-        "offer_le": {
+        "offer_1": {
           "type": "offer",
           "settings": {
             "title": "Single offers",
             "text": "Blackout-udgaver og favoritter til fast Black Week-pris.",
-            "link": "/collections/black-week-limited-edition"
+            "url": "/collections/black-week-limited-edition"
           }
         },
-        "offer_s3": {
+        "offer_2": {
           "type": "offer",
           "settings": {
             "title": "3 for 2",
             "text": "Tag 3, betal for 2. Den billigste er gratis.",
-            "link": "/collections/black-week-3for2"
+            "url": "/collections/black-week-3for2"
           }
         },
-        "offer_s4": {
+        "offer_3": {
           "type": "offer",
           "settings": {
             "title": "4 for 2",
             "text": "Tag 4, betal for 2. De 2 billigste er gratis.",
-            "link": "/collections/black-week-4for2"
+            "url": "/collections/black-week-4for2"
           }
         }
       },
       "block_order": [
-        "offer_le",
-        "offer_s3",
-        "offer_s4"
+        "offer_1",
+        "offer_2",
+        "offer_3"
       ],
       "settings": {
         "phases": "",
         "image": "shopify://shop_images/Billede-00748.jpg",
-        "focal": "58% 55%",
-        "overlay": "left",
-        "align": "left",
-        "min_height": 800,
-        "min_height_mobile": 660,
         "badge": "Black Week",
-        "date": "20.11–30.11",
-        "eyebrow": "",
-        "heading_size": "large",
-        "heading_1": "BLACK WEEK ER I GANG.",
-        "heading_2": "SHOP BLACK WEEK.",
-        "text": "",
-        "heading_1_pre": "DU SHOPPER FØRST.",
-        "heading_2_pre": "ALLE ANDRE BAGEFTER.",
-        "text_pre": "",
-        "heading_1_early": "",
-        "heading_2_early": "",
-        "text_early": "",
-        "heading_1_live": "",
-        "heading_2_live": "",
-        "text_live": "",
-        "heading_1_sidste": "SIDSTE DAG.",
-        "heading_2_sidste": "SLUTTER KL. 23:59.",
-        "text_sidste": "",
-        "button_label": "Shop Black Week",
-        "button_link": "#tilbud",
-        "button_label_pre": "Tilmeld dig presale",
-        "button_link_pre": "#presale",
-        "button_size": "large",
-        "button_arrow": false,
+        "dates": "20.11–30.11",
+        "h1a_pre": "DU SHOPPER FØRST.",
+        "h1b_pre": "ALLE ANDRE BAGEFTER.",
+        "h1a_early": "BLACK WEEK ER I GANG.",
+        "h1b_early": "SHOP BLACK WEEK.",
+        "h1a_live": "BLACK WEEK ER I GANG.",
+        "h1b_live": "SHOP BLACK WEEK.",
+        "h1a_sidste": "SIDSTE DAG.",
+        "h1b_sidste": "SLUTTER KL. 23:59.",
+        "cta_pre": "Tilmeld dig presale",
+        "cta_url_pre": "#presale",
+        "cta": "Shop Black Week",
+        "cta_url": "/pages/black-week",
         "note": "Rabatten trækkes automatisk i kurven."
       }
     },
@@ -824,37 +268,70 @@
     },
     "bw_band": {
       "type": "bw-band",
+      "settings": {
+        "phases": "",
+        "items": "Limited edition|3 for 2|4 for 2|Rabatten trækkes automatisk i kurven"
+      }
+    },
+    "bw_circles": {
+      "type": "bw-circles",
       "blocks": {
-        "item_1": {
+        "circle_1": {
           "type": "item",
           "settings": {
-            "text": "Limited edition"
+            "image": "shopify://shop_images/Billede-08011.jpg",
+            "label": "Single offers",
+            "url": "/collections/black-week-limited-edition"
           }
         },
-        "item_2": {
+        "circle_2": {
           "type": "item",
           "settings": {
-            "text": "3 for 2"
+            "image": "shopify://shop_images/Billede-08431_c2413a7b-6dfc-42df-9b99-e1990905d132.jpg",
+            "label": "3 for 2",
+            "url": "/collections/black-week-3for2"
           }
         },
-        "item_3": {
+        "circle_3": {
           "type": "item",
           "settings": {
-            "text": "4 for 2"
+            "image": "shopify://shop_images/Billede-00931.jpg",
+            "label": "4 for 2",
+            "url": "/collections/black-week-4for2"
           }
         },
-        "item_4": {
+        "circle_4": {
           "type": "item",
           "settings": {
-            "text": "Rabatten trækkes automatisk i kurven"
+            "image": "shopify://shop_images/427_496bbe8d-72cc-421a-9db6-f83a5b270081.png",
+            "label": "Gaver",
+            "url": "/pages/black-week-gaver"
+          }
+        },
+        "circle_5": {
+          "type": "item",
+          "settings": {
+            "product": "arox-anti-slip-grips",
+            "label": "Grips",
+            "url": "shopify://collections/cross-traening-grips"
+          }
+        },
+        "circle_6": {
+          "type": "item",
+          "settings": {
+            "product": "sportstech-unisex-t-shirt-sort",
+            "label": "Træningstøj",
+            "url": "shopify://collections/traeningstoj"
           }
         }
       },
       "block_order": [
-        "item_1",
-        "item_2",
-        "item_3",
-        "item_4"
+        "circle_1",
+        "circle_2",
+        "circle_3",
+        "circle_4",
+        "circle_5",
+        "circle_6"
       ],
       "settings": {
         "phases": ""
@@ -866,37 +343,37 @@
         "cat_1": {
           "type": "category",
           "settings": {
+            "image": "shopify://shop_images/Billede-08011.jpg",
+            "overlay": 20,
             "badge": "Single offers",
             "heading": "LIMITED BLACKOUT.",
             "text": "Limited blackout og udvalgte favoritter til fast Black Week-pris. Limited findes kun i Black Week.",
             "cta": "Se single offers",
-            "image": "shopify://shop_images/Billede-08011.jpg",
-            "overlay": 20,
-            "link": "/collections/black-week-limited-edition"
+            "url": "/collections/black-week-limited-edition"
           }
         },
         "cat_2": {
           "type": "category",
           "settings": {
+            "image": "shopify://shop_images/Billede-08431_c2413a7b-6dfc-42df-9b99-e1990905d132.jpg",
+            "overlay": 30,
             "badge": "3 for 2",
             "heading": "TAG 3. BETAL FOR 2.",
             "text": "Læg 3 varer fra 3 for 2 i kurven, og betal for de 2 dyreste. Den billigste er gratis.",
             "cta": "Shop 3 for 2",
-            "image": "shopify://shop_images/Billede-08431_c2413a7b-6dfc-42df-9b99-e1990905d132.jpg",
-            "overlay": 30,
-            "link": "/collections/black-week-3for2"
+            "url": "/collections/black-week-3for2"
           }
         },
         "cat_3": {
           "type": "category",
           "settings": {
+            "image": "shopify://shop_images/Billede-00931.jpg",
+            "overlay": 50,
             "badge": "4 for 2",
             "heading": "TAG 4. BETAL FOR 2.",
             "text": "Læg 4 varer fra 4 for 2 i kurven, og betal for de 2 dyreste. De 2 billigste er gratis.",
             "cta": "Shop 4 for 2",
-            "image": "shopify://shop_images/Billede-00931.jpg",
-            "overlay": 50,
-            "link": "/collections/black-week-4for2"
+            "url": "/collections/black-week-4for2"
           }
         }
       },
@@ -910,51 +387,73 @@
         "eyebrow": "Sådan virker Black Week",
         "heading_1": "Tre tilbud.",
         "heading_2": "Én kurv.",
-        "footnote": "Rabatten trækkes automatisk i kurven – ingen kode nødvendig."
+        "note": "Rabatten trækkes automatisk i kurven – ingen kode nødvendig."
       }
     },
     "bw_limited": {
       "type": "bw-feature-products",
       "settings": {
         "phases": "",
-        "anchor": "single",
         "image": "shopify://shop_images/Billede-08057.jpg",
-        "focal": "50% 55%",
+        "object_position": "50% 55%",
         "overlay": 0,
         "badge": "Limited",
         "eyebrow": "Limited edition · Limited blackout",
-        "heading_size": "l",
         "heading_1": "Limited blackout.",
         "heading_2": "Kun i Black Week.",
+        "heading_size": "lg",
         "text": "Helsort udgave af anti slip grips, fusion grips, Elite-bæltet og speedrope elite. Kun i Black Week.",
+        "text_max": 520,
         "button_label": "Se single offers",
-        "button_link": "/collections/black-week-limited-edition",
+        "button_url": "/collections/black-week-limited-edition",
+        "products": [],
         "collection": "",
         "collection_handle": "black-week-limited-edition",
         "limit": 4,
-        "card_badge": "",
-        "bottom_button_label": "",
-        "bottom_button_link": "",
+        "footer": "note",
+        "button2_label": "",
+        "button2_url": "",
         "note": "Fri fragt v. køb over 499 kr. · ellers fragt fra 35 kr."
+      }
+    },
+    "bw_bestsellers": {
+      "type": "bw-product-row",
+      "settings": {
+        "phases": "",
+        "heading_size": "sm",
+        "border_top": false,
+        "eyebrow": "",
+        "heading_1": "Bestsellere lige nu",
+        "heading_2": "",
+        "text": "",
+        "link_label": "Se alle",
+        "link_url": "shopify://collections/cross-traeningbestsellers",
+        "products": [
+          "arox-anti-slip-grips",
+          "active-hoodie-sort",
+          "sportstech-oversized-t-shirt-sort",
+          "hybrid-shorts-navy-blue"
+        ],
+        "collection": "",
+        "collection_handle": "",
+        "limit": 4
       }
     },
     "bw_3for2": {
       "type": "bw-offer-banner",
       "settings": {
         "phases": "",
-        "anchor": "3for2",
         "image": "shopify://shop_images/Design_uden_navn-186.png",
-        "focal": "50% 40%",
         "badge": "3 for 2",
         "heading_1": "Tag 3.",
         "heading_2": "Betal for 2.",
         "text": "Læg 3 varer fra 3 for 2 i kurven, og betal for de 2 dyreste. Den billigste er gratis. Rabatten trækkes automatisk i kurven – ingen kode nødvendig.",
+        "products": [],
         "collection": "black-week-3for2",
         "collection_handle": "black-week-3for2",
         "limit": 4,
-        "card_badge": "",
         "button_label": "Shop 3 for 2",
-        "button_link": "/collections/black-week-3for2",
+        "button_url": "/collections/black-week-3for2",
         "note": "Fri fragt v. køb over 499 kr. · ellers fragt fra 35 kr."
       }
     },
@@ -962,24 +461,25 @@
       "type": "bw-feature-products",
       "settings": {
         "phases": "",
-        "anchor": "4for2",
         "image": "shopify://shop_images/Billede-00921.jpg",
-        "focal": "50% 64%",
+        "object_position": "50% 64%",
         "overlay": 50,
         "badge": "4 for 2",
         "eyebrow": "4 for 2 · SportsTech og herre tights",
-        "heading_size": "xl",
         "heading_1": "Tag 4.",
         "heading_2": "Betal for 2.",
+        "heading_size": "xl",
         "text": "Læg 4 varer fra 4 for 2 i kurven, og betal for de 2 dyreste. De 2 billigste er gratis. Rabatten trækkes automatisk i kurven – ingen kode nødvendig.",
+        "text_max": 480,
         "button_label": "Shop 4 for 2",
-        "button_link": "/collections/black-week-4for2",
+        "button_url": "/collections/black-week-4for2",
+        "products": [],
         "collection": "black-week-4for2",
         "collection_handle": "black-week-4for2",
         "limit": 4,
-        "card_badge": "",
-        "bottom_button_label": "Se alle",
-        "bottom_button_link": "/collections/black-week-4for2",
+        "footer": "button",
+        "button2_label": "Se alle",
+        "button2_url": "/collections/black-week-4for2",
         "note": "Fri fragt v. køb over 499 kr. · ellers fragt fra 35 kr."
       }
     },
@@ -987,14 +487,14 @@
       "type": "bw-product-row",
       "settings": {
         "phases": "",
-        "anchor": "julegaver",
-        "border": true,
+        "heading_size": "lg",
+        "border_top": true,
         "eyebrow": "Julegaver",
         "heading_1": "Køb julegaverne",
         "heading_2": "i Black Week.",
         "text": "Sjippetov, flasker, strømper og træningstøj til Black Week-pris. Find gaven til ham, hende eller hele holdet.",
         "link_label": "Se alle",
-        "link": "/pages/black-week-gaver",
+        "link_url": "/pages/black-week-gaver",
         "products": [
           "speed-rope-elite-2-0",
           "thermo-stal-drikkedunk-1-06-l",
@@ -1060,7 +560,7 @@
       "type": "bw-gift-block",
       "settings": {
         "phases": "",
-        "style": "card",
+        "layout": "card",
         "eyebrow": "Gave i Black Week",
         "heading_1": "Gave med hjem.",
         "heading_2": "Oveni.",
@@ -1069,117 +569,305 @@
         "card_text": "Gratis Thermo stålflaske til de første 100 ordrer.",
         "note": "Gælder de første 100 ordrer i Black Week 20.11–30.11.2026.",
         "button_label": "Se gaverne",
-        "button_link": "/pages/black-week-gaver"
+        "button_url": "/pages/black-week-gaver"
       }
+    },
+    "bw_athlete": {
+      "type": "bw-image-text",
+      "settings": {
+        "phases": "",
+        "image": "shopify://shop_images/bw26-Billede-08199.jpg",
+        "eyebrow": "Dansk udviklet · Lavet til at holde",
+        "heading_1": "Til hård træning.",
+        "heading_2": "Hele året.",
+        "text": "Grips, bælter og træningstøj udviklet sammen med vores ambassadører og interne atleter. Testet i boksen, WOD efter WOD.",
+        "button_label": "Se single offers",
+        "button_url": "/collections/black-week-limited-edition"
+      }
+    },
+    "image_with_text_overlay_wPUkYp": {
+      "type": "image-with-text-overlay",
+      "blocks": {
+        "subheading_AJfcwN": {
+          "type": "subheading",
+          "settings": {
+            "text": "FRA IDE TIL VIRKELIG"
+          }
+        },
+        "heading_pFBwnD": {
+          "type": "heading",
+          "settings": {
+            "text": "DANSK UDVIKLET GEAR",
+            "heading_tag": "h1"
+          }
+        },
+        "button_UbeLD8": {
+          "type": "button",
+          "settings": {
+            "style": "fill",
+            "size": "lg",
+            "text": "SE ALLE PRODUKTER",
+            "url": "shopify://collections/cross-traening-udstyr",
+            "background": "#ffffff",
+            "text_color": "#1a1a1a"
+          }
+        }
+      },
+      "block_order": [
+        "subheading_AJfcwN",
+        "heading_pFBwnD",
+        "button_UbeLD8"
+      ],
+      "settings": {
+        "full_width": true,
+        "allow_transparent_header": false,
+        "enable_parallax": false,
+        "image_size": "auto",
+        "image": "shopify://shop_images/Design_uden_navn-191.png",
+        "mobile_text_position": "place-self-center text-center",
+        "desktop_text_position": "sm:place-self-center-end sm:text-end",
+        "text_color": "#ffffff",
+        "overlay_color": "#000000",
+        "overlay_opacity": 30
+      },
+      "disabled": true
     },
     "bw_presale": {
       "type": "bw-presale",
       "settings": {
         "phases": "pre, early, sidste",
         "image": "shopify://shop_images/bw26-Billede-08153.jpg",
-        "focal": "35% 40%",
-        "overlay": 72,
-        "tags": "newsletter,bw26-presale",
-        "eyebrow_pre": "Presale",
-        "heading_1_pre": "TILMELD DIG.",
-        "heading_2_pre": "SHOP FØR ALLE ANDRE.",
-        "text_pre": "Få adgang til Black Week fredag 20.11 kl. 12:00 – før vi åbner for alle søndag 22.11 kl. 20:00.",
-        "button_pre": "Tilmeld dig presale",
-        "ok_text_pre": "Vi giver dig besked, når presale åbner fredag 20.11 kl. 12:00.",
-        "eyebrow": "SMS + mail",
-        "heading_1": "TILMELD DIG.",
-        "heading_2": "HØR DET FØRST.",
-        "text": "Få besked på SMS og mail, når vi har tilbud.",
-        "button": "Tilmeld dig",
-        "ok_text": "Vi giver dig besked, næste gang der sker noget.",
-        "ph_name": "Fornavn",
-        "ph_email": "E-mail",
-        "ph_phone": "Telefonnummer (valgfrit – til SMS)",
-        "consent_email": "Ja tak til nyheder og tilbud på e-mail",
-        "consent_sms": "Ja tak til nyheder og tilbud på SMS",
-        "legal": "Du kan altid afmelde dig igen. Læs mere i vores privatlivspolitik.",
-        "ok_heading_1": "Tak.",
-        "ok_heading_2": "Du er på listen.",
-        "again_label": "Tilmeld en til"
+        "tags": "newsletter,bw26-presale"
       }
     },
-    "bw_faq": {
-      "type": "bw-faq",
+    "bw_brand": {
+      "type": "bw-rich-text",
+      "settings": {
+        "phases": "",
+        "heading": "Arox er dansk & det er vi stolte af",
+        "text": "Skabt af atleter, delt med alle som ønsker en aktiv livsstil."
+      }
+    },
+    "bw_faq_short": {
+      "type": "bw-faq-short",
       "blocks": {
-        "item_1": {
+        "q_1": {
           "type": "item",
           "settings": {
             "question": "Hvornår er Black Week?",
-            "answer": "<p>Presale for tilmeldte fredag 20.11 kl. 12:00. Åbent for alle søndag 22.11 kl. 20:00. Black Week slutter mandag 30.11 kl. 23:59 (Cyber Monday).</p>"
+            "answer": "Presale for tilmeldte fredag 20.11 kl. 12:00. Åbent for alle søndag 22.11 kl. 20:00. Black Week slutter mandag 30.11 kl. 23:59 (Cyber Monday)."
           }
         },
-        "item_2": {
+        "q_2": {
           "type": "item",
           "settings": {
             "question": "Hvordan får jeg rabatten?",
-            "answer": "<p>Rabatten trækkes automatisk i kurven – ingen kode nødvendig. Ved 3 for 2 er den billigste af 3 varer gratis. Ved 4 for 2 er de 2 billigste af 4 varer gratis.</p>"
+            "answer": "Rabatten trækkes automatisk i kurven – ingen kode nødvendig. Ved 3 for 2 er den billigste af 3 varer gratis. Ved 4 for 2 er de 2 billigste af 4 varer gratis."
           }
         },
-        "item_3": {
+        "q_3": {
           "type": "item",
           "settings": {
             "question": "Hvilke varer er med?",
-            "answer": "<p>Varer markeret med Limited edition, 3 for 2 eller 4 for 2. Du finder dem samlet i de tre Black Week-kollektioner.</p>"
+            "answer": "Varer markeret med Limited edition, 3 for 2 eller 4 for 2. Du finder dem samlet i de tre Black Week-kollektioner."
           }
         },
-        "item_4": {
+        "q_4": {
           "type": "item",
           "settings": {
             "question": "Hvad er Limited Blackout?",
-            "answer": "<p>Helsorte udgaver af anti slip grips, fusion grips, Elite-bæltet og speedrope elite. De findes kun i Black Week.</p>"
+            "answer": "Helsorte udgaver af anti slip grips, fusion grips, Elite-bæltet og speedrope elite. De findes kun i Black Week."
           }
         },
-        "item_5": {
+        "q_5": {
           "type": "item",
           "settings": {
             "question": "Hvordan får jeg gaven?",
-            "answer": "<p>De første 100 ordrer i Black Week får en gratis Thermo stålflaske (1,06 L) med. Der er ingen beløbsgrænse.</p>"
+            "answer": "De første 100 ordrer i Black Week får en gratis Thermo stålflaske (1,06 L) med. Der er ingen beløbsgrænse."
           }
         }
       },
       "block_order": [
-        "item_1",
-        "item_2",
-        "item_3",
-        "item_4",
-        "item_5"
+        "q_1",
+        "q_2",
+        "q_3",
+        "q_4",
+        "q_5"
       ],
       "settings": {
         "phases": "",
         "eyebrow": "FAQ",
-        "heading": "Black Week. Kort fortalt.",
-        "limit": 5,
+        "heading_1": "Black Week.",
+        "heading_2": "Kort fortalt.",
         "link_label": "Se vilkår og alle spørgsmål",
         "link_url": "/pages/black-week-vilkaar"
+      }
+    },
+    "featured_collection_tNKUdK": {
+      "type": "featured-collection",
+      "settings": {
+        "collection": "knaebind",
+        "products": [],
+        "full_width": false,
+        "stack_products": false,
+        "show_progress_bar": false,
+        "products_count": 32,
+        "products_per_row_mobile": "2",
+        "products_per_row_desktop": 4,
+        "subheading": "",
+        "title": "SHOP KNÆBIND",
+        "content": "",
+        "link_url": "",
+        "link_text": "Se alle",
+        "background": "",
+        "background_gradient": "",
+        "text_color": "",
+        "heading_color": "",
+        "heading_gradient": "",
+        "product_card_background": "",
+        "product_card_text_color": ""
+      }
+    },
+    "featured_collection_T6XnhH": {
+      "type": "featured-collection",
+      "settings": {
+        "collection": "cross-traenings-toj",
+        "products": [],
+        "full_width": true,
+        "stack_products": false,
+        "show_progress_bar": false,
+        "products_count": 39,
+        "products_per_row_mobile": "2",
+        "products_per_row_desktop": 4,
+        "subheading": "",
+        "title": "SHOP OVERDELE",
+        "content": "",
+        "link_url": "",
+        "link_text": "Se alle",
+        "background": "",
+        "background_gradient": "",
+        "text_color": "",
+        "heading_color": "",
+        "heading_gradient": "",
+        "product_card_background": "",
+        "product_card_text_color": ""
+      }
+    },
+    "featured_collection_Ewz9xE": {
+      "type": "featured-collection",
+      "settings": {
+        "collection": "",
+        "products": [
+          "arox-anti-slip-grips",
+          "arox-wolverine-pro-grips-navy",
+          "arox-commander-pro-grips",
+          "arox-wolverine-pro-grips-3-hul-navy",
+          "spongeb-grips-serie-4-0",
+          "commander-pro-grips-3-hul"
+        ],
+        "full_width": true,
+        "stack_products": false,
+        "show_progress_bar": false,
+        "products_count": 6,
+        "products_per_row_mobile": "2",
+        "products_per_row_desktop": 4,
+        "subheading": "",
+        "title": "SHOP GRIPS",
+        "content": "",
+        "link_url": "shopify://collections/cross-traening-grips",
+        "link_text": "Se alle",
+        "background": "",
+        "background_gradient": "",
+        "text_color": "",
+        "heading_color": "",
+        "heading_gradient": "",
+        "product_card_background": "",
+        "product_card_text_color": ""
+      }
+    },
+    "featured_collection_kVMkYB": {
+      "type": "featured-collection",
+      "settings": {
+        "collection": "sjippetove",
+        "products": [],
+        "full_width": false,
+        "stack_products": false,
+        "show_progress_bar": false,
+        "products_count": 6,
+        "products_per_row_mobile": "2",
+        "products_per_row_desktop": 4,
+        "subheading": "",
+        "title": "SHOP SJIPPETOVE",
+        "content": "",
+        "link_url": "shopify://collections/sjippetove",
+        "link_text": "Se alle",
+        "background": "",
+        "background_gradient": "",
+        "text_color": "",
+        "heading_color": "",
+        "heading_gradient": "",
+        "product_card_background": "",
+        "product_card_text_color": ""
+      }
+    },
+    "173479793484726472": {
+      "type": "apps",
+      "blocks": {
+        "loox_reviews_loox_video_slider_Ft9TqB": {
+          "type": "shopify://apps/loox-reviews/blocks/loox-video-slider/5c3b337f-fd14-4df5-b1d6-80ec13e6e28e",
+          "settings": {
+            "show-by-tag": false,
+            "layout": "spotlight",
+            "shadow": "",
+            "show-rating": true,
+            "show-reviewer-name": true,
+            "hide-arrows-mobile": true,
+            "auto-play": true,
+            "show-border": false,
+            "border-width": 1,
+            "border-radius": 16,
+            "text-color": "",
+            "rating-icon-color": "",
+            "border-color": "",
+            "play-button-color": "",
+            "shadow-color": "",
+            "product-id": ""
+          }
+        }
+      },
+      "block_order": [
+        "loox_reviews_loox_video_slider_Ft9TqB"
+      ],
+      "settings": {
+        "full_width": true,
+        "remove_vertical_spacing": false,
+        "remove_horizontal_spacing": false,
+        "background": "",
+        "background_gradient": "",
+        "text_color": ""
       }
     }
   },
   "order": [
     "custom_liquid_BQWVna",
-    "image_with_text_overlay_6T4BJc",
     "ss_hero_26_NcaBDk",
     "bw_hero",
     "bw_dates",
     "bw_band",
-    "ss_circle_menu_2_rUrTaP",
+    "bw_circles",
     "bw_offer_cats",
     "bw_limited",
-    "featured-collection",
+    "bw_bestsellers",
     "bw_3for2",
     "bw_4for2",
     "bw_julegaver",
     "bw_gaveguide",
     "bw_gift",
-    "image_with_text_overlay_Dh7Hw7",
+    "bw_athlete",
     "image_with_text_overlay_wPUkYp",
     "bw_presale",
-    "rich_text_rEWTfY",
-    "bw_faq",
+    "bw_brand",
+    "bw_faq_short",
     "featured_collection_tNKUdK",
     "featured_collection_T6XnhH",
     "featured_collection_Ewz9xE",

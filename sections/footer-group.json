@@ -69,7 +69,8 @@
         "background": "#0a0a0a",
         "background_gradient": "",
         "text_color": "#ffffff"
-      }
+      },
+      "disabled": true
     },
     "footer": {
       "type": "footer",
@@ -184,9 +185,50 @@
         "payments": "Dankort, Visa, Mastercard, MobilePay",
         "copyright": "© 2026, Arox Fitness Denmark. · Sai Fitness ApS · CVR 42582735 · Skolegade 7, 8000 Aarhus C"
       }
+    },
+    "bw_usp": {
+      "type": "bw-usp",
+      "blocks": {
+        "usp_1": {
+          "type": "item",
+          "settings": {
+            "icon": "truck",
+            "title": "Fri fragt over 499 kr.",
+            "text": "Vi leverer med GLS hos Arox Fitness",
+            "link": ""
+          }
+        },
+        "usp_2": {
+          "type": "item",
+          "settings": {
+            "icon": "store",
+            "title": "Over 50 danske forhandlere",
+            "text": "Find en butik nær dig",
+            "link": "shopify://pages/forhandlere"
+          }
+        },
+        "usp_3": {
+          "type": "item",
+          "settings": {
+            "icon": "phone",
+            "title": "RING IND MELLEM 10:00–13:00",
+            "text": "DIREKTE PÅ TELF: 21716275",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "usp_1",
+        "usp_2",
+        "usp_3"
+      ],
+      "settings": {
+        "phases": ""
+      }
     }
   },
   "order": [
+    "bw_usp",
     "text-with-icons",
     "footer",
     "bw_footer"
