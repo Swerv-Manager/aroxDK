@@ -1,0 +1,20 @@
+{%- comment -%}
+BLACK WEEK 2026 · board 08 · product price as in the design: "Salgspris 199 kr." (28 px/900, red when the variant has
+a higher compare-at price) + "Normalpris 329 kr." + "Inkl. moms. Moms og levering beregnes ved kassen".
+Rendered by a main-product liquid block; Impact re-renders liquid blocks when the variant changes, so the price follows
+the selected variant. Param: product
+{%- endcomment -%}
+{%- liquid
+  assign bw_v = product.selected_or_first_available_variant
+  assign bw_sale = false
+  if bw_v.compare_at_price > bw_v.price
+    assign bw_sale = true
+  endif
+-%}
+<div class="bw-pdp-price">
+  <div class="bw-pdp-price__row">
+    <span class="bw-pdp-price__p{% if bw_sale %} is-sale{% endif %}">Salgspris {{ bw_v.price | money_without_currency | remove: ',00' | append: ' kr.' }}</span>
+    {%- if bw_sale -%}<span class="bw-pdp-price__n">Normalpris {{ bw_v.compare_at_price | money_without_currency | remove: ',00' | append: ' kr.' }}</span>{%- endif -%}
+  </div>
+  <div class="bw-pdp-price__t">Inkl. moms. Moms og levering beregnes ved kassen</div>
+</div>

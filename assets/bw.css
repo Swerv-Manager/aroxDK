@@ -289,3 +289,67 @@ html.bw-ended .bw-hide-ended { display: none !important; }
 .bw-pager { display: flex; gap: 16px; justify-content: center; align-items: center; padding-top: 32px; font-size: 15px; font-weight: 700; }
 .bw-pager a { color: #fff; text-decoration: underline; text-underline-offset: 4px; }
 .bw-pager span { color: var(--bw-grey-c9); }
+
+/* ---------- Product page (board 08 · templates/product.json + main-product) ----------
+   Impact's main-product keeps all its logic (variants, add to cart, gallery); this only restyles it to the design:
+   dark page, Archivo, uppercase title, size pills, quantity + "Læg i kurv" on one row, accordions with +/–. */
+body:has(.shopify-section--main-product) { background: #0a0a0a; }
+.bw-pdp-crumb { padding: 16px var(--bw-gutter) 0; font-size: 13px; color: var(--bw-grey-c9); }
+.bw-pdp-crumb a { color: inherit; text-decoration: none; }
+.bw-pdp-crumb a:hover { color: #fff; }
+.shopify-section--main-product {
+  --bw-pdp-font: 'Archivo', 'Helvetica Neue', Arial, sans-serif;
+  --border-color: 43 43 43;
+  font-family: var(--bw-pdp-font);
+  -webkit-font-smoothing: antialiased;
+}
+.shopify-section--main-product .section { padding-block-start: 20px; }
+@media screen and (min-width: 1000px) { .shopify-section--main-product .product { column-gap: 64px; } }
+/* gallery: main image 1:1 radius 12 on #f8f8f8, thumbnails 3 per row */
+.shopify-section--main-product .product-gallery__media { background: #f8f8f8; border-radius: 12px; overflow: hidden; }
+.shopify-section--main-product .product-gallery__thumbnail-list-wrapper > button { display: none; }
+.shopify-section--main-product .product-gallery__thumbnail-list { grid-auto-flow: row; grid-auto-columns: auto; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+.shopify-section--main-product .product-gallery__thumbnail { border-radius: 8px; overflow: hidden; background: #f8f8f8; aspect-ratio: 1 / 1; }
+.shopify-section--main-product .product-gallery__thumbnail img { width: 100%; height: 100%; object-fit: cover; border-radius: 8px; }
+/* info column: 18 px between blocks; quantity + buy button share a row */
+.shopify-section--main-product .product-info { display: flex; flex-wrap: wrap; align-content: flex-start; }
+.shopify-section--main-product .product-info > * { flex: 0 0 100%; min-width: 0; margin-block-end: 0; --product-info-block-spacing: 18px; }
+.shopify-section--main-product .product-info > [data-block-type="quantity-selector"] { flex: 0 0 auto; }
+.shopify-section--main-product .product-info > [data-block-type="buy-buttons"] { flex: 1 1 0; margin-inline-start: 12px; }
+.shopify-section--main-product .product-info__title { font-family: var(--bw-pdp-font); font-size: clamp(28px, 2.6vw, 40px); font-weight: 900; text-transform: uppercase; letter-spacing: -.01em; line-height: 1; margin: 0; }
+.shopify-section--main-product .product-info__badge-list { gap: 6px; }
+.shopify-section--main-product .product-info__badge-list .badge { font-size: 11px; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; padding: 5px 9px; border-radius: 4px; line-height: 1.2; }
+.shopify-section--main-product .bw-blackout-badge { background: #0a0a0a; color: #fff; box-shadow: inset 0 0 0 1px #fff; }
+.bw-pdp-price { display: grid; gap: 4px; }
+.bw-pdp-price__row { display: flex; gap: 12px; align-items: baseline; flex-wrap: wrap; }
+.bw-pdp-price__p { font-size: 28px; font-weight: 900; color: #fff; }
+.bw-pdp-price__p.is-sale { color: #c8232c; }
+.bw-pdp-price__n { font-size: 15px; color: #c9c9c9; }
+.bw-pdp-price__t { font-size: 13px; color: #c9c9c9; }
+.bw-pdp-usp { margin: 0; padding-left: 18px; display: grid; gap: 6px; font-size: 14px; line-height: 1.45; }
+.bw-pdp-trust { font-size: 13px; font-weight: 600; }
+.bw-pdp-ship { display: flex; gap: 10px; align-items: flex-start; font-size: 14px; line-height: 1.5; }
+/* variant picker: "Størrelse" + size pills */
+.shopify-section--main-product .variant-picker__option-info .text-subdued { color: #fff; font-size: 13px; font-weight: 700; }
+.shopify-section--main-product .variant-picker__option-info .h-stack > span { display: none; }
+.shopify-section--main-product .variant-picker__option-values { gap: 8px; }
+.shopify-section--main-product .block-swatch { min-width: 48px; height: 44px; padding: 0 14px; justify-content: center; border: 1px solid #fff; border-radius: 8px; background: transparent; color: #fff; font-size: 14px; font-weight: 600; }
+.shopify-section--main-product :checked + .block-swatch { background: #fff; color: #111; }
+.shopify-section--main-product .block-swatch.is-disabled { opacity: .45; }
+/* quantity pill + white "Læg i kurv" pill */
+.shopify-section--main-product .product-info__quantity-selector .block-label { display: none; }
+.shopify-section--main-product .quantity-selector { height: 52px; border: 1px solid #fff; border-radius: 999px; background: transparent; color: #fff; font-size: 16px; font-weight: 600; }
+.shopify-section--main-product .quantity-selector__button { width: 44px; padding: 0; justify-content: center; }
+.shopify-section--main-product .quantity-selector__input { min-width: 28px; font-weight: 600; }
+.shopify-section--main-product .product-info__buy-buttons .button { height: 52px; min-height: 52px; width: 100%; border-radius: 999px; background: #fff; color: #111; border: 0; font-family: var(--bw-pdp-font); font-size: 15px; font-weight: 700; letter-spacing: 0; text-transform: none; }
+/* "Andre farver" (theme liquid block): its heading is styled black inline */
+.shopify-section--main-product .product-single__colors .VariantHeading,
+.shopify-section--main-product .product-single__colors .VariantHeading span { color: #fff !important; font-family: var(--bw-pdp-font); font-size: 13px; font-weight: 700; }
+/* accordions: Beskrivelse / Levering & returnering / Kundernes favoritter, "+" and "–" instead of the circle chevron */
+.shopify-section--main-product .accordion { border-color: #2b2b2b; }
+.shopify-section--main-product .accordion__toggle { min-height: 52px; padding-block: 14px; font-size: 15px; font-weight: 700; }
+.shopify-section--main-product .accordion__toggle .circle-chevron { display: none; }
+.shopify-section--main-product .accordion__toggle::after { content: "+"; font-weight: 400; margin-inline-start: auto; }
+.shopify-section--main-product details[open] > summary .accordion__toggle::after { content: "–"; }
+.shopify-section--main-product .accordion__content, .shopify-section--main-product .accordion__content .prose { font-size: 14px; line-height: 1.55; color: #c9c9c9; }
+.bw-pdp-favs { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; container-type: inline-size; background: transparent; padding-bottom: 14px; }

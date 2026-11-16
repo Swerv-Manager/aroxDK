@@ -108,6 +108,14 @@
 
   ['cart:change', 'cart:refresh', 'variant:add'].forEach(function (ev) { document.addEventListener(ev, function () { setTimeout(initProgress, 300); }); });
 
+  /* ---------- Product page (board 08): "Beskrivelse" open on load, as in the design ---------- */
+  function openDescription() {
+    document.querySelectorAll('.shopify-section--main-product [data-block-type="description"] details').forEach(function (d) {
+      if (!d.__bwOpened) { d.__bwOpened = true; d.open = true; d.setAttribute('aria-expanded', 'true'); }
+    });
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', openDescription); else openDescription();
+
   /* ---------- Collection filter + sort bar [data-bw-filters] (snippet bw-coll-toolbar) ----------
      A plain GET form: a ticked value or a new sort order submits it at once; price fields submit with "Vis varer".
      Empty fields are left out of the URL. Only one dropdown is open at a time; a click outside closes it. */
