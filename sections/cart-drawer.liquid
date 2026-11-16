@@ -171,12 +171,13 @@ Styles that reach Impact's shadow parts live in assets/bw.css (.bw-cart).
     <div class="bw" slot="footer" style="padding:16px 20px 20px;border-top:1px solid #2b2b2b;display:grid;gap:8px;font-size:14px">
       <div style="display:flex;justify-content:space-between;gap:12px"><span>Subtotal</span><span>{{ cart.original_total_price | money_without_currency | remove: ',00' | append: ' kr.' }}</span></div>
 
-      {%- comment -%}Rabatlinje i rødt, fx "3 FOR 2 – rabat trukket automatisk" (alle rabatter, også linjerabatter){%- endcomment -%}
+      {%- comment -%}Rabatlinje i rødt, fx "3 FOR 2 – rabat trukket automatisk" (alle rabatter, også linjerabatter).
+      Titlen vises til og med " · ", så rabatten "3 for 2 · Black Week" står som "3 FOR 2".{%- endcomment -%}
       {%- for discount_application in cart.discount_applications -%}
         <div style="display:flex;justify-content:space-between;gap:12px;color:#c8232c;font-weight:700">
           <span>
             {%- if discount_application.type == 'automatic' -%}
-              {{- discount_application.title | upcase }} – rabat trukket automatisk
+              {{- discount_application.title | split: ' · ' | first | upcase }} – rabat trukket automatisk
             {%- else -%}
               {{- discount_application.title -}}
             {%- endif -%}
