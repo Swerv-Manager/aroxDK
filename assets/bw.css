@@ -204,3 +204,34 @@ html.bw-ended .bw-hide-ended { display: none !important; }
 
 /* ---------- Black Week site chrome tweaks (header ping dot injected by bw.js) ---------- */
 .bw-nav-ping { margin-right: 9px; vertical-align: middle; }
+
+/* ---------- Cart drawer (board 10 · sections/cart-drawer.liquid) ---------- */
+/* Impact draws the drawer in shadow parts; its colours and paddings come from these variables. */
+.cart-drawer.bw-cart {
+  --dialog-background: 10 10 10;
+  --background: 10 10 10;
+  --background-primary: 10 10 10;
+  --text-color: 255 255 255;
+  --text-primary: 255 255 255;
+  --border-color: 43 43 43;
+  --drawer-header-padding: 0;
+  --drawer-body-padding: 0;
+  --drawer-footer-padding: 0;
+  padding: 0;
+}
+.cart-drawer.bw-cart::part(content) { border-radius: 0; font-family: 'Archivo', 'Helvetica Neue', Arial, sans-serif; }
+.cart-drawer.bw-cart::part(footer) { border-block-start: 0; }
+@media screen and (min-width: 700px) {
+  .cart-drawer.bw-cart { width: 440px; }
+  .cart-drawer.bw-cart::part(content) { box-shadow: -20px 0 60px rgba(0, 0, 0, .35); }
+}
+.bw-cart .bw-cart-qty .quantity-input {
+  min-width: 44px; width: 44px; padding: 6px 4px; border: 1px solid #2b2b2b; border-radius: 8px;
+  background: transparent; color: #fff; font-family: inherit; font-size: 12px; font-weight: 600; text-align: center;
+}
+.bw-cart .bw-cart-qty .quantity-input:focus-visible { border-color: #fff; }
+.bw-cart pill-loader { background: #fff; color: #111; }
+.bw-cart [is="close-button"]:focus-visible,
+.bw-cart button[name="checkout"]:focus-visible { outline: 2px solid #fff; outline-offset: 2px; }
+.bw-cart button[name="checkout"]:hover { background: #e4e4e4 !important; }
+.bw-cart .bw-cart-line a:hover { opacity: .8; }

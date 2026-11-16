@@ -3,6 +3,7 @@
    - marquee/ping pause when off-screen
    - header ping dot on the "BLACK WEEK" menu link
    - offer progress bar [data-bw-progress] on 3 for 2 / 4 for 2 collections (reads /cart.js)
+   - cart drawer progress bar [data-bw-cart-progress] (499 fri fragt · 799 / 1299 gaver) swapped at once on cart:change
 */
 (function () {
   var BW = window.BW || {};
@@ -106,5 +107,26 @@
   else initAll();
 
   ['cart:change', 'cart:refresh', 'variant:add'].forEach(function (ev) { document.addEventListener(ev, function () { setTimeout(initProgress, 300); }); });
+
+  /* ---------- Cart drawer: stepped progress bar [data-bw-cart-progress] ----------
+     Impact re-renders the drawer from the bundled section HTML but waits 1.25 s before it swaps the line items after a
+     quantity change. Swap the progress bar at once and animate the fill from its old width. */
+  document.addEventListener('cart:change', function (e) {
+    var sections = e.detail && e.detail.cart && e.detail.cart.sections;
+    var cur = document.querySelector('cart-drawer [data-bw-cart-progress]');
+    if (!sections || !cur) return;
+    Object.keys(sections).forEach(function (k) {
+      var html = sections[k];
+      if (!html || html.indexOf('data-bw-cart-progress') < 0) return;
+      var fresh = new DOMParser().parseFromString(html, 'text/html').querySelector('[data-bw-cart-progress]');
+      if (!fresh) return;
+      var oldFill = cur.querySelector('[data-bw-fill]'), newFill = fresh.querySelector('[data-bw-fill]');
+      var to = newFill ? newFill.style.width : '';
+      if (oldFill && newFill) newFill.style.width = oldFill.style.width;
+      cur.replaceWith(fresh);
+      cur = fresh;
+      if (newFill) requestAnimationFrame(function () { requestAnimationFrame(function () { newFill.style.width = to; }); });
+    });
+  });
   document.addEventListener('shopify:section:load', function (e) { initAll(e.target); });
 })();

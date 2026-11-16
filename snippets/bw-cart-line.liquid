@@ -1,0 +1,92 @@
+{%- comment -%}
+BLACK WEEK 2026 · one line in the cart drawer, ported from board 10:
+72px image · title 14px/600 · "<offer> · <variant>" 12px #c9c9c9 · price 14px/700 · border #2b2b2b.
+A line that is fully discounted to 0 kr. (a gift from an automatic discount) gets the "Gratis gave" badge and "0 kr.".
+Keeps Impact's hooks: <line-item>, <pill-loader>, <line-item-quantity> with input[is=quantity-input][data-line-key]
+and the remove link (/cart/change), so quantity changes and removal work as before.
+Param: line_item (required)
+{%- endcomment -%}
+{%- liquid
+  assign max_quantity = nil
+  if line_item.variant.inventory_management != blank and line_item.variant.inventory_policy == 'deny'
+    assign current_quantity_for_variant = cart | item_count_for_variant: line_item.variant.id
+    assign max_quantity = line_item.variant.inventory_quantity | minus: current_quantity_for_variant | plus: line_item.quantity
+  endif
+  if line_item.variant.quantity_rule.max != nil
+    assign max_quantity = max_quantity | default: 999999 | at_most: line_item.variant.quantity_rule.max
+  endif
+
+  capture bw_offer
+    render 'bw-offer', product: line_item.product
+  endcapture
+  assign bw_parts = bw_offer | strip
+  unless line_item.product.has_only_default_variant or line_item.gift_card
+    if bw_parts != blank
+      assign bw_parts = bw_parts | append: ' · '
+    endif
+    assign bw_parts = bw_parts | append: line_item.variant.title
+  endunless
+  if line_item.quantity > 1
+    if bw_parts != blank
+      assign bw_parts = bw_parts | append: ' · '
+    endif
+    assign bw_parts = bw_parts | append: 'Antal ' | append: line_item.quantity
+  endif
+
+  assign bw_free = false
+  if line_item.final_line_price == 0 and line_item.original_line_price > 0
+    assign bw_free = true
+  endif
+  capture bw_price
+    if bw_free
+      echo '0 kr.'
+    else
+      echo line_item.original_line_price | money_without_currency | remove: ',00' | append: ' kr.'
+    endif
+  endcapture
+  assign bw_title = line_item.product.title | default: line_item.title
+-%}
+<line-item class="line-item bw-cart-line" style="display:grid;grid-template-columns:72px minmax(0,1fr) auto;gap:12px;padding:14px 0;border-bottom:1px solid #2b2b2b;align-items:center">
+  <div class="line-item__media-wrapper" style="width:72px;min-width:72px;height:72px;border-radius:8px;overflow:hidden;background:#f8f8f8;position:relative">
+    {%- if line_item.image != blank -%}
+      {%- capture bw_img -%}{{- line_item.image | image_url: width: 300 | image_tag: loading: 'lazy', sizes: '72px', widths: '72,144,216', alt: bw_title, style: 'width:100%;height:100%;object-fit:cover;display:block' -}}{%- endcapture -%}
+      {%- if line_item.url != blank -%}<a href="{{ line_item.url }}" tabindex="-1" style="display:block;width:100%;height:100%">{{ bw_img }}</a>{%- else -%}{{ bw_img }}{%- endif -%}
+    {%- endif -%}
+    <pill-loader class="pill-loader"></pill-loader>
+  </div>
+
+  <div style="display:grid;gap:4px;min-width:0;justify-items:start">
+    {%- if line_item.url != blank -%}
+      <a href="{{ line_item.url }}" style="font-size:14px;font-weight:600;line-height:1.3;color:#fff;text-decoration:none">{{ bw_title }}</a>
+    {%- else -%}
+      <div style="font-size:14px;font-weight:600;line-height:1.3">{{ bw_title }}</div>
+    {%- endif -%}
+    {%- if bw_parts != blank -%}
+      <div style="font-size:12px;color:#c9c9c9">{{ bw_parts }}</div>
+    {%- endif -%}
+    {%- for property in line_item.properties -%}
+      {%- assign bw_first = property.first | truncate: 1, '' -%}
+      {%- if property.last == blank or bw_first == '_' -%}{%- continue -%}{%- endif -%}
+      <div style="font-size:12px;color:#c9c9c9">
+        {%- if property.last contains '/uploads/' -%}
+          <a href="{{ property.last }}" style="color:inherit">{{ property.last | split: '/' | last }}</a>
+        {%- else -%}
+          {{ property.first }}: {{ property.last }}
+        {%- endif -%}
+      </div>
+    {%- endfor -%}
+    {%- if bw_free -%}
+      <span style="justify-self:start;background:#0a0a0a;color:#fff;box-shadow:inset 0 0 0 1px #fff;font-size:10px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;padding:3px 7px;border-radius:4px">Gratis gave</span>
+    {%- endif -%}
+    {%- if line_item.url_to_remove -%}
+      <line-item-quantity class="bw-cart-qty" style="display:flex;gap:12px;align-items:center;margin-top:4px">
+        <input class="quantity-input" type="number" is="quantity-input" inputmode="numeric" min="{{ line_item.variant.quantity_rule.min }}" step="{{ line_item.variant.quantity_rule.increment }}" {% if max_quantity != nil %}max="{{ max_quantity }}"{% endif %} data-line-key="{{ line_item.key }}" aria-label="{{ 'cart.order.change_quantity' | t | escape }}" value="{{ line_item.quantity }}">
+        <a href="{{ line_item.url_to_remove }}" style="font-size:12px;color:#c9c9c9;text-decoration:underline;text-underline-offset:3px" aria-label="{{ 'cart.order.remove_with_title' | t: title: line_item.title | escape }}">
+          {{- 'cart.order.remove' | t -}}
+        </a>
+      </line-item-quantity>
+    {%- endif -%}
+  </div>
+
+  <div style="font-size:14px;font-weight:700;white-space:nowrap;text-align:right">{{ bw_price }}</div>
+</line-item>
