@@ -38,8 +38,19 @@ The separate per-phase announcement bar stays hidden (user decision): pages show
   (default `pre early live sidste`; theme's own free shipping bar in the other phases) are cart drawer settings.
   `bw.js` swaps the bar at once on `cart:change`. Tested at 0–1500 kr. with `.bw-tools/progress-test.js` and in the
   preview with `.bw-tools/cart.js` / `qty.js`.
-- Not yet design-matched: collections + offer pages (boards 04–07), product pages (08), gift page (09),
-  terms + FAQ (11).
+- Homepage 16.11: sections not in the design are disabled (not deleted, re-enable 01.12): the old "5 år" banner,
+  the four "Shop knæbind/overdele/grips/sjippetove" grids and the Loox video slider. Section order now matches
+  board 02. Rows with fewer cards than the design (Limited, julegaver, Gaver under) are product data: the Limited
+  blackout products and both flextape products are drafts, Thermo stålflaske and Drikkedunk 500ML are sold out,
+  and product rows only show products that are available for sale.
+- Offer collections 16.11 (boards 04–06): new section `bw-collection-grid` (BW product cards, 4/2 per row,
+  available products only) replaces Impact's main-collection (disabled) on all three templates; 3 for 2 / 4 for 2
+  have the "Med i 3/4 for 2" heading, "Se alle" and the offer line above the progress panel; 4 for 2 focus tiles
+  use sportstech-unisex-t-shirt-sort and arox-performance-tights. Limited edition: the three product groups
+  (Limited blackout / Favoritter til fast pris / Tape) have no products picked yet, because the products are drafts;
+  pick them when they are activated (then the grid below can be hidden).
+- Gift page (09) and terms + FAQ (11) are live and close to the design (compared at 1440).
+- Not yet design-matched: board 07 (ordinary collection pages with the Black Week navigation) and product pages (08).
 
 ## Fast workflow (needs network access to aroxfitness.myshopify.com and aroxfitness.dk)
 
@@ -81,11 +92,16 @@ stromper-3-pak:2 …` fills a cart in the work-theme preview and screenshots the
   Design_uden_navn-186.png, Design_uden_navn-191.png, 427_496bbe8d-72cc-421a-9db6-f83a5b270081.png,
   428_720d86b7-f092-4cf7-803c-1e6214e6ae1f.png, bw26-Billede-08199.jpg, bw26-Billede-08153.jpg, bw26-arox-r-white.png.
 
-## Admin actions still needed (not theme work)
+## Admin actions
 
-Create collection `black-week-limited-edition`; assign templates `black-week-limited-edition`, `black-week-3for2`,
-`black-week-4for2` to the three collections; give page "black-week" the template `black-week` and publish it; create
-pages `black-week-gaver` and `black-week-vilkaar` with their templates; free shipping over 499 kr. in shipping rates;
+Done 16.11 (client OK that they are live while not linked from the live theme): collection `black-week-limited`
+renamed to `black-week-limited-edition` (redirect from the old URL), templates assigned to `black-week-limited-edition`,
+`black-week-3for2`, `black-week-4for2`, all three published to Webshop; page `black-week` given template `black-week`
+and published; pages `black-week-gaver` ("Gave i Black Week") and `black-week-vilkaar` ("Black Week kampagnevilkår")
+created with their templates and published. On the live theme these URLs fall back to its default templates.
+
+Still needed: activate the Limited products (drafts) and pick them in the Limited groups; automatic discounts for
+3 for 2 and 4 for 2 (none active on 16.11); free shipping over 499 kr. in shipping rates;
 checkout message ("Black Week · rabatten er trukket" / "Rabatten er trukket automatisk. Er din ordre blandt de første
 100, får du en gratis Thermo stålflaske 1,06 L med."); publish the theme after approval.
 
@@ -98,7 +114,8 @@ that its free shipping rule also applies at exactly 499 kr. (the bar and the "Le
 
 ## Tools (`.bw-tools/`, not part of the theme)
 
-`ref.js` design reference renderer (optional 3rd arg: board prefix, e.g. `10`) · `cart.js` cart drawer screenshot in
+`ref.js` design reference renderer (optional 3rd arg: board prefix, e.g. `10`) · `page.js` full-page preview
+screenshot + section list · `overview.py` theme vs design side by side · `cart.js` cart drawer screenshot in
 the preview · `qty.js` live quantity-change check · `progress-test.js` progress bar at many cart totals (liquidjs) ·
 `cmp.py` side-by-side crops · `lint.js` Liquid/JSON parse check
 (needs `@shopify/liquid-html-parser`) · `schemacheck.py` Shopify schema limits · `xcheck.py` / `valcheck.py`
