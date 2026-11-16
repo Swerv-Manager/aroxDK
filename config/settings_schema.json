@@ -937,5 +937,47 @@
         "info": "180 x 180px .png recommended"
       }
     ]
+  },
+  {
+    "name": "Black Week 2026",
+    "settings": [
+      {
+        "type": "paragraph",
+        "content": "Butikken skifter selv fase: presale indtil fre 20.11 kl. 12:00, tidlig adgang til søn 22.11 kl. 20:00, live til man 30.11, sidste dag man 30.11 til kl. 23:59."
+      },
+      {
+        "type": "select",
+        "id": "bw_phase_preview",
+        "label": "Vis fase i temaeditoren",
+        "options": [
+          {
+            "value": "auto",
+            "label": "Automatisk (efter tidspunkt)"
+          },
+          {
+            "value": "pre",
+            "label": "Presale"
+          },
+          {
+            "value": "early",
+            "label": "Tidlig adgang"
+          },
+          {
+            "value": "live",
+            "label": "Live"
+          },
+          {
+            "value": "sidste",
+            "label": "Sidste dag"
+          },
+          {
+            "value": "ended",
+            "label": "Efter Black Week"
+          }
+        ],
+        "default": "auto",
+        "info": "Gælder kun i temaeditoren. Kunderne ser altid fasen efter tidspunkt."
+      }
+    ]
   }
 ]

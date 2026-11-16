@@ -1,0 +1,168 @@
+{%- comment -%}
+BLACK WEEK 2026 · Header (design board 01, "Announcement bar + header").
+Ported from the design markup: 64 px black bar, grid 1fr auto 1fr.
+Desktop: logo left, menu centred (BLACK WEEK item with red ping dot + dropdown first, then the store's main menu),
+search + bag right. Mobile: burger left, logo centred, search + bag right; the burger opens the dark mobile menu.
+The menu items come from the menu picked in the settings (default: main-menu); the BLACK WEEK links are section settings.
+Search and bag open the theme's existing search drawer and cart drawer.
+{%- endcomment -%}
+{%- liquid
+  assign s = section.settings
+  assign pad = 'padding:0 max(clamp(20px,calc((100cqw - 767px)*1000),64px),calc((100cqw - 1312px)/2))'
+  assign menu = linklists[s.menu]
+-%}
+<style>
+  #shopify-section-{{ section.id }} { position: {% if s.sticky %}sticky{% else %}relative{% endif %}; top: 0; z-index: 30; }
+  #shopify-section-{{ section.id }} .bwh-d { display: none; }
+  #shopify-section-{{ section.id }} .bwh-m { display: flex; }
+  @media (min-width: 1000px) {
+    #shopify-section-{{ section.id }} .bwh-d { display: flex; }
+    #shopify-section-{{ section.id }} .bwh-m { display: none; }
+  }
+  #shopify-section-{{ section.id }} .bwh-dd { position: absolute; top: 64px; left: -16px; min-width: 280px; background: #0a0a0a; border: 1px solid #2b2b2b; border-radius: 8px; box-shadow: 0 18px 50px rgba(0,0,0,.55); padding: 8px; display: none; z-index: 20; }
+  #shopify-section-{{ section.id }} .bwh-item:hover .bwh-dd, #shopify-section-{{ section.id }} .bwh-item:focus-within .bwh-dd { display: grid; }
+  #shopify-section-{{ section.id }} .bwh-dd a { display: flex; align-items: center; min-height: 44px; padding: 0 14px; border-radius: 6px; font-size: 14px; font-weight: 600; color: #fff; text-decoration: none; }
+  #shopify-section-{{ section.id }} .bwh-dd a:hover { background: #1c1c1c; opacity: 1; }
+  #shopify-section-{{ section.id }} .bwh-top a, #shopify-section-{{ section.id }} .bwh-top a:hover { color: #fff; opacity: 1; }
+  #shopify-section-{{ section.id }} .bwh-ic { display: flex; color: #fff; background: none; border: 0; padding: 0; cursor: pointer; }
+  #bw-mmenu-{{ section.id }} { position: fixed; inset: 0; z-index: 60; background: #0a0a0a; color: #fff; overflow-y: auto; display: none; }
+  #bw-mmenu-{{ section.id }}.is-open { display: block; }
+  #bw-mmenu-{{ section.id }} a { color: #fff; text-decoration: none; }
+  #bw-mmenu-{{ section.id }} details > summary { list-style: none; cursor: pointer; }
+  #bw-mmenu-{{ section.id }} details > summary::-webkit-details-marker { display: none; }
+  #bw-mmenu-{{ section.id }} details[open] > summary .bwh-chev { transform: rotate(0deg); }
+  #bw-mmenu-{{ section.id }} .bwh-chev { transform: rotate(180deg); transition: transform .15s ease-out; }
+</style>
+
+<div class="bw" style="container-type:inline-size;background:#0a0a0a;color:#fff;font-family:'Archivo','Helvetica Neue',Arial,sans-serif">
+  <div class="bwh-top" style="background:#0a0a0a;color:#fff;border-bottom:1px solid #222;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:16px;height:64px;{{ pad }};position:relative;z-index:15">
+    <div style="display:flex;align-items:center">
+      <button type="button" class="bwh-ic bwh-m" aria-label="Menu" aria-expanded="false" data-bw-mmenu-open="bw-mmenu-{{ section.id }}">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="7" x2="20" y2="7"></line><line x1="4" y1="12" x2="20" y2="12"></line><line x1="4" y1="17" x2="20" y2="17"></line></svg>
+      </button>
+      <a href="{{ routes.root_url }}" class="bwh-d" aria-label="{{ shop.name | escape }}">
+        {%- if s.logo != blank -%}{{ s.logo | image_url: width: 400 | image_tag: alt: shop.name, style: 'width:116px;height:auto;flex:none;max-width:none;display:block', loading: 'eager' }}{%- else -%}<span style="font-weight:900;font-size:22px">{{ shop.name }}</span>{%- endif -%}
+      </a>
+    </div>
+
+    <div style="display:flex;gap:32px;align-items:center;font-size:14px;font-weight:600">
+      <a href="{{ routes.root_url }}" class="bwh-m" aria-label="{{ shop.name | escape }}">
+        {%- if s.logo != blank -%}{{ s.logo | image_url: width: 300 | image_tag: alt: shop.name, style: 'width:95px;height:auto;flex:none;max-width:none;display:block', loading: 'eager' }}{%- endif -%}
+      </a>
+      <nav class="bwh-d" style="gap:32px;align-items:center" aria-label="Hovedmenu">
+        {%- if s.bw_label != blank -%}
+          <div class="bwh-item {% render 'bw-only', phases: s.bw_phases %}" style="position:relative;display:flex;align-items:center;height:64px">
+            <a href="{{ s.bw_url | default: '#' }}" style="display:flex;gap:9px;align-items:center;height:64px;font-weight:900;letter-spacing:.04em;color:#fff;text-decoration:none">
+              <span class="bw-ping" aria-hidden="true"></span><span>{{ s.bw_label }}</span>
+            </a>
+            <div class="bwh-dd">
+              {%- for i in (1..3) -%}
+                {%- capture lk -%}link_{{ i }}_label{%- endcapture -%}{%- capture lu -%}link_{{ i }}_url{%- endcapture -%}
+                {%- if s[lk] != blank -%}<a href="{{ s[lu] | default: '#' }}">{{ s[lk] }}</a>{%- endif -%}
+              {%- endfor -%}
+            </div>
+          </div>
+        {%- endif -%}
+        {%- for link in menu.links -%}
+          <div class="bwh-item" style="position:relative;display:flex;align-items:center;height:64px">
+            <a href="{{ link.url }}" style="color:#fff;text-decoration:none">{{ link.title }}</a>
+            {%- if link.links.size > 0 -%}
+              <div class="bwh-dd">
+                {%- for child in link.links -%}<a href="{{ child.url }}">{{ child.title }}</a>{%- endfor -%}
+              </div>
+            {%- endif -%}
+          </div>
+        {%- endfor -%}
+      </nav>
+    </div>
+
+    <div style="display:flex;justify-content:flex-end;gap:18px">
+      <a href="{{ routes.search_url }}" class="bwh-ic" aria-controls="search-drawer" aria-label="Søg">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"></circle><line x1="20" y1="20" x2="16" y2="16"></line></svg>
+      </a>
+      <a href="{{ routes.cart_url }}" data-no-instant class="bwh-ic" {% if settings.cart_type != 'page' and request.page_type != 'cart' %}aria-controls="cart-drawer"{% endif %} aria-label="Kurv" style="position:relative">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3 3 7v13a1 1 0 0 0 1 1h16a1 1 0 0 0 1-1V7l-3-4z"></path><line x1="3" y1="7" x2="21" y2="7"></line><path d="M16 11a4 4 0 0 1-8 0"></path></svg>
+        <cart-count class="{% if cart.item_count == 0 %}opacity-0{% endif %}" aria-hidden="true" style="position:absolute;top:-6px;right:-8px;min-width:16px;height:16px;padding:0 4px;border-radius:999px;background:#c8232c;color:#fff;font-size:10px;font-weight:800;line-height:16px;text-align:center">{{ cart.item_count }}</cart-count>
+      </a>
+    </div>
+  </div>
+</div>
+
+{%- comment -%} Mobile menu (design board 01, mobile frame 2) {%- endcomment -%}
+<div id="bw-mmenu-{{ section.id }}" class="bw" role="dialog" aria-modal="true" aria-label="Menu" style="font-family:'Archivo','Helvetica Neue',Arial,sans-serif">
+  <div style="display:flex;justify-content:space-between;align-items:center;height:64px;padding:0 16px;border-bottom:1px solid #222">
+    {%- if s.logo != blank -%}{{ s.logo | image_url: width: 300 | image_tag: alt: shop.name, style: 'width:95px;height:auto;flex:none;max-width:none;display:block' }}{%- endif -%}
+    <button type="button" class="bwh-ic" aria-label="Luk menu" data-bw-mmenu-close style="background:none;border:0;padding:0;cursor:pointer">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="5" x2="19" y2="19"></line><line x1="19" y1="5" x2="5" y2="19"></line></svg>
+    </button>
+  </div>
+  <div style="padding:8px 16px 28px;display:grid">
+    {%- if s.bw_label != blank -%}
+      <details open class="{% render 'bw-only', phases: s.bw_phases %}">
+        <summary style="display:flex;justify-content:space-between;align-items:center;min-height:56px;border-bottom:1px solid #222;color:#fff">
+          <span style="display:flex;gap:10px;align-items:center;font-size:16px;font-weight:900;letter-spacing:.04em"><span class="bw-ping" aria-hidden="true"></span><span>{{ s.bw_label }}</span></span>
+          <svg class="bwh-chev" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 15 12 9 18 15"></polyline></svg>
+        </summary>
+        <div style="display:grid;padding:4px 0 8px 20px;border-bottom:1px solid #222">
+          {%- for i in (1..3) -%}
+            {%- capture lk -%}link_{{ i }}_label{%- endcapture -%}{%- capture lu -%}link_{{ i }}_url{%- endcapture -%}
+            {%- if s[lk] != blank -%}
+              <a href="{{ s[lu] | default: '#' }}" style="display:flex;justify-content:space-between;align-items:center;min-height:48px;font-size:15px;font-weight:600;color:#fff;text-decoration:none"><span>{{ s[lk] }}</span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"></polyline></svg></a>
+            {%- endif -%}
+          {%- endfor -%}
+        </div>
+      </details>
+    {%- endif -%}
+    {%- for link in menu.links -%}
+      {%- if link.links.size > 0 -%}
+        <details>
+          <summary style="display:flex;justify-content:space-between;align-items:center;min-height:56px;border-bottom:1px solid #222;font-size:16px;font-weight:600"><span>{{ link.title }}</span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"></polyline></svg></summary>
+          <div style="display:grid;padding:4px 0 8px 20px;border-bottom:1px solid #222">
+            <a href="{{ link.url }}" style="display:flex;align-items:center;min-height:48px;font-size:15px;font-weight:600">{{ link.title }}</a>
+            {%- for child in link.links -%}<a href="{{ child.url }}" style="display:flex;align-items:center;min-height:48px;font-size:15px;font-weight:600">{{ child.title }}</a>{%- endfor -%}
+          </div>
+        </details>
+      {%- else -%}
+        <a href="{{ link.url }}" style="display:flex;justify-content:space-between;align-items:center;min-height:56px;border-bottom:1px solid #222;font-size:16px;font-weight:600"><span>{{ link.title }}</span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"></polyline></svg></a>
+      {%- endif -%}
+    {%- endfor -%}
+  </div>
+</div>
+
+<script>
+  (function () {
+    var m = document.getElementById('bw-mmenu-{{ section.id }}');
+    if (!m) return;
+    document.querySelectorAll('[data-bw-mmenu-open="bw-mmenu-{{ section.id }}"]').forEach(function (b) {
+      b.addEventListener('click', function () { m.classList.add('is-open'); b.setAttribute('aria-expanded', 'true'); document.documentElement.style.overflow = 'hidden'; });
+    });
+    m.querySelectorAll('[data-bw-mmenu-close]').forEach(function (b) {
+      b.addEventListener('click', function () { m.classList.remove('is-open'); document.documentElement.style.overflow = ''; });
+    });
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "BW · Header",
+  "tag": "header",
+  "class": "bw-section",
+  "enabled_on": { "groups": ["header"] },
+  "settings": [
+    { "type": "image_picker", "id": "logo", "label": "Logo (hvidt)" },
+    { "type": "link_list", "id": "menu", "label": "Menu", "default": "main-menu" },
+    { "type": "checkbox", "id": "sticky", "label": "Fast i toppen", "default": true },
+    { "type": "header", "content": "Black Week-punkt" },
+    { "type": "text", "id": "bw_label", "label": "Tekst", "default": "BLACK WEEK" },
+    { "type": "url", "id": "bw_url", "label": "Link" },
+    { "type": "text", "id": "bw_phases", "label": "Vis kun i faser", "info": "pre, early, live, sidste · tom = altid" },
+    { "type": "text", "id": "link_1_label", "label": "Undermenu 1", "default": "Single offers" },
+    { "type": "url", "id": "link_1_url", "label": "Link 1" },
+    { "type": "text", "id": "link_2_label", "label": "Undermenu 2", "default": "3 for 2" },
+    { "type": "url", "id": "link_2_url", "label": "Link 2" },
+    { "type": "text", "id": "link_3_label", "label": "Undermenu 3", "default": "4 for 2" },
+    { "type": "url", "id": "link_3_url", "label": "Link 3" }
+  ],
+  "presets": [ { "name": "BW · Header" } ]
+}
+{% endschema %}

@@ -169,7 +169,8 @@
         "text_color_d": "#ffffff",
         "padding_top": 5,
         "padding_bottom": 5
-      }
+      },
+      "disabled": true
     },
     "header": {
       "type": "header",
@@ -273,7 +274,8 @@
         "reduce_padding": false,
         "background_opacity": 100,
         "background_blur_radius": 0
-      }
+      },
+      "disabled": true
     },
     "bw_announcement": {
       "type": "bw-announcement",
@@ -287,7 +289,8 @@
         "link_live": "/pages/black-week",
         "text_sidste": "SIDSTE DAG · Black Week slutter i aften, mandag 30.11 kl. 23:59",
         "link_sidste": "/pages/black-week"
-      }
+      },
+      "disabled": true
     },
     "bw_campaign_topbar": {
       "type": "bw-campaign-topbar",
@@ -295,13 +298,39 @@
         "phases": "",
         "hide_on": "cart, login, account, password"
       }
+    },
+    "bw_marquee": {
+      "type": "bw-marquee",
+      "settings": {
+        "phases": "",
+        "text": "BLACK WEEK 20.11–30.11 · Limited edition, 3 for 2 og 4 for 2 på udvalgte varer · BLACK WEEK 20.11–30.11 · 1-3 dages levering med GLS · Over 30.000 glade kunder · Fri fragt v. køb over 499 kr."
+      }
+    },
+    "bw_header": {
+      "type": "bw-header",
+      "settings": {
+        "logo": "shopify://shop_images/bw26-arox-r-white.png",
+        "menu": "main-menu",
+        "sticky": true,
+        "bw_label": "BLACK WEEK",
+        "bw_url": "/pages/black-week",
+        "bw_phases": "",
+        "link_1_label": "Single offers",
+        "link_1_url": "/collections/black-week-limited-edition",
+        "link_2_label": "3 for 2",
+        "link_2_url": "/collections/black-week-3for2",
+        "link_3_label": "4 for 2",
+        "link_3_url": "/collections/black-week-4for2"
+      }
     }
   },
   "order": [
     "announcement-bar",
     "bw_announcement",
     "cs_announcement_bar_RX8nib",
+    "bw_marquee",
     "header",
+    "bw_header",
     "bw_campaign_topbar"
   ]
 }

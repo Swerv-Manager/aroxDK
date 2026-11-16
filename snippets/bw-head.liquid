@@ -10,8 +10,8 @@ Sets the campaign phase on <html> before first paint so phase-specific content n
   html.bw-sidste  mandag 30.11 hele dagen → kl. 23:59
   html.bw-ended   efter mandag 30.11 kl. 23:59
 
-Preview a phase: add ?bw_phase=pre|early|live|sidste to any URL (remembered for the browser tab;
-?bw_phase=auto clears it). Elements hide per phase with the classes bw-hide-<phase>; see snippet bw-only.
+Preview a phase: in the theme editor pick Theme settings → Black Week 2026 → "Vis fase i temaeditoren", or add
+?bw_phase=pre|early|live|sidste|ended to any preview URL (remembered for the browser tab; ?bw_phase=auto clears it). Elements hide per phase with the classes bw-hide-<phase>; see snippet bw-only.
 {%- endcomment -%}
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -45,6 +45,9 @@ Preview a phase: add ?bw_phase=pre|early|live|sidste to any URL (remembered for 
         : now < Date.parse(t.sidste) ? 'live'
         : now < Date.parse(t.end) ? 'sidste' : 'ended';
     }
+    {%- if request.design_mode and settings.bw_phase_preview != blank and settings.bw_phase_preview != 'auto' -%}
+    phase = {{ settings.bw_phase_preview | json }};
+    {%- endif -%}
     window.BW.phase = phase;
     document.documentElement.classList.add('bw-' + phase);
   })();
