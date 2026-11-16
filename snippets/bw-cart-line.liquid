@@ -37,6 +37,10 @@ Param: line_item (required)
   if line_item.final_line_price == 0 and line_item.original_line_price > 0
     assign bw_free = true
   endif
+  assign bw_gift = false
+  if line_item.properties._bw_gift != blank
+    assign bw_gift = true
+  endif
   capture bw_price
     if bw_free
       echo '0 kr.'
@@ -75,12 +79,13 @@ Param: line_item (required)
         {%- endif -%}
       </div>
     {%- endfor -%}
-    {%- if bw_free -%}
+    {%- if bw_free or bw_gift -%}
       <span style="justify-self:start;background:#0a0a0a;color:#fff;box-shadow:inset 0 0 0 1px #fff;font-size:10px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;padding:3px 7px;border-radius:4px">Gratis gave</span>
     {%- endif -%}
     {%- if line_item.url_to_remove -%}
       <line-item-quantity class="bw-cart-qty" style="display:flex;gap:12px;align-items:center;margin-top:4px">
-        <input class="quantity-input" type="number" is="quantity-input" inputmode="numeric" min="{{ line_item.variant.quantity_rule.min }}" step="{{ line_item.variant.quantity_rule.increment }}" {% if max_quantity != nil %}max="{{ max_quantity }}"{% endif %} data-line-key="{{ line_item.key }}" aria-label="{{ 'cart.order.change_quantity' | t | escape }}" value="{{ line_item.quantity }}">
+        {%- if bw_gift -%}<input type="hidden" value="1" data-line-key="{{ line_item.key }}">{%- else -%}
+        <input class="quantity-input" type="number" is="quantity-input" inputmode="numeric" min="{{ line_item.variant.quantity_rule.min }}" step="{{ line_item.variant.quantity_rule.increment }}" {% if max_quantity != nil %}max="{{ max_quantity }}"{% endif %} data-line-key="{{ line_item.key }}" aria-label="{{ 'cart.order.change_quantity' | t | escape }}" value="{{ line_item.quantity }}">{%- endif -%}
         <a href="{{ line_item.url_to_remove }}" style="font-size:12px;color:#c9c9c9;text-decoration:underline;text-underline-offset:3px" aria-label="{{ 'cart.order.remove_with_title' | t: title: line_item.title | escape }}">
           {{- 'cart.order.remove' | t -}}
         </a>

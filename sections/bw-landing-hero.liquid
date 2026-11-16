@@ -12,7 +12,9 @@
     {%- if s.image != blank -%}{{ s.image | image_url: width: 2800 | image_tag: loading: 'eager', fetchpriority: 'high', sizes: '100vw', widths: '750,1100,1500,2000,2800', alt: s.image.alt, style: 'position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:33% 40%' }}{%- endif -%}
     <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,10,10,.25) 0%,rgba(10,10,10,.35) 40%,rgba(10,10,10,.9) 100%)"></div>
     <div style="position:absolute;inset:0;background:linear-gradient(90deg,rgba(10,10,10,0) 30%,rgba(10,10,10,.7) 100%)"></div>
-    <div style="position:relative;padding:clamp(32px,4.4cqw,72px) {{ G }};display:grid;gap:18px;width:min(640px,100%);box-sizing:border-box">
+    {%- comment -%}The design box is 640 px wide incl. the gutter on both sides (512 px of text at 1440). Above 1440 the gutter
+    grows, so the text column keeps its 512 px and the gutter sits outside it (otherwise the heading overflows).{%- endcomment -%}
+    <div style="position:relative;padding:clamp(32px,4.4cqw,72px) {{ G }};display:grid;gap:18px;width:calc(min(512px,100cqw - 40px) + 2 * {{ G }});max-width:100%;box-sizing:border-box">
       <div style="font-size:12px;font-weight:800;letter-spacing:.1em;text-transform:uppercase">{{ s.eyebrow }}</div>
       <h1 style="margin:0;font-size:clamp(42px,6.6cqw,100px);font-weight:900;text-transform:uppercase;letter-spacing:-.015em;line-height:.95;font-family:inherit;color:#fff">{{ s.heading_1 }}<br>{{ s.heading_2 }}</h1>
       <div style="font-size:clamp(15px,1.25cqw,18px);line-height:1.5;color:#e4e4e4">{{ s.text }}</div>

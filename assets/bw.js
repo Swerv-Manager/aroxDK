@@ -185,6 +185,168 @@
     document.querySelectorAll('.bw-fp[open]').forEach(function (o) { o.open = false; });
   });
 
+  /* ---------- Cart helpers: add / change with Impact's bundled sections, so its cart drawer re-renders and opens ---------- */
+  var ROOT = (window.Shopify && Shopify.routes && Shopify.routes.root) || '/';
+  function bundledSections() {
+    var sections = [];
+    document.documentElement.dispatchEvent(new CustomEvent('cart:prepare-bundled-sections', { bubbles: true, detail: { sections: sections } }));
+    return sections;
+  }
+  function cartAdd(items, opts) {
+    opts = opts || {};
+    return fetch(ROOT + 'cart/add.js', { method: 'POST', headers: { 'Content-Type': 'application/json', 'X-Requested-With': 'XMLHttpRequest' }, body: JSON.stringify({ items: items, sections: bundledSections() }) })
+      .then(function (r) { return r.json().then(function (j) { if (!r.ok) throw j; return j; }); })
+      .then(function (added) {
+        return fetch(ROOT + 'cart.js').then(function (r) { return r.json(); }).then(function (cart) {
+          cart.sections = added.sections;
+          var base = opts.baseEvent || 'variant:add';
+          if (!opts.silent) document.documentElement.dispatchEvent(new CustomEvent('variant:add', { bubbles: true, detail: { items: added.items || [added], cart: cart } }));
+          document.documentElement.dispatchEvent(new CustomEvent('cart:change', { bubbles: true, detail: { baseEvent: base, cart: cart } }));
+          return cart;
+        });
+      });
+  }
+  function cartChange(key, quantity) {
+    return fetch(ROOT + 'cart/change.js', { method: 'POST', headers: { 'Content-Type': 'application/json', 'X-Requested-With': 'XMLHttpRequest' }, body: JSON.stringify({ id: key, quantity: quantity, sections: bundledSections() }) })
+      .then(function (r) { return r.json(); })
+      .then(function (cart) {
+        document.documentElement.dispatchEvent(new CustomEvent('cart:change', { bubbles: true, detail: { baseEvent: 'bw-gift', cart: cart } }));
+        return cart;
+      });
+  }
+
+  /* ---------- Quick add on Black Week product cards <bw-quick-add> (snippet bw-product-card) ----------
+     One variant: added at once. Several: a picker opens on the card; a choice adds that variant. The cart drawer opens. */
+  if (window.customElements && !customElements.get('bw-quick-add')) {
+    customElements.define('bw-quick-add', class extends HTMLElement {
+      connectedCallback() {
+        if (this.__ready) return;
+        this.__ready = true;
+        var self = this;
+        this.btn = this.querySelector('.bw-qa__btn');
+        this.panel = this.querySelector('.bw-qa__panel');
+        this.btn.addEventListener('click', function (e) {
+          e.preventDefault(); e.stopPropagation();
+          if (self.dataset.single === 'true' || !self.panel) self.add(self.dataset.variant, self.btn); else self.open(true);
+        });
+        if (this.panel) this.panel.addEventListener('click', function (e) {
+          e.preventDefault(); e.stopPropagation();
+          if (e.target.closest('.bw-qa__close')) return self.open(false);
+          var o = e.target.closest('.bw-qa__opt');
+          if (o && !o.disabled) self.add(o.getAttribute('data-id'), o);
+        });
+      }
+      open(on) {
+        if (!this.panel) return;
+        this.panel.hidden = !on;
+        this.classList.toggle('is-open', on);
+        this.btn.setAttribute('aria-expanded', on ? 'true' : 'false');
+        var m = this.querySelector('.bw-qa__msg'); if (m) m.textContent = '';
+      }
+      add(id, el) {
+        var self = this;
+        if (el.getAttribute('aria-busy') === 'true') return;
+        el.setAttribute('aria-busy', 'true');
+        cartAdd([{ id: parseInt(id, 10), quantity: 1 }]).then(function () {
+          self.open(false);
+          self.classList.add('is-added');
+          setTimeout(function () { self.classList.remove('is-added'); }, 1800);
+        }).catch(function (err) {
+          var txt = (err && (err.description || err.message)) || 'Varen kunne ikke lægges i kurven.';
+          var m = self.querySelector('.bw-qa__msg');
+          if (m) m.textContent = txt; else window.alert(txt);
+        }).finally(function () { el.removeAttribute('aria-busy'); });
+      }
+    });
+  }
+
+  /* ---------- Free gifts in the cart (config [data-bw-gifts] from sections/cart-drawer.liquid) ----------
+     When the cart (without gift lines) reaches a tier, the gift is added as its own line with the property _bw_gift;
+     below the tier it is removed again. A gift with one variant is added automatically; one with sizes is picked in the
+     drawer (snippet bw-cart-progress). A gift stays only if a discount makes it free (the automatic discounts are set
+     up in Shopify admin); otherwise it is taken out again, so nobody pays for a "free" gift. */
+  function ss(k, v) {
+    try {
+      if (v === undefined) return sessionStorage.getItem(k);
+      if (v === null) sessionStorage.removeItem(k); else sessionStorage.setItem(k, v);
+    } catch (e) { return null; }
+  }
+  function giftCfg() {
+    var el = document.querySelector('[data-bw-gifts]');
+    if (!el) return null;
+    try { return JSON.parse(el.textContent); } catch (e) { return null; }
+  }
+  function giftClasses(cfg) {
+    (cfg.tiers || []).forEach(function (t) {
+      var off = ss('bw_gift_off_' + t.key), removed = ss('bw_gift_removed_' + t.key);
+      if (off && Date.now() - parseInt(off, 10) > 10 * 60 * 1000) { ss('bw_gift_off_' + t.key, null); off = null; }
+      document.documentElement.classList.toggle('bw-gift-off-' + t.key, !!off);
+      document.documentElement.classList.toggle('bw-gift-removed-' + t.key, !!removed);
+    });
+  }
+  var giftBusy = false;
+  function syncGifts(cart, depth) {
+    var cfg = giftCfg();
+    depth = depth || 0;
+    if (!cfg || !cfg.on || giftBusy || depth > 4) return;
+    if (cfg.phases && cfg.phases.length && cfg.phases.indexOf(phase) === -1) return;
+    giftClasses(cfg);
+    var getCart = cart && cart.items ? Promise.resolve(cart) : fetch(ROOT + 'cart.js').then(function (r) { return r.json(); });
+    getCart.then(function (cart) {
+      var base = 0;
+      cart.items.forEach(function (it) { if (!(it.properties && it.properties._bw_gift)) base += it.final_line_price; });
+      var job = null;
+      (cfg.tiers || []).some(function (t) {
+        var lines = cart.items.filter(function (it) { return it.properties && it.properties._bw_gift === t.key; });
+        var reached = base >= t.min;
+        if (!reached) {
+          ss('bw_gift_added_' + t.key, null); ss('bw_gift_removed_' + t.key, null);
+          if (lines.length) { job = function () { return cartChange(lines[0].key, 0); }; return true; }
+          return false;
+        }
+        if (lines.length) {
+          var ln = lines[0];
+          if (lines.length > 1 || ln.quantity > 1) { job = function () { return cartChange(lines[lines.length - 1].key, lines.length > 1 ? 0 : 1); }; return true; }
+          ss('bw_gift_added_' + t.key, '1'); ss('bw_gift_removed_' + t.key, null);
+          // free? the gift line itself, or the same product discounted on another line by at least one unit
+          var saved = 0;
+          cart.items.forEach(function (it) { if (it.product_id === ln.product_id) saved += it.original_line_price - it.final_line_price; });
+          if (ln.final_line_price > 0 && saved < ln.original_price) {
+            ss('bw_gift_off_' + t.key, String(Date.now())); ss('bw_gift_added_' + t.key, null);
+            job = function () { return cartChange(ln.key, 0); }; return true;
+          }
+          return false;
+        }
+        if (ss('bw_gift_added_' + t.key)) { ss('bw_gift_added_' + t.key, null); ss('bw_gift_removed_' + t.key, '1'); return false; }
+        if (t.auto && t.variant && !ss('bw_gift_off_' + t.key) && !ss('bw_gift_removed_' + t.key)) {
+          job = function () { ss('bw_gift_added_' + t.key, '1'); return cartAdd([{ id: t.variant, quantity: 1, properties: { _bw_gift: t.key } }], { silent: true, baseEvent: 'bw-gift' }); };
+          return true;
+        }
+        return false;
+      });
+      giftClasses(cfg);
+      if (!job) return;
+      giftBusy = true;
+      job().then(function (c) { giftBusy = false; syncGifts(c && c.items ? c : null, depth + 1); }, function () { giftBusy = false; });
+    }).catch(function () {});
+  }
+  document.addEventListener('cart:change', function (e) {
+    if (e.detail && e.detail.baseEvent === 'bw-gift') return;
+    syncGifts(e.detail && e.detail.cart);
+  });
+  document.addEventListener('click', function (e) {
+    var b = e.target.closest && e.target.closest('[data-bw-gift-add]');
+    if (!b) return;
+    e.preventDefault();
+    var box = b.closest('[data-bw-gift-pick]'), key = box.getAttribute('data-key');
+    var sel = box.querySelector('select'), id = parseInt(sel ? sel.value : b.getAttribute('data-variant'), 10);
+    if (!id || b.getAttribute('aria-busy') === 'true') return;
+    b.setAttribute('aria-busy', 'true');
+    ss('bw_gift_removed_' + key, null);
+    cartAdd([{ id: id, quantity: 1, properties: { _bw_gift: key } }], { silent: true }).catch(function () {}).finally(function () { b.removeAttribute('aria-busy'); });
+  });
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', function () { syncGifts(); }); else syncGifts();
+
   /* ---------- Cart drawer: stepped progress bar [data-bw-cart-progress] ----------
      Impact re-renders the drawer from the bundled section HTML but waits 1.25 s before it swaps the line items after a
      quantity change. Swap the progress bar at once and animate the fill from its old width. */

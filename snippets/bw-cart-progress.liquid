@@ -17,7 +17,22 @@ Params (all from the cart drawer section settings):
   assign bw_labels = labels | default: 'Fri fragt|Hydration Bottle|3-pak strømper' | split: '|'
   assign bw_msgs = messages | default: '[beløb] til fri fragt|[beløb] til gratis Hydration Bottle|[beløb] til gratis 3-pak strømper' | split: '|'
   assign bw_done = done | default: 'Du har fri fragt og 2 gratis gaver'
+  comment
+    Gift lines (property _bw_gift, added by assets/bw.js) do not count towards the tiers.
+  endcomment
   assign bw_total = cart.total_price
+  assign bw_has_g2 = false
+  assign bw_has_g3 = false
+  for it in cart.items
+    if it.properties._bw_gift != blank
+      assign bw_total = bw_total | minus: it.final_line_price
+      if it.properties._bw_gift == 'g2'
+        assign bw_has_g2 = true
+      elsif it.properties._bw_gift == 'g3'
+        assign bw_has_g3 = true
+      endif
+    endif
+  endfor
 
   assign bw_steps = bw_amounts.size
   assign bw_seg = 100.0 | divided_by: bw_steps
@@ -96,4 +111,53 @@ Params (all from the cart drawer section settings):
       </div>
     {%- endfor -%}
   </div>
+  {%- comment -%}Gift picker: shown for a reached tier whose gift is not in the cart. A gift with one variant is added by
+  bw.js on its own, so its picker only shows when the customer removed it (html.bw-gift-removed-<key>).{%- endcomment -%}
+  {%- for a in bw_amounts -%}
+    {%- liquid
+      if forloop.index < 2
+        continue
+      endif
+      assign bw_cents = a | strip | times: 100
+      if bw_total < bw_cents
+        continue
+      endif
+      assign bw_key = 'g' | append: forloop.index
+      assign bw_prod = nil
+      if forloop.index == 2
+        assign bw_prod = gift2
+        if bw_has_g2
+          continue
+        endif
+      elsif forloop.index == 3
+        assign bw_prod = gift3
+        if bw_has_g3
+          continue
+        endif
+      endif
+      if bw_prod == blank or bw_prod.available == false
+        continue
+      endif
+      assign bw_label = bw_labels[forloop.index0] | default: bw_prod.title | strip
+      assign bw_auto = false
+      if bw_prod.variants.size == 1
+        assign bw_auto = true
+      endif
+    -%}
+    <div class="bw-gift-pick" data-bw-gift-pick data-key="{{ bw_key }}" {% if bw_auto %}data-auto{% endif %}>
+      <div style="font-weight:700">Din gratis gave: {{ bw_label }}</div>
+      <div class="bw-gift-pick__row">
+        {%- if bw_auto -%}
+          <button type="button" data-bw-gift-add data-variant="{{ bw_prod.selected_or_first_available_variant.id }}">Tilføj gave</button>
+        {%- else -%}
+          <select aria-label="Vælg variant til {{ bw_label | escape }}">
+            {%- for v in bw_prod.variants -%}
+              <option value="{{ v.id }}" {% unless v.available %}disabled{% endunless %}>{{ v.title }}</option>
+            {%- endfor -%}
+          </select>
+          <button type="button" data-bw-gift-add>Tilføj gave</button>
+        {%- endif -%}
+      </div>
+    </div>
+  {%- endfor -%}
 </div>

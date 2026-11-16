@@ -56,6 +56,18 @@ Styles that reach Impact's shadow parts live in assets/bw.css (.bw-cart).
       assign bw_gift2 = section.settings.bw_progress_gift2 | default: all_products['arox-hydration-bottle-1000-ml']
       assign bw_gift3 = section.settings.bw_progress_gift3 | default: all_products['stromper-3-pak']
     -%}
+    {%- if section.settings.bw_progress_show and section.settings.bw_gifts_auto -%}
+      {%- liquid
+        assign bw_amts = section.settings.bw_progress_amounts | default: '499,799,1299' | split: ','
+        assign bw_pl = bw_pb_phases | replace: ',', ' ' | split: ' '
+      -%}
+      <script type="application/json" data-bw-gifts>
+        {"on": true, "phases": {{ bw_pl | json }}, "tiers": [
+          {%- if bw_gift2 != blank and bw_amts[1] != blank -%}{"key": "g2", "min": {{ bw_amts[1] | strip | times: 100 }}, "variant": {{ bw_gift2.selected_or_first_available_variant.id | default: 0 }}, "auto": {% if bw_gift2.variants.size == 1 %}true{% else %}false{% endif %}}{%- endif -%}
+          {%- if bw_gift3 != blank and bw_amts[2] != blank -%}{% if bw_gift2 != blank and bw_amts[1] != blank %},{% endif %}{"key": "g3", "min": {{ bw_amts[2] | strip | times: 100 }}, "variant": {{ bw_gift3.selected_or_first_available_variant.id | default: 0 }}, "auto": {% if bw_gift3.variants.size == 1 %}true{% else %}false{% endif %}}{%- endif -%}
+        ]}
+      </script>
+    {%- endif -%}
     <div class="cart-drawer__inner bw" style="display:grid;align-content:start;min-height:100%">
       <div style="{{ bw_head_css }}">
         <p style="{{ bw_title_css }}">Din kurv · {{ cart.item_count }} vare(r)</p>
@@ -300,6 +312,13 @@ Styles that reach Impact's shadow parts live in assets/bw.css (.bw-cart).
       "id": "bw_progress_done",
       "label": "Tekst når alle trin er nået",
       "default": "Du har fri fragt og 2 gratis gaver"
+    },
+    {
+      "type": "checkbox",
+      "id": "bw_gifts_auto",
+      "label": "Læg gaverne i kurven",
+      "info": "Gaven lægges i kurven ved trin 2 og 3 (med størrelsesvalg hvis produktet har varianter) og fjernes under beløbet. Den bliver kun liggende, hvis en automatisk rabat i Shopify gør den gratis.",
+      "default": true
     },
     {
       "type": "product",

@@ -364,3 +364,33 @@ body:has(.shopify-section--main-product) .shopify-section--apps #looxReviews { b
 /* Kiwi "Størrelsesguide" is moved here by bw.js (it would otherwise push "Læg i kurv" onto a new line) */
 .shopify-section--main-product .bw-pdp-extra:empty { display: none; }
 .shopify-section--main-product .bw-pdp-extra { font-size: 13px; }
+
+/* ---------- Quick add on Black Week product cards (snippet bw-product-card quick_add, <bw-quick-add> in bw.js) ---------- */
+.bw-qa { position: absolute; inset: 0; z-index: 2; pointer-events: none; display: block; }
+.bw-qa__btn { pointer-events: auto; position: absolute; right: 8px; bottom: 8px; width: 40px; height: 40px; padding: 0; border: 0; border-radius: 999px; background: #0a0a0a; color: #fff; display: grid; place-items: center; cursor: pointer; box-shadow: 0 4px 14px rgba(0, 0, 0, .25); transition: transform .15s ease-out, opacity .15s; }
+.bw-qa__btn:hover { transform: scale(1.06); }
+.bw-qa__btn[aria-busy="true"], .bw-qa__opt[aria-busy="true"] { opacity: .5; cursor: progress; }
+.bw-qa__ok { display: none; }
+.bw-qa.is-added .bw-qa__ok { display: block; }
+.bw-qa.is-added .bw-qa__plus { display: none; }
+.bw-qa.is-open .bw-qa__btn { display: none; }
+.bw-qa__panel { pointer-events: auto; position: absolute; left: 0; right: 0; bottom: 0; max-height: 100%; overflow: auto; box-sizing: border-box; background: rgba(10, 10, 10, .94); color: #fff; padding: 10px; display: grid; gap: 8px; font-family: 'Archivo', 'Helvetica Neue', Arial, sans-serif; text-align: left; }
+.bw-qa__panel[hidden] { display: none; }
+.bw-qa__head { display: flex; justify-content: space-between; align-items: center; gap: 8px; font-size: 11px; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; }
+.bw-qa__close { background: none; border: 0; padding: 0 2px; color: #fff; font-size: 20px; line-height: 1; cursor: pointer; }
+.bw-qa__opts { display: flex; flex-wrap: wrap; gap: 6px; }
+.bw-qa__opt { min-width: 40px; height: 32px; padding: 0 10px; border: 1px solid #fff; border-radius: 6px; background: transparent; color: #fff; font-family: inherit; font-size: 12px; font-weight: 600; line-height: 1; cursor: pointer; }
+.bw-qa__opt:hover:not(:disabled) { background: #fff; color: #111; }
+.bw-qa__opt:disabled { opacity: .35; text-decoration: line-through; cursor: default; }
+.bw-qa__msg { font-size: 12px; line-height: 1.35; color: #ffb4b4; }
+.bw-qa__msg:empty { display: none; }
+
+/* ---------- Free gifts in the cart drawer (snippet bw-cart-progress, syncGifts in bw.js) ---------- */
+.bw-gift-pick { display: grid; gap: 8px; padding: 12px; border: 1px solid #2b2b2b; border-radius: 8px; background: #161616; font-size: 13px; }
+.bw-gift-pick__row { display: flex; gap: 8px; }
+.bw-gift-pick select { flex: 1; min-width: 0; height: 40px; padding: 0 10px; border: 1px solid #2b2b2b; border-radius: 8px; background: #0a0a0a; color: #fff; font: inherit; font-size: 13px; }
+.bw-gift-pick button { height: 40px; padding: 0 16px; border: 0; border-radius: 999px; background: #fff; color: #111; font: inherit; font-size: 13px; font-weight: 700; cursor: pointer; white-space: nowrap; }
+.bw-gift-pick button[aria-busy="true"] { opacity: .5; }
+.bw-gift-pick[data-auto] { display: none; }
+html.bw-gift-removed-g2 .bw-gift-pick[data-key="g2"], html.bw-gift-removed-g3 .bw-gift-pick[data-key="g3"] { display: grid; }
+html.bw-gift-off-g2 .bw-gift-pick[data-key="g2"], html.bw-gift-off-g3 .bw-gift-pick[data-key="g3"] { display: none; }
