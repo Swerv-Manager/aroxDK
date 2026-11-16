@@ -136,13 +136,15 @@
         "tile_1": {
           "type": "tile",
           "settings": {
-            "label": "SportsTech t-shirts"
+            "label": "SportsTech t-shirts",
+            "product": "sportstech-unisex-t-shirt-sort"
           }
         },
         "tile_2": {
           "type": "tile",
           "settings": {
-            "label": "Herre tights"
+            "label": "Herre tights",
+            "product": "arox-performance-tights"
           }
         }
       },
