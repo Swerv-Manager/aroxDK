@@ -91,7 +91,8 @@ Styles that reach Impact's shadow parts live in assets/bw.css (.bw-cart).
             gift2: bw_gift2,
             gift3: bw_gift3,
             item2: bw_item2,
-            item3: bw_item3
+            item3: bw_item3,
+            gift_note: section.settings.bw_gift_note
           -%}
         {%- endif -%}
         {%- if bw_fs_show -%}
@@ -105,7 +106,7 @@ Styles that reach Impact's shadow parts live in assets/bw.css (.bw-cart).
 
       <div class="cart-drawer__line-items" style="padding:4px 20px">
         {%- for line_item in cart.items -%}
-          {%- render 'bw-cart-line', line_item: line_item -%}
+          {%- render 'bw-cart-line', line_item: line_item, gift_note: section.settings.bw_gift_note -%}
         {%- endfor -%}
       </div>
 
@@ -328,6 +329,13 @@ Styles that reach Impact's shadow parts live in assets/bw.css (.bw-cart).
       "label": "Læg gaverne i kurven",
       "info": "Gaveprodukterne (0 kr.) lægges i kurven ved trin 2 og 3 (med varevalg hvis produktet har varianter) og fjernes igen under beløbet.",
       "default": true
+    },
+    {
+      "type": "text",
+      "id": "bw_gift_note",
+      "label": "Tekst ved gaverne",
+      "info": "Vises under \"Gratis gave\" i kurven og ved valget af gave.",
+      "default": "Kun 1 pr. kunde"
     },
     {
       "type": "product",
