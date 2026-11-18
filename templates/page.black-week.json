@@ -4,13 +4,15 @@
       "type": "bw-landing-hero",
       "settings": {
         "phases": "",
-        "image": "shopify://shop_images/Design_uden_navn-191.png",
+        "image": "shopify://shop_images/bw26-landing-hero-studio.jpg",
         "eyebrow": "Black Week 20.11–30.11.2026",
         "heading_1": "Black Week.",
         "heading_2": "Sådan virker det.",
         "text": "Limited edition, 3 for 2 og 4 for 2 på udvalgte varer. Rabatten trækkes automatisk i kurven – ingen kode nødvendig.",
         "button_label": "Se single offers",
-        "button_url": "/collections/black-week-limited-edition"
+        "button_url": "/collections/black-week-limited-edition",
+        "focal_x": 30,
+        "focal_y": 25
       }
     },
     "bw_dates": {

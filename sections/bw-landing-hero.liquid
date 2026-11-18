@@ -2,6 +2,7 @@
 {%- liquid
   assign s = section.settings
   assign G = 'max(clamp(20px,calc((100cqw - 767px)*1000),64px),calc((100cqw - 1312px)/2))'
+  assign bw_img_style = 'position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:' | append: s.focal_x | append: '% ' | append: s.focal_y | append: '%'
 -%}
 <style>
   #shopify-section-{{ section.id }} .bwlh-btn { background: #fff; }
@@ -9,7 +10,7 @@
 </style>
 <div class="bw{% render 'bw-only', phases: s.phases %}" style="container-type:inline-size">
   <div style="position:relative;min-height:clamp(600px,40cqw,600px);background:#0a0a0a;overflow:hidden;color:#fff;display:flex;align-items:flex-end;justify-content:flex-end">
-    {%- if s.image != blank -%}{{ s.image | image_url: width: 2800 | image_tag: loading: 'eager', fetchpriority: 'high', sizes: '100vw', widths: '750,1100,1500,2000,2800', alt: s.image.alt, style: 'position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:33% 40%' }}{%- endif -%}
+    {%- if s.image != blank -%}{{ s.image | image_url: width: 2800 | image_tag: loading: 'eager', fetchpriority: 'high', sizes: '100vw', widths: '750,1100,1500,2000,2800', alt: s.image.alt, style: bw_img_style }}{%- endif -%}
     <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,10,10,.25) 0%,rgba(10,10,10,.35) 40%,rgba(10,10,10,.9) 100%)"></div>
     <div style="position:absolute;inset:0;background:linear-gradient(90deg,rgba(10,10,10,0) 30%,rgba(10,10,10,.7) 100%)"></div>
     {%- comment -%}The design box is 640 px wide incl. the gutter on both sides (512 px of text at 1440). Above 1440 the gutter
@@ -33,6 +34,8 @@
   "settings": [
     { "type": "text", "id": "phases", "label": "Vis kun i faser", "info": "pre, early, live, sidste · tom = altid" },
     { "type": "image_picker", "id": "image", "label": "Billede" },
+    { "type": "range", "id": "focal_x", "label": "Billedfokus vandret", "min": 0, "max": 100, "step": 1, "unit": "%", "default": 33 },
+    { "type": "range", "id": "focal_y", "label": "Billedfokus lodret", "min": 0, "max": 100, "step": 1, "unit": "%", "default": 40 },
     { "type": "text", "id": "eyebrow", "label": "Overlinje", "default": "Black Week 20.11–30.11.2026" },
     { "type": "text", "id": "heading_1", "label": "Overskrift linje 1", "default": "Black Week." },
     { "type": "text", "id": "heading_2", "label": "Overskrift linje 2", "default": "Sådan virker det." },
