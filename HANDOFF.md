@@ -143,7 +143,9 @@ stromper-3-pak:2 …` fills a cart in the work-theme preview and screenshots the
 - Images in Shopify Files: Billede-00748.jpg, Billede-08057.jpg, Billede-08011.jpg,
   Billede-08431_c2413a7b-6dfc-42df-9b99-e1990905d132.jpg, Billede-00931.jpg, Billede-00921.jpg,
   Design_uden_navn-186.png, Design_uden_navn-191.png, 427_496bbe8d-72cc-421a-9db6-f83a5b270081.png,
-  428_720d86b7-f092-4cf7-803c-1e6214e6ae1f.png, bw26-Billede-08199.jpg, bw26-Billede-08153.jpg, bw26-arox-r-white.png.
+  428_720d86b7-f092-4cf7-803c-1e6214e6ae1f.png, bw26-Billede-08199.jpg, bw26-Billede-08153.jpg, bw26-arox-r-white.png,
+  bw26-landing-hero-studio.jpg (18.11: hero on /pages/black-week, client's studio photo, source in .bw-assets/;
+  focal point 22 % / 25 %, settable in the section).
 
 ## Admin actions
 
