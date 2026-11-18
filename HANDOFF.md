@@ -91,16 +91,19 @@ The separate per-phase announcement bar stays hidden (user decision): pages show
   cart shows the title up to " · ") and "4 for 2" (buy 2, 2 more free, black-week-4for2). Private test codes, active
   now → 20.11 11:59, 20 uses each (tags `black-week-2026`, `test`; delete after testing): BWTEST3FOR2, BWTEST4FOR2.
   Apply via /discount/CODE. Tested: 3 for 2, 4 for 2 and both together work.
-- Free gifts (16.11): Shopify does not let Buy X get Y gifts combine with 3 for 2 / 4 for 2 or with each other
-  (items used for one discount don't count for the next), so on the client's choice the gifts are two hidden 0 kr.
-  products: "AROX Hydration Bottle 1000 ml (gave)" (`bw-gave-hydration-bottle`) and "Strømper 3-pak (gave)"
-  (`bw-gave-stromper-3-pak`, 8 variants). Tag `bw-gave`, product type Gave, same SKUs as the real items, inventory not
-  tracked, seo.hidden = 1, published to Webshop only, not in any collection. The theme adds/removes them (bw.js
-  syncGifts, recognises them by property or product id) and never lists bw-gave products. The two gift BXGY discounts
-  and gift test codes were deleted. Check with the warehouse (Peak WMS) that orders with these SKUs are picked as the
-  real items and that stock is handled. A technically skilled visitor could add a 0 kr. gift outside the theme (e.g.
-  a cart permalink); the theme removes it on the next cart view below the tier, checkout does not.
-  Tested end to end: 3 for 2 + bottle at 1247 kr., socks picked at 1746 kr., both removed below 799.
+- Free gifts: Shopify does not let Buy X get Y gifts combine with 3 for 2 / 4 for 2 or with each other (items used
+  for one discount don't count for the next), so the gifts are two hidden 0 kr. products: "AROX Hydration Bottle
+  1000 ml (gave)" (`bw-gave-hydration-bottle`) and "Strømper 3-pak (gave)" (`bw-gave-stromper-3-pak`, 8 variants).
+  18.11, after Sebastian's remark (no stock deduction, no duplicate SKUs): both are now variant fixed BUNDLES. Each
+  gift variant has exactly one component, the real variant (bottle → AROX_HYDRATIONBOTTLE, socks → AR3PS…), fixed
+  price 0 kr., requiresComponents = true, no SKU of its own. Shopify computes the gift's stock from the real item
+  (bottle gift showed 489 = the real bottle) and deducts the real item's stock; fulfillment orders carry the real
+  SKUs. The components were set by the Shopify admin app used in this session, so only that app can edit them; to
+  change, delete and recreate. Someone had set both products to draft on 18.11; they were set active and published to
+  Webshop again (needed for the theme to add them). Still to check with Peak WMS: one real test order (bundle
+  components) is picked as the real item. Tag `bw-gave`, seo.hidden = 1, Webshop only, not in any collection; the
+  theme adds/removes them (bw.js syncGifts) and never lists bw-gave products. A 0 kr. gift added outside the theme
+  (cart permalink) is only removed on the next cart view. Tested end to end 18.11.
 
 ## Fast workflow (needs network access to aroxfitness.myshopify.com and aroxfitness.dk)
 
