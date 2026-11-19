@@ -35,44 +35,12 @@
             "sub": "De 2 billigste er gratis",
             "url": "shopify://collections/black-week-4for2"
           }
-        },
-        "sub_all": {
-          "type": "sub",
-          "settings": {
-            "label": "Alle i 4 for 2",
-            "url": "shopify://collections/black-week-4for2"
-          }
-        },
-        "sub_kvinde": {
-          "type": "sub",
-          "settings": {
-            "label": "Alt kvinde tøj",
-            "url": "shopify://collections/black-week-4for2-kvinde"
-          }
-        },
-        "sub_herre": {
-          "type": "sub",
-          "settings": {
-            "label": "Alt herre tøj",
-            "url": "shopify://collections/black-week-4for2-herre"
-          }
-        },
-        "sub_udstyr": {
-          "type": "sub",
-          "settings": {
-            "label": "Alt udstyr",
-            "url": "shopify://collections/black-week-4for2-udstyr"
-          }
         }
       },
       "block_order": [
         "nav_le",
         "nav_s3",
-        "nav_s4",
-        "sub_all",
-        "sub_kvinde",
-        "sub_herre",
-        "sub_udstyr"
+        "nav_s4"
       ],
       "settings": {
         "phases": "",
@@ -84,7 +52,7 @@
         "line": "Vælg 4 produkter blandt alle på denne side, og de 2 billigste er gratis.",
         "padding_bottom": 0,
         "dark_page": true,
-        "show_toolbar": true,
+        "show_toolbar": false,
         "filter_hide": "Brand",
         "filter_rename": "Produkttype=Kategori"
       }
@@ -246,12 +214,76 @@
         "badge": "",
         "pad_top": 24,
         "pad_bottom": 24
+      },
+      "disabled": true
+    },
+    "bw_row_kvinde": {
+      "type": "bw-product-row",
+      "settings": {
+        "phases": "",
+        "heading_size": "sm",
+        "border_top": false,
+        "eyebrow": "",
+        "heading_1": "Alt kvinde tøj (4 for 2)",
+        "heading_2": "",
+        "text": "",
+        "link_label": "Se alle",
+        "link_url": "shopify://collections/black-week-4for2-kvinde",
+        "products": [],
+        "collection": "black-week-4for2-kvinde",
+        "collection_handle": "black-week-4for2-kvinde",
+        "limit": 24,
+        "carousel": true,
+        "quick_add": true
+      }
+    },
+    "bw_row_herre": {
+      "type": "bw-product-row",
+      "settings": {
+        "phases": "",
+        "heading_size": "sm",
+        "border_top": true,
+        "eyebrow": "",
+        "heading_1": "Alt herre tøj (4 for 2)",
+        "heading_2": "",
+        "text": "",
+        "link_label": "Se alle",
+        "link_url": "shopify://collections/black-week-4for2-herre",
+        "products": [],
+        "collection": "black-week-4for2-herre",
+        "collection_handle": "black-week-4for2-herre",
+        "limit": 24,
+        "carousel": true,
+        "quick_add": true
+      }
+    },
+    "bw_row_udstyr": {
+      "type": "bw-product-row",
+      "settings": {
+        "phases": "",
+        "heading_size": "sm",
+        "border_top": true,
+        "eyebrow": "",
+        "heading_1": "Alt udstyr (4 for 2)",
+        "heading_2": "",
+        "text": "",
+        "link_label": "Se alle",
+        "link_url": "shopify://collections/black-week-4for2-udstyr",
+        "products": [],
+        "collection": "black-week-4for2-udstyr",
+        "collection_handle": "black-week-4for2-udstyr",
+        "limit": 24,
+        "carousel": true,
+        "quick_add": true
       }
     }
   },
   "order": [
     "bw_header",
     "bw_progress",
+    "bw_row_kvinde",
+    "bw_row_herre",
+    "bw_row_udstyr",
     "main",
     "bw_grid",
     "bw_note",

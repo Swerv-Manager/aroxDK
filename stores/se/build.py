@@ -219,6 +219,12 @@ TEMPLATES = ['page.black-week.json', 'page.limited-blackout.json', 'page.3-for-2
              'collection.black-week-4for2.json', 'collection.black-week-limited-edition.json']
 for tpl in TEMPLATES:
     d = load_json(os.path.join(ROOT, 'templates', tpl))
+    if tpl == 'collection.black-week-4for2.json':
+        # DK's 4 for 2 shows category sliders (DK-only sub-collections, 19.11): keep the grid page here for now
+        for sid in [k for k in d['order'] if k.startswith('bw_row_')]:
+            d['order'].remove(sid); d['sections'].pop(sid)
+        d['sections']['bw_grid'].pop('disabled', None)
+        d['sections']['bw_header']['settings']['show_toolbar'] = True
     dump_json('templates/' + tpl, bw_only(d, tpl, keep=('main-page', 'apps')))
 
 # homepage: SE's live homepage stays templates/index.json (normal shop); the Black Week homepage is a section group
