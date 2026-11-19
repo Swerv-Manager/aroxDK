@@ -415,17 +415,19 @@ html.bw-gift-off-g2 .bw-gift-pick[data-key="g2"], html.bw-gift-off-g3 .bw-gift-p
    original product page blocks/sections, and anything marked bw-norm. */
 html.bw-off .shopify-section.bw-section, html.bw-off .bw-site { display: none !important; }
 html.bw-on .bw-norm,
-html.bw-on .shopify-section[id$="__cs_announcement_bar_RX8nib"],
+html.bw-on .shopify-section[id*="__cs_announcement_bar_"],
 html.bw-on .shopify-section[id$="__header"],
 html.bw-on .shopify-section[id$="__text-with-icons"],
 html.bw-on .shopify-section[id$="__footer"]:not(.bw-section),
 html.bw-on.bw-tpl-index main > .shopify-section[id^="shopify-section-template--"],
-html.bw-on .shopify-section[id$="__ss_product_vidoes_BnfWak"],
+html.bw-on .shopify-section[id*="__ss_product_vidoes_"],
+html.bw-on .shopify-section[id*="__ss_product_page_videos_"],
 html.bw-on .shopify-section[id$="__related-products"],
 html.bw-on .product-info__block-item[data-block-id="price"],
 html.bw-on .product-info__block-item[data-block-id="product_info_block_QP8x6U"],
 html.bw-on .product-info__block-item[data-block-id="liquid_AprAYw"],
 html.bw-on .product-info__block-item[data-block-id="liquid_QTG6BY"],
+html.bw-on .product-info__block-item[data-block-type="payment-icons"],
 html.bw-on .product-info__block-item[data-block-id="collapsible_text_9FQbce"],
 html.bw-on .product-info__block-item[data-block-id*="loox_reviews_loox_rating"] { display: none !important; }
 html.bw-off .product-info__block-item[data-block-id^="bw_"],

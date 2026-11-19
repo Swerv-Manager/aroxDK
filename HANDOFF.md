@@ -117,6 +117,36 @@ The separate per-phase announcement bar stays hidden (user decision): pages show
   design (early = live hero with the "Tidlig adgang slutter om" countdown; signup hidden in live). The early (VIP)
   phase is open to everybody: the automatic discounts start 20.11 12:00 (Frederik's choice 16.11).
 
+## Normal shop ↔ Black Week (client decision 19.11, commit 8721d61 +)
+
+Fre 20.11 kl. 12:00 → søn 22.11 kl. 20:00 the Black Week landing page (/pages/black-week), the offer pages
+(limited-blackout, 3-for-2, 4-for-2, black-week-gaver, black-week-vilkaar) and the three offer collections are live for
+VIP mail/SMS; the rest of the shop stays the normal shop (home, menu, cart, product pages, badges) until søn 20:00.
+The discounts start fre 12:00 for everybody. One theme, switching by itself in the browser (no manual publish):
+- `snippets/bw-head` sets `html.bw-on` when the template is a Black Week page/collection, or the phase is live/sidste,
+  or (phase pre/early) the browser is a VIP: it has been on a Black Week page or came with `?vip=1`
+  (localStorage `bw_vip`; `?bw_vip=0` clears it). Otherwise `html.bw-off` = the normal shop (also after 30.11).
+  Theme editor: no VIP; "Vis fase i temaeditoren" live/sidste shows the Black Week shop.
+- `assets/bw.css` (end of file): bw-off hides `.shopify-section.bw-section` (every bw-* section has it) and `.bw-site`;
+  bw-on hides `.bw-norm`, the Impact header/announcement/footer/USP sections (by id suffix), the homepage template
+  sections, the live product blocks (price, Loox stars, USP block, trust/payment blocks, live shipping text) and
+  product sections (videos, related). Product page and drawer styles are scoped to `html.bw-on`; the Black Week block
+  order is CSS `order` (the template keeps the live order).
+- Homepage: Black Week sections live in the section group `sections/bw-home-group.json` (type custom.bwhome), rendered
+  from layout/theme.liquid on the homepage; `templates/index.json` is the live homepage again (25-section limit).
+- Header/footer groups: live sections back exactly as live (they had been restyled before the bw-* sections existed).
+- Product template: live colours, buy button, blocks and order; Black Week blocks added (`bw_*`, `liquid_bw_*`,
+  `bw_collapsible_ship` = shipping text with 499 kr.).
+- settings_data: live header colours and free shipping threshold 799 (normal drawer); the Black Week drawer takes
+  "fri fragt" from the first step of its bar (499). na-side-cart stays off: the normal shop uses Impact's own drawer.
+- Cart drawer: Impact's own drawer markup (.bw-norm) and the Black Week drawer (.bw-site) inside the one
+  `.cart-drawer__inner` / `[slot="footer"]` that Impact re-renders. Gifts and the PDP extras only run in bw-on.
+- Tested 19.11 (`modetest.js`): early normal visitor → normal home/PDP/collections, Black Week collection page in
+  Black Week; VIP after the landing page → Black Week everywhere; live → Black Week; ended → normal.
+- Free shipping: the Black Week pages promise 499 kr. from fre 12:00, so Zippendo must give free shipping from 499 kr.
+  from fre 12:00 (the normal shop texts say 799).
+- An unused theme "Black Week 2026 – VIP (fre 12 til søn 20)" (191893537097) was made first and can be deleted.
+
 ## Launch check 19.11 (DK)
 
 Checked: live theme unchanged since the work theme was made (nothing lost on publish); every repo file matches the work

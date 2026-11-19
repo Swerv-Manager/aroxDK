@@ -72,7 +72,8 @@ blocks) in bw-on. html also gets bw-tpl-<template name>. Preview: ?bw_vip=0 clea
       vip = localStorage.getItem('bw_vip') === '1';
     } catch (e) {}
     var on = scope || phase === 'live' || phase === 'sidste' || (vip && (phase === 'pre' || phase === 'early'));
-    {%- if request.design_mode -%}on = true;{%- endif -%}
+    {%- comment -%}Theme editor: no VIP mark; "Vis fase i temaeditoren" = live/sidste shows the Black Week shop, auto/pre/early the normal shop (Black Week pages are always Black Week).{%- endcomment -%}
+    {%- if request.design_mode -%}on = scope || phase === 'live' || phase === 'sidste';{%- endif -%}
     window.BW.on = on;
     document.documentElement.classList.add('bw-' + phase, on ? 'bw-on' : 'bw-off', 'bw-tpl-{{ template.name | handle }}');
   })();

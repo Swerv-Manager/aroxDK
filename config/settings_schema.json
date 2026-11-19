@@ -976,7 +976,7 @@
           }
         ],
         "default": "auto",
-        "info": "Gælder kun i temaeditoren. Kunderne ser altid fasen efter tidspunkt."
+        "info": "Gælder kun i temaeditoren. Live/Sidste dag viser Black Week-shoppen (forside, menu, kurv), de andre faser den normale shop. Kunderne ser altid fasen efter tidspunkt."
       }
     ]
   }
