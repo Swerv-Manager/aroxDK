@@ -31,13 +31,17 @@ Markup: snippets bw-coll-head / bw-coll-toolbar, styles .bw-ch* / .bw-tb* in ass
     assign bw_subs = section.blocks | where: 'type', 'sub'
   -%}
   {%- if bw_subs.size > 0 -%}
-    {%- comment -%}Sub-collection tabs (Sebastian 19.11): the tab whose collection is the page is white. Count = products in that collection.{%- endcomment -%}
+    {%- comment -%}Sub-collection tabs (Sebastian 19.11): the tab whose collection is the page is white. Count = products for sale in that collection (as the toolbar).{%- endcomment -%}
     <nav class="bw-ch__subs" aria-label="Kategorier">
       {%- for block in bw_subs -%}
         {%- liquid
           assign bw_su = block.settings.url | default: '#'
           assign bw_sh = bw_su | split: '/' | last
           assign bw_sc = collections[bw_sh].products_count
+          # same count as the toolbar under the tabs: products for sale (Liquid reads at most 50 per collection)
+          if bw_sc <= 50
+            assign bw_sc = collections[bw_sh].products | where: 'available' | size
+          endif
         -%}
         <a href="{{ bw_su }}" class="bw-ch__sub" {% if bw_su == request.path or bw_su == collection.url %}aria-current="page"{% endif %} {{ block.shopify_attributes }}>
           <span>{{ block.settings.label }}</span>{% if bw_sc > 0 %}<span class="bw-ch__subn">{{ bw_sc }}</span>{% endif %}

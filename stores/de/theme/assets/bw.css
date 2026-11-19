@@ -264,6 +264,7 @@ html.bw-on .bw-cart .bw-cart-line a:hover{ opacity: .8; }
 .bw-ch__sub:hover { box-shadow: inset 0 0 0 1px #fff; }
 .bw-ch__sub[aria-current] { background: #fff; color: #0a0a0a; box-shadow: none; }
 .bw-ch__subn { font-size: 11px; font-weight: 700; opacity: .65; }
+@media (max-width: 767px) { .bw-ch__subs { flex-wrap: wrap; overflow: visible; } .bw-ch__sub { min-height: 36px; padding: 7px 13px; font-size: 12px; } }
 /* horizontal scrollers without a visible scrollbar (circles, carousels) */
 .bw-noscrollbar { scrollbar-width: none; } .bw-noscrollbar::-webkit-scrollbar { display: none; }
 
