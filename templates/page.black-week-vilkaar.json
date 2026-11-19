@@ -88,6 +88,13 @@
             "key": "Arrangør",
             "value": "Sai Fitness ApS · CVR 42582735 · Skolegade 7, 8000 Aarhus C · support@aroxfitness.com"
           }
+        },
+        "term_12": {
+          "type": "term",
+          "settings": {
+            "key": "Gaver ved køb",
+            "value": "Handler du for mindst 799 kr., får du en gratis AROX Hydration Bottle (1000 ml). Ved mindst 1.299 kr. får du også en gratis 3-pak strømper. Beløbet regnes efter rabat. Gaverne lægges i kurven, så længe lager haves. Kun 1 pr. kunde."
+          }
         }
       },
       "block_order": [
@@ -100,6 +107,7 @@
         "term_7",
         "term_8",
         "term_9",
+        "term_12",
         "term_10",
         "term_11"
       ],
@@ -166,6 +174,13 @@
             "question": "Kan jeg fortryde eller returnere?",
             "answer": "<p>Ja. Du har 14 dages fortrydelsesret. Brug Returportal eller \"Fortryd ordre\" nederst på siden. Læs mere i vores handelsbetingelser.</p>"
           }
+        },
+        "faq_9": {
+          "type": "item",
+          "settings": {
+            "question": "Får jeg en gave, når jeg handler for mere?",
+            "answer": "<p>Ja. Handler du for mindst 799 kr., får du en gratis AROX Hydration Bottle (1000 ml). Ved mindst 1.299 kr. får du også en gratis 3-pak strømper, som du vælger i din størrelse i kurven. Beløbet regnes efter rabat. Kun 1 pr. kunde.</p>"
+          }
         }
       },
       "block_order": [
@@ -175,6 +190,7 @@
         "faq_4",
         "faq_5",
         "faq_6",
+        "faq_9",
         "faq_7",
         "faq_8"
       ],

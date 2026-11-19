@@ -81,7 +81,17 @@ Params: hide ('Brand, Pris': filter labels not shown) · rename ('Produkttype=Ka
       {%- endif -%}
     </div>
     <div class="bw-tb__right">
-      <span class="bw-tb__count">{{ collection.products_count }} {% if collection.products_count == 1 %}produkt{% else %}produkter{% endif %}</span>
+      {%- liquid
+        comment
+          The grid only shows products that are available for sale, so the count does too. Outside paginate Liquid
+          gives at most 50 products; bigger collections show Shopify's own count.
+        endcomment
+        assign bw_cnt = collection.products_count
+        if bw_cnt <= 50
+          assign bw_cnt = collection.products | where: 'available' | size
+        endif
+      -%}
+      <span class="bw-tb__count">{{ bw_cnt }} {% if bw_cnt == 1 %}produkt{% else %}produkter{% endif %}</span>
       {%- if collection.sort_options.size > 0 -%}
         <details class="bw-fp bw-fp--sort">
           <summary class="bw-tb__sort">Sortér: {{ bw_sort_name }}{{ bw_chev }}</summary>
