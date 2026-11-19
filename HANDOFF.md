@@ -143,6 +143,9 @@ The discounts start fre 12:00 for everybody. One theme, switching by itself in t
   `.cart-drawer__inner` / `[slot="footer"]` that Impact re-renders. Gifts and the PDP extras only run in bw-on.
 - Tested 19.11 (`modetest.js`): early normal visitor → normal home/PDP/collections, Black Week collection page in
   Black Week; VIP after the landing page → Black Week everywhere; live → Black Week; ended → normal.
+  Drawer with items (section rendering API, `?section_id=cart-drawer`): both variants render, no Liquid errors or
+  missing translations; normal = Impact drawer ("Indkøbskurv", line items, free shipping bar, "I alt"), Black Week =
+  board 10 drawer with bar and gift config; one `.cart-drawer__inner`, one footer slot.
 - Free shipping: the Black Week pages promise 499 kr. from fre 12:00, so Zippendo must give free shipping from 499 kr.
   from fre 12:00 (the normal shop texts say 799).
 - An unused theme "Black Week 2026 – VIP (fre 12 til søn 20)" (191893537097) was made first and can be deleted.
