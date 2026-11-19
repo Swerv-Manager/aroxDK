@@ -4,7 +4,7 @@
 
 ALL = [
     # countdown units / dates used in several files
-    ("'Dage,Timer,Min,Sek'", "'Dagar,Timmar,Min,Sek'"),
+    ("'Dage,Timer,Min,Sek'", "'Dagar,Tim,Min,Sek'"),
 ]
 
 FILES = {
