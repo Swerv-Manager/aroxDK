@@ -85,8 +85,7 @@
             "showAllReviews": false,
             "looxOpenFloatingWidget": false,
             "emptyRatingWidget": false
-          },
-          "disabled": true
+          }
         },
         "title": {
           "type": "title",
@@ -102,8 +101,7 @@
           "type": "price",
           "settings": {
             "show_taxes_notice": true
-          },
-          "disabled": true
+          }
         },
         "countdown_timer_QiHzAX": {
           "type": "countdown-timer",
@@ -168,8 +166,7 @@
           "type": "product_info_block",
           "settings": {
             "icon": "picto-coupon"
-          },
-          "disabled": true
+          }
         },
         "bundle_builder_link_KiUFty": {
           "type": "bundle-builder-link",
@@ -249,8 +246,8 @@
           "settings": {
             "show_payment_button": false,
             "show_gift_card_recipient": false,
-            "atc_button_background": "#ffffff",
-            "atc_button_text_color": "#111111",
+            "atc_button_background": "#00b67a",
+            "atc_button_text_color": "#ffffff",
             "payment_button_background": "#00b67a",
             "payment_button_text_color": "#00b67a"
           }
@@ -259,8 +256,7 @@
           "type": "liquid",
           "settings": {
             "liquid": "<div class=\"mabala-cta-trust\">\n  \n  <!-- Betalingsikoner via Shopify Liquid -->\n  <span class=\"methods-of-payment\">\n    <img src=\"{{ 'klarna' | payment_type_img_url }}\" alt=\"Klarna\" />\n    <img src=\"{{ 'visa' | payment_type_img_url }}\" alt=\"Visa\" />\n    <img src=\"{{ 'master' | payment_type_img_url }}\" alt=\"Mastercard\" />\n    <img src=\"{{ 'mobilepay' | payment_type_img_url }}\" alt=\"MobilePay\" />\n  </span>\n\n  <!-- Trustpilot stjerner (beholdt som SVG) -->\n  <div class=\"mabala-trust\">\n    <div class=\"mabala-tp\">\n      <a href=\"https://www.google.com/search?q=arox+fitness+anmeldelser&oq=arox+fitness+anmeldelser&gs_lcrp=EgZjaHJvbWUyCwgAEEUYChg5GKABMgYIARBFGDzSAQgzMDk5ajBqN6gCALACAA&sourceid=chrome&ie=UTF-8\" target=\"_blank\">\n        <svg viewBox=\"0 0 347 66\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n          <path d=\"M0 8.1286C0 3.825 3.48876 0.336243 7.79236 0.336243H57.2569C61.5605 0.336243 65.0492 3.825 65.0492 8.1286V57.5931C65.0492 61.8967 61.5605 65.3855 57.2569 65.3855H7.79236C3.48876 65.3855 0 61.8967 0 57.5931V8.1286ZM70.47 8.1286C70.47 3.825 73.9587 0.336243 78.2624 0.336243H127.727C132.03 0.336243 135.519 3.825 135.519 8.1286V57.5931C135.519 61.8967 132.03 65.3855 127.727 65.3855H78.2624C73.9587 65.3855 70.47 61.8967 70.47 57.5931V8.1286ZM140.94 8.1286C140.94 3.825 144.429 0.336243 148.732 0.336243H198.197C202.5 0.336243 205.989 3.825 205.989 8.1286V57.5931C205.989 61.8967 202.5 65.3855 198.197 65.3855H148.732C144.429 65.3855 140.94 61.8967 140.94 57.5931V8.1286ZM211.41 8.1286C211.41 3.825 214.899 0.336243 219.202 0.336243H268.667C272.97 0.336243 276.459 3.825 276.459 8.1286V57.5931C276.459 61.8967 272.97 65.3855 268.667 65.3855H219.202C214.899 65.3855 211.41 61.8967 211.41 57.5931V8.1286ZM281.88 8.1286C281.88 3.825 285.369 0.336243 289.672 0.336243H339.137C343.44 0.336243 346.929 3.825 346.929 8.1286V57.5931C346.929 61.8967 343.44 65.3855 339.137 65.3855H289.672C285.369 65.3855 281.88 61.8967 281.88 57.5931V8.1286Z\" fill=\"#38B77B\"></path>\n          <path d=\"M102.032 14.9762C102.344 14.0564 103.645 14.0564 103.957 14.9762L108.161 27.3682C108.301 27.7806 108.688 28.0581 109.124 28.0581L122.632 28.0581C123.627 28.0581 124.029 29.3403 123.212 29.9088L112.361 37.4599C111.989 37.7185 111.833 38.1919 111.979 38.6207L116.141 50.8906C116.456 51.8193 115.403 52.6116 114.598 52.0514L103.575 44.3811C103.226 44.1383 102.763 44.1383 102.414 44.3811L91.391 52.0514C90.586 52.6116 89.5329 51.8193 89.848 50.8906L94.0106 38.6207C94.1561 38.1919 94.0003 37.7185 93.6286 37.4599L82.7769 29.9088C81.96 29.3403 82.3622 28.0581 83.3574 28.0581L96.8655 28.0581C97.301 28.0581 97.6881 27.7806 97.828 27.3682L102.032 14.9762Z\" fill=\"white\"></path>\n          <path d=\"M32.5785 14.9762C32.8906 14.0564 34.1915 14.0564 34.5036 14.9762L38.7076 27.3682C38.8475 27.7806 39.2346 28.0581 39.6701 28.0581L53.1782 28.0581C54.1734 28.0581 54.5757 29.3403 53.7588 29.9088L42.9071 37.4599C42.5353 37.7185 42.3796 38.1919 42.5251 38.6207L46.6877 50.8906C47.0028 51.8193 45.9497 52.6116 45.1446 52.0514L34.1216 44.3811C33.7726 44.1383 33.3095 44.1383 32.9605 44.3811L21.9375 52.0514C21.1324 52.6116 20.0793 51.8193 20.3944 50.8906L24.557 38.6207C24.7025 38.1919 24.5468 37.7185 24.1751 37.4599L13.3233 29.9088C12.5064 29.3403 12.9087 28.0581 13.9039 28.0581L27.412 28.0581C27.8475 28.0581 28.2346 27.7806 28.3745 27.3682L32.5785 14.9762Z\" fill=\"white\"></path>\n          <path d=\"M172.502 14.9762C172.814 14.0564 174.115 14.0564 174.427 14.9762L178.631 27.3682C178.771 27.7806 179.158 28.0581 179.594 28.0581L193.102 28.0581C194.097 28.0581 194.499 29.3403 193.682 29.9088L182.831 37.4599C182.459 37.7185 182.303 38.1919 182.449 38.6207L186.611 50.8906C186.926 51.8193 185.873 52.6116 185.068 52.0514L174.045 44.3811C173.696 44.1383 173.233 44.1383 172.884 44.3811L161.861 52.0514C161.056 52.6116 160.003 51.8193 160.318 50.8906L164.481 38.6207C164.626 38.1919 164.47 37.7185 164.099 37.4599L153.247 29.9088C152.43 29.3403 152.832 28.0581 153.827 28.0581L167.336 28.0581C167.771 28.0581 168.158 27.7806 168.298 27.3682L172.502 14.9762Z\" fill=\"white\"></path>\n          <path d=\"M312.764 14.9762C313.077 14.0564 314.377 14.0564 314.69 14.9762L318.894 27.3682C319.033 27.7806 319.421 28.0581 319.856 28.0581L333.364 28.0581C334.359 28.0581 334.762 29.3403 333.945 29.9088L323.093 37.4599C322.721 37.7185 322.566 38.1919 322.711 38.6207L326.874 50.8906C327.189 51.8193 326.136 52.6116 325.331 52.0514L314.308 44.3811C313.959 44.1383 313.495 44.1383 313.146 44.3811L302.123 52.0514C301.318 52.6116 300.265 51.8193 300.58 50.8906L304.743 38.6207C304.888 38.1919 304.733 37.7185 304.361 37.4599L293.509 29.9088C292.692 29.3403 293.095 28.0581 294.09 28.0581L307.598 28.0581C308.033 28.0581 308.421 27.7806 308.56 27.3682L312.764 14.9762Z\" fill=\"white\"></path>\n          <path d=\"M242.633 14.9762C242.945 14.0564 244.246 14.0564 244.558 14.9762L248.762 27.3682C248.902 27.7806 249.289 28.0581 249.725 28.0581L263.233 28.0581C264.228 28.0581 264.63 29.3403 263.814 29.9088L252.962 37.4599C252.59 37.7185 252.434 38.1919 252.58 38.6207L256.742 50.8906C257.058 51.8193 256.004 52.6116 255.199 52.0514L244.176 44.3811C243.827 44.1383 243.364 44.1383 243.015 44.3811L231.992 52.0514C231.187 52.6116 230.134 51.8193 230.449 50.8906L234.612 38.6207C234.757 38.1919 234.602 37.7185 234.23 37.4599L223.378 29.9088C222.561 29.3403 222.963 28.0581 223.959 28.0581L237.467 28.0581C237.902 28.0581 238.289 27.7806 238.429 27.3682L242.633 14.9762Z\" fill=\"white\"></path>\n          <rect x=\"33.541\" y=\"10.4828\" width=\"26.0875\" height=\"49.8033\" fill=\"#38B77B\" fill-opacity=\"0.19\"></rect>\n          <rect x=\"102.995\" y=\"8.45001\" width=\"26.0875\" height=\"49.8033\" fill=\"#38B77B\" fill-opacity=\"0.19\"></rect>\n          <rect x=\"173.465\" y=\"8.45001\" width=\"26.0875\" height=\"49.8033\" fill=\"#38B77B\" fill-opacity=\"0.19\"></rect>\n          <rect x=\"243.596\" y=\"8.45001\" width=\"26.0875\" height=\"49.8033\" fill=\"#38B77B\" fill-opacity=\"0.19\"></rect>\n          <path d=\"M313.727 8.45001H339.814V58.2533H313.727V8.45001Z\" fill=\"#38B77B\" fill-opacity=\"0.19\"></path>\n        </svg>\n      </a>\n    </div>\n\n    <p>4.9/5 på Trustpilot</p>\n  </div>\n\n  <style>\n    /* Hovedcontaineren: Holder det hele på én linje */\n    .mabala-cta-trust {\n      display: flex;\n      justify-content: space-between;\n      align-items: center; \n      gap: 20px;\n      padding-bottom: 24px;\n    }\n\n    /* Styling til betalingsikonerne (din kode, integreret) */\n    .methods-of-payment {\n      display: flex;\n      align-items: center;\n      gap: 5px;\n    }\n    \n    .methods-of-payment img {\n      padding: 0.2em;\n      height: 25px; /* Sat til 25px så de matcher Trustpilot stjernernes højde på desktop */\n      width: auto;\n    }\n\n    .lt-ie9 .methods-of-payment, .ie8 .methods-of-payment, .oldie .methods-of-payment { \n      display: none; \n    }\n\n    /* Styling til Trustpilot delen */\n    .mabala-trust {\n      display: flex;\n      flex-direction: column;\n      align-items: flex-end;\n    }\n\n    .mabala-tp {\n      display: flex;\n      gap: 0px;\n    }\n\n    .mabala-tp svg {\n      height: 25px;\n      width: 132px;\n      display: block;\n    }\n\n    .mabala-trust p {\n      font-size: 12px;\n      color: rgba(0, 0, 0, 0.52);\n      line-height: 12px;\n      font-weight: 600;\n      margin-top: 5px !important;\n      margin-bottom: 0 !important;\n      padding-bottom: 0 !important;\n    }\n\n    /* SPECIFIKT FOR MOBIL: Bliver på samme linje */\n    @media (max-width: 540px) {\n      .mabala-cta-trust {\n        flex-direction: row; \n        gap: 10px;\n        padding-bottom: 20px;\n      }\n\n      .methods-of-payment img {\n        padding: 0;\n        height: 20px; /* Gjort lidt mindre på mobil, så der er plads til det hele */\n        max-width: 32px; \n      }\n\n      .mabala-tp svg {\n        height: 20px;\n        width: 105px;\n      }\n\n      .mabala-trust p {\n        font-size: 10px;\n        margin-top: 4px !important;\n      }\n    }\n  </style>\n</div>"
-          },
-          "disabled": true
+          }
         },
         "description": {
           "type": "description",
@@ -276,7 +272,7 @@
             "icon": "none",
             "icon_width": 20,
             "title": "Levering & returnering",
-            "content": "<p>Levering: Gratis for ordrer over 499 kr. med GLS pakkeshop. For ordrer under 499 kr. fås levering fra 35 kr. </p><p>Returnering: Læs vores retuneringspolitik <a href=\"/pages/returpolitik\" title=\"Returpolitik\">her</a></p>",
+            "content": "<p>Levering: Gratis for ordrer over 799 kr. med GLS pakkeshop. For ordrer under 799 kr. fås levering fra 35 kr. </p><p>Returnering: Læs vores retuneringspolitik <a href=\"/pages/returpolitik\" title=\"Returpolitik\">her</a></p>",
             "page": ""
           }
         },
@@ -293,8 +289,7 @@
           "type": "liquid",
           "settings": {
             "liquid": "<div id='ss-product-videos'></div>"
-          },
-          "disabled": true
+          }
         },
         "collapsible_text_QxFjrL": {
           "type": "collapsible_text",
@@ -389,45 +384,56 @@
           "settings": {
             "liquid": "{%- comment -%}BLACK WEEK 2026 · board 08 Kundernes favoritter{%- endcomment -%}{% render 'bw-pdp-favs', product: product %}"
           }
+        },
+        "bw_collapsible_ship": {
+          "type": "collapsible_text",
+          "settings": {
+            "icon": "none",
+            "icon_width": 20,
+            "title": "Levering & returnering",
+            "content": "<p>Levering: Gratis for ordrer over 499 kr. med GLS pakkeshop. For ordrer under 499 kr. fås levering fra 35 kr. </p><p>Returnering: Læs vores retuneringspolitik <a href=\"/pages/returpolitik\" title=\"Returpolitik\">her</a></p>",
+            "page": ""
+          }
         }
       },
       "block_order": [
-        "badges",
+        "loox_reviews_loox_rating_hAnUWP",
         "title",
+        "badges",
+        "price",
+        "countdown_timer_QiHzAX",
+        "product_info_block_QP8x6U",
         "bw_price",
         "bw_usp",
+        "bundle_builder_link_KiUFty",
+        "bundle_builder_link_hXqw4t",
         "liquid_rpCmtK",
         "variant_picker",
         "liquid_QymwME",
-        "kaching_bundles_app_block_4yFaNx",
         "quantity_selector",
+        "kaching_bundles_app_block_4yFaNx",
+        "inventory_EWQMMk",
         "buy_buttons",
+        "liquid_AprAYw",
         "liquid_bw_mechanic",
         "bw_trust",
         "bw_ship",
         "description",
         "collapsible_text_9FQbce",
+        "bw_collapsible_ship",
         "bw_favs",
-        "loox_reviews_loox_snippets_widget_nDp6Hj",
-        "liquid_bw_gpsr",
-        "payment_terms",
-        "loox_reviews_loox_rating_hAnUWP",
-        "price",
-        "countdown_timer_QiHzAX",
-        "product_info_block_QP8x6U",
-        "bundle_builder_link_KiUFty",
-        "bundle_builder_link_hXqw4t",
-        "inventory_EWQMMk",
-        "liquid_AprAYw",
         "frequently_bought_app_block_fxNVB6",
+        "payment_terms",
         "liquid_QTG6BY",
         "collapsible_text_QxFjrL",
+        "loox_reviews_loox_snippets_widget_nDp6Hj",
+        "liquid_bw_gpsr",
         "bundle_builder_link_H8JAFN"
       ],
       "settings": {
         "full_width": true,
         "show_fixed_add_to_cart": true,
-        "desktop_media_width": 50,
+        "desktop_media_width": 55,
         "desktop_media_layout": "carousel_thumbnails_bottom",
         "mobile_media_size": "contained",
         "mobile_carousel_control": "free_scroll",
@@ -435,11 +441,11 @@
         "enable_video_looping": true,
         "enable_image_zoom": true,
         "max_image_zoom_level": 3,
-        "background": "#0a0a0a",
+        "background": "",
         "background_gradient": "",
-        "text_color": "#ffffff",
+        "text_color": "",
         "input_background": "rgba(0,0,0,0)",
-        "input_text_color": "#ffffff"
+        "input_text_color": ""
       }
     },
     "1741616568527fe349": {
@@ -461,9 +467,9 @@
         "full_width": true,
         "remove_vertical_spacing": false,
         "remove_horizontal_spacing": false,
-        "background": "#0a0a0a",
+        "background": "",
         "background_gradient": "",
-        "text_color": "#ffffff"
+        "text_color": ""
       }
     },
     "ss_product_vidoes_BnfWak": {
@@ -604,8 +610,7 @@
         "padding_horizontal_mobile": 0,
         "border_thickness": 0,
         "lazy": true
-      },
-      "disabled": true
+      }
     },
     "related-products": {
       "type": "related-products",
@@ -627,8 +632,7 @@
         "heading_gradient": "",
         "product_card_background": "",
         "product_card_text_color": ""
-      },
-      "disabled": true
+      }
     },
     "17347935761a60b3ea": {
       "type": "apps",
@@ -654,9 +658,9 @@
         "full_width": true,
         "remove_vertical_spacing": false,
         "remove_horizontal_spacing": false,
-        "background": "#0a0a0a",
+        "background": "",
         "background_gradient": "",
-        "text_color": "#ffffff"
+        "text_color": ""
       }
     },
     "173581325033b64ae9": {
@@ -678,9 +682,9 @@
         "full_width": true,
         "remove_vertical_spacing": false,
         "remove_horizontal_spacing": false,
-        "background": "#0a0a0a",
+        "background": "",
         "background_gradient": "",
-        "text_color": "#ffffff"
+        "text_color": ""
       }
     },
     "bw_related": {

@@ -1,0 +1,509 @@
+{
+  "type": "custom.bwhome",
+  "name": "BW Forside",
+  "sections": {
+    "bw_hero": {
+      "type": "bw-hero",
+      "blocks": {
+        "offer_1": {
+          "type": "offer",
+          "settings": {
+            "title": "Single offers",
+            "text": "Blackout-udgaver og favoritter til fast Black Week-pris.",
+            "url": "/collections/black-week-limited-edition"
+          }
+        },
+        "offer_2": {
+          "type": "offer",
+          "settings": {
+            "title": "3 for 2",
+            "text": "Tag 3, betal for 2. Den billigste er gratis.",
+            "url": "/collections/black-week-3for2"
+          }
+        },
+        "offer_3": {
+          "type": "offer",
+          "settings": {
+            "title": "4 for 2",
+            "text": "Tag 4, betal for 2. De 2 billigste er gratis.",
+            "url": "/collections/black-week-4for2"
+          }
+        }
+      },
+      "block_order": [
+        "offer_1",
+        "offer_2",
+        "offer_3"
+      ],
+      "settings": {
+        "phases": "",
+        "image": "shopify://shop_images/Billede-00748.jpg",
+        "badge": "Black Week",
+        "dates": "20.11–30.11",
+        "h1a_pre": "DU SHOPPER FØRST.",
+        "h1b_pre": "ALLE ANDRE BAGEFTER.",
+        "h1a_early": "BLACK WEEK ER I GANG.",
+        "h1b_early": "SHOP BLACK WEEK.",
+        "h1a_live": "BLACK WEEK ER I GANG.",
+        "h1b_live": "SHOP BLACK WEEK.",
+        "h1a_sidste": "SIDSTE DAG.",
+        "h1b_sidste": "SLUTTER KL. 23:59.",
+        "cta_pre": "Tilmeld dig presale",
+        "cta_url_pre": "#presale",
+        "cta": "Shop Black Week",
+        "cta_url": "/pages/black-week",
+        "note": "Rabatten trækkes automatisk i kurven."
+      }
+    },
+    "bw_dates": {
+      "type": "bw-countdown-dates",
+      "blocks": {
+        "date_1": {
+          "type": "date",
+          "settings": {
+            "date": "FRE 20.11",
+            "time": "KL. 12:00",
+            "label": "Presale for tilmeldte"
+          }
+        },
+        "date_2": {
+          "type": "date",
+          "settings": {
+            "date": "SØN 22.11",
+            "time": "KL. 20:00",
+            "label": "Åbent for alle"
+          }
+        },
+        "date_3": {
+          "type": "date",
+          "settings": {
+            "date": "MAN 30.11",
+            "time": "KL. 23:59",
+            "label": "Slutter · Cyber Monday"
+          }
+        }
+      },
+      "block_order": [
+        "date_1",
+        "date_2",
+        "date_3"
+      ],
+      "settings": {
+        "phases": "",
+        "layout": "stacked",
+        "show_countdown": true,
+        "eyebrow": "Black Week 20.11–30.11",
+        "heading_1": "Datoer du skal kende",
+        "heading_2": ""
+      }
+    },
+    "bw_band": {
+      "type": "bw-band",
+      "settings": {
+        "phases": "",
+        "items": "Limited edition|3 for 2|4 for 2|Rabatten trækkes automatisk i kurven"
+      }
+    },
+    "bw_circles": {
+      "type": "bw-circles",
+      "blocks": {
+        "circle_1": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/Billede-08011.jpg",
+            "label": "Single offers",
+            "url": "/collections/black-week-limited-edition"
+          }
+        },
+        "circle_2": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/Billede-08431_c2413a7b-6dfc-42df-9b99-e1990905d132.jpg",
+            "label": "3 for 2",
+            "url": "/collections/black-week-3for2"
+          }
+        },
+        "circle_3": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/Billede-00931.jpg",
+            "label": "4 for 2",
+            "url": "/collections/black-week-4for2"
+          }
+        },
+        "circle_4": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/427_496bbe8d-72cc-421a-9db6-f83a5b270081.png",
+            "label": "Gaver",
+            "url": "/pages/black-week-gaver"
+          }
+        },
+        "circle_5": {
+          "type": "item",
+          "settings": {
+            "product": "arox-anti-slip-grips",
+            "label": "Grips",
+            "url": "shopify://collections/cross-traening-grips"
+          }
+        },
+        "circle_6": {
+          "type": "item",
+          "settings": {
+            "product": "sportstech-unisex-t-shirt-sort",
+            "label": "Træningstøj",
+            "url": "shopify://collections/traeningstoj"
+          }
+        }
+      },
+      "block_order": [
+        "circle_1",
+        "circle_2",
+        "circle_3",
+        "circle_4",
+        "circle_5",
+        "circle_6"
+      ],
+      "settings": {
+        "phases": ""
+      }
+    },
+    "bw_offer_cats": {
+      "type": "bw-offer-cats",
+      "blocks": {
+        "cat_1": {
+          "type": "category",
+          "settings": {
+            "image": "shopify://shop_images/Billede-08011.jpg",
+            "overlay": 20,
+            "badge": "Single offers",
+            "heading": "LIMITED BLACKOUT.",
+            "text": "Limited blackout og udvalgte favoritter til fast Black Week-pris. Limited findes kun i Black Week.",
+            "cta": "Se single offers",
+            "url": "/collections/black-week-limited-edition"
+          }
+        },
+        "cat_2": {
+          "type": "category",
+          "settings": {
+            "image": "shopify://shop_images/Billede-08431_c2413a7b-6dfc-42df-9b99-e1990905d132.jpg",
+            "overlay": 30,
+            "badge": "3 for 2",
+            "heading": "TAG 3. BETAL FOR 2.",
+            "text": "Læg 3 varer fra 3 for 2 i kurven, og betal for de 2 dyreste. Den billigste er gratis.",
+            "cta": "Shop 3 for 2",
+            "url": "/collections/black-week-3for2"
+          }
+        },
+        "cat_3": {
+          "type": "category",
+          "settings": {
+            "image": "shopify://shop_images/Billede-00931.jpg",
+            "overlay": 50,
+            "badge": "4 for 2",
+            "heading": "TAG 4. BETAL FOR 2.",
+            "text": "Læg 4 varer fra 4 for 2 i kurven, og betal for de 2 dyreste. De 2 billigste er gratis.",
+            "cta": "Shop 4 for 2",
+            "url": "/collections/black-week-4for2"
+          }
+        }
+      },
+      "block_order": [
+        "cat_1",
+        "cat_2",
+        "cat_3"
+      ],
+      "settings": {
+        "phases": "",
+        "eyebrow": "Sådan virker Black Week",
+        "heading_1": "Tre tilbud.",
+        "heading_2": "Én kurv.",
+        "note": "Rabatten trækkes automatisk i kurven – ingen kode nødvendig."
+      }
+    },
+    "bw_limited": {
+      "type": "bw-feature-products",
+      "settings": {
+        "phases": "",
+        "image": "shopify://shop_images/Billede-08057.jpg",
+        "object_position": "50% 55%",
+        "overlay": 0,
+        "badge": "Limited",
+        "eyebrow": "Limited edition · Limited blackout",
+        "heading_1": "Limited blackout.",
+        "heading_2": "Kun i Black Week.",
+        "heading_size": "lg",
+        "text": "Helsort udgave af anti slip grips, fusion grips, Elite-bæltet og speedrope elite. Kun i Black Week.",
+        "text_max": 520,
+        "button_label": "Se single offers",
+        "button_url": "/collections/black-week-limited-edition",
+        "products": [],
+        "collection": "",
+        "collection_handle": "black-week-limited-edition",
+        "limit": 4,
+        "footer": "note",
+        "button2_label": "",
+        "button2_url": "",
+        "note": "Fri fragt v. køb over 499 kr. · ellers fragt fra 35 kr."
+      }
+    },
+    "bw_bestsellers": {
+      "type": "bw-product-row",
+      "settings": {
+        "phases": "",
+        "heading_size": "sm",
+        "border_top": false,
+        "eyebrow": "",
+        "heading_1": "Bestsellere lige nu",
+        "heading_2": "",
+        "text": "",
+        "link_label": "Se alle",
+        "link_url": "shopify://collections/cross-traeningbestsellers",
+        "products": [
+          "arox-anti-slip-grips",
+          "active-hoodie-sort",
+          "sportstech-oversized-t-shirt-sort",
+          "hybrid-shorts-navy-blue"
+        ],
+        "collection": "",
+        "collection_handle": "",
+        "limit": 4
+      }
+    },
+    "bw_3for2": {
+      "type": "bw-offer-banner",
+      "settings": {
+        "phases": "",
+        "image": "shopify://shop_images/Design_uden_navn-186.png",
+        "badge": "3 for 2",
+        "heading_1": "Tag 3.",
+        "heading_2": "Betal for 2.",
+        "text": "Læg 3 varer fra 3 for 2 i kurven, og betal for de 2 dyreste. Den billigste er gratis. Rabatten trækkes automatisk i kurven – ingen kode nødvendig.",
+        "products": [],
+        "collection": "black-week-3for2",
+        "collection_handle": "black-week-3for2",
+        "limit": 4,
+        "button_label": "Shop 3 for 2",
+        "button_url": "/collections/black-week-3for2",
+        "note": "Fri fragt v. køb over 499 kr. · ellers fragt fra 35 kr."
+      }
+    },
+    "bw_4for2": {
+      "type": "bw-feature-products",
+      "settings": {
+        "phases": "",
+        "image": "shopify://shop_images/Billede-00921.jpg",
+        "object_position": "50% 64%",
+        "overlay": 50,
+        "badge": "4 for 2",
+        "eyebrow": "4 for 2 · SportsTech og herre tights",
+        "heading_1": "Tag 4.",
+        "heading_2": "Betal for 2.",
+        "heading_size": "xl",
+        "text": "Læg 4 varer fra 4 for 2 i kurven, og betal for de 2 dyreste. De 2 billigste er gratis. Rabatten trækkes automatisk i kurven – ingen kode nødvendig.",
+        "text_max": 480,
+        "button_label": "Shop 4 for 2",
+        "button_url": "/collections/black-week-4for2",
+        "products": [],
+        "collection": "black-week-4for2",
+        "collection_handle": "black-week-4for2",
+        "limit": 4,
+        "footer": "button",
+        "button2_label": "Se alle",
+        "button2_url": "/collections/black-week-4for2",
+        "note": "Fri fragt v. køb over 499 kr. · ellers fragt fra 35 kr."
+      }
+    },
+    "bw_julegaver": {
+      "type": "bw-product-row",
+      "settings": {
+        "phases": "",
+        "heading_size": "lg",
+        "border_top": true,
+        "eyebrow": "Julegaver",
+        "heading_1": "Køb julegaverne",
+        "heading_2": "i Black Week.",
+        "text": "Sjippetov, flasker, strømper og træningstøj til Black Week-pris. Find gaven til ham, hende eller hele holdet.",
+        "link_label": "Se alle",
+        "link_url": "/pages/black-week-gaver",
+        "products": [
+          "speed-rope-elite-2-0",
+          "thermo-stal-drikkedunk-1-06-l",
+          "sportstech-unisex-t-shirt-sort",
+          "stromper-3-pak"
+        ],
+        "collection": "",
+        "collection_handle": "",
+        "limit": 4
+      }
+    },
+    "bw_gaveguide": {
+      "type": "bw-gift-guide",
+      "blocks": {
+        "tab_1": {
+          "type": "tab",
+          "settings": {
+            "label": "Under 300 kr.",
+            "products": [
+              "uden-titel-2-okt-_14-38",
+              "stromper-3-pak",
+              "thermo-stal-drikkedunk-1-06-l"
+            ]
+          }
+        },
+        "tab_2": {
+          "type": "tab",
+          "settings": {
+            "label": "Under 500 kr.",
+            "products": [
+              "sportstech-unisex-t-shirt-sort",
+              "arox-wolverine-pro-grips-navy",
+              "hybrid-shorts-navy-blue",
+              "sportstech-kvinde-lang-top-sort"
+            ]
+          }
+        },
+        "tab_3": {
+          "type": "tab",
+          "settings": {
+            "label": "Under 1000 kr.",
+            "products": [
+              "active-hoodie-sort",
+              "performance-tights-sort",
+              "arox-anti-slip-grips",
+              "arox-dri-tech-performance-shorts-sort"
+            ]
+          }
+        }
+      },
+      "block_order": [
+        "tab_1",
+        "tab_2",
+        "tab_3"
+      ],
+      "settings": {
+        "phases": "",
+        "eyebrow": "Gaveguide",
+        "heading": "Gaver under"
+      }
+    },
+    "bw_gift": {
+      "type": "bw-gift-block",
+      "settings": {
+        "phases": "",
+        "layout": "card",
+        "eyebrow": "Gave i Black Week",
+        "heading_1": "Gave med hjem.",
+        "heading_2": "Oveni.",
+        "image": "shopify://shop_images/427_496bbe8d-72cc-421a-9db6-f83a5b270081.png",
+        "card_title": "Thermo stålflaske 1,06 L",
+        "card_text": "Gratis Thermo stålflaske til de første 100 ordrer.",
+        "note": "Gælder de første 100 ordrer i Black Week 20.11–30.11.2026.",
+        "button_label": "Se gaverne",
+        "button_url": "/pages/black-week-gaver"
+      }
+    },
+    "bw_athlete": {
+      "type": "bw-image-text",
+      "settings": {
+        "phases": "",
+        "image": "shopify://shop_images/bw26-Billede-08199.jpg",
+        "eyebrow": "Dansk udviklet · Lavet til at holde",
+        "heading_1": "Til hård træning.",
+        "heading_2": "Hele året.",
+        "text": "Grips, bælter og træningstøj udviklet sammen med vores ambassadører og interne atleter. Testet i boksen, WOD efter WOD.",
+        "button_label": "Se single offers",
+        "button_url": "/collections/black-week-limited-edition"
+      }
+    },
+    "bw_presale": {
+      "type": "bw-presale",
+      "settings": {
+        "phases": "pre, early, sidste",
+        "image": "shopify://shop_images/bw26-Billede-08153.jpg",
+        "tags": "newsletter,bw26-presale"
+      }
+    },
+    "bw_brand": {
+      "type": "bw-rich-text",
+      "settings": {
+        "phases": "",
+        "heading": "Arox er dansk & det er vi stolte af",
+        "text": "Skabt af atleter, delt med alle som ønsker en aktiv livsstil."
+      }
+    },
+    "bw_faq_short": {
+      "type": "bw-faq-short",
+      "blocks": {
+        "q_1": {
+          "type": "item",
+          "settings": {
+            "question": "Hvornår er Black Week?",
+            "answer": "Presale for tilmeldte fredag 20.11 kl. 12:00. Åbent for alle søndag 22.11 kl. 20:00. Black Week slutter mandag 30.11 kl. 23:59 (Cyber Monday)."
+          }
+        },
+        "q_2": {
+          "type": "item",
+          "settings": {
+            "question": "Hvordan får jeg rabatten?",
+            "answer": "Rabatten trækkes automatisk i kurven – ingen kode nødvendig. Ved 3 for 2 er den billigste af 3 varer gratis. Ved 4 for 2 er de 2 billigste af 4 varer gratis."
+          }
+        },
+        "q_3": {
+          "type": "item",
+          "settings": {
+            "question": "Hvilke varer er med?",
+            "answer": "Varer markeret med Limited edition, 3 for 2 eller 4 for 2. Du finder dem samlet i de tre Black Week-kollektioner."
+          }
+        },
+        "q_4": {
+          "type": "item",
+          "settings": {
+            "question": "Hvad er Limited Blackout?",
+            "answer": "Helsorte udgaver af anti slip grips, fusion grips, Elite-bæltet og speedrope elite. De findes kun i Black Week."
+          }
+        },
+        "q_5": {
+          "type": "item",
+          "settings": {
+            "question": "Hvordan får jeg gaven?",
+            "answer": "De første 100 ordrer i Black Week får en gratis Thermo stålflaske (1,06 L) med. Der er ingen beløbsgrænse."
+          }
+        }
+      },
+      "block_order": [
+        "q_1",
+        "q_2",
+        "q_3",
+        "q_4",
+        "q_5"
+      ],
+      "settings": {
+        "phases": "",
+        "eyebrow": "FAQ",
+        "heading_1": "Black Week.",
+        "heading_2": "Kort fortalt.",
+        "link_label": "Se vilkår og alle spørgsmål",
+        "link_url": "/pages/black-week-vilkaar"
+      }
+    }
+  },
+  "order": [
+    "bw_hero",
+    "bw_dates",
+    "bw_band",
+    "bw_circles",
+    "bw_offer_cats",
+    "bw_limited",
+    "bw_bestsellers",
+    "bw_3for2",
+    "bw_4for2",
+    "bw_julegaver",
+    "bw_gaveguide",
+    "bw_gift",
+    "bw_athlete",
+    "bw_presale",
+    "bw_brand",
+    "bw_faq_short"
+  ]
+}

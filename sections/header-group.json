@@ -113,46 +113,10 @@
             "country_image": "shopify://shop_images/flag-round-250.png",
             "link": "https://aroxfitness.de"
           }
-        },
-        "anc_mobile_bw1": {
-          "type": "anc_mobile",
-          "settings": {
-            "anc_img_svg": "",
-            "text": "BLACK WEEK 20.11–30.11",
-            "link": ""
-          }
-        },
-        "anc_mobile_bw2": {
-          "type": "anc_mobile",
-          "settings": {
-            "anc_img_svg": "",
-            "text": "∙",
-            "link": ""
-          }
-        },
-        "anc_mobile_bw3": {
-          "type": "anc_mobile",
-          "settings": {
-            "anc_img_svg": "",
-            "text": "Limited edition, 3 for 2 og 4 for 2 på udvalgte varer",
-            "link": ""
-          }
-        },
-        "anc_mobile_bw4": {
-          "type": "anc_mobile",
-          "settings": {
-            "anc_img_svg": "",
-            "text": "∙",
-            "link": ""
-          }
         }
       },
       "block_order": [
         "anc_mobile_gLGFM7",
-        "anc_mobile_bw1",
-        "anc_mobile_bw2",
-        "anc_mobile_bw3",
-        "anc_mobile_bw4",
         "anc_mobile_XHerGw",
         "anc_mobile_azXhcx",
         "anc_mobile_NWnigM",
@@ -165,12 +129,11 @@
       "name": "Mini header",
       "settings": {
         "transition_delay": 16,
-        "background_d": "#0a0a0a",
+        "background_d": "#c43637",
         "text_color_d": "#ffffff",
         "padding_top": 5,
         "padding_bottom": 5
-      },
-      "disabled": true
+      }
     },
     "header": {
       "type": "header",
@@ -256,7 +219,7 @@
       "settings": {
         "enable_sticky": true,
         "hide_on_scroll": false,
-        "logo": "shopify://shop_images/bw26-arox-r-white.png",
+        "logo": "shopify://shop_images/Design_uden_navn-249.png",
         "logo_max_width": 120,
         "logo_mobile_max_width": 100,
         "menu": "main-menu",
@@ -272,10 +235,9 @@
         "show_country_name": false,
         "transparent_header_text_color": "#ffffff",
         "reduce_padding": false,
-        "background_opacity": 100,
+        "background_opacity": 0,
         "background_blur_radius": 0
-      },
-      "disabled": true
+      }
     },
     "bw_announcement": {
       "type": "bw-announcement",

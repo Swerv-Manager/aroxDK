@@ -20,14 +20,14 @@ countdown banner and main-collection (CSS only, nothing is removed); outside tho
     assign bw_phases = s.phases | default: '' | replace: ',', ' ' | split: ' '
     capture bw_scope
       if bw_phases.size == 0
-        echo 'html'
+        echo 'html.bw-on'
       else
         echo ':is('
         for p in bw_phases
           unless forloop.first
             echo ','
           endunless
-          echo 'html.bw-' | append: p
+          echo 'html.bw-on.bw-' | append: p
         endfor
         echo ')'
       endif

@@ -24,9 +24,9 @@ Supported variables
   {%- capture bw_offer_badge -%}{%- render 'bw-offer', product: product -%}{%- endcapture -%}
   {%- assign bw_offer_badge = bw_offer_badge | strip -%}
   {%- if bw_offer_badge != blank -%}
-    <span class="badge bw-offer-badge" style="background:#c8232c;color:#fff;font-weight:800;letter-spacing:.06em;text-transform:uppercase">{{ bw_offer_badge }}</span>
+    <span class="badge bw-offer-badge bw-site" style="background:#c8232c;color:#fff;font-weight:800;letter-spacing:.06em;text-transform:uppercase">{{ bw_offer_badge }}</span>
     {%- assign bw_t = product.title | downcase -%}
-    {%- if bw_t contains 'blackout' -%}<span class="badge bw-blackout-badge" style="font-weight:800;letter-spacing:.06em;text-transform:uppercase">Limited blackout</span>{%- endif -%}
+    {%- if bw_t contains 'blackout' -%}<span class="badge bw-blackout-badge bw-site" style="font-weight:800;letter-spacing:.06em;text-transform:uppercase">Limited blackout</span>{%- endif -%}
   {%- endif -%}
   {%- for badge_type in badge_types -%}
     {%- assign stripped_badge_type = badge_type | strip -%}

@@ -207,7 +207,7 @@ html.bw-ended .bw-hide-ended { display: none !important; }
 
 /* ---------- Cart drawer (board 10 · sections/cart-drawer.liquid) ---------- */
 /* Impact draws the drawer in shadow parts; its colours and paddings come from these variables. */
-.cart-drawer.bw-cart {
+html.bw-on .cart-drawer.bw-cart {
   --dialog-background: 10 10 10;
   --background: 10 10 10;
   --background-primary: 10 10 10;
@@ -219,22 +219,22 @@ html.bw-ended .bw-hide-ended { display: none !important; }
   --drawer-footer-padding: 0;
   padding: 0;
 }
-.cart-drawer.bw-cart::part(content) { border-radius: 0; font-family: 'Archivo', 'Helvetica Neue', Arial, sans-serif; }
-.cart-drawer.bw-cart::part(footer) { border-block-start: 0; }
+html.bw-on .cart-drawer.bw-cart::part(content){ border-radius: 0; font-family: 'Archivo', 'Helvetica Neue', Arial, sans-serif; }
+html.bw-on .cart-drawer.bw-cart::part(footer){ border-block-start: 0; }
 @media screen and (min-width: 700px) {
-  .cart-drawer.bw-cart { width: 440px; }
-  .cart-drawer.bw-cart::part(content) { box-shadow: -20px 0 60px rgba(0, 0, 0, .35); }
+  html.bw-on .cart-drawer.bw-cart{ width: 440px; }
+  html.bw-on .cart-drawer.bw-cart::part(content){ box-shadow: -20px 0 60px rgba(0, 0, 0, .35); }
 }
-.bw-cart .bw-cart-qty .quantity-input {
+html.bw-on .bw-cart .bw-cart-qty .quantity-input{
   min-width: 44px; width: 44px; padding: 6px 4px; border: 1px solid #2b2b2b; border-radius: 8px;
   background: transparent; color: #fff; font-family: inherit; font-size: 12px; font-weight: 600; text-align: center;
 }
-.bw-cart .bw-cart-qty .quantity-input:focus-visible { border-color: #fff; }
-.bw-cart pill-loader { background: #fff; color: #111; }
-.bw-cart [is="close-button"]:focus-visible,
-.bw-cart button[name="checkout"]:focus-visible { outline: 2px solid #fff; outline-offset: 2px; }
-.bw-cart button[name="checkout"]:hover { background: #e4e4e4 !important; }
-.bw-cart .bw-cart-line a:hover { opacity: .8; }
+html.bw-on .bw-cart .bw-cart-qty .quantity-input:focus-visible{ border-color: #fff; }
+html.bw-on .bw-cart pill-loader{ background: #fff; color: #111; }
+html.bw-on .bw-cart [is="close-button"]:focus-visible,
+html.bw-on .bw-cart button[name="checkout"]:focus-visible{ outline: 2px solid #fff; outline-offset: 2px; }
+html.bw-on .bw-cart button[name="checkout"]:hover{ background: #e4e4e4 !important; }
+html.bw-on .bw-cart .bw-cart-line a:hover{ opacity: .8; }
 
 /* ---------- Collection head (board 07 / 04–06 · snippet bw-coll-head) ---------- */
 .bw-ch__top { padding: 18px var(--bw-gutter) 0; display: grid; gap: 8px; }
@@ -297,33 +297,33 @@ html.bw-ended .bw-hide-ended { display: none !important; }
 /* ---------- Product page (board 08 · templates/product.json + main-product) ----------
    Impact's main-product keeps all its logic (variants, add to cart, gallery); this only restyles it to the design:
    dark page, Archivo, uppercase title, size pills, quantity + "Læg i kurv" on one row, accordions with +/–. */
-body:has(.shopify-section--main-product) { background: #0a0a0a; }
+html.bw-on body:has(.shopify-section--main-product) { background: #0a0a0a; }
 .bw-pdp-crumb { padding: 16px var(--bw-gutter) 0; font-size: 13px; color: var(--bw-grey-c9); }
 .bw-pdp-crumb a { color: inherit; text-decoration: none; }
 .bw-pdp-crumb a:hover { color: #fff; }
-.shopify-section--main-product {
+html.bw-on .shopify-section--main-product{
   --bw-pdp-font: 'Archivo', 'Helvetica Neue', Arial, sans-serif;
   --border-color: 43 43 43;
   font-family: var(--bw-pdp-font);
   -webkit-font-smoothing: antialiased;
 }
-.shopify-section--main-product .section { padding-block-start: 20px; }
-@media screen and (min-width: 1000px) { .shopify-section--main-product .product { column-gap: 64px; } }
+html.bw-on .shopify-section--main-product .section{ padding-block-start: 20px; }
+@media screen and (min-width: 1000px) { html.bw-on .shopify-section--main-product .product{ column-gap: 64px; } }
 /* gallery: main image 1:1 radius 12 on #f8f8f8, thumbnails 3 per row */
-.shopify-section--main-product .product-gallery__media { background: #f8f8f8; border-radius: 12px; overflow: hidden; }
-.shopify-section--main-product .product-gallery__thumbnail-list-wrapper > button { display: none; }
-.shopify-section--main-product .product-gallery__thumbnail-list { grid-auto-flow: row; grid-auto-columns: auto; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
-.shopify-section--main-product .product-gallery__thumbnail { border-radius: 8px; overflow: hidden; background: #f8f8f8; aspect-ratio: 1 / 1; }
-.shopify-section--main-product .product-gallery__thumbnail img { width: 100%; height: 100%; object-fit: cover; border-radius: 8px; }
+html.bw-on .shopify-section--main-product .product-gallery__media { background: #f8f8f8; border-radius: 12px; overflow: hidden; }
+html.bw-on .shopify-section--main-product .product-gallery__thumbnail-list-wrapper > button{ display: none; }
+html.bw-on .shopify-section--main-product .product-gallery__thumbnail-list{ grid-auto-flow: row; grid-auto-columns: auto; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+html.bw-on .shopify-section--main-product .product-gallery__thumbnail{ border-radius: 8px; overflow: hidden; background: #f8f8f8; aspect-ratio: 1 / 1; }
+html.bw-on .shopify-section--main-product .product-gallery__thumbnail img{ width: 100%; height: 100%; object-fit: cover; border-radius: 8px; }
 /* info column: 18 px between blocks; quantity + buy button share a row */
-.shopify-section--main-product .product-info { display: flex; flex-wrap: wrap; align-content: flex-start; }
-.shopify-section--main-product .product-info > * { flex: 0 0 100%; min-width: 0; margin-block-end: 0; --product-info-block-spacing: 18px; }
-.shopify-section--main-product .product-info > [data-block-type="quantity-selector"] { flex: 0 0 auto; }
-.shopify-section--main-product .product-info > [data-block-type="buy-buttons"] { flex: 1 1 0; margin-inline-start: 12px; }
-.shopify-section--main-product .product-info__title { font-family: var(--bw-pdp-font); font-size: clamp(28px, 2.6vw, 40px); font-weight: 900; text-transform: uppercase; letter-spacing: -.01em; line-height: 1; margin: 0; }
-.shopify-section--main-product .product-info__badge-list { gap: 6px; }
-.shopify-section--main-product .product-info__badge-list .badge { font-size: 11px; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; padding: 5px 9px; border-radius: 4px; line-height: 1.2; }
-.shopify-section--main-product .bw-blackout-badge { background: #0a0a0a; color: #fff; box-shadow: inset 0 0 0 1px #fff; }
+html.bw-on .shopify-section--main-product .product-info { display: flex; flex-wrap: wrap; align-content: flex-start; }
+html.bw-on .shopify-section--main-product .product-info > *{ flex: 0 0 100%; min-width: 0; margin-block-end: 0; --product-info-block-spacing: 18px; }
+html.bw-on .shopify-section--main-product .product-info > [data-block-type="quantity-selector"]{ flex: 0 0 auto; }
+html.bw-on .shopify-section--main-product .product-info > [data-block-type="buy-buttons"]{ flex: 1 1 0; margin-inline-start: 12px; }
+html.bw-on .shopify-section--main-product .product-info__title{ font-family: var(--bw-pdp-font); font-size: clamp(28px, 2.6vw, 40px); font-weight: 900; text-transform: uppercase; letter-spacing: -.01em; line-height: 1; margin: 0; }
+html.bw-on .shopify-section--main-product .product-info__badge-list{ gap: 6px; }
+html.bw-on .shopify-section--main-product .product-info__badge-list .badge{ font-size: 11px; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; padding: 5px 9px; border-radius: 4px; line-height: 1.2; }
+html.bw-on .shopify-section--main-product .bw-blackout-badge{ background: #0a0a0a; color: #fff; box-shadow: inset 0 0 0 1px #fff; }
 .bw-pdp-price { display: grid; gap: 4px; }
 .bw-pdp-price__row { display: flex; gap: 12px; align-items: baseline; flex-wrap: wrap; }
 .bw-pdp-price__p { font-size: 28px; font-weight: 900; color: #fff; }
@@ -334,40 +334,40 @@ body:has(.shopify-section--main-product) { background: #0a0a0a; }
 .bw-pdp-trust { font-size: 13px; font-weight: 600; }
 .bw-pdp-ship { display: flex; gap: 10px; align-items: flex-start; font-size: 14px; line-height: 1.5; }
 /* variant picker: "Størrelse" + size pills */
-.shopify-section--main-product .variant-picker__option-info .text-subdued { color: #fff; font-size: 13px; font-weight: 700; }
-.shopify-section--main-product .variant-picker__option-info .h-stack > span { display: none; }
-.shopify-section--main-product .variant-picker__option-values { gap: 8px; }
-.shopify-section--main-product .block-swatch { min-width: 48px; height: 44px; padding: 0 14px; justify-content: center; border: 1px solid #fff; border-radius: 8px; background: transparent; color: #fff; font-size: 14px; font-weight: 600; }
-.shopify-section--main-product :checked + .block-swatch { background: #fff; color: #111; }
-.shopify-section--main-product .block-swatch.is-disabled { opacity: .45; }
+html.bw-on .shopify-section--main-product .variant-picker__option-info .text-subdued { color: #fff; font-size: 13px; font-weight: 700; }
+html.bw-on .shopify-section--main-product .variant-picker__option-info .h-stack > span{ display: none; }
+html.bw-on .shopify-section--main-product .variant-picker__option-values{ gap: 8px; }
+html.bw-on .shopify-section--main-product .block-swatch{ min-width: 48px; height: 44px; padding: 0 14px; justify-content: center; border: 1px solid #fff; border-radius: 8px; background: transparent; color: #fff; font-size: 14px; font-weight: 600; }
+html.bw-on .shopify-section--main-product :checked + .block-swatch{ background: #fff; color: #111; }
+html.bw-on .shopify-section--main-product .block-swatch.is-disabled{ opacity: .45; }
 /* quantity pill + white "Læg i kurv" pill */
-.shopify-section--main-product .product-info__quantity-selector .block-label { display: none; }
-.shopify-section--main-product .quantity-selector { height: 52px; border: 1px solid #fff; border-radius: 999px; background: transparent; color: #fff; font-size: 16px; font-weight: 600; }
-.shopify-section--main-product .quantity-selector__button { width: 44px; padding: 0; justify-content: center; }
-.shopify-section--main-product .quantity-selector__input { min-width: 28px; font-weight: 600; }
-.shopify-section--main-product .product-info__buy-buttons .button { height: 52px; min-height: 52px; width: 100%; border-radius: 999px; background: #fff; color: #111; border: 0; font-family: var(--bw-pdp-font); font-size: 15px; font-weight: 700; letter-spacing: 0; text-transform: none; }
+html.bw-on .shopify-section--main-product .product-info__quantity-selector .block-label { display: none; }
+html.bw-on .shopify-section--main-product .quantity-selector{ height: 52px; border: 1px solid #fff; border-radius: 999px; background: transparent; color: #fff; font-size: 16px; font-weight: 600; }
+html.bw-on .shopify-section--main-product .quantity-selector__button{ width: 44px; padding: 0; justify-content: center; }
+html.bw-on .shopify-section--main-product .quantity-selector__input{ min-width: 28px; font-weight: 600; }
+html.bw-on .shopify-section--main-product .product-info__buy-buttons .button{ height: 52px; min-height: 52px; width: 100%; border-radius: 999px; background: #fff; color: #111; border: 0; font-family: var(--bw-pdp-font); font-size: 15px; font-weight: 700; letter-spacing: 0; text-transform: none; }
 /* "Andre farver" (theme liquid block): its heading is styled black inline */
-.shopify-section--main-product .product-single__colors .VariantHeading,
-.shopify-section--main-product .product-single__colors .VariantHeading span { color: #fff !important; font-family: var(--bw-pdp-font); font-size: 13px; font-weight: 700; }
+html.bw-on .shopify-section--main-product .product-single__colors .VariantHeading,
+html.bw-on .shopify-section--main-product .product-single__colors .VariantHeading span{ color: #fff !important; font-family: var(--bw-pdp-font); font-size: 13px; font-weight: 700; }
 /* accordions: Beskrivelse / Levering & returnering / Kundernes favoritter, "+" and "–" instead of the circle chevron */
-.shopify-section--main-product .accordion { border-color: #2b2b2b; }
-.shopify-section--main-product .accordion__toggle { min-height: 52px; padding-block: 14px; font-size: 15px; font-weight: 700; }
-.shopify-section--main-product .accordion__toggle .circle-chevron { display: none; }
-.shopify-section--main-product .accordion__toggle::after { content: "+"; font-weight: 400; margin-inline-start: auto; }
-.shopify-section--main-product details[open] > summary .accordion__toggle::after { content: "–"; }
-.shopify-section--main-product .accordion__content, .shopify-section--main-product .accordion__content .prose { font-size: 14px; line-height: 1.55; color: #c9c9c9; }
+html.bw-on .shopify-section--main-product .accordion { border-color: #2b2b2b; }
+html.bw-on .shopify-section--main-product .accordion__toggle{ min-height: 52px; padding-block: 14px; font-size: 15px; font-weight: 700; }
+html.bw-on .shopify-section--main-product .accordion__toggle .circle-chevron{ display: none; }
+html.bw-on .shopify-section--main-product .accordion__toggle::after{ content: "+"; font-weight: 400; margin-inline-start: auto; }
+html.bw-on .shopify-section--main-product details[open] > summary .accordion__toggle::after{ content: "–"; }
+html.bw-on .shopify-section--main-product .accordion__content, html.bw-on .shopify-section--main-product .accordion__content .prose{ font-size: 14px; line-height: 1.55; color: #c9c9c9; }
 .bw-pdp-favs { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; container-type: inline-size; background: transparent; padding-bottom: 14px; }
 .bw-pdp-usp li { list-style: disc; }
-.shopify-section--main-product .quantity-selector__button { display: grid; place-items: center; flex: none; }
-.shopify-section--main-product .quantity-selector__input { width: 28px; flex: none; }
-.shopify-section--main-product .sizebox .sizeinfoheadline { font-family: var(--bw-pdp-font); font-size: 13px; font-weight: 700; color: #fff; }
-.shopify-section--main-product .sizebox .sizeinfo { font-size: 12px; color: #c9c9c9; }
+html.bw-on .shopify-section--main-product .quantity-selector__button{ display: grid; place-items: center; flex: none; }
+html.bw-on .shopify-section--main-product .quantity-selector__input{ width: 28px; flex: none; }
+html.bw-on .shopify-section--main-product .sizebox .sizeinfoheadline{ font-family: var(--bw-pdp-font); font-size: 13px; font-weight: 700; color: #fff; }
+html.bw-on .shopify-section--main-product .sizebox .sizeinfo{ font-size: 12px; color: #c9c9c9; }
 /* Loox reviews (app section under related products): Loox draws the widget in its own colours, so it sits in a white
    rounded card on the dark page, like the Black Week product cards. */
-body:has(.shopify-section--main-product) .shopify-section--apps #looxReviews { background: #fff; color: #111; border-radius: 12px; padding: 24px 20px; box-sizing: border-box; max-width: 1080px !important; margin: 0 auto !important; }
+html.bw-on body:has(.shopify-section--main-product) .shopify-section--apps #looxReviews { background: #fff; color: #111; border-radius: 12px; padding: 24px 20px; box-sizing: border-box; max-width: 1080px !important; margin: 0 auto !important; }
 /* Kiwi "Størrelsesguide" is moved here by bw.js (it would otherwise push "Læg i kurv" onto a new line) */
-.shopify-section--main-product .bw-pdp-extra:empty { display: none; }
-.shopify-section--main-product .bw-pdp-extra { font-size: 13px; }
+html.bw-on .shopify-section--main-product .bw-pdp-extra:empty { display: none; }
+html.bw-on .shopify-section--main-product .bw-pdp-extra{ font-size: 13px; }
 
 /* ---------- Quick add on Black Week product cards (snippet bw-product-card quick_add, <bw-quick-add> in bw.js) ---------- */
 .bw-qa { position: absolute; inset: 0; z-index: 2; pointer-events: none; display: block; }
@@ -407,3 +407,53 @@ html.bw-gift-off-g2 .bw-gift-pick[data-key="g2"], html.bw-gift-off-g3 .bw-gift-p
 @media (min-width: 768px) { .bw-car__arrows { display: inline-flex; } }
 .bw-car__btn { width: 40px; height: 40px; border-radius: 999px; display: grid; place-items: center; background: transparent; color: #fff; border: 0; box-shadow: inset 0 0 0 1px #3a3a3a; cursor: pointer; }
 .bw-car__btn:hover { box-shadow: inset 0 0 0 1px #fff; }
+
+/* ---------- Black Week on/off (snippet bw-head, client decision 19.11) ----------
+   bw-off: the normal shop. Black Week sections (class bw-section) and Black Week-only bits (bw-site) are hidden.
+   bw-on: Black Week everywhere. The normal shop's own pieces are hidden: header/announcement/footer/USP sections,
+   the original homepage template sections (the Black Week homepage is the section group bw-home-group), the
+   original product page blocks/sections, and anything marked bw-norm. */
+html.bw-off .shopify-section.bw-section, html.bw-off .bw-site { display: none !important; }
+html.bw-on .bw-norm,
+html.bw-on .shopify-section[id$="__cs_announcement_bar_RX8nib"],
+html.bw-on .shopify-section[id$="__header"],
+html.bw-on .shopify-section[id$="__text-with-icons"],
+html.bw-on .shopify-section[id$="__footer"]:not(.bw-section),
+html.bw-on.bw-tpl-index main > .shopify-section[id^="shopify-section-template--"],
+html.bw-on .shopify-section[id$="__ss_product_vidoes_BnfWak"],
+html.bw-on .shopify-section[id$="__related-products"],
+html.bw-on .product-info__block-item[data-block-id="price"],
+html.bw-on .product-info__block-item[data-block-id="product_info_block_QP8x6U"],
+html.bw-on .product-info__block-item[data-block-id="liquid_AprAYw"],
+html.bw-on .product-info__block-item[data-block-id="liquid_QTG6BY"],
+html.bw-on .product-info__block-item[data-block-id="collapsible_text_9FQbce"],
+html.bw-on .product-info__block-item[data-block-id*="loox_reviews_loox_rating"] { display: none !important; }
+html.bw-off .product-info__block-item[data-block-id^="bw_"],
+html.bw-off .product-info__block-item[data-block-id^="liquid_bw_"] { display: none !important; }
+/* Black Week product page colours (the template keeps Impact's own colours for the normal shop) */
+html.bw-on body:has(.shopify-section--main-product) { background: #0a0a0a; }
+html.bw-on .shopify-section--main-product > .section,
+html.bw-on body:has(.shopify-section--main-product) .shopify-section--apps > .section { --background: 10 10 10; --text-color: 255 255 255; --input-text-color: 255 255 255; background: rgb(10 10 10); color: rgb(255 255 255); }
+@media screen and (min-width: 1000px) { html.bw-on .shopify-section--main-product { --product-grid: auto / minmax(0, 1fr) minmax(0, 1fr); } }
+html.bw-on .shopify-section--main-product .product-info__buy-buttons .button { --button-background: 255 255 255; --button-text-color: 17 17 17; }
+/* Black Week order of the product page blocks (board 08); the template keeps the normal shop's order */
+html.bw-on .shopify-section--main-product .product-info > * { order: 200; }
+html.bw-on .product-info > [data-block-id="badges"] { order: 10; }
+html.bw-on .product-info > [data-block-id="title"] { order: 20; }
+html.bw-on .product-info > [data-block-id="bw_price"] { order: 30; }
+html.bw-on .product-info > [data-block-id="bw_usp"] { order: 40; }
+html.bw-on .product-info > [data-block-id="liquid_rpCmtK"] { order: 50; }
+html.bw-on .product-info > [data-block-id="variant_picker"] { order: 60; }
+html.bw-on .product-info > .bw-pdp-extra { order: 65; }
+html.bw-on .product-info > [data-block-id="liquid_QymwME"] { order: 70; }
+html.bw-on .product-info > [data-block-id*="kaching_bundles"] { order: 80; }
+html.bw-on .product-info > [data-block-id="quantity_selector"] { order: 90; }
+html.bw-on .product-info > [data-block-id="buy_buttons"] { order: 100; }
+html.bw-on .product-info > [data-block-id="liquid_bw_mechanic"] { order: 110; }
+html.bw-on .product-info > [data-block-id="bw_trust"] { order: 120; }
+html.bw-on .product-info > [data-block-id="bw_ship"] { order: 130; }
+html.bw-on .product-info > [data-block-id="description"] { order: 140; }
+html.bw-on .product-info > [data-block-id="bw_collapsible_ship"] { order: 150; }
+html.bw-on .product-info > [data-block-id="bw_favs"] { order: 160; }
+html.bw-on .product-info > [data-block-id*="loox_reviews_loox_snippets_widget"] { order: 170; }
+html.bw-on .product-info > [data-block-id="payment_terms"] { order: 180; }

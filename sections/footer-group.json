@@ -22,9 +22,9 @@
             "icon_width": 24,
             "icon_background_type": "circle",
             "icon_background": "",
-            "icon_color": "#ffffff",
-            "title": "Fri fragt over 499 kr.",
-            "content": "<p>Vi leverer med GLS hos Arox Fitness</p>"
+            "icon_color": "#C43637",
+            "title": "Fri fragt over 799,- kr",
+            "content": "<p>Vi levere med GLS hos Arox Fitness</p>"
           }
         },
         "item_HBVWT3": {
@@ -35,9 +35,9 @@
             "icon_width": 32,
             "icon_background_type": "circle",
             "icon_background": "",
-            "icon_color": "#ffffff",
+            "icon_color": "#C43637",
             "title": "Over 50 danske forhandlere",
-            "content": "<p><a href=\"https://www.aroxfitness.dk/pages/forhandlere\" title=\"Find en butik nær dig\">Find en butik nær dig</a></p>"
+            "content": "<p>Shop Arox hos en af vores 30+ forhandlere <a href=\"https://www.aroxfitness.dk/pages/forhandlere\" title=\"https://www.aroxfitness.dk/pages/forhandlere\">her</a></p>"
           }
         },
         "free-shipping": {
@@ -48,8 +48,8 @@
             "icon_width": 24,
             "icon_background_type": "circle",
             "icon_background": "",
-            "icon_color": "#ffffff",
-            "title": "RING IND MELLEM 10:00–13:00",
+            "icon_color": "#C43637",
+            "title": "RING IND MELLEM 10-13:00",
             "content": "<p>DIREKTE PÅ TELF: 21716275</p>"
           }
         }
@@ -66,11 +66,10 @@
         "heading_tag": "h6",
         "text_alignment": "center",
         "icon_spacing": "small",
-        "background": "#0a0a0a",
+        "background": "#e2e2e2",
         "background_gradient": "",
-        "text_color": "#ffffff"
-      },
-      "disabled": true
+        "text_color": ""
+      }
     },
     "footer": {
       "type": "footer",
@@ -115,8 +114,7 @@
         "show_country_flag": false,
         "show_country_name": false,
         "show_locale_selector": false
-      },
-      "disabled": true
+      }
     },
     "bw_footer": {
       "type": "bw-footer",
