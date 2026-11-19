@@ -113,7 +113,10 @@ theme (only Shopify's own JSON re-formatting differs). Crawl of 19 pages × 5 ph
 `crawl.js`): no Liquid errors, no horizontal overflow, no broken images, all 129 internal links 200; only JS errors are
 blocked third-party scripts (cdn.shopify.com) in the cloud environment. Cart in the preview (test codes, phase early):
 3 for 2 gives the cheapest of 3 free; 4 for 2 gives the 2 cheapest of 4 free and nothing at 3; both together work;
-Hydration Bottle is added at 0 kr. at 799 kr.; the socks picker shows at 1.299 kr.
+Hydration Bottle is added at 0 kr. at 799 kr.; the socks picker shows at 1.299 kr. and adds the socks at 0 kr.;
+both gifts leave again below 799 kr.; a gift put in the cart without reaching the amount is removed. Gift logic with a
+simulated cart (`giftmock.js`, no store calls): 7/7 cases incl. quantity back to 1, duplicates, paid gift removed,
+retry after a 429 (added 19.11: the store answered 429 during the live test, and Black Week traffic can do the same).
 Fixed 19.11 (commit 7470a1f): gifts + stepped bar only in early/live/sidste; 799/1299 gifts added to the terms and
 FAQ (`page.black-week-vilkaar`); BW footer carries `shopify-section--footer` (Impact's floating filter threw on
 collection/search pages); toolbar count = products shown; socks gift product got its missing `bw-gave` tag.
@@ -205,7 +208,7 @@ that its free shipping rule also applies at exactly 499 kr. (the bar and the "Le
 screenshot + section list · `filter.js` filter/sort check · `pdp.js` variant + add-to-cart check · `overview.py` theme vs design side by side · `cart.js` cart drawer screenshot in
 the preview · `qty.js` live quantity-change check · `progress-test.js` progress bar at many cart totals (liquidjs) ·
 `crawl.js` all BW pages × phases × widths (Liquid errors, JS errors, overflow, broken images, links) · `e2e.js` /
-`e2e2.js` cart: offers with test codes, gifts, removal · `sheet.py` long screenshots as one contact sheet ·
+`e2e2.js` cart: offers with test codes, gifts, removal · `giftmock.js` gift sync against a simulated cart · `sheet.py` long screenshots as one contact sheet ·
 `cmp.py` side-by-side crops · `lint.js` Liquid/JSON parse check
 (needs `@shopify/liquid-html-parser`) · `schemacheck.py` Shopify schema limits · `xcheck.py` / `valcheck.py`
 template ↔ schema checks · `tj.py` load/dump theme JSON keeping the comment header. Paths inside are from the old

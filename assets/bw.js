@@ -208,7 +208,7 @@
   }
   function cartChange(key, quantity) {
     return fetch(ROOT + 'cart/change.js', { method: 'POST', headers: { 'Content-Type': 'application/json', 'X-Requested-With': 'XMLHttpRequest' }, body: JSON.stringify({ id: key, quantity: quantity, sections: bundledSections() }) })
-      .then(function (r) { return r.json(); })
+      .then(function (r) { if (!r.ok) throw new Error('cart/change ' + r.status); return r.json(); })
       .then(function (cart) {
         document.documentElement.dispatchEvent(new CustomEvent('cart:change', { bubbles: true, detail: { baseEvent: 'bw-gift', cart: cart } }));
         return cart;
@@ -331,7 +331,11 @@
       giftClasses(cfg);
       if (!job) return;
       giftBusy = true;
-      job().then(function (c) { giftBusy = false; syncGifts(c && c.items ? c : null, depth + 1); }, function () { giftBusy = false; });
+      // A failed call (e.g. Shopify's 429 under load) is retried from a fresh cart after 2 s, at most a few times.
+      job().then(function (c) { giftBusy = false; syncGifts(c && c.items ? c : null, depth + 1); }, function () {
+        giftBusy = false;
+        if (depth < 3) setTimeout(function () { syncGifts(null, depth + 1); }, 2000);
+      });
     }).catch(function () {});
   }
   document.addEventListener('cart:change', function (e) {
