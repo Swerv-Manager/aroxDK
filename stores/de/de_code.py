@@ -23,6 +23,8 @@ FILES = {
         ("echo '3 for 2'", "echo '3 für 2'"),
         ("echo '4 for 2'", "echo '4 für 2'"),
     ],
+    # Dawn 6 has no section groups: the ticker is a static section in the layout, so it must not be limited to groups
+    'sections/bw-marquee.liquid': [('  "enabled_on": { "groups": ["header"] },\n', '')],
     'sections/bw-gift-cart.liquid': [("Arox Thermo stålflaske 1,06 L", "AROX Trinkflasche 1000 ml")],
     'sections/bw-offer-progress.liquid': [
         ("Du har valgt 0 af {{ bw_n }} produkter", "Du hast 0 von {{ bw_n }} Produkten gewählt"),
