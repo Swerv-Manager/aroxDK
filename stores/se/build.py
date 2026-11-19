@@ -219,8 +219,10 @@ TEMPLATES = ['page.black-week.json', 'page.limited-blackout.json', 'page.3-for-2
              'collection.black-week-4for2.json', 'collection.black-week-limited-edition.json']
 for tpl in TEMPLATES:
     d = load_json(os.path.join(ROOT, 'templates', tpl))
-    if tpl == 'collection.black-week-4for2.json':
-        # DK's 4 for 2 shows category sliders (DK-only sub-collections, 19.11): keep the grid page here for now
+    if tpl in ('collection.black-week-3for2.json', 'collection.black-week-4for2.json'):
+        # DK's 3 for 2 / 4 for 2 have 'Alt tøj / Alt udstyr' fields (DK-only collections, 19.11): left out here for now
+        for sid in [k for k in d['order'] if d['sections'][k]['type'] == 'bw-collection-split']:
+            d['order'].remove(sid); d['sections'].pop(sid)
         for sid in [k for k in d['order'] if k.startswith('bw_row_')]:
             d['order'].remove(sid); d['sections'].pop(sid)
         d['sections']['bw_grid'].pop('disabled', None)

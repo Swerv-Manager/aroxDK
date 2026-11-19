@@ -1,0 +1,69 @@
+{%- comment -%}
+BLACK WEEK 2026 · "Alt tøj / Alt udstyr" fields right above the product grid on 3 for 2 and 4 for 2 (Sebastian 19.11).
+Each field links to a category collection of the offer (e.g. black-week-4for2-toj); those collections use the offer's
+own template, so the page looks the same and the field of the current collection is selected (white). Clicking the
+selected field goes back to the whole offer (setting "all_url"). Count = products for sale, as the toolbar.
+{%- endcomment -%}
+{%- liquid
+  assign s = section.settings
+  assign bw_all = s.all_url | default: collection.url
+-%}
+<div class="bw bw-split-sec{% render 'bw-only', phases: s.phases %}" style="padding:{{ s.pad_top }}px var(--bw-gutter) {{ s.pad_bottom }}px">
+  {%- if s.heading != blank -%}<div class="bw-split__h">{{ s.heading }}</div>{%- endif -%}
+  <nav class="bw-split" aria-label="{{ s.heading | default: 'Kategorier' | escape }}">
+    {%- for block in section.blocks -%}
+      {%- liquid
+        assign bw_u = block.settings.url | default: '#'
+        assign bw_h = bw_u | split: '/' | last
+        assign bw_c = collections[bw_h]
+        assign bw_n = bw_c.products_count
+        if bw_n <= 50
+          assign bw_n = bw_c.products | where: 'available' | size
+        endif
+        assign bw_on = false
+        if bw_u == collection.url or bw_u == request.path
+          assign bw_on = true
+        endif
+      -%}
+      <a href="{% if bw_on %}{{ bw_all }}{% else %}{{ bw_u }}{% endif %}" class="bw-split__f"{% if bw_on %} aria-current="page"{% endif %} {{ block.shopify_attributes }}>
+        <span class="bw-split__l">
+          <span class="bw-split__t">{{ block.settings.label }}</span>
+          <span class="bw-split__n">{% if bw_on %}{{ s.selected_text }}{% else %}{{ bw_n }} {% if bw_n == 1 %}produkt{% else %}produkter{% endif %}{% endif %}</span>
+        </span>
+        {%- if bw_on -%}
+          <span class="bw-split__x" aria-hidden="true">×</span>
+        {%- else -%}
+          {%- render 'bw-icon', name: 'chevron' -%}
+        {%- endif -%}
+      </a>
+    {%- endfor -%}
+  </nav>
+</div>
+
+{% schema %}
+{
+  "name": "BW · Tøj / udstyr",
+  "class": "bw-section",
+  "max_blocks": 4,
+  "settings": [
+    { "type": "paragraph", "content": "Felter lige over produkterne. Hvert felt linker til en kategorikollektion af tilbuddet, der bruger samme skabelon; feltet for den viste kollektion er valgt, og et klik på det viser hele tilbuddet igen." },
+    { "type": "text", "id": "phases", "label": "Vis kun i faser", "info": "pre, early, live, sidste · tom = altid" },
+    { "type": "text", "id": "heading", "label": "Overskrift", "info": "Valgfri" },
+    { "type": "url", "id": "all_url", "label": "Hele tilbuddet (link)", "info": "Hvor man kommer hen ved klik på det valgte felt" },
+    { "type": "text", "id": "selected_text", "label": "Tekst på valgt felt", "default": "Vis alle produkter" },
+    { "type": "range", "id": "pad_top", "label": "Afstand over", "min": 0, "max": 48, "step": 4, "unit": "px", "default": 8 },
+    { "type": "range", "id": "pad_bottom", "label": "Afstand under", "min": 0, "max": 48, "step": 4, "unit": "px", "default": 0 }
+  ],
+  "blocks": [
+    {
+      "type": "field",
+      "name": "Felt",
+      "settings": [
+        { "type": "text", "id": "label", "label": "Titel", "default": "Alt tøj" },
+        { "type": "url", "id": "url", "label": "Kollektion" }
+      ]
+    }
+  ],
+  "presets": [{ "name": "BW · Tøj / udstyr" }]
+}
+{% endschema %}

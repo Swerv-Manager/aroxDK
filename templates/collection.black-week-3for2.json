@@ -70,7 +70,9 @@
         "line": "",
         "link_label": "",
         "pad_top": 20,
-        "pad_bottom": 0
+        "pad_bottom": 0,
+        "collection": "black-week-3for2",
+        "more_collections": "black-week-3for2-toj, black-week-3for2-udstyr"
       }
     },
     "main": {
@@ -177,12 +179,44 @@
         "pad_top": 24,
         "pad_bottom": 24
       }
+    },
+    "bw_split": {
+      "type": "bw-collection-split",
+      "blocks": {
+        "f_toj": {
+          "type": "field",
+          "settings": {
+            "label": "Alt tøj",
+            "url": "shopify://collections/black-week-3for2-toj"
+          }
+        },
+        "f_udstyr": {
+          "type": "field",
+          "settings": {
+            "label": "Alt udstyr",
+            "url": "shopify://collections/black-week-3for2-udstyr"
+          }
+        }
+      },
+      "block_order": [
+        "f_toj",
+        "f_udstyr"
+      ],
+      "settings": {
+        "phases": "",
+        "heading": "",
+        "all_url": "shopify://collections/black-week-3for2",
+        "selected_text": "Vis alle produkter",
+        "pad_top": 8,
+        "pad_bottom": 0
+      }
     }
   },
   "order": [
     "bw_header",
     "bw_progress",
     "main",
+    "bw_split",
     "bw_grid",
     "bw_note",
     "bw_steps",
