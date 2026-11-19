@@ -221,6 +221,22 @@ discounts, gifts, Dawn's own cart), not the full DK experience. Network: aroxfit
   svedbaand-2, does not combine with product discounts) and "SOCKS" (no products) exist in SE.
 - SE Klaviyo: "BW26v2 SE 01–08" are drafts, not scheduled (Nexus sync 19.11).
 
+- **SE normal shop ↔ Black Week (19.11, same switch as DK above):** build now takes SE's live homepage
+  (`stores/se/base/templates/index.json`, exact copy of live), SE's live header/footer groups and product template
+  with the Black Week sections/blocks added (`KEYMAP` maps DK's `cs_announcement_bar_RX8nib` to SE's
+  `cs_announcement_bar_jEXaEY`), the Swedish `bw-home-group.json`, and keeps SE live's Klaviyo "Added to Cart" script
+  at the end of the cart drawer (DK's drawer never had it). Uploaded 19.11 (commit 4d6ffc8 + 6ffa06f), checksums of all
+  changed files match; JSON groups/settings checked by content.
+  Tested (`modetest-se.js`, mobile): early normal visitor → SE live home (12 sections) / PDP (live blocks, Loox stars,
+  price) / training-clothing, Black Week collection in Black Week; VIP after /pages/black-week → Black Week home, PDP
+  and footer; live → Black Week; ended → normal. Drawer: render with the group section id
+  (`?section_id=sections--28881808785737__cart-drawer`; plain `cart-drawer` renders schema defaults = Danish):
+  no Liquid errors or missing translations, Black Week bar 899 / 1 199 / 1 999 kr in Swedish, normal drawer identical
+  to SE live (incl. live's own English "Freight / Free freight" lines, a translation gap in SE live's locale).
+  Fixed: "anmeldelser" → "recension(er)" on Black Week product cards.
+  The ProfitMetrics app embed in SE's settings_data no longer exists (fails to render on live too; Shopify drops it
+  on upload); Arox no longer uses ProfitMetrics.
+
 ### DE (aroxfitness.de = aroxfitness-se.myshopify.com, sic), not started
 Live theme **Dawn 6.0.2** (131330343099), not Impact; "Versandkostenfrei ab 69,99 €". Plan (Frederik 19.11): lighter
 version in Dawn: Black Week pages/sections, collections, discounts, 0 € gift bundles at 109 / 179 €, Dawn's own cart.
