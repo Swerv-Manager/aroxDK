@@ -279,26 +279,26 @@ cart drawer (Thermo info line removed; snippet bw-cart-gift unused), section def
 so they always combine; the tiers count the cart after discount (as the terms say).
 **Status: committed (3d2efa5); uploaded to DE and DK (19.11, 16 files, code checksums match; DK preview: no Thermo text on home, landing, gift, terms, 3/4 for 2 pages, PDP and drawer, no Liquid errors); uploaded to SE 19.11 (16 files, all checksums match; SE preview: no Thermo text on home, landing, presenter, villkor, 3/4 för 2 pages, PDP and drawer, no Liquid errors). Done on all three markets.**
 
-## 4 for 2 per category (Sebastian 19.11, DK first; Single offers / 3 for 2 / SE / DE after his OK)
-Sebastian wants one product slider per category on the offer page (not tabs; tabs were tried first and removed).
-- Collections (manual, Online Store only, template `black-week-4for2-del`): "Alt kvinde tøj (4 for 2)"
-  `black-week-4for2-kvinde` (34: tag kvindetøj), "Alt herre tøj (4 for 2)" `black-week-4for2-herre` (25: tag
-  herretøj or herreunderdele), "Alt udstyr (4 for 2)" `black-week-4for2-udstyr` (10: grips, weightlifting belts,
-  sweatbands). The 12 unisex tees are in both. Manual = a product Sebastian adds to 4 for 2 must also go into its
-  category collection.
-- `templates/collection.black-week-4for2.json` (the 4 for 2 page): header with the offer cards (no filters), progress
-  bar, then three `bw-product-row` sliders (`bw_row_kvinde/herre/udstyr`: carousel, quick add, up to 24 products for
-  sale, "Se alle" → the category collection); the long grid is off. "(4 for 2)" uses no-break spaces.
-- `templates/collection.black-week-4for2-del.json` (the category pages): header with filters and sort, title = the
-  collection title, crumb "4 for 2", progress bar, grid, note. The 4 for 2 card stays red there (`bw-coll-head`: a
-  card is current when its url is a prefix of the page).
-- `bw-offer-progress` setting `more_collections`: Liquid reads 50 products per collection, 4 for 2 has 57, so the bar
-  also reads the three category collections (all 57 count). The 4 for 2 discount is on black-week-4for2, so items
-  from different categories combine.
-- `bw-collection-header` still supports `sub` blocks (tabs), unused now. SE/DE builds keep their grid page and leave
-  out `bw_row_*`, `sub` blocks and `more_collections` until those markets get categories.
-- Uploaded to the DK work theme 19.11 (commits 7dc297b, 7c4c255); preview checked (3 sliders 24/24/10, category pages
-  33/10 with filters, progress 57 ids, no Liquid errors). Screenshots: `screenshots/4for2-sliders-*.png`.
+## 3 for 2 / 4 for 2: "Alt tøj" / "Alt udstyr" fields (Sebastian 19.11, DK; SE/DE after his OK)
+Final version after two rounds (tabs at the top, then category sliders, both rejected): two fields right above the
+products on 3 for 2 and 4 for 2 (not on Single offers).
+- Section `bw-collection-split` (blocks `field`: label + collection url; setting `all_url`): two fields side by side
+  (also on phones) between the progress bar and the grid. A field links to a category collection that uses the
+  offer's own template, so the page looks the same and that field is selected (white, "Vis alle produkter", ×);
+  clicking the selected field goes back to the whole offer. Counts = products for sale (as the toolbar).
+- Collections (manual, Online Store only): "Alt tøj (3 for 2)" `black-week-3for2-toj` (20) and "Alt udstyr (3 for 2)"
+  `black-week-3for2-udstyr` (18: grips, knee sleeves), template `black-week-3for2`; "Alt tøj (4 for 2)"
+  `black-week-4for2-toj` (47, was "Alt kvinde tøj") and "Alt udstyr (4 for 2)" `black-week-4for2-udstyr` (10: grips,
+  belts, sweatbands), template `black-week-4for2`. "Alt herre tøj (4 for 2)" was deleted. Manual = a product
+  Sebastian adds to 3 for 2 / 4 for 2 must also go into "Alt tøj" or "Alt udstyr" of that offer.
+- `bw-offer-progress` `more_collections` = the offer's two category collections (Liquid reads 50 products per
+  collection; 4 for 2 has 57), so all products count on every page. The discounts are on the whole offer
+  collections, so tøj and udstyr combine.
+- Leftovers (unused): `bw-collection-header` `sub` blocks (tabs), `bw-product-row` up to 48 products, and the template
+  `collection.black-week-4for2-del` still in the DK work theme (theme files cannot be deleted from here; delete it in
+  the code editor if wanted). SE/DE builds leave out the fields and `more_collections`.
+- Uploaded to the DK work theme 19.11 (commit da24a9a); preview checked on all six pages (counts 18/18 and 46/10,
+  selected states, progress 38/57 ids, no Liquid errors). Screenshots: `screenshots/4for2-*.png`, `3for2-udstyr-*.png`.
 
 ## Fast workflow (needs network access to aroxfitness.myshopify.com and aroxfitness.dk)
 
