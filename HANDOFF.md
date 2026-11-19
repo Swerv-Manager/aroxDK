@@ -277,7 +277,7 @@ cart drawer (Thermo info line removed; snippet bw-cart-gift unused), section def
 1 999 kr). DE: one gift (109 €). Checked with the test codes (curl, 19.11): DK 3 for 2 + 4 for 2 + both gifts →
 3 092 → 1 995 kr., gifts 0 kr.; SE 4 320 → 2 747 kr.; DE 349 → 206 €. The gifts are 0 kr. products, not discounts,
 so they always combine; the tiers count the cart after discount (as the terms say).
-**Status: committed (3d2efa5); uploaded to DE; DK and SE uploads pending (connector).**
+**Status: committed (3d2efa5); uploaded to DE and DK (19.11, 16 files, code checksums match; DK preview: no Thermo text on home, landing, gift, terms, 3/4 for 2 pages, PDP and drawer, no Liquid errors); SE upload pending (connector).**
 
 ## Fast workflow (needs network access to aroxfitness.myshopify.com and aroxfitness.dk)
 
