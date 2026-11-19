@@ -98,7 +98,7 @@ TEXT = {
 
     # ---- landing page
     "Black Week 20.11–30.11.2026": "Black Week 20.11.–30.11.2026",
-    "Sådan virker det.": "So funktioniert's.",
+    "Sådan virker det.": "So geht's.",
     "Limited edition, 3 for 2 og 4 for 2 på udvalgte varer. Rabatten trækkes automatisk i kurven – ingen kode nødvendig.": "Limited Edition, 3 für 2 und 4 für 2 auf ausgewählte Produkte. Der Rabatt wird automatisch im Warenkorb abgezogen, du brauchst keinen Code.",
     "FRE 20.11": "FR 20.11.",
     "KL. 12:00": "12:00 UHR",
