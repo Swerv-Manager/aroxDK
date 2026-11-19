@@ -237,9 +237,47 @@ discounts, gifts, Dawn's own cart), not the full DK experience. Network: aroxfit
   The ProfitMetrics app embed in SE's settings_data no longer exists (fails to render on live too; Shopify drops it
   on upload); Arox no longer uses ProfitMetrics.
 
-### DE (aroxfitness.de = aroxfitness-se.myshopify.com, sic), not started
-Live theme **Dawn 6.0.2** (131330343099), not Impact; "Versandkostenfrei ab 69,99 €". Plan (Frederik 19.11): lighter
-version in Dawn: Black Week pages/sections, collections, discounts, 0 € gift bundles at 109 / 179 €, Dawn's own cart.
+### DE (aroxfitness.de = aroxfitness-se.myshopify.com, sic), built 19.11 (lighter version in Dawn)
+- Live theme **Dawn 6.0.2** (131330343099). Work theme **"Black Week 2026 – DE"** `gid://shopify/OnlineStoreTheme/213258928459`
+  (duplicate of live). Preview: https://aroxfitness.de/?preview_theme_id=213258928459 (`&bw_phase=…`, VIP as DK).
+  Shop language en (primary) + de; aroxfitness.de serves de; theme JSON text is German (falls back for de).
+- Built by `python3 stores/de/build.py` → `stores/de/theme/**` (45 files): the bw-* sections the DE pages use
+  (`SECTIONS` in build.py) + their snippets, German strings in `de_code.py` / `de_text.py`, Dawn-only files in
+  `stores/de/src` (gift bar `bw-dawn-progress`, gift config `bw-dawn-gifts`, PDP offer box `bw-dawn-pdp`, `bw-dawn.css`
+  appended to bw.css, `bw-dawn-cart.js` replaces bw.js's Impact cart helpers), bases in `stores/de/base` (layout =
+  exact live copy; cart-drawer = stock Dawn 6.0.2 = live; settings_data = live).
+- What DE gets: the same normal/Black Week switch (bw-head). Black Week on → ticker (static `bw-marquee` in
+  `<main>`; Dawn's body grid allows no extra rows outside main), the Black Week homepage (section group
+  `bw-home-group`, 9 sections; Dawn's homepage sections hidden), a BLACK WEEK link first in Dawn's menu (bw.js),
+  an offer box under the price on products in an offer, and the gift bar in Dawn's cart drawer. Dawn keeps its own
+  header, footer, product page and cart. `cart_type` drawer (live: notification + NA Side Cart app); NA Side Cart
+  app embed off in the work theme (as DK/SE; its script is on cdn.shopify.com, which this session cannot load).
+  Dawn 6 sends no cart events: bw.js wraps fetch and announces Dawn's /cart/add|change|update|clear as cart:change.
+- Store data 19.11: collections black-week-limited-edition ("Black Week 2026 – Einzelangebote", 7: Sebastian's 4
+  Black Week editions (3 drafts, 0 stock) + Trinkflasche 1000 ml, Edelstahl-Trinkflasche, Trinkflasche 500 ml (0
+  stock)), black-week-3for2 (12) and black-week-4for2 (40) (DK lists matched by SKU; no DE product for active-hoodie
+  dark brown, 6 women's tank tops, oversized tee light grey, 3-pak strømper), templates set, Online Store only.
+  Pages black-week (existed with a Klaviyo form body; now template black-week, published), black-week-geschenk,
+  black-week-bedingungen. Automatic BXGY "3 für 2 · Black Week" / "4 für 2 · Black Week" 20.11 12:00 → 30.11 23:59
+  CET; test codes BWTEST3FOR2 / BWTEST4FOR2 until 20.11 11:59. One gift (Frederik 19.11: no 3-pack socks in DE):
+  `bw-gave-hydration-bottle` "AROX Trinkflasche 1000 ml (Geschenk)", 0 € bundle → AROX_HYDRATIONBOTTLE, from 109 €
+  (after discount). 5 campaign images copied from DK's Files (same names).
+- DE facts: shipping DHL 2,99 €, free from 69,99 € (Shopify rates; the Lieferung page still says 129 € / 6,99 €),
+  delivery 2–4 Werktage, 30 Tage Widerrufsrecht (DE's own pages).
+- Tested 19.11: no Liquid errors / missing translations on 8 pages; modes (early normal → Dawn shop; Black Week
+  collection → Black Week; VIP → Black Week home, ticker, PDP box; live; ended → normal); cart: Dawn add → drawer +
+  bar ("Noch 20,99 € bis zum gratis Versand"), ≥ 109 € → gift line 0 € ("Gratis Geschenk"), 3 für 2 code → 98 € →
+  gift removed; 3 für 2 + 4 für 2 + gift together (curl): grip free, 2 tees free, gift 0 €.
+
+## Thermo bottle removed, gifts combine with the offers (client 19.11, all three markets)
+No free Thermo bottle for the first 100 orders anywhere. DK: gift page (both tier gifts, three rules incl. "Med 3 for
+2 og 4 for 2"), landing/homepage gift blocks, homepage FAQ, terms (Thermo term and the two Thermo FAQs removed; term
+"Gaver ved køb" and the FAQ "Får jeg en gave …" stay), gift reminder on the offer pages, PDP gift row (tier gifts),
+cart drawer (Thermo info line removed; snippet bw-cart-gift unused), section defaults. SE: same in Swedish (1 199 /
+1 999 kr). DE: one gift (109 €). Checked with the test codes (curl, 19.11): DK 3 for 2 + 4 for 2 + both gifts →
+3 092 → 1 995 kr., gifts 0 kr.; SE 4 320 → 2 747 kr.; DE 349 → 206 €. The gifts are 0 kr. products, not discounts,
+so they always combine; the tiers count the cart after discount (as the terms say).
+**Status: committed (3d2efa5); uploaded to DE; DK and SE uploads pending (connector).**
 
 ## Fast workflow (needs network access to aroxfitness.myshopify.com and aroxfitness.dk)
 
