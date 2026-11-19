@@ -142,22 +142,44 @@ Go-live list (client / Frederik):
 
 ## SE and DE (started 19.11)
 
-Decisions (Frederik 19.11): same offers and dates as DK; amounts = DKK converted and rounded to whole amounts
-(SEK at 1,49 per DKK, XE 18.11; EUR at 7,46 DKK, the peg): 799 → 1.191 kr / 107 €, 1.299 → 1.936 kr / 174 €;
-Claude writes and approves the SE/DE texts from the copy agents (`arox-fitness-copy`, `arox-fitness-de-copy`);
-Trustpilot and customer counts may be used in all markets (clients.trustpilot_allowed = true).
-Network: aroxfitness.se and aroxfitness.de are allowed since 19.11.
+Decisions (Frederik 19.11): same offers and dates as DK; first step of the cart bar = the store's real free shipping
+threshold; gift tiers rounded: SE 1 199 / 1 999 kr, DE 109 / 179 €; Claude writes and approves the SE/DE texts from
+the copy agents (`arox-fitness-copy`, `arox-fitness-de-copy`); Trustpilot and customer counts may be used in all
+markets (clients.trustpilot_allowed = true). DE (Dawn theme): a lighter Black Week version (pages, collections,
+discounts, gifts, Dawn's own cart), not the full DK experience. Network: aroxfitness.se/.de allowed since 19.11.
 
-- SE: aroxfitness.se = `aroxfitnesscom.myshopify.com`, live theme "Impact Theme | Markets" (Impact 6.6.0,
-  171481301321), locale sv, SEK, money format `{{amount_no_decimals}} kr`. Apps on the homepage: Kaching, Klaviyo,
-  na-side-cart, Pandectes, ProfitMetrics, Clarity. Free shipping is stated twice and differently: "Fri frakt över 899
-  kr" (announcement bar) and "Fri frakt över 749 kr" (USP row); converted 499 DKK = 744 kr. The bar's first step must
-  match what checkout really charges.
-- DE: aroxfitness.de = `aroxfitness-se.myshopify.com` (sic), live theme **Dawn 6.0.2** (131330343099), not Impact:
-  the Impact changes (cart drawer, product page, gallery, collection integration) cannot be copied; the bw-* sections
-  themselves are mostly self-contained. "Versandkostenfrei ab 69,99 €" (converted 499 DKK = 67 €).
-- Same stock numbers as DK for shared products (one warehouse); SE/DE have their own prices and partly other handles.
-- Connector: switching store needs a new Shopify sign-in on claude.ai (Connectors); verify with get-shop-info first.
+### SE (aroxfitness.se = aroxfitnesscom.myshopify.com), done 19.11
+- Work theme **"Black Week 2026 – SE"** `gid://shopify/OnlineStoreTheme/191890456905` (duplicate of the live theme
+  "Impact Theme | Markets" 171481301321, Impact 6.6.0). Preview: https://aroxfitness.se/?preview_theme_id=191890456905
+- Built by `python3 stores/se/build.py` → `stores/se/theme/**` (80 files), uploaded from
+  `raw.githubusercontent.com/.../<commit>/stores/se/theme/<path>`; 79/80 checksums match (settings_data is re-formatted).
+  Shared code + DK templates at the repo root, Swedish strings in `stores/se/sv_code.py` (code) and `sv_text.py`
+  (template values, product/URL/image maps, per-section overrides), SE bases in `stores/se/base` (layout, product
+  template, settings data, exact copies of SE's live files). Any change to the shared code or DK templates:
+  rebuild, check "no problems", upload the changed SE files. Prices: SEK `{{amount_no_decimals}} kr` → "1 199 kr".
+- SE header/footer groups hold only the Black Week sections (SE's own header/footer are in the live theme).
+  na-side-cart app embed off in the work theme (as DK). bw-collection-live settings are in SE's settings_data.
+- Store data: collections black-week-3for2 (13), black-week-4for2 (46) and black-week-limited (renamed
+  black-week-limited-edition, redirect) existed unpublished; now templates set, published to Online Store, titles
+  "Black Week 2026 – 3/4 för 2". Limited now also has the vattenflaska 1000 ml and Sebastian's SE Black Week items
+  (Elite Speed Rope – Black Week 2026 (active), Anti Slip Grips Pro – Black Week Edition, Fusion Grips Pro – Black
+  Week Limited, Metcon lyftarbälte – Black Week Edition (drafts, 0 stock)). Pages (published, templates set):
+  black-week (existed, had a Klaviyo form body), limited-blackout, 3-for-2, 4-for-2, black-week-presenter (gift page),
+  black-week-villkor (terms + FAQ). Automatic discounts "3 för 2 · Black Week" and "4 för 2 · Black Week" (tag
+  black-week-2026) 20.11 12:00 → 30.11 23:59 CET; test codes BWTEST3FOR2 / BWTEST4FOR2 until 20.11 11:59 (20 uses).
+  Gift bundles: `bw-gave-hydration-bottle` (→ AROX_HYDRATIONBOTTLE) and `bw-gave-stromper-3-pak` (4 sizes →
+  AR3PSBLS/M/L/XL, black only; the SE product "Strumpor 3-PACK" is a draft), 0 kr., tag bw-gave, seo.hidden, Online
+  Store only. 13 campaign images copied from DK to SE Files (5 got a name suffix, mapped in sv_text.URLS).
+- Tested 19.11 (preview, phase early, test codes): 3 för 2, 4 för 2, both together, vattenflaska at 1 199 kr,
+  strumpväljare at 1 999 kr, gifts removed below; crawl of 17 pages: no Liquid errors, no overflow, no broken images.
+- SE notes: free shipping 899 kr (theme setting, header, footer, PDP), freight from 75 kr; the old SE homepage also
+  says "Fri frakt över 749 kr" (replaced by the Black Week homepage). Active automatic BXGY "4for3" (sweatbands
+  svedbaand-2, does not combine with product discounts) and "SOCKS" (no products) exist in SE.
+- SE Klaviyo: "BW26v2 SE 01–08" are drafts, not scheduled (Nexus sync 19.11).
+
+### DE (aroxfitness.de = aroxfitness-se.myshopify.com, sic), not started
+Live theme **Dawn 6.0.2** (131330343099), not Impact; "Versandkostenfrei ab 69,99 €". Plan (Frederik 19.11): lighter
+version in Dawn: Black Week pages/sections, collections, discounts, 0 € gift bundles at 109 / 179 €, Dawn's own cart.
 
 ## Fast workflow (needs network access to aroxfitness.myshopify.com and aroxfitness.dk)
 

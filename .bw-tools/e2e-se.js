@@ -1,0 +1,46 @@
+// SE cart check in the work-theme preview (phase early): offers with test codes, gifts at 1 199 / 1 999 kr, removal.
+const { chromium } = require('playwright');
+const out = process.argv[2];
+const wait = ms => new Promise(r => setTimeout(r, ms));
+(async () => {
+  const b = await chromium.launch();
+  const ctx = await b.newContext({ viewport: { width: 1440, height: 1000 }, locale: 'sv-SE', userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0 Safari/537.36' });
+  const p = await ctx.newPage();
+  await p.route(/googletagmanager|klaviyo|trustpilot|facebook|codeblackbelt|ahrefs|instagram|clarity|loox|kiwi/, r => r.abort());
+  const errs = []; p.on('pageerror', e => { if (!/cdn\.shopify|marketingAllowed|Invalid IP|importScripts|Swiper/.test(e.message)) errs.push(String(e.message).slice(0, 150)); });
+  const URL = 'https://aroxfitness.se/pages/black-week-villkor?preview_theme_id=191890456905&bw_phase=early';
+  const go = async (ms = 6000) => { await p.goto(URL, { waitUntil: 'domcontentloaded', timeout: 90000 }); await p.waitForTimeout(ms); };
+  const J = async (path, body) => { for (let k = 0; k < 8; k++) { const r = await p.evaluate(async ([path, body]) => { const r = await fetch(path, body ? { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) } : {}); return { s: r.status, t: await r.text() }; }, [path, body]); if (r.s === 200) { try { return JSON.parse(r.t); } catch (e) { return r.t; } } await wait(8000 * (k + 1)); } throw new Error('429 ' + path); };
+  const show = async label => { const c = await J('/cart.js'); const disc = [...new Set(c.items.flatMap(i => (i.line_level_discount_allocations || []).map(a => a.discount_application.title)))]; console.log(`\n${label}\n  total ${c.total_price / 100} kr (före rabatt ${c.original_total_price / 100}) · rabatter: ${disc.join(', ') || '-'}\n  ` + c.items.map(i => `${i.quantity}× ${i.product_title.slice(0, 24)} ${i.final_line_price / 100}/${i.original_line_price / 100}${i.properties && i.properties._bw_gift ? ' [' + i.properties._bw_gift + ']' : ''}`).join('\n  ')); return c; };
+  const vid = async (h, n = 0) => (await J('/products/' + h + '.js')).variants.filter(v => v.available)[n].id;
+  await go(1500);
+  await J('/cart/clear.js', {});
+  await J('/cart/update.js', { discount: 'BWTEST3FOR2,BWTEST4FOR2' });
+  const A = await vid('arox-anti-slip-grips'), C = await vid('arox-comfort-grips-pro'), S = await vid('arox-dri-tech-performance-shorts-2-0'), H = await vid('active-hoodie-black');
+  const T1 = await vid('sportstech-unisex-t-shirt-dark-brown-copy', 0), T2 = await vid('sportstech-unisex-t-shirt-dark-brown-copy', 1), W = await vid('sportstech-women-top-black'), TI = await vid('arox-performance-tights');
+  await J('/cart/add.js', { items: [{ id: A, quantity: 1 }, { id: C, quantity: 1 }, { id: S, quantity: 1 }] });
+  await go(); await show('1) 3 för 2: grips 575 + grips 499 + shorts 599 → billigaste gratis, under 1 199 → ingen gåva');
+  await J('/cart/add.js', { items: [{ id: H, quantity: 1 }] });
+  await go(); await show('2) + hoodie 599 → över 1 199: vattenflaskan ska komma själv');
+  await J('/cart/add.js', { items: [{ id: T1, quantity: 1 }, { id: T2, quantity: 1 }, { id: W, quantity: 1 }, { id: TI, quantity: 1 }] });
+  await go(); const c3 = await show('3) + 4 från 4 för 2 → 2 billigaste gratis; över 1 999: strumpväljaren');
+  await p.evaluate(() => document.querySelector('cart-drawer').show()); await p.waitForTimeout(1500);
+  const pick = p.locator('[data-bw-gift-pick][data-key="g3"]');
+  console.log('  strumpväljare synlig:', await pick.isVisible().catch(() => false), '·', (await pick.innerText().catch(() => '')).replace(/\s+/g, ' ').slice(0, 140));
+  if (await pick.isVisible().catch(() => false)) { await pick.locator('select').selectOption({ index: 1 }); await pick.locator('[data-bw-gift-add]').click(); await p.waitForTimeout(7000); }
+  await show('4) strumpor valda');
+  await p.evaluate(() => document.querySelector('cart-drawer').show()); await p.waitForTimeout(2500);
+  await p.screenshot({ path: out + '/se-drawer-1440.png' });
+  const m390 = await b.newContext({ viewport: { width: 390, height: 844 }, locale: 'sv-SE', storageState: await ctx.storageState() });
+  const q = await m390.newPage(); await q.route(/googletagmanager|klaviyo|trustpilot|facebook|clarity|loox|kiwi/, r => r.abort());
+  await q.goto(URL, { waitUntil: 'domcontentloaded', timeout: 90000 }); await q.waitForTimeout(5000);
+  await q.evaluate(() => document.querySelector('cart-drawer').show()); await q.waitForTimeout(2000);
+  await q.screenshot({ path: out + '/se-drawer-390.png', fullPage: false }); await m390.close();
+  const keep = [S];
+  const c = await J('/cart.js'); const upd = {}; c.items.forEach(i => { if (!keep.includes(i.variant_id) && !(i.properties && i.properties._bw_gift)) upd[i.key] = 0; });
+  await J('/cart/update.js', { updates: upd });
+  await go(); await show('5) bara shorts kvar (599) → båda gåvorna ska bort');
+  await J('/cart/clear.js', {});
+  console.log('\nJS-fel:', errs.length ? [...new Set(errs)].join(' | ') : 'inga');
+  await b.close();
+})();
