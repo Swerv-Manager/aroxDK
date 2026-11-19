@@ -197,8 +197,7 @@
         "padding_horizontal_mobile": 0,
         "border_thickness": 0,
         "lazy": true
-      },
-      "disabled": true
+      }
     },
     "main": {
       "type": "main-product",
@@ -216,8 +215,7 @@
             "showAllReviews": false,
             "looxOpenFloatingWidget": false,
             "emptyRatingWidget": false
-          },
-          "disabled": true
+          }
         },
         "title": {
           "type": "title",
@@ -233,8 +231,7 @@
           "type": "price",
           "settings": {
             "show_taxes_notice": false
-          },
-          "disabled": true
+          }
         },
         "liquid_BEj3hB": {
           "type": "liquid",
@@ -287,8 +284,8 @@
           "settings": {
             "show_payment_button": false,
             "show_gift_card_recipient": true,
-            "atc_button_background": "#ffffff",
-            "atc_button_text_color": "#111111",
+            "atc_button_background": "",
+            "atc_button_text_color": "",
             "payment_button_background": "",
             "payment_button_text_color": ""
           }
@@ -303,15 +300,13 @@
             "payment_icon_5": "paypal",
             "payment_icon_6": "sofort",
             "payment_icon_7": "klarna-pay-later"
-          },
-          "disabled": true
+          }
         },
         "liquid_fhekYa": {
           "type": "liquid",
           "settings": {
             "liquid": "<div id='ss-product-videos'></div>"
-          },
-          "disabled": true
+          }
         },
         "collapsible_text_XW6A4G": {
           "type": "collapsible_text",
@@ -368,33 +363,33 @@
         }
       },
       "block_order": [
-        "badges",
+        "loox_reviews_loox_rating_Cpi9MH",
         "title",
+        "badges",
+        "price",
         "bw_price",
         "bw_usp",
         "liquid_BEj3hB",
+        "description",
         "variant_picker",
         "liquid_A6qm7G",
+        "payment_terms",
         "quantity_selector",
+        "inventory_EyVMUD",
         "buy_buttons",
         "liquid_bw_mechanic",
         "bw_trust",
         "bw_ship",
-        "description",
+        "payment_icons_4DryDT",
+        "liquid_fhekYa",
         "collapsible_text_XW6A4G",
         "bw_favs",
-        "liquid_bw_gpsr",
-        "payment_terms",
-        "loox_reviews_loox_rating_Cpi9MH",
-        "price",
-        "inventory_EyVMUD",
-        "payment_icons_4DryDT",
-        "liquid_fhekYa"
+        "liquid_bw_gpsr"
       ],
       "settings": {
         "full_width": true,
         "show_fixed_add_to_cart": true,
-        "desktop_media_width": 50,
+        "desktop_media_width": 55,
         "desktop_media_layout": "carousel_thumbnails_left",
         "mobile_media_size": "expanded",
         "mobile_carousel_control": "floating_dots",
@@ -402,11 +397,11 @@
         "enable_video_looping": true,
         "enable_image_zoom": true,
         "max_image_zoom_level": 3,
-        "background": "#0a0a0a",
+        "background": "",
         "background_gradient": "",
-        "text_color": "#ffffff",
+        "text_color": "",
         "input_background": "rgba(0,0,0,0)",
-        "input_text_color": "#ffffff"
+        "input_text_color": ""
       }
     },
     "related-products": {
@@ -429,8 +424,7 @@
         "heading_gradient": "",
         "product_card_background": "",
         "product_card_text_color": ""
-      },
-      "disabled": true
+      }
     },
     "17400855959a5312e9": {
       "type": "apps",
@@ -438,9 +432,9 @@
         "full_width": true,
         "remove_vertical_spacing": false,
         "remove_horizontal_spacing": false,
-        "background": "#0a0a0a",
+        "background": "",
         "background_gradient": "",
-        "text_color": "#ffffff"
+        "text_color": ""
       }
     },
     "1757493021311ff98f": {
@@ -467,9 +461,9 @@
         "full_width": true,
         "remove_vertical_spacing": false,
         "remove_horizontal_spacing": false,
-        "background": "#0a0a0a",
+        "background": "",
         "background_gradient": "",
-        "text_color": "#ffffff"
+        "text_color": ""
       }
     },
     "bw_crumb": {

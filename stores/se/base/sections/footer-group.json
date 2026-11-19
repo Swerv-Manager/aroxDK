@@ -1,0 +1,114 @@
+{
+  "type": "footer",
+  "name": "Footer group",
+  "sections": {
+    "text-with-icons": {
+      "type": "text-with-icons",
+      "blocks": {
+        "customer-support": {
+          "type": "item",
+          "settings": {
+            "icon": "picto-customer-support",
+            "mobile_icon_width": 24,
+            "icon_width": 24,
+            "icon_background_type": "circle",
+            "icon_background": "",
+            "icon_color": "",
+            "title": "Livechatt vardagar kl. 09–15",
+            "content": "<p>Vi hjälper dig gärna!</p>"
+          }
+        },
+        "free-shipping": {
+          "type": "item",
+          "settings": {
+            "icon": "picto-truck",
+            "mobile_icon_width": 24,
+            "icon_width": 24,
+            "icon_background_type": "circle",
+            "icon_background": "",
+            "icon_color": "",
+            "title": "Fri frakt vid köp över 899 kr",
+            "content": "<p>Vi levererar med GLS</p>"
+          }
+        },
+        "discount": {
+          "type": "item",
+          "settings": {
+            "icon": "picto-validation",
+            "mobile_icon_width": 24,
+            "icon_width": 24,
+            "icon_background_type": "circle",
+            "icon_background": "",
+            "icon_color": "",
+            "title": "Över 50 återförsäljare världen över",
+            "content": "<p>Handla hos en av våra återförsäljare här</p>"
+          }
+        }
+      },
+      "block_order": [
+        "customer-support",
+        "free-shipping",
+        "discount"
+      ],
+      "settings": {
+        "full_width": true,
+        "stack_on_mobile": false,
+        "title": "",
+        "heading_tag": "h6",
+        "text_alignment": "center",
+        "icon_spacing": "small",
+        "background": "#e2e2e2",
+        "background_gradient": "",
+        "text_color": ""
+      }
+    },
+    "footer": {
+      "type": "footer",
+      "blocks": {
+        "newsletter": {
+          "type": "newsletter",
+          "settings": {
+            "image_width": 150,
+            "heading_size": "h3",
+            "title": "Anmäl dig till vårt nyhetsbrev",
+            "content": "<p>Få tillgång till exklusiva erbjudanden, rabattkoder, fri frakt-kampanjer och mycket mer.</p>"
+          }
+        },
+        "links": {
+          "type": "links",
+          "settings": {
+            "menu": "footer",
+            "show_menu_title": true,
+            "menu_title": ""
+          }
+        },
+        "text": {
+          "type": "text",
+          "settings": {
+            "title": "K U N D S U P P O R T",
+            "content": "<p><strong>E-post:</strong><br/><a>support@aroxfitness.com</a></p><p></p>",
+            "enable_follow_on_shop": true
+          }
+        }
+      },
+      "block_order": [
+        "newsletter",
+        "links",
+        "text"
+      ],
+      "settings": {
+        "show_social_media": false,
+        "show_payment_icons": true,
+        "show_policy_links": false,
+        "show_country_selector": false,
+        "show_country_flag": false,
+        "show_country_name": false,
+        "show_locale_selector": false
+      }
+    }
+  },
+  "order": [
+    "text-with-icons",
+    "footer"
+  ]
+}

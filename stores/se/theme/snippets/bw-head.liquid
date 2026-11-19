@@ -12,7 +12,22 @@ Sets the campaign phase on <html> before first paint so phase-specific content n
 
 Preview a phase: in the theme editor pick Theme settings → Black Week 2026 → "Vis fase i temaeditoren", or add
 ?bw_phase=pre|early|live|sidste|ended to any preview URL (remembered for the browser tab; ?bw_phase=auto clears it). Elements hide per phase with the classes bw-hide-<phase>; see snippet bw-only.
+
+Black Week on/off (client decision 19.11): html.bw-on or html.bw-off.
+  bw-on  = a Black Week page (landing, offer pages, gift/terms pages, the three offer collections), or the phase is
+           live/sidste (søn 22.11 kl. 20:00 → man 30.11 kl. 23:59), or a VIP customer in pre/early (the browser has
+           been on a Black Week page, or came with ?vip=1; remembered in localStorage 'bw_vip').
+  bw-off = the normal shop: Impact header/footer/home/product page/cart, no offer badges. Also after Black Week.
+CSS in bw.css hides .bw-section / .bw-site in bw-off and .bw-norm (plus the original header/footer/home/product
+blocks) in bw-on. html also gets bw-tpl-<template name>. Preview: ?bw_vip=0 clears the VIP mark.
 {%- endcomment -%}
+{%- liquid
+  assign bw_tpl = template.suffix | default: ''
+  assign bw_scope = false
+  if bw_tpl contains 'black-week' or bw_tpl == 'limited-blackout' or bw_tpl == '3-for-2' or bw_tpl == '4-for-2'
+    assign bw_scope = true
+  endif
+-%}
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&display=swap">
@@ -49,7 +64,18 @@ Preview a phase: in the theme editor pick Theme settings → Black Week 2026 →
     phase = {{ settings.bw_phase_preview | json }};
     {%- endif -%}
     window.BW.phase = phase;
-    document.documentElement.classList.add('bw-' + phase);
+    var scope = {{ bw_scope | json }}, vip = false;
+    try {
+      var v = new URLSearchParams(location.search);
+      if (v.get('bw_vip') === '0') localStorage.removeItem('bw_vip');
+      if (scope || v.get('vip') === '1') localStorage.setItem('bw_vip', '1');
+      vip = localStorage.getItem('bw_vip') === '1';
+    } catch (e) {}
+    var on = scope || phase === 'live' || phase === 'sidste' || (vip && (phase === 'pre' || phase === 'early'));
+    {%- comment -%}Theme editor: no VIP mark; "Vis fase i temaeditoren" = live/sidste shows the Black Week shop, auto/pre/early the normal shop (Black Week pages are always Black Week).{%- endcomment -%}
+    {%- if request.design_mode -%}on = scope || phase === 'live' || phase === 'sidste';{%- endif -%}
+    window.BW.on = on;
+    document.documentElement.classList.add('bw-' + phase, on ? 'bw-on' : 'bw-off', 'bw-tpl-{{ template.name | handle }}');
   })();
 </script>
 <script src="{{ 'bw.js' | asset_url }}" defer></script>

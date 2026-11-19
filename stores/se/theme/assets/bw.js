@@ -109,7 +109,10 @@
   ['cart:change', 'cart:refresh', 'variant:add'].forEach(function (ev) { document.addEventListener(ev, function () { setTimeout(initProgress, 300); }); });
 
   /* ---------- Product page (board 08): "Beskrivelse" open on load, as in the design ---------- */
+  // Black Week on/off (snippet bw-head): the product page extras, the gifts and the BW cart only run when it is on
+  function bwOn() { return document.documentElement.classList.contains('bw-on'); }
   function openDescription() {
+    if (!bwOn()) return;
     document.querySelectorAll('.shopify-section--main-product [data-block-type="description"] details').forEach(function (d) {
       if (!d.__bwOpened) { d.__bwOpened = true; d.open = true; d.setAttribute('aria-expanded', 'true'); }
     });
@@ -120,6 +123,7 @@
      pushed "Læg i kurv" off the quantity row. Move such elements into a slot right under the size picker, also when
      they are inserted again after a variant change. */
   function initPdpExtras() {
+    if (!bwOn()) return;
     var info = document.querySelector('.shopify-section--main-product .product-info');
     if (!info || info.__bwExtras) return;
     info.__bwExtras = true;
@@ -289,7 +293,7 @@
   function syncGifts(cart, depth) {
     var cfg = giftCfg();
     depth = depth || 0;
-    if (!cfg || !cfg.on || giftBusy || depth > 4) return;
+    if (!cfg || !cfg.on || giftBusy || depth > 4 || !bwOn()) return;
     if (cfg.phases && cfg.phases.length && cfg.phases.indexOf(phase) === -1) return;
     giftClasses(cfg);
     var getCart = cart && cart.items ? Promise.resolve(cart) : fetch(ROOT + 'cart.js').then(function (r) { return r.json(); });

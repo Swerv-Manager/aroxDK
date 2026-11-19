@@ -93,6 +93,8 @@ main_old = '    <main role="main" id="main" class="anchor">\n      {{ content_fo
 main_new = ('    <main role="main" id="main" class="anchor">\n'
             "      {%- comment -%}BLACK WEEK 2026 · board 07d: Black Week layout on ordinary collections (only in its phases/templates){%- endcomment -%}\n"
             "      {%- if request.page_type == 'collection' -%}\n        {%- section 'bw-collection-live' -%}\n      {%- endif -%}\n"
+            "      {%- comment -%}BLACK WEEK 2026 · the Black Week homepage (section group, shown when html.bw-on){%- endcomment -%}\n"
+            "      {%- if template.name == 'index' -%}\n        {%- sections 'bw-home-group' -%}\n      {%- endif -%}\n"
             '      {{ content_for_layout }}')
 assert lay.count(head_old) == 1 and lay.count(main_old) == 1, 'SE layout changed, check the anchors'
 write('layout/theme.liquid', lay.replace(head_old, head_new).replace(main_old, main_new))
@@ -174,19 +176,41 @@ def bw_only(d, tpl, keep=()):
     return out
 
 
-TEMPLATES = ['index.json', 'page.black-week.json', 'page.limited-blackout.json', 'page.3-for-2.json', 'page.4-for-2.json',
+TEMPLATES = ['page.black-week.json', 'page.limited-blackout.json', 'page.3-for-2.json', 'page.4-for-2.json',
              'page.black-week-gaver.json', 'page.black-week-vilkaar.json', 'collection.black-week-3for2.json',
              'collection.black-week-4for2.json', 'collection.black-week-limited-edition.json']
 for tpl in TEMPLATES:
     d = load_json(os.path.join(ROOT, 'templates', tpl))
     dump_json('templates/' + tpl, bw_only(d, tpl, keep=('main-page', 'apps')))
 
-# section groups: only the Black Week sections (the SE live theme keeps its own header/footer)
-for grp, gtype, gname in (('header-group.json', 'header', 'Header group'), ('footer-group.json', 'footer', 'Footer group')):
-    d = load_json(os.path.join(ROOT, 'sections', grp))
-    o = bw_only(d, grp)
-    o = {'type': gtype, 'name': gname, 'sections': o['sections'], 'order': o['order']}
-    dump_json('sections/' + grp, o)
+# homepage: SE's live homepage stays templates/index.json (normal shop); the Black Week homepage is a section group
+base_index = os.path.join(HERE, 'base', 'templates', 'index.json')
+if os.path.exists(base_index):
+    write('templates/index.json', read(base_index))
+else:
+    problems.append('stores/se/base/templates/index.json missing (fetch SE live index.json)')
+d = load_json(os.path.join(ROOT, 'sections', 'bw-home-group.json'))
+o = bw_only(d, 'index.json')
+dump_json('sections/bw-home-group.json', {'type': d['type'], 'name': d['name'], 'sections': o['sections'], 'order': o['order']})
+
+# section groups: SE's own (live) header/footer sections + the Black Week sections, in DK's order
+KEYMAP = {'cs_announcement_bar_RX8nib': 'cs_announcement_bar_jEXaEY'}
+for grp in ('header-group.json', 'footer-group.json'):
+    dk_g = load_json(os.path.join(ROOT, 'sections', grp))
+    se_g = load_json(os.path.join(HERE, 'base', 'sections', grp))
+    bw = bw_only(dk_g, grp)
+    out = {'type': se_g['type'], 'name': se_g['name'], 'sections': {}, 'order': []}
+    for k in dk_g['order']:
+        if k in bw['sections']:
+            out['sections'][k] = bw['sections'][k]; out['order'].append(k)
+        else:
+            sk = KEYMAP.get(k, k)
+            if sk in se_g['sections']:
+                out['sections'][sk] = se_g['sections'][sk]; out['order'].append(sk)
+    for sk in se_g['order']:
+        if sk not in out['sections']:
+            out['sections'][sk] = se_g['sections'][sk]; out['order'].append(sk)
+    dump_json('sections/' + grp, out)
 
 # overlay group: SE's own sections + the Black Week cart drawer settings
 ov = {
@@ -205,12 +229,11 @@ cd['settings']['recommendations_title'] = 'Populärt just nu'
 translate_section('overlay-group.json', 'cart-drawer', cd)
 dump_json('sections/overlay-group.json', ov)
 
-# product template: SE's own template with the same Black Week changes as DK (board 08)
+# product template: SE's live template (normal shop) + the Black Week blocks and sections (shown when html.bw-on)
 dk = load_json(os.path.join(ROOT, 'templates', 'product.json'))
 pr = load_json(os.path.join(HERE, 'base', 'templates', 'product.json'))
 dkb = dk['sections']['main']['blocks']
 m = pr['sections']['main']
-m['settings'].update({'background': '#0a0a0a', 'text_color': '#ffffff', 'input_text_color': '#ffffff', 'desktop_media_width': 50})
 for bid in ('bw_price', 'liquid_bw_mechanic', 'bw_trust', 'bw_favs', 'liquid_bw_gpsr'):
     m['blocks'][bid] = json.loads(json.dumps(dkb[bid]))
 m['blocks']['bw_usp'] = {"type": "liquid", "settings": {"liquid": "<ul class=\"bw-pdp-usp\"><li>Leverans inom 2–4 dagar med GLS</li><li>Över 50 000 nöjda kunder</li><li>Utvecklat i Danmark och testat av våra atleter</li></ul>"}}
@@ -218,20 +241,15 @@ m['blocks']['bw_ship'] = json.loads(json.dumps(dkb['bw_ship']))
 m['blocks']['bw_ship']['settings']['liquid'] = m['blocks']['bw_ship']['settings']['liquid'].replace(
     'Levering: Gratis for ordrer over 499 kr. med GLS pakkeshop. For ordrer under 499 kr. fås levering fra 35 kr.',
     'Leverans: Fri frakt vid beställningar över 899 kr med GLS ParcelShop. Under 899 kr tillkommer frakt från 75 kr.')
-m['blocks']['buy_buttons']['settings'].update({'show_payment_button': False, 'atc_button_background': '#ffffff', 'atc_button_text_color': '#111111'})
-for bid in ('loox_reviews_loox_rating_Cpi9MH', 'price', 'payment_icons_4DryDT', 'liquid_fhekYa'):
-    m['blocks'][bid]['disabled'] = True
-order = ['badges', 'title', 'bw_price', 'bw_usp', 'liquid_BEj3hB', 'variant_picker', 'liquid_A6qm7G', 'quantity_selector',
-         'buy_buttons', 'liquid_bw_mechanic', 'bw_trust', 'bw_ship', 'description', 'collapsible_text_XW6A4G', 'bw_favs',
-         'liquid_bw_gpsr', 'payment_terms']
-m['block_order'] = order + [b for b in m['block_order'] if b not in order]
+after = {'price': ['bw_price', 'bw_usp'], 'buy_buttons': ['liquid_bw_mechanic', 'bw_trust', 'bw_ship'], 'collapsible_text_XW6A4G': ['bw_favs', 'liquid_bw_gpsr']}
+order = []
+for b in m['block_order']:
+    order.append(b)
+    order += after.get(b, [])
+m['block_order'] = order
 assert set(m['block_order']) == set(m['blocks']), 'product blocks out of sync'
 pr['sections']['bw_crumb'] = {"type": "bw-pdp-crumb", "settings": {"phases": "", "bw_url": "/pages/black-week"}}
 pr['sections']['bw_related'] = {"type": "bw-related", "settings": {"phases": "", "heading": "Relaterade produkter", "limit": 4}}
-pr['sections']['ss_product_page_videos_v1_kMDa88']['disabled'] = True
-pr['sections']['related-products']['disabled'] = True
-for sid in ('17400855959a5312e9', '1757493021311ff98f'):
-    pr['sections'][sid]['settings'].update({'background': '#0a0a0a', 'text_color': '#ffffff'})
 o = pr['order']
 o.insert(o.index('main'), 'bw_crumb')
 o.insert(o.index('main') + 1, 'bw_related')

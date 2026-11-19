@@ -104,6 +104,10 @@ NOTE TO DEVELOPERS: welcome to Impact theme! We hope that you will enjoy editing
       {%- if request.page_type == 'collection' -%}
         {%- section 'bw-collection-live' -%}
       {%- endif -%}
+      {%- comment -%}BLACK WEEK 2026 · the Black Week homepage (section group, shown when html.bw-on){%- endcomment -%}
+      {%- if template.name == 'index' -%}
+        {%- sections 'bw-home-group' -%}
+      {%- endif -%}
       {{ content_for_layout }}
 
       {%- comment -%}

@@ -2,6 +2,49 @@
   "type": "header",
   "name": "Header group",
   "sections": {
+    "announcement-bar": {
+      "type": "announcement-bar",
+      "blocks": {
+        "message": {
+          "type": "message",
+          "settings": {
+            "text": "Över 50 000 nöjda kunder",
+            "url": ""
+          }
+        },
+        "message_UAf7kE": {
+          "type": "message",
+          "settings": {
+            "text": "Leverans inom 2-4 dagar",
+            "url": ""
+          }
+        },
+        "message_gQBcpG": {
+          "type": "message",
+          "settings": {
+            "text": "Har du frågor? Chatta med oss live",
+            "url": ""
+          }
+        }
+      },
+      "block_order": [
+        "message",
+        "message_UAf7kE",
+        "message_gQBcpG"
+      ],
+      "disabled": true,
+      "settings": {
+        "enable_sticky": false,
+        "autoplay": false,
+        "cycle_speed": 4,
+        "text_size": "text-xs",
+        "navigation_mode": "scrolling",
+        "scrolling_speed": 30,
+        "background": "#c43637",
+        "background_gradient": "",
+        "text_color": "#ffffff"
+      }
+    },
     "bw_announcement": {
       "type": "bw-announcement",
       "settings": {
@@ -17,11 +60,154 @@
       },
       "disabled": true
     },
+    "cs_announcement_bar_jEXaEY": {
+      "type": "cs-announcement-bar",
+      "blocks": {
+        "anc_mobile_ritNhQ": {
+          "type": "anc_mobile",
+          "settings": {
+            "anc_img_svg": "",
+            "text": "Leverans inom 2-4 dagar",
+            "link": ""
+          }
+        },
+        "anc_mobile_Ycj9cP": {
+          "type": "anc_mobile",
+          "settings": {
+            "anc_img_svg": "",
+            "text": "∙",
+            "link": ""
+          }
+        },
+        "anc_mobile_X3hLYN": {
+          "type": "anc_mobile",
+          "settings": {
+            "anc_img_svg": "",
+            "text": "Över 50 000 nöjda kunder",
+            "link": ""
+          }
+        },
+        "anc_mobile_DgC6fr": {
+          "type": "anc_mobile",
+          "settings": {
+            "anc_img_svg": "",
+            "text": "∙",
+            "link": ""
+          }
+        },
+        "anc_mobile_9iFnmc": {
+          "type": "anc_mobile",
+          "settings": {
+            "anc_img_svg": "",
+            "text": "Fri frakt över 899 kr",
+            "link": ""
+          }
+        },
+        "country_selector_WQqYrx": {
+          "type": "country_selector",
+          "settings": {
+            "current_store": true,
+            "country_image": "shopify://shop_images/svgexport-4_430x_2.svg",
+            "link": "https://aroxfitness.se"
+          }
+        },
+        "country_selector_W3HxpT": {
+          "type": "country_selector",
+          "settings": {
+            "current_store": false,
+            "country_image": "shopify://shop_images/flag-round-250.png",
+            "link": "https://aroxfitness.de"
+          }
+        },
+        "country_selector_WWkbY3": {
+          "type": "country_selector",
+          "settings": {
+            "current_store": false,
+            "country_image": "shopify://shop_images/svgexport-3_430x_2.svg",
+            "link": "https://aroxfitness.dk"
+          }
+        }
+      },
+      "block_order": [
+        "anc_mobile_ritNhQ",
+        "anc_mobile_Ycj9cP",
+        "anc_mobile_X3hLYN",
+        "anc_mobile_DgC6fr",
+        "anc_mobile_9iFnmc",
+        "country_selector_WQqYrx",
+        "country_selector_W3HxpT",
+        "country_selector_WWkbY3"
+      ],
+      "name": "Mini header",
+      "settings": {
+        "transition_delay": 19,
+        "background_d": "#c43637",
+        "text_color_d": "#ffffff",
+        "padding_top": 10,
+        "padding_bottom": 10
+      }
+    },
     "bw_marquee": {
       "type": "bw-marquee",
       "settings": {
         "phases": "",
         "text": "BLACK WEEK 20/11–30/11 · Limited edition, 3 för 2 och 4 för 2 på utvalda produkter · BLACK WEEK 20/11–30/11 · Leverans inom 2–4 dagar · Över 50 000 nöjda kunder · Fri frakt vid köp över 899 kr"
+      }
+    },
+    "header": {
+      "type": "header",
+      "blocks": {
+        "country_selector_wmLCKm": {
+          "type": "country_selector",
+          "settings": {
+            "current_store": false,
+            "country_image": "shopify://shop_images/flag-round-250.png",
+            "link": "https://aroxfitness.de/"
+          }
+        },
+        "country_selector_MWzhxf": {
+          "type": "country_selector",
+          "settings": {
+            "current_store": false,
+            "country_image": "shopify://shop_images/svgexport-3_430x_2.svg",
+            "link": "https://aroxfitness.dk"
+          }
+        },
+        "country_selector_e8HXir": {
+          "type": "country_selector",
+          "settings": {
+            "current_store": true,
+            "country_image": "shopify://shop_images/svgexport-4_430x_2.svg",
+            "link": "https://aroxfitness.se"
+          }
+        }
+      },
+      "block_order": [
+        "country_selector_wmLCKm",
+        "country_selector_MWzhxf",
+        "country_selector_e8HXir"
+      ],
+      "settings": {
+        "enable_sticky": true,
+        "hide_on_scroll": false,
+        "logo": "shopify://shop_images/logotrademark.png",
+        "logo_max_width": 120,
+        "logo_mobile_max_width": 100,
+        "menu": "main-menu",
+        "sidebar_menu": "",
+        "secondary_menu": "",
+        "menu_open_trigger": "hover",
+        "opening_from": "left",
+        "layout": "logo_center_navigation_inline",
+        "show_social_media": true,
+        "show_locale_selector": false,
+        "show_country_selector": false,
+        "show_country_flag": false,
+        "show_country_name": false,
+        "transparent_header_text_color": "#ffffff",
+        "reduce_padding": false,
+        "background_opacity": 100,
+        "background_blur_radius": 0
       }
     },
     "bw_header": {
@@ -50,8 +236,11 @@
     }
   },
   "order": [
+    "announcement-bar",
     "bw_announcement",
+    "cs_announcement_bar_jEXaEY",
     "bw_marquee",
+    "header",
     "bw_header",
     "bw_campaign_topbar"
   ]
