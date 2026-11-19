@@ -8,16 +8,17 @@ html.bw-pre .bw-dawn-progress, html.bw-ended .bw-dawn-progress,
 html.bw-pre .bw-dawn-pdp, html.bw-ended .bw-dawn-pdp { display: none !important; }
 
 /* gift bar in the cart drawer */
-.bw-dawn-progress { margin: 0 0 1.6rem; padding: 1.2rem 1.4rem 2.6rem; background: #0a0a0a; color: #fff; font-family: Archivo, sans-serif; }
+.bw-dawn-progress { margin: 0 0 1.6rem; padding: 1.2rem 1.4rem 1.2rem; background: #0a0a0a; color: #fff; font-family: Archivo, sans-serif; }
 .bw-dawn-progress__msg { margin: 0 0 1rem; font-size: 1.3rem; line-height: 1.35; letter-spacing: .01em; }
 .bw-dawn-progress__msg strong { font-weight: 800; }
 .bw-dawn-progress__bar { position: relative; height: 6px; background: rgba(255,255,255,.18); border-radius: 3px; margin: 0 6px; }
 .bw-dawn-progress__fill { position: absolute; left: 0; top: 0; bottom: 0; background: #fff; border-radius: 3px; transition: width .4s ease; }
 .bw-dawn-progress__mark { position: absolute; top: 50%; width: 12px; height: 12px; margin: -6px 0 0 -6px; border-radius: 50%; background: #3a3a3a; border: 2px solid #0a0a0a; }
 .bw-dawn-progress__mark.is-done { background: #fff; }
-.bw-dawn-progress__labels { position: relative; height: 0; margin: 0 6px; }
-.bw-dawn-progress__labels span { position: absolute; top: 8px; transform: translateX(-50%); white-space: nowrap; font-size: 1.05rem; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; color: rgba(255,255,255,.75); }
-.bw-dawn-progress__labels span:last-child { transform: translateX(-100%); }
+.bw-dawn-progress__labels { display: flex; justify-content: space-between; gap: 1.2rem; margin: .9rem 0 0; }
+.bw-dawn-progress__labels span { font-size: 1.05rem; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; color: rgba(255,255,255,.55); }
+.bw-dawn-progress__labels span.is-done { color: #fff; }
+.bw-dawn-progress__labels span:last-child { text-align: right; }
 
 /* gift line in Dawn's cart drawer and cart page: label, no quantity input (bw.js keeps it at 1) */
 .bw-dawn-gift-tag { margin: .4rem 0 0; display: inline-block; padding: .2rem .8rem; background: #0a0a0a; color: #fff; font-size: 1.1rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; }

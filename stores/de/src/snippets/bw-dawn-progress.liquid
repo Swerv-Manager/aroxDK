@@ -33,8 +33,8 @@ free AROX Trinkflasche 1000 ml from 109 € (gift product bw-gave-hydration-bott
       <span class="bw-dawn-progress__mark{% if bw_total >= bw_gift_at %} is-done{% endif %}" style="left: 100%"></span>
     </div>
     <div class="bw-dawn-progress__labels">
-      <span style="left: {{ bw_ship_pct }}%">69,99 € · Gratis Versand</span>
-      <span style="left: 100%">109 € · Trinkflasche</span>
+      <span{% if bw_total >= bw_ship_at %} class="is-done"{% endif %}>Gratis Versand ab 69,99 €</span>
+      <span{% if bw_total >= bw_gift_at %} class="is-done"{% endif %}>Trinkflasche ab 109 €</span>
     </div>
   </div>
 {%- endif -%}
