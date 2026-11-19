@@ -35,12 +35,44 @@
             "sub": "De 2 billigste er gratis",
             "url": "shopify://collections/black-week-4for2"
           }
+        },
+        "sub_all": {
+          "type": "sub",
+          "settings": {
+            "label": "Alle i 4 for 2",
+            "url": "shopify://collections/black-week-4for2"
+          }
+        },
+        "sub_kvinde": {
+          "type": "sub",
+          "settings": {
+            "label": "Alt kvinde tøj",
+            "url": "shopify://collections/black-week-4for2-kvinde"
+          }
+        },
+        "sub_herre": {
+          "type": "sub",
+          "settings": {
+            "label": "Alt herre tøj",
+            "url": "shopify://collections/black-week-4for2-herre"
+          }
+        },
+        "sub_udstyr": {
+          "type": "sub",
+          "settings": {
+            "label": "Alt udstyr",
+            "url": "shopify://collections/black-week-4for2-udstyr"
+          }
         }
       },
       "block_order": [
         "nav_le",
         "nav_s3",
-        "nav_s4"
+        "nav_s4",
+        "sub_all",
+        "sub_kvinde",
+        "sub_herre",
+        "sub_udstyr"
       ],
       "settings": {
         "phases": "",
@@ -70,7 +102,8 @@
         "line": "",
         "link_label": "",
         "pad_top": 20,
-        "pad_bottom": 0
+        "pad_bottom": 0,
+        "collection": "black-week-4for2"
       }
     },
     "main": {

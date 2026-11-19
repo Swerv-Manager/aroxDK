@@ -3,7 +3,7 @@ BLACK WEEK 2026 · board 07 (and 04–06 pages) · collection page head: breadcr
 short offer line and the Black Week offer navigation (cards; the card whose link matches the page, or that is set
 active, is red). Styles: .bw-ch* in assets/bw.css.
 Params: title · show_crumb · crumb_parent · crumb_parent_url · badge · line · blocks (nav cards: label, sub, url,
-active) or nav (text: 'Label|Undertekst|/url; …', used by the static section) · padding_bottom (px under the nav)
+active; blocks of type 'sub' are the sub-collection tabs, rendered by the section) or nav (text: 'Label|Undertekst|/url; …', used by the static section) · padding_bottom (px under the nav)
 {%- endcomment -%}
 {%- assign bw_here = request.path -%}
 <div class="bw-ch__top">
@@ -40,10 +40,16 @@ active) or nav (text: 'Label|Undertekst|/url; …', used by the static section) 
   <div class="bw-ch__nav" style="padding-bottom:{{ padding_bottom | default: 0 }}px">
     <div class="bw-ch__navrow">
       {%- for block in blocks -%}
+        {%- if block.type == 'sub' -%}{%- continue -%}{%- endif -%}
         {%- liquid
           assign bw_url = block.settings.url | default: '#'
           assign bw_cur = block.settings.active
           if bw_url == bw_here or bw_url == collection.url or bw_url == page.url
+            assign bw_cur = true
+          endif
+          # sub-collections of an offer (e.g. /collections/black-week-4for2-kvinde) keep the offer's card red
+          assign bw_pre = bw_url | append: '-'
+          if bw_url != '#' and bw_here contains bw_pre
             assign bw_cur = true
           endif
         -%}

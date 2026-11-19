@@ -27,6 +27,24 @@ Markup: snippets bw-coll-head / bw-coll-toolbar, styles .bw-ch* / .bw-tb* in ass
     blocks: section.blocks,
     padding_bottom: section.settings.padding_bottom
   -%}
+  {%- liquid
+    assign bw_subs = section.blocks | where: 'type', 'sub'
+  -%}
+  {%- if bw_subs.size > 0 -%}
+    {%- comment -%}Sub-collection tabs (Sebastian 19.11): the tab whose collection is the page is white. Count = products in that collection.{%- endcomment -%}
+    <nav class="bw-ch__subs" aria-label="Kategorier">
+      {%- for block in bw_subs -%}
+        {%- liquid
+          assign bw_su = block.settings.url | default: '#'
+          assign bw_sh = bw_su | split: '/' | last
+          assign bw_sc = collections[bw_sh].products_count
+        -%}
+        <a href="{{ bw_su }}" class="bw-ch__sub" {% if bw_su == request.path or bw_su == collection.url %}aria-current="page"{% endif %} {{ block.shopify_attributes }}>
+          <span>{{ block.settings.label }}</span>{% if bw_sc > 0 %}<span class="bw-ch__subn">{{ bw_sc }}</span>{% endif %}
+        </a>
+      {%- endfor -%}
+    </nav>
+  {%- endif -%}
   {%- if section.settings.show_toolbar and collection != blank -%}
     {%- render 'bw-coll-toolbar', hide: section.settings.filter_hide, rename: section.settings.filter_rename -%}
   {%- endif -%}
@@ -36,7 +54,7 @@ Markup: snippets bw-coll-head / bw-coll-toolbar, styles .bw-ch* / .bw-tb* in ass
 {
   "name": "BW · Kollektionsheader",
   "class": "bw-section",
-  "max_blocks": 6,
+  "max_blocks": 12,
   "settings": [
     { "type": "paragraph", "content": "Black Week 2026 · board 07. Brødkrumme, titel, tilbudslinje og Black Week-navigation. Det kort hvis link matcher siden, bliver rødt." },
     { "type": "text", "id": "phases", "label": "Vis kun i faser", "info": "pre, early, live, sidste · tom = altid" },
@@ -62,6 +80,15 @@ Markup: snippets bw-coll-head / bw-coll-toolbar, styles .bw-ch* / .bw-tb* in ass
         { "type": "text", "id": "sub", "label": "Undertekst", "default": "Den billigste er gratis" },
         { "type": "url", "id": "url", "label": "Link" },
         { "type": "checkbox", "id": "active", "label": "Vis som valgt (rød)", "default": false }
+      ]
+    },
+    {
+      "type": "sub",
+      "name": "Underkategori (fane)",
+      "settings": [
+        { "type": "paragraph", "content": "Faner under navigationen, fx Alle i 4 for 2 / Alt kvinde tøj / Alt herre tøj / Alt udstyr. Fanen hvis kollektion er siden, bliver hvid." },
+        { "type": "text", "id": "label", "label": "Titel", "default": "Alt kvinde tøj" },
+        { "type": "url", "id": "url", "label": "Kollektion" }
       ]
     }
   ],
