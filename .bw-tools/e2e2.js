@@ -1,0 +1,42 @@
+// Second half: socks pick, gift qty normalize, drop below tiers, gift added directly. Few page loads, retries on 429.
+const { chromium } = require('playwright');
+const out = process.argv[2];
+const wait = ms => new Promise(r => setTimeout(r, ms));
+(async () => {
+  const b = await chromium.launch();
+  const ctx = await b.newContext({ viewport: { width: 1440, height: 1000 }, userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0 Safari/537.36' });
+  const p = await ctx.newPage();
+  await p.route(/googletagmanager|klaviyo|trustpilot|facebook|codeblackbelt|ahrefs|instagram|clarity|loox|kiwi/, r => r.abort());
+  const errs = []; p.on('pageerror', e => { if (!/cdn\.shopify|marketingAllowed|Invalid IP/.test(e.message)) errs.push(String(e.message).slice(0, 150)); });
+  const URL = 'https://aroxfitness.dk/pages/black-week-vilkaar?preview_theme_id=191537611081&bw_phase=early';
+  const go = async (ms = 6000) => { await p.goto(URL, { waitUntil: 'domcontentloaded', timeout: 90000 }); await p.waitForTimeout(ms); };
+  const J = async (path, body) => { for (let k = 0; k < 8; k++) { const r = await p.evaluate(async ([path, body]) => { const r = await fetch(path, body ? { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) } : {}); return { s: r.status, t: await r.text() }; }, [path, body]); if (r.s === 200) { try { return JSON.parse(r.t); } catch (e) { return r.t; } } await wait(8000 * (k + 1)); } throw new Error('429 ' + path); };
+  const show = async label => { const c = await J('/cart.js'); console.log(`\n${label}\n  total ${c.total_price / 100} kr · ` + c.items.map(i => `${i.quantity}× ${i.product_title.slice(0, 20)} ${i.final_line_price / 100}${i.properties && i.properties._bw_gift ? ' [' + i.properties._bw_gift + ']' : ''}`).join(' | ')); return c; };
+  const vid = async (h, n = 0) => (await J('/products/' + h + '.js')).variants.filter(v => v.available)[n].id;
+  await go(1500);
+  await J('/cart/clear.js', {});
+  const A = await vid('arox-anti-slip-grips'), H = await vid('active-hoodie'), S = await vid('arox-dri-tech-performance-shorts-2-0'), G = await vid('bw-gave-hydration-bottle');
+  await J('/cart/add.js', { items: [{ id: A, quantity: 1 }, { id: H, quantity: 2 }, { id: S, quantity: 1 }] });  // 399+998+349 = 1746, no codes
+  await go(); await show('A) 1.746 kr. uden rabatkoder → flaske kommer af sig selv, strømpevælger vises');
+  await p.evaluate(() => document.querySelector('cart-drawer').show()); await p.waitForTimeout(1500);
+  const pick = p.locator('[data-bw-gift-pick][data-key="g3"]');
+  console.log('  strømpevælger synlig:', await pick.isVisible().catch(() => false), '· tekst:', (await pick.innerText().catch(() => '')).replace(/\s+/g, ' ').slice(0, 120));
+  await pick.locator('select').selectOption({ index: 2 }); await pick.locator('[data-bw-gift-add]').click(); await p.waitForTimeout(7000);
+  await show('B) strømper valgt i vælgeren');
+  await p.screenshot({ path: out + '/e2e-drawer-gifts.png' });
+  const m390 = await b.newContext({ viewport: { width: 390, height: 844 }, storageState: await ctx.storageState() });
+  const q = await m390.newPage(); await q.route(/googletagmanager|klaviyo|trustpilot|facebook|clarity|loox|kiwi/, r => r.abort());
+  await q.goto(URL, { waitUntil: 'domcontentloaded', timeout: 90000 }); await q.waitForTimeout(5000);
+  await q.evaluate(() => document.querySelector('cart-drawer').show()); await q.waitForTimeout(2000);
+  await q.screenshot({ path: out + '/e2e-drawer-390.png' }); await m390.close();
+  const c = await J('/cart.js'); const gk = c.items.find(i => i.properties && i.properties._bw_gift === 'g2').key;
+  await J('/cart/change.js', { id: gk, quantity: 3 }); await go(); await show('C) flaske-gave sat til 3 stk. → skal tilbage til 1');
+  const hk = (await J('/cart.js')).items.find(i => i.variant_id === H).key;
+  await J('/cart/change.js', { id: hk, quantity: 0 }); await go(); await show('D) hoodies fjernet → 748 kr. (under 799) → begge gaver skal væk');
+  await J('/cart/clear.js', {});
+  await J('/cart/add.js', { items: [{ id: G, quantity: 1, properties: { _bw_gift: 'g2' } }, { id: S, quantity: 1 }] });
+  await go(); await show('E) gave lagt direkte i kurven ved 349 kr. → skal fjernes');
+  await J('/cart/clear.js', {});
+  console.log('\nJS-fejl (uden blokeret CDN):', errs.length ? [...new Set(errs)].join(' | ') : 'ingen');
+  await b.close();
+})();

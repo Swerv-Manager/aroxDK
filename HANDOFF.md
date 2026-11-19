@@ -35,7 +35,8 @@ The separate per-phase announcement bar stays hidden (user decision): pages show
 - Stepped progress bar in the cart drawer (client request 16.11, not in the design file): 499 kr. fri fragt ·
   799 kr. gratis Hydration Bottle (`arox-hydration-bottle-1000-ml`) · 1299 kr. gratis 3-pak strømper (`stromper-3-pak`).
   Steps are evenly spaced, reached at `cart.total_price >=` amount. Amounts, texts, gift products and phases
-  (default `pre early live sidste`; theme's own free shipping bar in the other phases) are cart drawer settings.
+  (default `early live sidste` since 19.11, so no gifts before the campaign starts 20.11 kl. 12:00; theme's own free
+  shipping bar (499 kr.) in the other phases) are cart drawer settings.
   `bw.js` swaps the bar at once on `cart:change`. Tested at 0–1500 kr. with `.bw-tools/progress-test.js` and in the
   preview with `.bw-tools/cart.js` / `qty.js`.
 - Homepage 16.11: sections not in the design are disabled (not deleted, re-enable 01.12): the old "5 år" banner,
@@ -105,6 +106,37 @@ The separate per-phase announcement bar stays hidden (user decision): pages show
   theme adds/removes them (bw.js syncGifts) and never lists bw-gave products. A 0 kr. gift added outside the theme
   (cart permalink) is only removed on the next cart view. Tested end to end 18.11.
 
+## Launch check 19.11 (DK)
+
+Checked: live theme unchanged since the work theme was made (nothing lost on publish); every repo file matches the work
+theme (only Shopify's own JSON re-formatting differs). Crawl of 19 pages × 5 phases × 390/1440 (190 loads,
+`crawl.js`): no Liquid errors, no horizontal overflow, no broken images, all 129 internal links 200; only JS errors are
+blocked third-party scripts (cdn.shopify.com) in the cloud environment. Cart in the preview (test codes, phase early):
+3 for 2 gives the cheapest of 3 free; 4 for 2 gives the 2 cheapest of 4 free and nothing at 3; both together work;
+Hydration Bottle is added at 0 kr. at 799 kr.; the socks picker shows at 1.299 kr.
+Fixed 19.11 (commit 7470a1f): gifts + stepped bar only in early/live/sidste; 799/1299 gifts added to the terms and
+FAQ (`page.black-week-vilkaar`); BW footer carries `shopify-section--footer` (Impact's floating filter threw on
+collection/search pages); toolbar count = products shown; socks gift product got its missing `bw-gave` tag.
+
+Go-live list (client / Frederik):
+1. Publish the work theme before fredag 20.11 kl. 12:00 (the phase switches by itself in the browser).
+2. Limited blackout: "Anti slip grips pro (BLACKWEEK EDITION)" and "Fusion grips pro (BLACKWEEK LIMITED)" are drafts
+   with 0 stock; black Elite belt and speedrope elite do not exist yet. Activate, stock, add to
+   `black-week-limited-edition` and pick them in the Limited groups on `/pages/limited-blackout`. Until then the page only
+   shows Strømper 3-pak. Also drafts: Flextape 10 ruller, active hoodie dark grey, two stone grey shorts.
+3. Compare-at prices are shown as "Normalpris" (§ 9 a: must be the lowest price of the last 30 days). New products
+   with a compare-at price (Anti slip grips BLACKWEEK EDITION 399, Fusion grips BLACKWEEK LIMITED 349) have no such
+   price history.
+4. Thermo stålflaske 1,06 L (first 100 orders) shows 0 in stock in Shopify; decide how the 100 are packed.
+5. One real test order with a gift (bundle) through Peak WMS.
+6. Check in a real checkout: free shipping from exactly 499 kr. (Zippendo), gifts at 0 kr.
+7. Checkout message (checkout editor), see "Admin actions".
+8. Klaviyo (Nexus sync 19.11): all "BW26v2 DK 01–08" campaigns are drafts, none scheduled, incl. 03 presale 20.11
+   kl. 12:00.
+9. After the test: delete BWTEST3FOR2 / BWTEST4FOR2 (they expire 20.11 kl. 11:59 anyway).
+10. After 30.11 kl. 23:59 the theme still shows the offers (phase `ended` hides only a few elements): publish the
+    normal theme again right after, or build an ended state first.
+
 ## Fast workflow (needs network access to aroxfitness.myshopify.com and aroxfitness.dk)
 
 The environment's network policy now allows the store (added 16.11); `cdn.shopify.com` is still blocked, which only
@@ -172,6 +204,8 @@ that its free shipping rule also applies at exactly 499 kr. (the bar and the "Le
 `ref.js` design reference renderer (optional 3rd arg: board prefix, e.g. `10`) · `page.js` full-page preview
 screenshot + section list · `filter.js` filter/sort check · `pdp.js` variant + add-to-cart check · `overview.py` theme vs design side by side · `cart.js` cart drawer screenshot in
 the preview · `qty.js` live quantity-change check · `progress-test.js` progress bar at many cart totals (liquidjs) ·
+`crawl.js` all BW pages × phases × widths (Liquid errors, JS errors, overflow, broken images, links) · `e2e.js` /
+`e2e2.js` cart: offers with test codes, gifts, removal · `sheet.py` long screenshots as one contact sheet ·
 `cmp.py` side-by-side crops · `lint.js` Liquid/JSON parse check
 (needs `@shopify/liquid-html-parser`) · `schemacheck.py` Shopify schema limits · `xcheck.py` / `valcheck.py`
 template ↔ schema checks · `tj.py` load/dump theme JSON keeping the comment header. Paths inside are from the old
