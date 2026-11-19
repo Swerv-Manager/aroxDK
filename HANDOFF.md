@@ -279,6 +279,22 @@ cart drawer (Thermo info line removed; snippet bw-cart-gift unused), section def
 so they always combine; the tiers count the cart after discount (as the terms say).
 **Status: committed (3d2efa5); uploaded to DE and DK (19.11, 16 files, code checksums match; DK preview: no Thermo text on home, landing, gift, terms, 3/4 for 2 pages, PDP and drawer, no Liquid errors); uploaded to SE 19.11 (16 files, all checksums match; SE preview: no Thermo text on home, landing, presenter, villkor, 3/4 för 2 pages, PDP and drawer, no Liquid errors). Done on all three markets.**
 
+## 4 for 2 sub-collections (Sebastian 19.11, DK first; Single offers / 3 for 2 / SE / DE later)
+- Manual collections, template `black-week-4for2`, Online Store only: "Alt kvinde tøj (4 for 2)"
+  `black-week-4for2-kvinde` (34: tag kvindetøj), "Alt herre tøj (4 for 2)" `black-week-4for2-herre` (25: tag
+  herretøj or herreunderdele), "Alt udstyr (4 for 2)" `black-week-4for2-udstyr` (10: grips, weightlifting belts,
+  sweatbands). The 12 unisex tees are in both kvinde and herre. Manual = a product Sebastian adds to 4 for 2 must also
+  be added to its sub-collection.
+- Theme: `bw-collection-header` block type `sub` = tabs under the offer cards (Alle i 4 for 2 · Alt kvinde tøj · Alt
+  herre tøj · Alt udstyr) with counts as the toolbar (products for sale; over 50 the total); the tab of the page is
+  white, the 4 for 2 card stays red on the sub-collections (`bw-coll-head`: card url is a prefix of the page). Tabs
+  wrap on phones. `bw-offer-progress` setting `more_collections`: Liquid reads only 50 products per collection, 4 for 2
+  has 57, so the progress bar also reads the three sub-collections (all 57 count; also on the sub pages). The 4 for 2
+  discount is on black-week-4for2, so items from different tabs combine.
+- SE/DE builds leave out `sub` blocks and `more_collections` until those markets get their own sub-collections.
+- Uploaded to the DK work theme 19.11 (commits b5197b7, 773491b, 9096dd9; checksums match); preview checked: tabs,
+  active states, counts 57/33/24/10, no Liquid errors. Screenshots: `screenshots/4for2-*.png`.
+
 ## Fast workflow (needs network access to aroxfitness.myshopify.com and aroxfitness.dk)
 
 The environment's network policy now allows the store (added 16.11); `cdn.shopify.com` is still blocked, which only
