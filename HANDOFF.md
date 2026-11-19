@@ -106,6 +106,17 @@ The separate per-phase announcement bar stays hidden (user decision): pages show
   theme adds/removes them (bw.js syncGifts) and never lists bw-gave products. A 0 kr. gift added outside the theme
   (cart permalink) is only removed on the next cart view. Tested end to end 18.11.
 
+- Client feedback 19.11 (commit c5f18a6; uploaded to SE, DK upload pending until the connector is back on DK):
+  product pages get two carousels at the bottom, "Med i 3 for 2" / "Med i 4 for 2" (sections `bw_row_3for2`,
+  `bw_row_4for2`, bw-product-row with the new settings `carousel` + `quick_add`; the product itself is skipped; phases
+  pre early live sidste); the producer box (`liquid_bw_gpsr`, Sai Fitness) is disabled (GPSR: the manufacturer's name
+  and address must still be available for EU product listings, e.g. in the description); product card badges sit in
+  one wrapping row (no overlap on narrow cards); the offer nav cards (Single offers / 3 for 2 / 4 for 2) stack on
+  phones; circles row without scrollbar. Phase switching verified with a fake clock (`phaseclock.js`): pre until 20.11
+  12:00, early until 22.11 20:00, live, sidste from 30.11 00:00, ended after 30.11 23:59; content per phase as in the
+  design (early = live hero with the "Tidlig adgang slutter om" countdown; signup hidden in live). The early (VIP)
+  phase is open to everybody: the automatic discounts start 20.11 12:00 (Frederik's choice 16.11).
+
 ## Launch check 19.11 (DK)
 
 Checked: live theme unchanged since the work theme was made (nothing lost on publish); every repo file matches the work
