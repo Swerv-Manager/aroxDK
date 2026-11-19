@@ -452,6 +452,32 @@ Impact re-renders, so cart updates keep working in both.
     </div>
     </div>
   {%- endif -%}
+  <script>
+  document.addEventListener("DOMContentLoaded", function() {
+    document.body.addEventListener("cart:updated", function(event) {
+      fetch('/cart.js')
+        .then(response => response.json())
+        .then(cart => {
+          if (cart.items.length > 0) {
+            let lastItem = cart.items[cart.items.length - 1]; // Senest tilføjede produkt
+            
+            _learnq.push(['track', 'Added to Cart', {
+              ProductName: lastItem.product_title,
+              ProductID: lastItem.id,
+              Price: (lastItem.final_line_price / 100).toFixed(2), // Konvertering fra cents til DKK
+              Quantity: lastItem.quantity,
+              URL: window.location.origin + lastItem.url,
+              ImageURL: lastItem.featured_image.url
+            }]);
+
+            console.log("Klaviyo Added to Cart event sendt:", lastItem);
+          }
+        })
+        .catch(error => console.error("Fejl ved hentning af cart data:", error));
+    });
+  });
+</script>
+
 </cart-drawer>
 
 {% schema %}

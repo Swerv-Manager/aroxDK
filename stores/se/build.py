@@ -85,6 +85,39 @@ for path in CODE:
             problems.append(f'{rel}: still Danish? {line.strip()[:120]}')
     write(rel, s)
 
+# SE live has a Klaviyo "Added to Cart" script at the end of its cart drawer (DK's does not): keep it, exactly as live
+SE_KLAVIYO = """  <script>
+  document.addEventListener("DOMContentLoaded", function() {
+    document.body.addEventListener("cart:updated", function(event) {
+      fetch('/cart.js')
+        .then(response => response.json())
+        .then(cart => {
+          if (cart.items.length > 0) {
+            let lastItem = cart.items[cart.items.length - 1]; // Senest tilføjede produkt
+            
+            _learnq.push(['track', 'Added to Cart', {
+              ProductName: lastItem.product_title,
+              ProductID: lastItem.id,
+              Price: (lastItem.final_line_price / 100).toFixed(2), // Konvertering fra cents til DKK
+              Quantity: lastItem.quantity,
+              URL: window.location.origin + lastItem.url,
+              ImageURL: lastItem.featured_image.url
+            }]);
+
+            console.log("Klaviyo Added to Cart event sendt:", lastItem);
+          }
+        })
+        .catch(error => console.error("Fejl ved hentning af cart data:", error));
+    });
+  });
+</script>
+
+"""
+_cd = os.path.join(OUT, 'sections', 'cart-drawer.liquid')
+_s = read(_cd)
+assert _s.count('</cart-drawer>') == 1 and '_learnq' not in _s
+write('sections/cart-drawer.liquid', _s.replace('</cart-drawer>', SE_KLAVIYO + '</cart-drawer>'))
+
 # ---------------------------------------------------------------------------------------------------- layout
 lay = read(os.path.join(HERE, 'base', 'layout', 'theme.liquid'))
 head_old = "    {{- 'theme.css' | asset_url | stylesheet_tag: preload: true -}}\n  </head>"
