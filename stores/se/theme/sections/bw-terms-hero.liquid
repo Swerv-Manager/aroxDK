@@ -1,0 +1,20 @@
+{%- comment -%}BLACK WEEK 2026 · Vilkår-hero (board 11): eyebrow + two-line H1, no image.{%- endcomment -%}
+<div class="bw bw-th{% render 'bw-only', phases: section.settings.phases %}">
+  <div class="bw-sec" style="gap:14px">
+    {%- if section.settings.eyebrow != blank -%}<div class="bw-eyebrow">{{ section.settings.eyebrow }}</div>{%- endif -%}
+    <h1 class="bw-h1" style="font-size:clamp(40px,5.2vw,76px);letter-spacing:-.01em;line-height:.95">{{ section.settings.heading_1 }}{% if section.settings.heading_2 != blank %}<br>{{ section.settings.heading_2 }}{% endif %}</h1>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "BW · Vilkår-hero",
+  "settings": [
+    { "type": "text", "id": "phases", "label": "Vis kun i faser", "info": "pre, early, live, sidste · tom = altid" },
+    { "type": "text", "id": "eyebrow", "label": "Overlinje", "default": "Kampagnevilkår · Black Week 20.11–30.11.2026" },
+    { "type": "text", "id": "heading_1", "label": "Overskrift linje 1", "default": "Black Week." },
+    { "type": "text", "id": "heading_2", "label": "Overskrift linje 2", "default": "Vilkår og FAQ." }
+  ],
+  "presets": [{ "name": "BW · Vilkår-hero" }]
+}
+{% endschema %}

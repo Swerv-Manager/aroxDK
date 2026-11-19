@@ -1,0 +1,167 @@
+{
+  "sections": {
+    "bw_header": {
+      "type": "bw-collection-header",
+      "blocks": {
+        "nav_le": {
+          "type": "link",
+          "settings": {
+            "label": "Single offers",
+            "sub": "Fast Black Week-pris",
+            "url": "shopify://collections/black-week-limited-edition"
+          }
+        },
+        "nav_s3": {
+          "type": "link",
+          "settings": {
+            "label": "3 för 2",
+            "sub": "Den billigaste är gratis",
+            "url": "shopify://collections/black-week-3for2"
+          }
+        },
+        "nav_s4": {
+          "type": "link",
+          "settings": {
+            "label": "4 för 2",
+            "sub": "De 2 billigaste är gratis",
+            "url": "shopify://collections/black-week-4for2"
+          }
+        }
+      },
+      "block_order": [
+        "nav_le",
+        "nav_s3",
+        "nav_s4"
+      ],
+      "settings": {
+        "phases": "",
+        "show_crumb": true,
+        "crumb_parent": "Black Week",
+        "crumb_parent_url": "shopify://pages/black-week",
+        "badge": "Black Week",
+        "title": "3 för 2",
+        "line": "Välj 3 produkter bland alla på den här sidan, så är den billigaste gratis.",
+        "padding_bottom": 0,
+        "dark_page": true,
+        "show_toolbar": true,
+        "filter_hide": "Brand, Varumärke",
+        "filter_rename": "Produkttyp=Kategori; Produkttype=Kategori"
+      }
+    },
+    "bw_progress": {
+      "type": "bw-offer-progress",
+      "settings": {
+        "phases": "",
+        "n": "3",
+        "free": "1",
+        "todo": "Välj [n] till så får du den billigaste gratis",
+        "done": "Rabatten dras automatiskt i varukorgen.",
+        "note": "Den billigaste av de 3 produkterna är gratis. Rabatten dras automatiskt i varukorgen.",
+        "heading": "",
+        "line": "",
+        "link_label": "",
+        "pad_top": 20,
+        "pad_bottom": 0
+      }
+    },
+    "bw_grid": {
+      "type": "bw-collection-grid",
+      "settings": {
+        "phases": "",
+        "heading": "",
+        "badge": "",
+        "pad_top": 24,
+        "pad_bottom": 24
+      }
+    },
+    "bw_note": {
+      "type": "bw-offer-note",
+      "settings": {
+        "phases": "",
+        "note": "Fri frakt vid köp över 899 kr · annars frakt från 75 kr",
+        "note_light": true,
+        "pad_top": 0,
+        "pad_bottom": 48
+      }
+    },
+    "bw_steps": {
+      "type": "bw-offer-steps",
+      "blocks": {
+        "step_0": {
+          "type": "step",
+          "settings": {
+            "title": "Välj 3 produkter",
+            "text": "Blanda pro grips, shorts och hoodies från 3 för 2."
+          }
+        },
+        "step_1": {
+          "type": "step",
+          "settings": {
+            "title": "Lägg dem i varukorgen",
+            "text": "Rabatten dras automatiskt i varukorgen. Ingen kod behövs."
+          }
+        },
+        "step_2": {
+          "type": "step",
+          "settings": {
+            "title": "Betala för 2",
+            "text": "Den billigaste av de 3 produkterna är gratis."
+          }
+        }
+      },
+      "block_order": [
+        "step_0",
+        "step_1",
+        "step_2"
+      ],
+      "settings": {
+        "phases": "",
+        "eyebrow": "Så fungerar 3 för 2"
+      },
+      "disabled": true
+    },
+    "bw_hero": {
+      "type": "bw-offer-hero",
+      "settings": {
+        "phases": "",
+        "layout": "overlay",
+        "image": "shopify://shop_images/Design_uden_navn-186_397483e9-c9e0-4f59-991b-bff56507b55a.png",
+        "focal_x": 50,
+        "focal_y": 40,
+        "scrim_top": 25,
+        "scrim_bottom": 88,
+        "min_height": 520,
+        "min_height_mobile": 480,
+        "badge": "3 för 2",
+        "eyebrow": "Black Week 20/11–30/11 2026",
+        "heading": "Ta 3.\nBetala för 2.",
+        "heading_tag": "h2",
+        "text": "Blanda pro grips, shorts och hoodies. Den billigaste av de 3 är gratis.",
+        "button_label": ""
+      },
+      "disabled": true
+    },
+    "bw_gift": {
+      "type": "bw-gift-reminder",
+      "settings": {
+        "phases": "",
+        "image": "shopify://shop_images/427_496bbe8d-72cc-421a-9db6-f83a5b270081.png",
+        "heading": "Gåva med i paketet. På köpet.",
+        "text": "Gratis stålflaska till de första 100 beställningarna.",
+        "button_label": "Se gåvorna",
+        "button_url": "shopify://pages/black-week-presenter",
+        "line_top": false
+      },
+      "disabled": true
+    }
+  },
+  "order": [
+    "bw_header",
+    "bw_progress",
+    "bw_grid",
+    "bw_note",
+    "bw_steps",
+    "bw_hero",
+    "bw_gift"
+  ]
+}

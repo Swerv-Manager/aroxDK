@@ -1,0 +1,79 @@
+{%- comment -%}
+BLACK WEEK 2026 · board 07 (Kollektionssider) + 04/05/06 page header.
+Breadcrumb, "Black Week" outline badge + title, short offer line and the Black Week offer navigation
+(Single offers / 3 for 2 / 4 for 2, optionally Gaver / FAQ). The card whose link matches the current page is red.
+On a collection the filter + sort bar of board 07 can follow (snippet bw-coll-toolbar).
+"Mørk side" also turns the live collection grid (main-collection) on this template dark.
+Markup: snippets bw-coll-head / bw-coll-toolbar, styles .bw-ch* / .bw-tb* in assets/bw.css.
+{%- endcomment -%}
+{%- assign bw_title = section.settings.title | default: collection.title | default: page.title -%}
+<div class="bw bw-ch{% render 'bw-only', phases: section.settings.phases %}">
+  {%- if section.settings.dark_page -%}
+    <style>
+      body:has(.bw-ch) { background: #0a0a0a; }
+      .shopify-section[id$="__main"], .shopify-section[id$="__main"] .section {
+        --background: 10 10 10; --text-color: 255 255 255; --border-color: 43 43 43;
+        background: #0a0a0a; color: #fff;
+      }
+    </style>
+  {%- endif -%}
+  {%- render 'bw-coll-head',
+    title: bw_title,
+    show_crumb: section.settings.show_crumb,
+    crumb_parent: section.settings.crumb_parent,
+    crumb_parent_url: section.settings.crumb_parent_url,
+    badge: section.settings.badge,
+    line: section.settings.line,
+    blocks: section.blocks,
+    padding_bottom: section.settings.padding_bottom
+  -%}
+  {%- if section.settings.show_toolbar and collection != blank -%}
+    {%- render 'bw-coll-toolbar', hide: section.settings.filter_hide, rename: section.settings.filter_rename -%}
+  {%- endif -%}
+</div>
+
+{% schema %}
+{
+  "name": "BW · Kollektionsheader",
+  "class": "bw-section",
+  "max_blocks": 6,
+  "settings": [
+    { "type": "paragraph", "content": "Black Week 2026 · board 07. Brødkrumme, titel, tilbudslinje og Black Week-navigation. Det kort hvis link matcher siden, bliver rødt." },
+    { "type": "text", "id": "phases", "label": "Vis kun i faser", "info": "pre, early, live, sidste · tom = altid" },
+    { "type": "checkbox", "id": "show_crumb", "label": "Vis brødkrumme", "default": true },
+    { "type": "text", "id": "crumb_parent", "label": "Brødkrumme-niveau", "default": "Black Week" },
+    { "type": "url", "id": "crumb_parent_url", "label": "Link til brødkrumme-niveau" },
+    { "type": "text", "id": "badge", "label": "Badge", "default": "Black Week" },
+    { "type": "text", "id": "title", "label": "Titel", "info": "Tom = kollektionens titel" },
+    { "type": "text", "id": "line", "label": "Tilbudslinje", "default": "Fast Black Week-pris til og med mandag 30.11 kl. 23:59." },
+    { "type": "range", "id": "padding_bottom", "label": "Afstand under navigation", "min": 0, "max": 48, "step": 2, "unit": "px", "default": 0 },
+    { "type": "checkbox", "id": "dark_page", "label": "Mørk side (gør kollektions-griddet sort)", "default": true },
+    { "type": "header", "content": "Filtre og sortering" },
+    { "type": "checkbox", "id": "show_toolbar", "label": "Vis filtre og sortering", "info": "Kun på kollektioner (board 07).", "default": false },
+    { "type": "text", "id": "filter_hide", "label": "Skjul filtre", "info": "Filternavne adskilt af komma", "default": "Brand" },
+    { "type": "text", "id": "filter_rename", "label": "Omdøb filtre", "info": "Fx Produkttype=Kategori; Pris=Pris", "default": "Produkttype=Kategori" }
+  ],
+  "blocks": [
+    {
+      "type": "link",
+      "name": "Navigationskort",
+      "settings": [
+        { "type": "text", "id": "label", "label": "Titel", "default": "3 for 2" },
+        { "type": "text", "id": "sub", "label": "Undertekst", "default": "Den billigste er gratis" },
+        { "type": "url", "id": "url", "label": "Link" },
+        { "type": "checkbox", "id": "active", "label": "Vis som valgt (rød)", "default": false }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "BW · Kollektionsheader",
+      "blocks": [
+        { "type": "link", "settings": { "label": "Single offers", "sub": "Fast Black Week-pris" } },
+        { "type": "link", "settings": { "label": "3 for 2", "sub": "Den billigste er gratis" } },
+        { "type": "link", "settings": { "label": "4 for 2", "sub": "De 2 billigste er gratis" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

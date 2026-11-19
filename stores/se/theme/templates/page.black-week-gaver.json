@@ -1,0 +1,151 @@
+{
+  "sections": {
+    "hero": {
+      "type": "bw-gift-hero",
+      "blocks": {
+        "gift_1": {
+          "type": "gift",
+          "settings": {
+            "image": "shopify://shop_images/427_496bbe8d-72cc-421a-9db6-f83a5b270081.png",
+            "title": "Stålflaska 1,06 l"
+          }
+        }
+      },
+      "block_order": [
+        "gift_1"
+      ],
+      "settings": {
+        "phases": "",
+        "eyebrow": "Gåva i Black Week",
+        "heading_1": "Gåva med i paketet.",
+        "heading_2": "På köpet.",
+        "text": "Är din beställning bland de första 100 under Black Week får du en gratis stålflaska med. Oavsett belopp.",
+        "btn1_label": "Se single offers",
+        "btn1_url": "/collections/black-week-limited-edition",
+        "btn2_label": "Shoppa 3 för 2",
+        "btn2_url": "/collections/black-week-3for2"
+      }
+    },
+    "rules": {
+      "type": "bw-gift-rules",
+      "blocks": {
+        "rule_1": {
+          "type": "rule",
+          "settings": {
+            "key": "De första 100 beställningarna",
+            "value": "Gratis stålflaska 1,06 l",
+            "text": "Gäller de första 100 beställningarna under Black Week."
+          }
+        },
+        "rule_2": {
+          "type": "rule",
+          "settings": {
+            "key": "Oavsett belopp",
+            "value": "Ingen beloppsgräns",
+            "text": "Det är ordningen som räknas, inte beloppet."
+          }
+        }
+      },
+      "block_order": [
+        "rule_1",
+        "rule_2"
+      ],
+      "settings": {
+        "phases": "",
+        "eyebrow": "Så får du gåvan",
+        "heading_1": "En gåva.",
+        "heading_2": "De första 100.",
+        "note": "Gäller beställningar under Black Week 20/11–30/11 2026."
+      }
+    },
+    "card": {
+      "type": "bw-gift-card",
+      "blocks": {
+        "gift_1": {
+          "type": "gift",
+          "settings": {
+            "image_1": "shopify://shop_images/427_496bbe8d-72cc-421a-9db6-f83a5b270081.png",
+            "image_2": "shopify://shop_images/428_720d86b7-f092-4cf7-803c-1e6214e6ae1f.png",
+            "label": "Gåva · stål",
+            "title": "Stålflaska 1,06 l",
+            "text": "Gratis stålflaska till de första 100 beställningarna."
+          }
+        }
+      },
+      "block_order": [
+        "gift_1"
+      ],
+      "settings": {
+        "phases": ""
+      }
+    },
+    "guide": {
+      "type": "bw-gift-guide",
+      "blocks": {
+        "tab_300": {
+          "type": "tab",
+          "settings": {
+            "label": "Under 300 kr",
+            "products": [
+              "socks-3-pack",
+              "ufiltreret-fitness-limited-steel-flask-1-06-l"
+            ]
+          }
+        },
+        "tab_500": {
+          "type": "tab",
+          "settings": {
+            "label": "Under 500 kr",
+            "products": [
+              "sportstech-unisex-t-shirt-dark-brown-copy",
+              "arox-wolverine-pro-navy-blue",
+              "hybrid-shorts-navy-blue",
+              "sportstech-women-long-top-black"
+            ]
+          }
+        },
+        "tab_1000": {
+          "type": "tab",
+          "settings": {
+            "label": "Under 1 000 kr",
+            "products": [
+              "active-hoodie-black",
+              "arox-anti-slip-grips",
+              "arox-dri-tech-performance-shorts-black"
+            ]
+          }
+        }
+      },
+      "block_order": [
+        "tab_300",
+        "tab_500",
+        "tab_1000"
+      ],
+      "settings": {
+        "phases": "",
+        "eyebrow": "Julklappsguide",
+        "heading": "Julklappar under"
+      }
+    },
+    "cart": {
+      "type": "bw-gift-cart",
+      "settings": {
+        "phases": "",
+        "eyebrow": "I varukorgen",
+        "heading": "Du ser det i varukorgen.",
+        "text": "Varukorgen påminner dig om stålflaskan till de första 100 beställningarna. Rabatten dras automatiskt.",
+        "link_label": "Se single offers",
+        "link_url": "/collections/black-week-limited-edition",
+        "image": "shopify://shop_images/427_496bbe8d-72cc-421a-9db6-f83a5b270081.png",
+        "line": "Gratis stålflaska till de första 100 beställningarna."
+      }
+    }
+  },
+  "order": [
+    "hero",
+    "rules",
+    "card",
+    "guide",
+    "cart"
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "type": "header",
+  "name": "Header group",
+  "sections": {
+    "bw_announcement": {
+      "type": "bw-announcement",
+      "settings": {
+        "phases": "",
+        "text_pre": "BLACK WEEK 20/11–30/11 · Anmäl dig till presale och handla först fredag 20/11 kl. 12.00",
+        "link_pre": "/#presale",
+        "text_early": "BLACK WEEK · Tidig tillgång öppen till söndag 22/11 kl. 20.00",
+        "link_early": "/pages/black-week",
+        "text_live": "BLACK WEEK 20/11–30/11 · Limited edition, 3 för 2 och 4 för 2 på utvalda produkter",
+        "link_live": "/pages/black-week",
+        "text_sidste": "SISTA DAGEN · Black Week slutar i kväll, måndag 30/11 kl. 23.59",
+        "link_sidste": "/pages/black-week"
+      },
+      "disabled": true
+    },
+    "bw_marquee": {
+      "type": "bw-marquee",
+      "settings": {
+        "phases": "",
+        "text": "BLACK WEEK 20/11–30/11 · Limited edition, 3 för 2 och 4 för 2 på utvalda produkter · BLACK WEEK 20/11–30/11 · Leverans inom 2–4 dagar · Över 50 000 nöjda kunder · Fri frakt vid köp över 899 kr"
+      }
+    },
+    "bw_header": {
+      "type": "bw-header",
+      "settings": {
+        "logo": "shopify://shop_images/bw26-arox-r-white.png",
+        "menu": "main-menu",
+        "sticky": true,
+        "bw_label": "BLACK WEEK",
+        "bw_url": "/pages/black-week",
+        "bw_phases": "",
+        "link_1_label": "Single offers",
+        "link_1_url": "/collections/black-week-limited-edition",
+        "link_2_label": "3 för 2",
+        "link_2_url": "/collections/black-week-3for2",
+        "link_3_label": "4 för 2",
+        "link_3_url": "/collections/black-week-4for2"
+      }
+    },
+    "bw_campaign_topbar": {
+      "type": "bw-campaign-topbar",
+      "settings": {
+        "phases": "",
+        "hide_on": "cart, login, account, password"
+      }
+    }
+  },
+  "order": [
+    "bw_announcement",
+    "bw_marquee",
+    "bw_header",
+    "bw_campaign_topbar"
+  ]
+}

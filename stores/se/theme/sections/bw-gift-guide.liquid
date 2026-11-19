@@ -1,0 +1,87 @@
+{%- comment -%}BLACK WEEK 2026 · Gaveguide "Gaver under" med prisfaner (board 02 #gaver-under), ported 1:1 from the design.{%- endcomment -%}
+{%- liquid
+  assign s = section.settings
+  assign G = 'max(clamp(20px,calc((100cqw - 767px)*1000),64px),calc((100cqw - 1312px)/2))'
+  assign PY = 'clamp(48px,calc((100cqw - 767px)*1000),80px)'
+-%}
+<style>
+  #shopify-section-{{ section.id }} .bw-gu__tab { all: unset; box-sizing: border-box; cursor: pointer; flex: none; height: 44px; padding: 0 20px; border-radius: 999px; font-family: inherit; font-size: 14px; font-weight: 800; display: inline-flex; align-items: center; border: 1.5px solid #fff; color: #fff; }
+  #shopify-section-{{ section.id }} .bw-gu__tab[aria-selected="true"] { background: #fff; color: #111; border: 0; }
+  #shopify-section-{{ section.id }} .bw-gu__panel[hidden] { display: none !important; }
+  #shopify-section-{{ section.id }} a:hover { opacity: 1; }
+  #shopify-section-{{ section.id }} .bw-card:hover .bw-card__img2 { opacity: 1 !important; }
+</style>
+<div class="bw{% render 'bw-only', phases: s.phases %}" style="container-type:inline-size">
+  <div id="gaver-under" style="background:#0a0a0a;color:#fff;padding:{{ PY }} {{ G }};display:grid;gap:24px;border-top:1px solid #222">
+    <div style="margin-bottom:8px;display:grid;gap:12px">
+      {%- if s.eyebrow != blank -%}<div style="font-size:12px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#9b9b9b">{{ s.eyebrow }}</div>{%- endif -%}
+      <h2 style="margin:0;font-size:clamp(34px,4.6cqw,68px);font-weight:900;text-transform:uppercase;letter-spacing:-.01em;line-height:1;font-family:inherit;color:#fff">{{ s.heading }}</h2>
+    </div>
+    <div style="display:flex;gap:8px;overflow-x:auto" role="tablist">
+      {%- for block in section.blocks -%}
+        <button type="button" class="bw-gu__tab" role="tab" id="bw-gu-tab-{{ block.id }}" aria-controls="bw-gu-panel-{{ block.id }}" aria-selected="{% if forloop.first %}true{% else %}false{% endif %}" {{ block.shopify_attributes }}>{{ block.settings.label }}</button>
+      {%- endfor -%}
+    </div>
+    {%- for block in section.blocks -%}
+      <div class="bw-gu__panel" role="tabpanel" id="bw-gu-panel-{{ block.id }}" aria-labelledby="bw-gu-tab-{{ block.id }}" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(max(160px,calc((100% - 48px)/4)),1fr));gap:16px"{% unless forloop.first %} hidden{% endunless %}>
+        {%- assign shown = 0 -%}
+        {%- for p in block.settings.products -%}
+          {%- if shown >= 4 -%}{%- break -%}{%- endif -%}
+          {%- if p.available == false -%}{%- continue -%}{%- endif -%}
+          {%- render 'bw-product-card', product: p -%}
+          {%- assign shown = shown | plus: 1 -%}
+        {%- endfor -%}
+      </div>
+    {%- endfor -%}
+  </div>
+</div>
+<script>
+  (function () {
+    var root = document.getElementById('shopify-section-{{ section.id }}');
+    if (!root) return;
+    root.addEventListener('click', function (e) {
+      var tab = e.target.closest('.bw-gu__tab');
+      if (!tab) return;
+      root.querySelectorAll('.bw-gu__tab').forEach(function (t) {
+        var on = t === tab;
+        t.setAttribute('aria-selected', on ? 'true' : 'false');
+        var panel = document.getElementById(t.getAttribute('aria-controls'));
+        if (panel) panel.hidden = !on;
+      });
+    });
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "BW · Gaveguide",
+  "tag": "section",
+  "class": "bw-section",
+  "max_blocks": 5,
+  "settings": [
+    { "type": "text", "id": "phases", "label": "Vis kun i faser", "info": "pre, early, live, sidste · tom = altid" },
+    { "type": "text", "id": "eyebrow", "label": "Overlinje", "default": "Gaveguide" },
+    { "type": "text", "id": "heading", "label": "Overskrift", "default": "Gaver under" }
+  ],
+  "blocks": [
+    {
+      "type": "tab",
+      "name": "Fane",
+      "settings": [
+        { "type": "text", "id": "label", "label": "Fanetekst", "default": "Under 300 kr." },
+        { "type": "product_list", "id": "products", "label": "Produkter", "limit": 8 }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "BW · Gaveguide",
+      "blocks": [
+        { "type": "tab", "settings": { "label": "Under 300 kr." } },
+        { "type": "tab", "settings": { "label": "Under 500 kr." } },
+        { "type": "tab", "settings": { "label": "Under 1000 kr." } }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,145 @@
+{%- comment -%}
+BLACK WEEK · product card, ported 1:1 from the design's card markup (inline styles, cqw-based badge sizes).
+Must sit inside an element with container-type:inline-size (every bw section root has it).
+Params: product (required) · badge (optional override of the offer label) · loading ('lazy' default) ·
+offer_only (true = no "Black Week" badge on products outside the Black Week offers, used on ordinary collections) ·
+quick_add (true = round "+" button on the image: adds a single-variant product at once, otherwise opens a size/variant
+picker on the card; assets/bw.js <bw-quick-add>)
+{%- endcomment -%}
+{%- liquid
+  assign bw_badge = badge
+  if bw_badge == blank
+    capture bw_badge
+      render 'bw-offer', product: product
+    endcapture
+    assign bw_badge = bw_badge | strip
+  endif
+  assign bw_img = product.featured_media
+  assign bw_img2 = product.media[1]
+  assign bw_count = product.metafields.loox.num_reviews | default: 0 | plus: 0
+  assign bw_badge_css = 'position:absolute;top:clamp(4px,0.56cqw,8px);font-size:clamp(8px,0.7cqw,10px);font-weight:800;letter-spacing:clamp(0.16px,0.028cqw,0.4px);line-height:1.2;text-transform:uppercase;padding:clamp(2px,0.21cqw,3px) clamp(5px,0.49cqw,7px);border-radius:clamp(2px,0.28cqw,4px);box-sizing:border-box;white-space:nowrap;color:#fff;z-index:1'
+  capture bw_price
+    echo product.price | money_without_currency | replace: ',', ' ' | append: ' kr'
+  endcapture
+  capture bw_norm
+    echo product.compare_at_price | money_without_currency | replace: ',', ' ' | append: ' kr'
+  endcapture
+-%}
+{%- if product.tags contains 'bw-gave' -%}{%- comment -%}0 kr. Black Week gift products are never listed{%- endcomment -%}{%- else -%}
+<div class="bw-card" style="background:#fff;border-radius:8px;overflow:hidden;display:grid;align-content:start;color:#111">
+  <div class="bw-card__mwrap" style="position:relative">
+  <a href="{{ product.url }}" style="position:relative;aspect-ratio:1/1;background:#f2f2f2;overflow:hidden;display:block" aria-label="{{ product.title | escape }}">
+    {%- if bw_img != blank -%}
+      {{- bw_img | image_url: width: 800 | image_tag: loading: loading | default: 'lazy', sizes: '(min-width: 768px) 25vw, 50vw', widths: '300,400,600,800', alt: product.title, style: 'position:absolute;inset:0;width:100%;height:100%;object-fit:contain' -}}
+      {%- if bw_img2 != blank and bw_img2.media_type == 'image' -%}
+        {{- bw_img2 | image_url: width: 800 | image_tag: class: 'bw-card__img2', loading: 'lazy', sizes: '(min-width: 768px) 25vw, 50vw', widths: '300,400,600,800', alt: '', style: 'position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .22s ease-out' -}}
+      {%- endif -%}
+    {%- else -%}
+      <div style="position:absolute;inset:0;background:#161616;color:#fff;display:grid;align-content:end;padding:clamp(10px,1.1cqw,16px)"><div style="font-size:clamp(12px,1.25cqw,18px);font-weight:900;text-transform:uppercase;line-height:1.05;text-wrap:pretty;overflow-wrap:anywhere">{{ product.title }}</div></div>
+    {%- endif -%}
+    {%- if bw_badge != blank -%}<span style="{{ bw_badge_css }};left:clamp(4px,0.56cqw,8px);background:#c8232c">{{ bw_badge }}</span>{%- endif -%}
+    {%- unless offer_only and bw_badge == blank -%}<span style="{{ bw_badge_css }};right:clamp(4px,0.56cqw,8px);background:#0a0a0a;box-shadow:inset 0 0 0 1px rgba(255,255,255,.2)">Black Week</span>{%- endunless -%}
+  </a>
+  {%- if quick_add and product.available -%}
+    {%- liquid
+      assign bw_single = false
+      if product.has_only_default_variant or product.variants.size == 1
+        assign bw_single = true
+      endif
+    -%}
+    <bw-quick-add class="bw-qa" data-single="{{ bw_single }}" data-variant="{{ product.selected_or_first_available_variant.id }}">
+      <button type="button" class="bw-qa__btn" aria-label="Lägg {{ product.title | escape }} i varukorgen" aria-expanded="false">
+        <svg class="bw-qa__plus" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+        <svg class="bw-qa__ok" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="5 12.5 10 17.5 19 7"></polyline></svg>
+      </button>
+      {%- unless bw_single -%}
+        <div class="bw-qa__panel" hidden>
+          <div class="bw-qa__head"><span>Välj {% if product.options.size == 1 %}{{ product.options.first | downcase }}{% else %}variant{% endif %}</span><button type="button" class="bw-qa__close" aria-label="Stäng">×</button></div>
+          <div class="bw-qa__opts">
+            {%- for v in product.variants -%}
+              <button type="button" class="bw-qa__opt" data-id="{{ v.id }}" {% unless v.available %}disabled{% endunless %}>{{ v.title }}</button>
+            {%- endfor -%}
+          </div>
+          <div class="bw-qa__msg" aria-live="polite"></div>
+        </div>
+      {%- endunless -%}
+    </bw-quick-add>
+  {%- endif -%}
+  </div>
+  <div style="padding:14px 10px 18px;display:grid;gap:6px;justify-items:center;text-align:center">
+    <a href="{{ product.url }}" style="font-size:14px;font-weight:700;line-height:1.3;color:#111;text-decoration:none">{{ product.title }}</a>
+    {%- if bw_count > 0 -%}
+      <div style="display:flex;gap:6px;align-items:center;justify-content:center;flex-wrap:wrap;font-size:12px;color:#3a3a3a">
+        <span style="display:flex;gap:1px">{%- for i in (1..5) -%}<svg width="12" height="12" viewBox="0 0 24 24" fill="#111" aria-hidden="true"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6-4.9-4.6 6.6-.8z"></path></svg>{%- endfor -%}</span>
+        <span>{{ bw_count }} {% if bw_count == 1 %}anmeldelse{% else %}anmeldelser{% endif %}</span>
+      </div>
+    {%- endif -%}
+    <div style="display:flex;gap:8px;align-items:baseline;justify-content:center;flex-wrap:wrap">
+      {%- if product.compare_at_price > product.price -%}
+        <span style="font-size:15px;font-weight:700;color:#c8232c">{{ bw_price }}</span>
+        <s style="font-size:13px;color:#6e6e6e">{{ bw_norm }}</s>
+      {%- else -%}
+        <span style="font-size:15px;font-weight:600;color:#111">{{ bw_price }}</span>
+      {%- endif -%}
+    </div>
+    {%- for opt in product.options_with_values -%}
+      {%- assign opt_name = opt.name | downcase -%}
+      {%- if opt_name == 'farve' or opt_name == 'color' or opt_name == 'colour' or opt_name == 'färg' -%}
+        {%- if opt.values.size > 1 -%}
+        <div style="display:flex;gap:6px;align-items:center;justify-content:center;flex-wrap:wrap;padding-top:2px">
+          {%- for v in opt.values limit: 6 -%}
+            {%- liquid
+              assign c = v.swatch.color
+              if c == blank
+                assign vn = v | downcase | strip
+                case vn
+                  when 'sort', 'black', 'svart'
+                    assign c = '#111111'
+                  when 'light grey', 'lysegrå', 'ljusgrå'
+                    assign c = '#c8c8c8'
+                  when 'ranger green', 'mörkgrön', 'dusty olive', 'olivgrön'
+                    assign c = '#4a5440'
+                  when 'deep navy'
+                    assign c = '#1c2438'
+                  when 'navy', 'navy blue', 'navy blå', 'marinblå', 'mörkblå'
+                    assign c = '#22304a'
+                  when 'dark brown', 'mörkbrun'
+                    assign c = '#4a3a30'
+                  when 'brown', 'brun'
+                    assign c = '#5a4334'
+                  when 'dark grey', 'mörkgrå'
+                    assign c = '#4a4a4a'
+                  when 'dark navy'
+                    assign c = '#1f2a40'
+                  when 'army'
+                    assign c = '#5b5e44'
+                  when 'grå', 'grey', 'gray'
+                    assign c = '#9a9a9a'
+                  when 'khaki'
+                    assign c = '#9a8f6a'
+                  when 'gul', 'yellow'
+                    assign c = '#e5d23a'
+                  when 'lilla', 'purple', 'lila'
+                    assign c = '#6b4fa0'
+                  when 'hvid', 'white', 'vit'
+                    assign c = '#ffffff'
+                  else
+                    assign c = '#888888'
+                endcase
+              endif
+              if forloop.first
+                assign ring = '0 0 0 2px #fff, 0 0 0 3px #111'
+              else
+                assign ring = 'inset 0 0 0 1px rgba(0,0,0,.2)'
+              endif
+            -%}
+            <span title="{{ v | escape }}" style="width:14px;height:14px;border-radius:999px;background:{{ c }};box-shadow:{{ ring }};flex:none"></span>
+          {%- endfor -%}
+        </div>
+        {%- endif -%}
+        {%- break -%}
+      {%- endif -%}
+    {%- endfor -%}
+  </div>
+</div>
+{%- endif -%}

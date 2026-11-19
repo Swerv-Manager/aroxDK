@@ -1,0 +1,55 @@
+{%- comment -%}BLACK WEEK 2026 · Gavekort (board 09): large white card(s) with two packshots, label, title and text.{%- endcomment -%}
+<style>
+  .bw-gc__grid { display: grid; gap: 16px; grid-template-columns: minmax(0, 1fr); }
+  @media (min-width: 768px) { .bw-gc__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  .bw-gc__card { background: #fff; color: #111; border-radius: 12px; padding: 20px; display: grid; gap: 18px; align-content: start; }
+  .bw-gc__imgs { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+  .bw-gc__img { aspect-ratio: 2 / 3; border-radius: 8px; overflow: hidden; background: #f8f8f8; }
+  .bw-gc__img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .bw-gc__k { font-size: 12px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; color: #6e6e6e; }
+  .bw-gc__t { margin: 0; font-size: clamp(24px, 2.6vw, 36px); font-weight: 900; text-transform: uppercase; letter-spacing: -.005em; line-height: 1; color: #111; }
+  .bw-gc__d { font-size: 15px; line-height: 1.5; color: #3a3a3a; }
+</style>
+<div class="bw bw-gc{% render 'bw-only', phases: section.settings.phases %}">
+  <div class="bw-sec">
+    <div class="bw-gc__grid">
+      {%- for block in section.blocks -%}
+        <div class="bw-gc__card" {{ block.shopify_attributes }}>
+          <div class="bw-gc__imgs">
+            {%- if block.settings.image_1 != blank -%}<div class="bw-gc__img">{{ block.settings.image_1 | image_url: width: 700 | image_tag: loading: 'lazy', alt: block.settings.title, sizes: '(min-width: 768px) 25vw, 50vw', widths: '300,500,700' }}</div>{%- endif -%}
+            {%- if block.settings.image_2 != blank -%}<div class="bw-gc__img">{{ block.settings.image_2 | image_url: width: 700 | image_tag: loading: 'lazy', alt: block.settings.title, sizes: '(min-width: 768px) 25vw, 50vw', widths: '300,500,700' }}</div>{%- endif -%}
+          </div>
+          <div style="display:grid;gap:8px">
+            {%- if block.settings.label != blank -%}<div class="bw-gc__k">{{ block.settings.label }}</div>{%- endif -%}
+            <h3 class="bw-gc__t">{{ block.settings.title }}</h3>
+            {%- if block.settings.text != blank -%}<div class="bw-gc__d">{{ block.settings.text }}</div>{%- endif -%}
+          </div>
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "BW · Gavekort",
+  "settings": [
+    { "type": "text", "id": "phases", "label": "Vis kun i faser", "info": "pre, early, live, sidste · tom = altid" }
+  ],
+  "blocks": [
+    {
+      "type": "gift",
+      "name": "Gave",
+      "settings": [
+        { "type": "image_picker", "id": "image_1", "label": "Billede 1" },
+        { "type": "image_picker", "id": "image_2", "label": "Billede 2" },
+        { "type": "text", "id": "label", "label": "Overlinje", "default": "Gave · stål" },
+        { "type": "text", "id": "title", "label": "Navn", "default": "Thermo stålflaske 1,06 L" },
+        { "type": "textarea", "id": "text", "label": "Tekst", "default": "Gratis Thermo stålflaske til de første 100 ordrer." }
+      ]
+    }
+  ],
+  "max_blocks": 4,
+  "presets": [{ "name": "BW · Gavekort", "blocks": [{ "type": "gift" }] }]
+}
+{% endschema %}

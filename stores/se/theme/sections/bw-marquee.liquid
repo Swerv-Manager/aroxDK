@@ -1,0 +1,28 @@
+{%- comment -%}
+BLACK WEEK 2026 · Ticker (design "BWMarquee"): 40 px black band, 1 px #222 bottom line, text 13/600, scrolls left
+in 70 s, pauses on hover and when off-screen (bw.js). The text is repeated 4× so the loop is seamless.
+{%- endcomment -%}
+{%- assign s = section.settings -%}
+<div class="bw{% render 'bw-only', phases: s.phases %}">
+  <div class="bw-marquee" role="marquee" aria-label="{{ s.text | escape }}">
+    <div class="bw-marquee__track">
+      {%- for i in (1..4) -%}
+        <span class="bw-marquee__item"{% if i > 1 %} aria-hidden="true"{% endif %}>{{ s.text }}{{ '   ·   ' }}</span>
+      {%- endfor -%}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "BW · Ticker",
+  "tag": "aside",
+  "class": "bw-section",
+  "enabled_on": { "groups": ["header"] },
+  "settings": [
+    { "type": "text", "id": "phases", "label": "Vis kun i faser", "info": "pre, early, live, sidste · tom = altid" },
+    { "type": "textarea", "id": "text", "label": "Tekst", "default": "BLACK WEEK 20.11–30.11 · Limited edition, 3 for 2 og 4 for 2 på udvalgte varer · BLACK WEEK 20.11–30.11 · 1-3 dages levering med GLS · Over 30.000 glade kunder · Fri fragt v. køb over 499 kr." }
+  ],
+  "presets": [ { "name": "BW · Ticker" } ]
+}
+{% endschema %}

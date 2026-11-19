@@ -1,0 +1,166 @@
+{%- comment -%}
+BLACK WEEK 2026 · stepped progress bar in the cart drawer (board 10 style: 13px/600 text, 6px bar #2b2b2b, white fill).
+Three steps, evenly spaced on the bar (each third fills linearly between two amounts):
+  step 1 = fri fragt (499 kr.) · step 2 = gratis gave (799 kr.) · step 3 = gratis gave (1299 kr.)
+A step counts as reached when cart.total_price (after discounts) is at least its amount.
+The bar only shows progress; the gifts themselves are given by an automatic discount in Shopify admin.
+Rendered by sections/cart-drawer.liquid. The cart drawer re-renders on every cart change, and assets/bw.js swaps the
+bar in right away (Impact waits 1.25 s before it replaces the line items).
+
+Params (all from the cart drawer section settings):
+  amounts: '499,799,1299' (kr.) · labels: 'Fri fragt|Hydration Bottle|3-pak strømper'
+  messages: 'text before step 1|before step 2|before step 3' with [beløb] for the remaining amount · done: text when all are reached
+  gift2, gift3: optional gift products for step 2 and 3 (their label links to the product) · item2, item3: the 0 kr.
+  gift products that go into the cart (tag bw-gave) · gift_note: small text with the gifts ("Kun 1 pr. kunde") ·
+  phases: bw-only phase list
+{%- endcomment -%}
+{%- liquid
+  assign bw_amounts = amounts | default: '499,799,1299' | split: ','
+  assign bw_labels = labels | default: 'Fri frakt|Vattenflaska|Strumpor 3-pack' | split: '|'
+  assign bw_msgs = messages | default: '[beløb] kvar till fri frakt|[beløb] kvar till en gratis vattenflaska|[beløb] kvar till gratis strumpor' | split: '|'
+  assign bw_done = done | default: 'Du har fri frakt och 2 gratis gåvor'
+  comment
+    Gift lines (property _bw_gift, added by assets/bw.js) do not count towards the tiers.
+  endcomment
+  assign bw_total = cart.total_price
+  assign bw_has_g2 = false
+  assign bw_has_g3 = false
+  for it in cart.items
+    if it.properties._bw_gift != blank or it.product.tags contains 'bw-gave'
+      assign bw_total = bw_total | minus: it.final_line_price
+      if it.properties._bw_gift == 'g2' or it.product_id == item2.id
+        assign bw_has_g2 = true
+      elsif it.properties._bw_gift == 'g3' or it.product_id == item3.id
+        assign bw_has_g3 = true
+      endif
+    endif
+  endfor
+
+  assign bw_steps = bw_amounts.size
+  assign bw_seg = 100.0 | divided_by: bw_steps
+  assign bw_pct = 100.0
+  assign bw_next = -1
+  assign bw_prev = 0
+  for a in bw_amounts
+    assign bw_cents = a | strip | times: 100
+    if bw_total < bw_cents
+      assign bw_next = forloop.index0
+      assign bw_span = bw_cents | minus: bw_prev
+      assign bw_in = 0
+      if bw_span > 0
+        assign bw_in = bw_total | minus: bw_prev | times: 1.0 | divided_by: bw_span
+      endif
+      assign bw_base = forloop.index0 | times: bw_seg
+      assign bw_pct = bw_in | times: bw_seg | plus: bw_base
+      break
+    endif
+    assign bw_prev = bw_cents
+  endfor
+
+  if bw_next == -1
+    assign bw_msg = bw_done
+  else
+    assign bw_left = bw_amounts[bw_next] | strip | times: 100 | minus: bw_total
+    capture bw_left_txt
+      echo bw_left | money_without_currency | replace: ',', ' ' | append: ' kr'
+    endcapture
+    assign bw_msg = bw_msgs[bw_next] | default: '[beløb]' | strip | replace: '[beløb]', bw_left_txt
+  endif
+  assign bw_max = bw_amounts | last | strip | times: 1
+  assign bw_now = bw_total | divided_by: 100
+-%}
+<div class="bw-cart-progress{% render 'bw-only', phases: phases %}" data-bw-cart-progress style="display:grid;gap:10px">
+  <div style="display:flex;gap:8px;align-items:center;font-size:13px;font-weight:600;line-height:1.35">
+    {%- if bw_next == -1 -%}
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex:none" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+    {%- endif -%}
+    <span data-bw-msg>{{ bw_msg }}</span>
+  </div>
+  <div role="progressbar" aria-valuemin="0" aria-valuemax="{{ bw_max }}" aria-valuenow="{{ bw_now | at_most: bw_max }}" aria-valuetext="{{ bw_msg | escape }}" style="position:relative;height:6px;border-radius:999px;background:#2b2b2b;margin:4px 0">
+    <div data-bw-fill style="height:100%;width:{{ bw_pct | round: 2 }}%;background:#fff;border-radius:999px;transition:width .4s ease"></div>
+    {%- for a in bw_amounts -%}
+      {%- assign bw_cents = a | strip | times: 100 -%}
+      {%- assign bw_at = forloop.index | times: bw_seg | round: 3 -%}
+      <span aria-hidden="true" style="position:absolute;top:50%;left:{{ bw_at }}%;width:14px;height:14px;border-radius:999px;transform:translate({% if forloop.last %}-100%{% else %}-50%{% endif %},-50%);box-sizing:border-box;{% if bw_total >= bw_cents %}background:#fff;box-shadow:0 0 0 3px #0a0a0a{% else %}background:#0a0a0a;box-shadow:inset 0 0 0 2px #2b2b2b,0 0 0 3px #0a0a0a{% endif %}"></span>
+    {%- endfor -%}
+  </div>
+  <div style="display:grid;grid-template-columns:repeat({{ bw_steps }},minmax(0,1fr));gap:8px;text-align:right">
+    {%- for a in bw_amounts -%}
+      {%- liquid
+        assign bw_cents = a | strip | times: 100
+        assign bw_ok = false
+        if bw_total >= bw_cents
+          assign bw_ok = true
+        endif
+        assign bw_label = bw_labels[forloop.index0] | default: '' | strip
+        assign bw_prod = nil
+        if forloop.index == 2
+          assign bw_prod = gift2
+        elsif forloop.index == 3
+          assign bw_prod = gift3
+        endif
+      -%}
+      <div style="display:grid;gap:2px;justify-items:end;min-width:0">
+        <span style="display:flex;gap:4px;align-items:center;font-size:12px;font-weight:700;color:{% if bw_ok %}#fff{% else %}#9b9b9b{% endif %};white-space:nowrap">
+          {%- if bw_ok -%}<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>{%- endif -%}
+          {{- a | strip | times: 100 | money_without_currency | replace: ',', ' ' | append: ' kr' -}}
+        </span>
+        {%- if bw_prod != blank and bw_prod.url != blank -%}
+          <a href="{{ bw_prod.url }}" style="font-size:11px;line-height:1.3;color:#c9c9c9;text-decoration:none;overflow-wrap:anywhere">{{ bw_label }}</a>
+        {%- else -%}
+          <span style="font-size:11px;line-height:1.3;color:#c9c9c9;overflow-wrap:anywhere">{{ bw_label }}</span>
+        {%- endif -%}
+      </div>
+    {%- endfor -%}
+  </div>
+  {%- comment -%}Gift picker: shown for a reached tier whose gift is not in the cart. A gift with one variant is added by
+  bw.js on its own, so its picker only shows when the customer removed it (html.bw-gift-removed-<key>).{%- endcomment -%}
+  {%- for a in bw_amounts -%}
+    {%- liquid
+      if forloop.index < 2
+        continue
+      endif
+      assign bw_cents = a | strip | times: 100
+      if bw_total < bw_cents
+        continue
+      endif
+      assign bw_key = 'g' | append: forloop.index
+      assign bw_prod = nil
+      if forloop.index == 2
+        assign bw_prod = item2 | default: gift2
+        if bw_has_g2
+          continue
+        endif
+      elsif forloop.index == 3
+        assign bw_prod = item3 | default: gift3
+        if bw_has_g3
+          continue
+        endif
+      endif
+      if bw_prod == blank or bw_prod.available == false
+        continue
+      endif
+      assign bw_label = bw_labels[forloop.index0] | default: bw_prod.title | strip
+      assign bw_auto = false
+      if bw_prod.variants.size == 1
+        assign bw_auto = true
+      endif
+    -%}
+    <div class="bw-gift-pick" data-bw-gift-pick data-key="{{ bw_key }}" {% if bw_auto %}data-auto{% endif %}>
+      <div style="font-weight:700">Din gratis gåva: {{ bw_label }}</div>
+      {%- if gift_note != blank -%}<div style="font-size:12px;color:#c9c9c9;margin-top:-4px">{{ gift_note }}</div>{%- endif -%}
+      <div class="bw-gift-pick__row">
+        {%- if bw_auto -%}
+          <button type="button" data-bw-gift-add data-variant="{{ bw_prod.selected_or_first_available_variant.id }}">Lägg till gåva</button>
+        {%- else -%}
+          <select aria-label="Välj variant för {{ bw_label | escape }}">
+            {%- for v in bw_prod.variants -%}
+              <option value="{{ v.id }}" {% unless v.available %}disabled{% endunless %}>{{ v.title }}</option>
+            {%- endfor -%}
+          </select>
+          <button type="button" data-bw-gift-add>Lägg till gåva</button>
+        {%- endif -%}
+      </div>
+    </div>
+  {%- endfor -%}
+</div>

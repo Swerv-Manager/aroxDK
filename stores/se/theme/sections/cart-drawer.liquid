@@ -1,0 +1,400 @@
+{%- comment -%}
+BLACK WEEK 2026 · cart drawer ported from board 10 ("Kurv-skuffe"): dark drawer, header "Din kurv · N vare(r)",
+top band with the stepped progress bar (499 fri fragt · 799 gave · 1299 gave) and the Thermo gift line, lines with
+"Gratis gave" for 0 kr. gifts, two recommendation cards, totals and "Till kassan".
+Impact hooks kept: .cart-drawer__inner (re-rendered on cart change), [slot="footer"], .empty-state, line-item JS.
+Styles that reach Impact's shadow parts live in assets/bw.css (.bw-cart).
+{%- endcomment -%}
+{%- liquid
+  assign bw_close_svg = '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><line x1="5" y1="5" x2="19" y2="19"></line><line x1="19" y1="5" x2="5" y2="19"></line></svg>'
+  assign bw_close_css = 'background:none;border:0;padding:0;margin:0;color:#fff;cursor:pointer;display:grid;place-items:center;width:32px;height:32px;margin-right:-5px'
+  assign bw_head_css = 'display:flex;justify-content:space-between;align-items:center;padding:18px 20px;border-bottom:1px solid #2b2b2b'
+  assign bw_title_css = 'margin:0;font-size:18px;font-weight:900;text-transform:uppercase;line-height:1.2'
+-%}
+<cart-drawer {% if request.design_mode %}handle-section-events{% endif %} class="cart-drawer drawer drawer--lg bw-cart" id="cart-drawer">
+  {%- if cart.item_count == 0 -%}
+    <div class="bw" style="display:grid;align-content:start;min-height:100%">
+      <div style="{{ bw_head_css }}">
+        <p style="{{ bw_title_css }}">Din varukorg · 0 produkt(er)</p>
+        <button type="button" is="close-button" style="{{ bw_close_css }}" aria-label="{{ 'general.accessibility.close' | t | escape }}">{{ bw_close_svg }}</button>
+      </div>
+      <div class="empty-state" style="text-align:center;padding:40px 20px;display:grid;gap:16px;justify-items:center">
+        <p style="margin:0;font-size:17px;font-weight:700;text-transform:uppercase">Din varukorg är tom</p>
+        <a href="{{ settings.cart_empty_button_link | default: routes.all_products_collection_url }}" style="display:inline-flex;align-items:center;justify-content:center;height:44px;padding:0 24px;border-radius:999px;font-size:14px;font-weight:700;text-decoration:none;background:#fff;color:#111">Fortsätt handla</a>
+      </div>
+    </div>
+  {%- else -%}
+    {%- liquid
+      comment
+        Progress bar phases: the Black Week bar shows in bw_progress_phases; the theme's own free shipping bar shows in
+        the remaining phases (or always, when the Black Week bar is switched off).
+      endcomment
+      assign bw_pb_phases = section.settings.bw_progress_phases | default: '' | strip
+      assign bw_fs_show = true
+      assign bw_fs_phases = ''
+      if section.settings.bw_progress_show
+        if bw_pb_phases == blank
+          assign bw_fs_show = false
+        else
+          assign bw_pb_list = bw_pb_phases | replace: ',', ' ' | split: ' '
+          assign bw_all = 'pre,early,live,sidste,ended' | split: ','
+          for bw_p in bw_all
+            unless bw_pb_list contains bw_p
+              assign bw_fs_phases = bw_fs_phases | append: ' ' | append: bw_p
+            endunless
+          endfor
+          assign bw_fs_phases = bw_fs_phases | strip
+          if bw_fs_phases == blank
+            assign bw_fs_show = false
+          endif
+        endif
+      endif
+      unless settings.cart_show_free_shipping_threshold
+        assign bw_fs_show = false
+      endunless
+
+      assign bw_gift2 = section.settings.bw_progress_gift2 | default: all_products['arox-hydration-bottle-1000-ml']
+      assign bw_gift3 = section.settings.bw_progress_gift3 | default: all_products['socks-3-pack']
+      comment
+        The gifts that go into the cart are separate 0 kr. products (tag bw-gave), so they need no discount and
+        combine with 3 for 2 / 4 for 2. gift2/gift3 above are the real products the labels link to.
+      endcomment
+      assign bw_item2 = section.settings.bw_gift2_item | default: all_products['bw-gave-hydration-bottle']
+      assign bw_item3 = section.settings.bw_gift3_item | default: all_products['bw-gave-stromper-3-pak']
+    -%}
+    {%- if section.settings.bw_progress_show and section.settings.bw_gifts_auto -%}
+      {%- liquid
+        assign bw_amts = section.settings.bw_progress_amounts | default: '499,799,1299' | split: ','
+        assign bw_pl = bw_pb_phases | replace: ',', ' ' | split: ' '
+      -%}
+      <script type="application/json" data-bw-gifts>
+        {"on": true, "phases": {{ bw_pl | json }}, "tiers": [
+          {%- if bw_item2 != blank and bw_amts[1] != blank -%}{"key": "g2", "min": {{ bw_amts[1] | strip | times: 100 }}, "product": {{ bw_item2.id }}, "variant": {{ bw_item2.selected_or_first_available_variant.id | default: 0 }}, "auto": {% if bw_item2.variants.size == 1 %}true{% else %}false{% endif %}}{%- endif -%}
+          {%- if bw_item3 != blank and bw_amts[2] != blank -%}{% if bw_item2 != blank and bw_amts[1] != blank %},{% endif %}{"key": "g3", "min": {{ bw_amts[2] | strip | times: 100 }}, "product": {{ bw_item3.id }}, "variant": {{ bw_item3.selected_or_first_available_variant.id | default: 0 }}, "auto": {% if bw_item3.variants.size == 1 %}true{% else %}false{% endif %}}{%- endif -%}
+        ]}
+      </script>
+    {%- endif -%}
+    <div class="cart-drawer__inner bw" style="display:grid;align-content:start;min-height:100%">
+      <div style="{{ bw_head_css }}">
+        <p style="{{ bw_title_css }}">Din varukorg · {{ cart.item_count }} produkt(er)</p>
+        <button type="button" is="close-button" style="{{ bw_close_css }}" aria-label="{{ 'general.accessibility.close' | t | escape }}">{{ bw_close_svg }}</button>
+      </div>
+
+      <div style="padding:16px 20px;display:grid;gap:12px;border-bottom:1px solid #2b2b2b;background:#0a0a0a">
+        {%- if section.settings.bw_progress_show -%}
+          {%- render 'bw-cart-progress',
+            phases: bw_pb_phases,
+            amounts: section.settings.bw_progress_amounts,
+            labels: section.settings.bw_progress_labels,
+            messages: section.settings.bw_progress_messages,
+            done: section.settings.bw_progress_done,
+            gift2: bw_gift2,
+            gift3: bw_gift3,
+            item2: bw_item2,
+            item3: bw_item3,
+            gift_note: section.settings.bw_gift_note
+          -%}
+        {%- endif -%}
+        {%- if bw_fs_show -%}
+          <div class="bw-cart-fs{% if bw_fs_phases != blank %}{% render 'bw-only', phases: bw_fs_phases %}{% endif %}">
+            {%- render 'free-shipping-bar' -%}
+          </div>
+        {%- endif -%}
+        {%- comment -%}Gavelinje (info, ikke en vare): Thermo stålflaske til de første 100 ordrer{%- endcomment -%}
+        {%- render 'bw-cart-gift' -%}
+      </div>
+
+      <div class="cart-drawer__line-items" style="padding:4px 20px">
+        {%- for line_item in cart.items -%}
+          {%- render 'bw-cart-line', line_item: line_item, gift_note: section.settings.bw_gift_note -%}
+        {%- endfor -%}
+      </div>
+
+      {%- comment -%}Anbefalinger: kun fra samme tilbud (eller produktlisten), 2 kort som på board 10{%- endcomment -%}
+      {%- liquid
+        assign bw_rec_products = section.settings.products
+        assign bw_rec_count = section.settings.products.count
+        if section.settings.bw_offer_recommendations
+          assign bw_rec_handle = ''
+          for line_item in cart.items
+            capture bw_line_key
+              render 'bw-offer', product: line_item.product, key: true
+            endcapture
+            assign bw_line_key = bw_line_key | strip
+            case bw_line_key
+              when 'le'
+                assign bw_rec_handle = 'black-week-limited-edition'
+              when 's3'
+                assign bw_rec_handle = 'black-week-3for2'
+              when 's4'
+                assign bw_rec_handle = 'black-week-4for2'
+            endcase
+            if bw_rec_handle != ''
+              break
+            endif
+          endfor
+          if bw_rec_handle != '' and collections[bw_rec_handle].products_count > 0
+            assign bw_rec_products = collections[bw_rec_handle].products
+            assign bw_rec_count = collections[bw_rec_handle].products_count
+          endif
+        endif
+
+        assign bw_rec_rendered = 0
+        if bw_rec_count > 0
+          capture bw_recs
+            for recommended_product in bw_rec_products limit: 12
+              if bw_rec_rendered >= 2
+                break
+              endif
+              if recommended_product.available == false
+                continue
+              endif
+              assign item_count_in_cart = cart | line_items_for: recommended_product
+              if item_count_in_cart.size == 0
+                render 'bw-product-card', product: recommended_product
+                assign bw_rec_rendered = bw_rec_rendered | plus: 1
+              endif
+            endfor
+          endcapture
+        endif
+      -%}
+      {%- if bw_rec_rendered > 0 -%}
+        <div class="cart-drawer__recommendations" style="padding:16px 20px 20px;border-top:1px solid #2b2b2b;display:grid;gap:12px">
+          {%- if section.settings.recommendations_title != blank -%}
+            <p style="margin:0;font-size:13px;font-weight:800;letter-spacing:.06em;text-transform:uppercase">{{ section.settings.recommendations_title | escape }}</p>
+          {%- endif -%}
+          <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;container-type:inline-size">
+            {{- bw_recs -}}
+          </div>
+        </div>
+      {%- endif -%}
+    </div>
+
+    {%- liquid
+      assign bw_free_ship_cents = settings.cart_free_shipping_threshold | times: 100
+      assign bw_ship_free = false
+      if settings.cart_show_free_shipping_threshold and cart.total_price >= bw_free_ship_cents
+        assign bw_ship_free = true
+      endif
+    -%}
+    <div class="bw" slot="footer" style="padding:16px 20px 20px;border-top:1px solid #2b2b2b;display:grid;gap:8px;font-size:14px">
+      <div style="display:flex;justify-content:space-between;gap:12px"><span>Delsumma</span><span>{{ cart.original_total_price | money_without_currency | replace: ',', ' ' | append: ' kr' }}</span></div>
+
+      {%- comment -%}Rabatlinje i rødt, fx "3 FOR 2 · rabatten dras automatiskt" (alle rabatter, også linjerabatter).
+      Titlen vises til og med " · ", så rabatten "3 for 2 · Black Week" står som "3 FOR 2".{%- endcomment -%}
+      {%- for discount_application in cart.discount_applications -%}
+        <div style="display:flex;justify-content:space-between;gap:12px;color:#c8232c;font-weight:700">
+          <span>
+            {%- if discount_application.type == 'automatic' -%}
+              {{- discount_application.title | split: ' · ' | first | upcase }} · rabatten dras automatiskt
+            {%- else -%}
+              {{- discount_application.title -}}
+            {%- endif -%}
+          </span>
+          <span style="white-space:nowrap">−{{ discount_application.total_allocated_amount | money_without_currency | replace: ',', ' ' | append: ' kr' }}</span>
+        </div>
+      {%- endfor -%}
+      {%- if cart.total_discount > 0 and cart.discount_applications.size == 0 -%}
+        <div style="display:flex;justify-content:space-between;gap:12px;color:#c8232c;font-weight:700"><span>{{ 'cart.general.discount' | t }}</span><span style="white-space:nowrap">−{{ cart.total_discount | money_without_currency | replace: ',', ' ' | append: ' kr' }}</span></div>
+      {%- endif -%}
+
+      <div style="display:flex;justify-content:space-between;gap:12px"><span>Frakt</span><span>{% if bw_ship_free %}Gratis{% else %}Från {{ settings.cart_base_freight_price | default: 7500 | plus: 0 | money_without_currency | replace: ',', ' ' | append: ' kr' }}{% endif %}</span></div>
+      <div style="display:flex;justify-content:space-between;gap:12px;font-size:17px;font-weight:900;padding-top:8px;border-top:1px solid #2b2b2b"><span>Totalt</span><span>{{ cart.total_price | money_without_currency | replace: ',', ' ' | append: ' kr' }}</span></div>
+      <div style="font-size:12px;color:#c9c9c9">Inkl. moms. Frakt beräknas i kassan.</div>
+
+      {%- if section.settings.show_checkout_button -%}
+        <form action="{{ routes.cart_url }}" method="POST" style="display:grid;margin:6px 0 0">
+          <button type="submit" name="checkout" style="display:inline-flex;align-items:center;justify-content:center;height:52px;padding:0 28px;border:0;border-radius:999px;font-family:inherit;font-size:15px;font-weight:700;background:#fff;color:#111;cursor:pointer">Till kassan</button>
+        </form>
+      {%- endif -%}
+      {%- if section.settings.show_view_cart_button or section.settings.show_checkout_button == false -%}
+        <a href="{{ routes.cart_url }}" data-no-instant style="display:inline-flex;align-items:center;justify-content:center;height:52px;padding:0 28px;border-radius:999px;font-size:15px;font-weight:700;text-decoration:none;box-shadow:inset 0 0 0 1px #fff;color:#fff">{{ 'cart.general.view_cart' | t }}</a>
+      {%- endif -%}
+      <button type="button" is="close-button" style="background:none;border:0;padding:0;font-family:inherit;color:#fff;font-size:14px;font-weight:700;text-decoration:underline;text-underline-offset:4px;text-align:center;cursor:pointer;justify-self:center">Fortsätt handla</button>
+
+      {%- if section.settings.show_cart_note -%}
+        <button type="button" aria-controls="cart-drawer-note" style="background:none;border:0;padding:0;font-family:inherit;color:#c9c9c9;font-size:12px;text-decoration:underline;text-underline-offset:3px;cursor:pointer;justify-self:center">
+          {%- if cart.note == blank -%}
+            {{- 'cart.general.add_order_note' | t -}}
+          {%- else -%}
+            {{- 'cart.general.edit_order_note' | t -}}
+          {%- endif -%}
+        </button>
+
+        <cart-note-dialog id="cart-drawer-note" class="cart-drawer__note">
+          <div class="cart-drawer__note-inner">
+            <div class="v-stack gap-4 sm:gap-6">
+              <p class="h5">{{ 'cart.general.order_note' | t }}</p>
+
+              <cart-note class="v-stack gap-4">
+                {%- assign order_note = 'cart.general.order_note' | t -%}
+                {%- assign order_save_label = 'cart.general.save_note' | t -%}
+
+                {%- render 'input', name: 'note', multiline: 3, label: order_note, value: cart.note -%}
+
+                <div class="justify-self-start">
+                  {%- render 'button', type: 'button', content: order_save_label, size: 'lg', is: 'close-button', secondary: true -%}
+                </div>
+              </cart-note>
+            </div>
+          </div>
+        </cart-note-dialog>
+      {%- endif -%}
+    </div>
+  {%- endif -%}
+</cart-drawer>
+
+{% schema %}
+{
+  "name": "Cart drawer",
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "Cart drawer won't appear to your customers if you have set the cart type to Page in the global theme settings."
+    },
+    {
+      "type": "paragraph",
+      "content": "Free shipping bar can be configured in global cart settings."
+    },
+    {
+      "type": "checkbox",
+      "id": "show_cart_note",
+      "label": "Show cart note",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_shipping_text",
+      "label": "Show shipping text",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_view_cart_button",
+      "label": "Show view cart button",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_checkout_button",
+      "label": "Show checkout button",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "Black Week: progress bar"
+    },
+    {
+      "type": "checkbox",
+      "id": "bw_progress_show",
+      "label": "Vis progress bar",
+      "info": "BLACK WEEK 2026. Trinvis bar øverst i kurven. Gaverne gives af en automatisk rabat i Shopify admin, baren viser kun hvor langt kunden er.",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "bw_progress_phases",
+      "label": "Faser",
+      "info": "pre, early, live, sidste, ended. Tom = altid. Gaverne følger de samme faser. I de øvrige faser vises temaets normale fragtbar.",
+      "default": "early live sidste"
+    },
+    {
+      "type": "text",
+      "id": "bw_progress_amounts",
+      "label": "Trin i kr. (adskilt af komma)",
+      "default": "499,799,1299"
+    },
+    {
+      "type": "text",
+      "id": "bw_progress_labels",
+      "label": "Navne under baren (adskilt af |)",
+      "default": "Fri fragt|Hydration Bottle|3-pak strømper"
+    },
+    {
+      "type": "text",
+      "id": "bw_progress_messages",
+      "label": "Tekst før hvert trin (adskilt af |)",
+      "info": "[beløb] erstattes af det beløb, der mangler.",
+      "default": "[beløb] til fri fragt|[beløb] til gratis Hydration Bottle|[beløb] til gratis 3-pak strømper"
+    },
+    {
+      "type": "text",
+      "id": "bw_progress_done",
+      "label": "Tekst når alle trin er nået",
+      "default": "Du har fri fragt og 2 gratis gaver"
+    },
+    {
+      "type": "checkbox",
+      "id": "bw_gifts_auto",
+      "label": "Læg gaverne i kurven",
+      "info": "Gaveprodukterne (0 kr.) lægges i kurven ved trin 2 og 3 (med varevalg hvis produktet har varianter) og fjernes igen under beløbet.",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "bw_gift_note",
+      "label": "Tekst ved gaverne",
+      "info": "Vises under \"Gratis gave\" i kurven og ved valget af gave.",
+      "default": "Kun 1 pr. kunde"
+    },
+    {
+      "type": "product",
+      "id": "bw_gift2_item",
+      "label": "Gaveprodukt trin 2 (0 kr.)",
+      "info": "Produktet der lægges i kurven. Tom = bw-gave-hydration-bottle."
+    },
+    {
+      "type": "product",
+      "id": "bw_gift3_item",
+      "label": "Gaveprodukt trin 3 (0 kr.)",
+      "info": "Tom = bw-gave-stromper-3-pak (kunden vælger variant i kurven)."
+    },
+    {
+      "type": "product",
+      "id": "bw_progress_gift2",
+      "label": "Gave ved trin 2",
+      "info": "Tom = AROX Hydration Bottle 1000 ml. Navnet under baren linker til produktet."
+    },
+    {
+      "type": "product",
+      "id": "bw_progress_gift3",
+      "label": "Gave ved trin 3",
+      "info": "Tom = Strømper 3-pak (kunden vælger størrelse på produktsiden)."
+    },
+    {
+      "type": "header",
+      "content": "Product recommendations"
+    },
+    {
+      "type": "checkbox",
+      "id": "bw_offer_recommendations",
+      "label": "Black Week: anbefal fra samme tilbud",
+      "info": "BLACK WEEK 2026. Viser varer fra samme Black Week-kollektion som første vare i kurven. Ellers bruges produktlisten nedenfor.",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "recommendations_title",
+      "label": "Heading",
+      "default": "Trending this month"
+    },
+    {
+      "type": "product_list",
+      "id": "products",
+      "label": "Recommendations",
+      "info": "Suggest additional products to your customers. Recommendations already in the cart are automatically hidden.",
+      "limit": 10
+    },
+    {
+      "type": "color",
+      "id": "product_card_background",
+      "label": "Product card background"
+    },
+    {
+      "type": "color",
+      "id": "product_card_text_color",
+      "label": "Product card text"
+    }
+  ]
+}
+{% endschema %}

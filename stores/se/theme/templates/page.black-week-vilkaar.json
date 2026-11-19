@@ -1,0 +1,214 @@
+{
+  "sections": {
+    "hero": {
+      "type": "bw-terms-hero",
+      "settings": {
+        "phases": "",
+        "eyebrow": "Kampanjvillkor · Black Week 20/11–30/11 2026",
+        "heading_1": "Black Week.",
+        "heading_2": "Villkor och FAQ."
+      }
+    },
+    "terms": {
+      "type": "bw-terms",
+      "blocks": {
+        "term_1": {
+          "type": "term",
+          "settings": {
+            "key": "Kampanjperiod",
+            "value": "Black Week 20/11–30/11 2026."
+          }
+        },
+        "term_2": {
+          "type": "term",
+          "settings": {
+            "key": "Presale",
+            "value": "För anmälda från fredag 20/11 kl. 12.00."
+          }
+        },
+        "term_3": {
+          "type": "term",
+          "settings": {
+            "key": "Öppet för alla",
+            "value": "Söndag 22/11 kl. 20.00."
+          }
+        },
+        "term_4": {
+          "type": "term",
+          "settings": {
+            "key": "Slut",
+            "value": "Måndag 30/11 kl. 23.59 (Cyber Monday)."
+          }
+        },
+        "term_5": {
+          "type": "term",
+          "settings": {
+            "key": "Rabatt",
+            "value": "Dras automatiskt i varukorgen. Ingen kod."
+          }
+        },
+        "term_6": {
+          "type": "term",
+          "settings": {
+            "key": "Limited edition",
+            "value": "Fast Black Week-pris. Limited-produkter finns bara under Black Week."
+          }
+        },
+        "term_7": {
+          "type": "term",
+          "settings": {
+            "key": "3 för 2",
+            "value": "Vid 3 produkter från 3 för 2 är den billigaste gratis."
+          }
+        },
+        "term_8": {
+          "type": "term",
+          "settings": {
+            "key": "4 för 2",
+            "value": "Vid 4 produkter från 4 för 2 är de 2 billigaste gratis."
+          }
+        },
+        "term_9": {
+          "type": "term",
+          "settings": {
+            "key": "Gåva",
+            "value": "Gratis stålflaska (1,06 l) till de första 100 beställningarna under Black Week. Ingen beloppsgräns."
+          }
+        },
+        "term_10": {
+          "type": "term",
+          "settings": {
+            "key": "Ångerrätt",
+            "value": "14 dagars ångerrätt via vår returportal."
+          }
+        },
+        "term_11": {
+          "type": "term",
+          "settings": {
+            "key": "Arrangör",
+            "value": "Sai Fitness ApS · CVR 42582735 · Skolegade 7, 8000 Aarhus C, Danmark · support@aroxfitness.com"
+          }
+        },
+        "term_12": {
+          "type": "term",
+          "settings": {
+            "key": "Gåvor vid köp",
+            "value": "Handlar du för minst 1 199 kr får du en gratis AROX vattenflaska (1000 ml). Vid minst 1 999 kr får du även gratis strumpor 3-pack. Beloppet räknas efter rabatt. Gåvorna läggs i varukorgen så länge lagret räcker. Max 1 per kund."
+          }
+        }
+      },
+      "block_order": [
+        "term_1",
+        "term_2",
+        "term_3",
+        "term_4",
+        "term_5",
+        "term_6",
+        "term_7",
+        "term_8",
+        "term_9",
+        "term_12",
+        "term_10",
+        "term_11"
+      ],
+      "settings": {
+        "phases": "",
+        "heading": "Kampanjvillkor"
+      }
+    },
+    "faq": {
+      "type": "bw-faq",
+      "blocks": {
+        "faq_1": {
+          "type": "item",
+          "settings": {
+            "question": "När är Black Week?",
+            "answer": "<p>Presale för anmälda fredag 20/11 kl. 12.00. Öppet för alla söndag 22/11 kl. 20.00. Black Week slutar måndag 30/11 kl. 23.59 (Cyber Monday).</p>"
+          }
+        },
+        "faq_2": {
+          "type": "item",
+          "settings": {
+            "question": "Hur får jag rabatten?",
+            "answer": "<p>Rabatten dras automatiskt i varukorgen. Ingen kod behövs. Med 3 för 2 är den billigaste av 3 produkter gratis. Med 4 för 2 är de 2 billigaste av 4 produkter gratis.</p>"
+          }
+        },
+        "faq_3": {
+          "type": "item",
+          "settings": {
+            "question": "Vilka produkter ingår?",
+            "answer": "<p>Produkter märkta Limited edition, 3 för 2 eller 4 för 2. Du hittar dem samlade i de tre Black Week-kollektionerna.</p>"
+          }
+        },
+        "faq_4": {
+          "type": "item",
+          "settings": {
+            "question": "Vad är Limited Blackout?",
+            "answer": "<p>Helsvarta versioner av anti slip grips, fusion grips, metcon-lyftarbältet och elite speed rope. De finns bara under Black Week.</p>"
+          }
+        },
+        "faq_5": {
+          "type": "item",
+          "settings": {
+            "question": "Hur får jag gåvan?",
+            "answer": "<p>De första 100 beställningarna under Black Week får en gratis stålflaska (1,06 l). Det finns ingen beloppsgräns.</p>"
+          }
+        },
+        "faq_6": {
+          "type": "item",
+          "settings": {
+            "question": "Vad betyder \"de första 100 beställningarna\"?",
+            "answer": "<p>De första 100 beställningarna under Black Week får en gratis stålflaska, oavsett vad beställningen kostar.</p>"
+          }
+        },
+        "faq_7": {
+          "type": "item",
+          "settings": {
+            "question": "Vad kostar frakten?",
+            "answer": "<p>Fri frakt för beställningar över 899 kr med GLS ParcelShop. Under 899 kr tillkommer frakt från 75 kr.</p>"
+          }
+        },
+        "faq_8": {
+          "type": "item",
+          "settings": {
+            "question": "Kan jag ångra eller returnera?",
+            "answer": "<p>Ja. Du har 14 dagars ångerrätt. Använd vår returportal. Läs mer i våra köpvillkor.</p>"
+          }
+        },
+        "faq_9": {
+          "type": "item",
+          "settings": {
+            "question": "Får jag en gåva om jag handlar för mer?",
+            "answer": "<p>Ja. Handlar du för minst 1 199 kr får du en gratis AROX vattenflaska (1000 ml). Vid minst 1 999 kr får du även gratis strumpor 3-pack, som du väljer i din storlek i varukorgen. Beloppet räknas efter rabatt. Max 1 per kund.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "faq_1",
+        "faq_2",
+        "faq_3",
+        "faq_4",
+        "faq_5",
+        "faq_6",
+        "faq_9",
+        "faq_7",
+        "faq_8"
+      ],
+      "settings": {
+        "phases": "",
+        "eyebrow": "",
+        "heading": "Black Week.<br>I korthet.",
+        "limit": 12,
+        "open_first": true,
+        "note": "<p>Saknar du ett svar? Skriv till support@aroxfitness.com eller chatta med oss vardagar kl. 09–15.</p>",
+        "link_label": "",
+        "link_url": ""
+      }
+    }
+  },
+  "order": [
+    "hero",
+    "terms",
+    "faq"
+  ]
+}

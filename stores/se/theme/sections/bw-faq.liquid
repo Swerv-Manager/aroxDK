@@ -1,0 +1,62 @@
+{%- comment -%}
+BLACK WEEK 2026 · FAQ (board 11 "Black Week. Kort fortalt." + short FAQ on the homepage).
+Contract (used by other templates): settings {phases, eyebrow, heading, limit, link_label, link_url, note},
+blocks type "item" {question, answer}. Heading: use <br> for a line break. Only the first `limit` items render.
+{%- endcomment -%}
+<style>
+  .bw-faqs .bw-faq { border-top: 1px solid #fff; max-width: 980px; }
+  .bw-faqs .bw-faq details { border-bottom: 1px solid #2b2b2b; }
+  .bw-faqs .bw-faq summary { min-height: 56px; padding: 12px 0; font-size: 16px; font-weight: 700; }
+  .bw-faqs .bw-faq summary::after { font-size: 22px; }
+  .bw-faqs .bw-faq__a { padding: 0 0 18px; line-height: 1.55; color: #c9c9c9; max-width: 720px; }
+</style>
+<div class="bw bw-faqs{% render 'bw-only', phases: section.settings.phases %}">
+  <div class="bw-sec">
+    {%- if section.settings.eyebrow != blank or section.settings.heading != blank -%}
+      <div class="bw-head">
+        {%- if section.settings.eyebrow != blank -%}<div class="bw-eyebrow">{{ section.settings.eyebrow }}</div>{%- endif -%}
+        {%- if section.settings.heading != blank -%}<h2 class="bw-h2">{{ section.settings.heading }}</h2>{%- endif -%}
+      </div>
+    {%- endif -%}
+    <div class="bw-faq">
+      {%- for block in section.blocks limit: section.settings.limit -%}
+        <details {{ block.shopify_attributes }}{% if forloop.first and section.settings.open_first %} open{% endif %}>
+          <summary>{{ block.settings.question }}</summary>
+          <div class="bw-faq__a bw-rte">{{ block.settings.answer }}</div>
+        </details>
+      {%- endfor -%}
+    </div>
+    {%- if section.settings.note != blank -%}<div class="bw-rte" style="font-size:14px;line-height:1.5">{{ section.settings.note }}</div>{%- endif -%}
+    {%- if section.settings.link_label != blank -%}
+      <a href="{{ section.settings.link_url | default: '#' }}" class="bw-link" style="justify-self:start">{{ section.settings.link_label }}{% render 'bw-icon', name: 'arrow' %}</a>
+    {%- endif -%}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "BW · FAQ",
+  "settings": [
+    { "type": "text", "id": "phases", "label": "Vis kun i faser", "info": "pre, early, live, sidste · tom = altid" },
+    { "type": "text", "id": "eyebrow", "label": "Overlinje" },
+    { "type": "text", "id": "heading", "label": "Overskrift", "info": "Brug <br> til linjeskift", "default": "Black Week.<br>Kort fortalt." },
+    { "type": "range", "id": "limit", "label": "Antal spørgsmål", "min": 1, "max": 12, "step": 1, "default": 12 },
+    { "type": "checkbox", "id": "open_first", "label": "Første spørgsmål åbent", "default": true },
+    { "type": "richtext", "id": "note", "label": "Note under spørgsmål" },
+    { "type": "text", "id": "link_label", "label": "Link" },
+    { "type": "url", "id": "link_url", "label": "Link-URL" }
+  ],
+  "blocks": [
+    {
+      "type": "item",
+      "name": "Spørgsmål",
+      "settings": [
+        { "type": "text", "id": "question", "label": "Spørgsmål", "default": "Hvornår er Black Week?" },
+        { "type": "richtext", "id": "answer", "label": "Svar", "default": "<p>Presale for tilmeldte fredag 20.11 kl. 12:00. Åbent for alle søndag 22.11 kl. 20:00. Black Week slutter mandag 30.11 kl. 23:59 (Cyber Monday).</p>" }
+      ]
+    }
+  ],
+  "max_blocks": 16,
+  "presets": [{ "name": "BW · FAQ", "blocks": [{ "type": "item" }] }]
+}
+{% endschema %}

@@ -1,0 +1,156 @@
+{
+  "sections": {
+    "bw_header": {
+      "type": "bw-collection-header",
+      "blocks": {
+        "nav_le": {
+          "type": "link",
+          "settings": {
+            "label": "Single offers",
+            "sub": "Fast Black Week-pris",
+            "url": "shopify://collections/black-week-limited-edition",
+            "active": true
+          }
+        },
+        "nav_s3": {
+          "type": "link",
+          "settings": {
+            "label": "3 för 2",
+            "sub": "Den billigaste är gratis",
+            "url": "shopify://collections/black-week-3for2"
+          }
+        },
+        "nav_s4": {
+          "type": "link",
+          "settings": {
+            "label": "4 för 2",
+            "sub": "De 2 billigaste är gratis",
+            "url": "shopify://collections/black-week-4for2"
+          }
+        }
+      },
+      "block_order": [
+        "nav_le",
+        "nav_s3",
+        "nav_s4"
+      ],
+      "settings": {
+        "phases": "",
+        "show_crumb": true,
+        "crumb_parent": "Black Week",
+        "crumb_parent_url": "shopify://pages/black-week",
+        "badge": "Black Week",
+        "title": "Limited edition",
+        "line": "Fast Black Week-pris till och med måndag 30/11 kl. 23.59.",
+        "padding_bottom": 0,
+        "dark_page": true,
+        "filter_hide": "Brand, Varumärke",
+        "filter_rename": "Produkttyp=Kategori; Produkttype=Kategori"
+      }
+    },
+    "bw_group_blackout": {
+      "type": "bw-product-group",
+      "settings": {
+        "phases": "",
+        "heading": "LIMITED BLACKOUT.",
+        "text": "Helsvarta versioner. Bara under Black Week.",
+        "limit": 5,
+        "columns": 5,
+        "badge": "",
+        "products": [
+          "anti-slip-grips-pro-black-week-2026",
+          "fusion-grips-pro-black-week-2026",
+          "metcon-lyftarbalte-black-week-2026",
+          "elite-speed-rope-black-week-2026"
+        ]
+      }
+    },
+    "bw_group_fav": {
+      "type": "bw-product-group",
+      "settings": {
+        "phases": "",
+        "heading": "FAVORITER TILL FAST PRIS.",
+        "text": "Fast Black Week-pris till och med måndag 30/11 kl. 23.59.",
+        "limit": 5,
+        "columns": 5,
+        "badge": "",
+        "products": [
+          "arox-hydration-bottle-1000-ml",
+          "arox-water-bottle-500ml",
+          "ufiltreret-fitness-limited-steel-flask-1-06-l",
+          "socks-3-pack"
+        ]
+      }
+    },
+    "bw_group_tape": {
+      "type": "bw-product-group",
+      "settings": {
+        "phases": "",
+        "heading": "TEJP.",
+        "text": "Blanda själv 10 rullar.",
+        "limit": 5,
+        "columns": 5,
+        "badge": "",
+        "products": [
+          "arox-flextape-10-pack-without-glue-leftovers"
+        ]
+      }
+    },
+    "bw_note": {
+      "type": "bw-offer-note",
+      "settings": {
+        "phases": "",
+        "note": "Fri frakt vid köp över 899 kr · annars frakt från 75 kr · Rabatten dras automatiskt i varukorgen. Ingen kod behövs.",
+        "note_light": false,
+        "pad_top": 0,
+        "pad_bottom": 48
+      },
+      "blocks": {
+        "band_0": {
+          "type": "item",
+          "settings": {
+            "text": "Fast Black Week-pris"
+          }
+        },
+        "band_1": {
+          "type": "item",
+          "settings": {
+            "text": "Till och med måndag 30/11 kl. 23.59"
+          }
+        }
+      },
+      "block_order": [
+        "band_0",
+        "band_1"
+      ]
+    },
+    "bw_hero": {
+      "type": "bw-offer-hero",
+      "settings": {
+        "phases": "",
+        "layout": "overlay",
+        "image": "shopify://shop_images/Billede-08057_0967cde5-9310-4718-82bf-e44dddf196d9.jpg",
+        "focal_x": 50,
+        "focal_y": 55,
+        "scrim_top": 15,
+        "scrim_bottom": 90,
+        "min_height": 580,
+        "min_height_mobile": 560,
+        "badge": "Limited · bara under Black Week",
+        "eyebrow": "",
+        "heading": "Limited blackout.\nBara under Black Week.",
+        "heading_tag": "h2",
+        "text": "Helsvarta versioner av anti slip grips, fusion grips, metcon-lyftarbältet och elite speed rope, plus utvalda favoriter till fast Black Week-pris. Limited finns bara under Black Week.",
+        "button_label": ""
+      }
+    }
+  },
+  "order": [
+    "bw_header",
+    "bw_group_blackout",
+    "bw_group_fav",
+    "bw_group_tape",
+    "bw_note",
+    "bw_hero"
+  ]
+}

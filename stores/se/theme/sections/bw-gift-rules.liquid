@@ -1,0 +1,54 @@
+{%- comment -%}BLACK WEEK 2026 · Gavereglen 01/02 (board 09 "Sådan får du gaven").{%- endcomment -%}
+<style>
+  .bw-gr__grid { display: grid; gap: 24px; grid-template-columns: minmax(0, 1fr); }
+  @media (min-width: 768px) { .bw-gr__grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+  .bw-gr__item { display: grid; gap: 10px; border-top: 2px solid #fff; padding-top: 18px; align-content: start; }
+  .bw-gr__n { font-size: clamp(44px, 4.4vw, 64px); font-weight: 900; line-height: 1; }
+  .bw-gr__k { font-size: 18px; font-weight: 800; text-transform: uppercase; }
+  .bw-gr__v { font-size: 16px; font-weight: 700; }
+</style>
+<div class="bw bw-gr{% render 'bw-only', phases: section.settings.phases %}">
+  <div class="bw-sec">
+    <div class="bw-head">
+      {%- if section.settings.eyebrow != blank -%}<div class="bw-eyebrow bw-eyebrow--light">{{ section.settings.eyebrow }}</div>{%- endif -%}
+      <h2 class="bw-h2">{{ section.settings.heading_1 }}{% if section.settings.heading_2 != blank %}<br>{{ section.settings.heading_2 }}{% endif %}</h2>
+    </div>
+    <div class="bw-gr__grid">
+      {%- for block in section.blocks -%}
+        <div class="bw-gr__item" {{ block.shopify_attributes }}>
+          <div class="bw-gr__n">{{ forloop.index | prepend: '0' | slice: -2, 2 }}</div>
+          <div class="bw-gr__k">{{ block.settings.key }}</div>
+          <div class="bw-gr__v">{{ block.settings.value }}</div>
+          <div class="bw-body">{{ block.settings.text }}</div>
+        </div>
+      {%- endfor -%}
+    </div>
+    {%- if section.settings.note != blank -%}<div style="font-size:15px;font-weight:600">{{ section.settings.note }}</div>{%- endif -%}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "BW · Gaveregler",
+  "settings": [
+    { "type": "text", "id": "phases", "label": "Vis kun i faser", "info": "pre, early, live, sidste · tom = altid" },
+    { "type": "text", "id": "eyebrow", "label": "Overlinje", "default": "Sådan får du gaven" },
+    { "type": "text", "id": "heading_1", "label": "Overskrift linje 1", "default": "Én gave." },
+    { "type": "text", "id": "heading_2", "label": "Overskrift linje 2", "default": "De første 100." },
+    { "type": "text", "id": "note", "label": "Note", "default": "Gælder ordrer i Black Week 20.11–30.11.2026." }
+  ],
+  "blocks": [
+    {
+      "type": "rule",
+      "name": "Regel",
+      "settings": [
+        { "type": "text", "id": "key", "label": "Overskrift", "default": "De første 100 ordrer" },
+        { "type": "text", "id": "value", "label": "Værdi", "default": "Gratis Thermo stålflaske 1,06 L" },
+        { "type": "textarea", "id": "text", "label": "Tekst", "default": "Gælder de første 100 ordrer i Black Week." }
+      ]
+    }
+  ],
+  "max_blocks": 6,
+  "presets": [{ "name": "BW · Gaveregler", "blocks": [{ "type": "rule" }] }]
+}
+{% endschema %}

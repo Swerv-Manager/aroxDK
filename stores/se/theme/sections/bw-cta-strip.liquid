@@ -1,0 +1,39 @@
+{%- comment -%}BLACK WEEK 2026 · Presale-CTA bjælke (board 03, only in presale by default), ported 1:1 from the design.{%- endcomment -%}
+{%- liquid
+  assign s = section.settings
+  assign G = 'max(clamp(20px,calc((100cqw - 767px)*1000),64px),calc((100cqw - 1312px)/2))'
+  assign PY = 'clamp(48px,calc((100cqw - 767px)*1000),80px)'
+-%}
+<style>#shopify-section-{{ section.id }} a:hover { opacity: 1; }</style>
+<div class="bw{% render 'bw-only', phases: s.phases %}" style="container-type:inline-size">
+  <div style="background:#0a0a0a;color:#fff;padding:{{ PY }} {{ G }};display:flex;flex-wrap:wrap;gap:20px 40px;align-items:center;justify-content:space-between;border-top:1px solid #2b2b2b">
+    <div style="display:grid;gap:8px">
+      {%- if s.eyebrow != blank -%}<div style="font-size:12px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#c9c9c9">{{ s.eyebrow }}</div>{%- endif -%}
+      <div style="font-size:clamp(24px,2.6cqw,36px);font-weight:900;text-transform:uppercase;line-height:1">{{ s.heading }}</div>
+      {%- if s.text != blank -%}<div style="font-size:15px;color:#c9c9c9">{{ s.text }}</div>{%- endif -%}
+    </div>
+    <div style="display:flex;gap:16px;align-items:center;flex-wrap:wrap">
+      {%- if s.button_label != blank -%}<a href="{{ s.button_link | default: '#' }}" style="display:inline-flex;align-items:center;justify-content:center;height:48px;padding:0 28px;border-radius:999px;font-size:15px;font-weight:700;text-decoration:none;background:#fff;color:#111">{{ s.button_label }}</a>{%- endif -%}
+      {%- if s.link_label != blank -%}<a href="{{ s.link | default: '#' }}" style="color:#fff;font-size:15px;font-weight:700;text-decoration:underline;text-underline-offset:4px">{{ s.link_label }}</a>{%- endif -%}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "BW · CTA-bjælke",
+  "tag": "section",
+  "class": "bw-section",
+  "settings": [
+    { "type": "text", "id": "phases", "label": "Vis kun i faser", "info": "pre, early, live, sidste · tom = altid", "default": "pre" },
+    { "type": "text", "id": "eyebrow", "label": "Overlinje", "default": "Presale" },
+    { "type": "text", "id": "heading", "label": "Overskrift", "default": "Shop før alle andre." },
+    { "type": "text", "id": "text", "label": "Tekst", "default": "Presale for tilmeldte fredag 20.11 kl. 12:00 · Åbent for alle søndag 22.11 kl. 20:00" },
+    { "type": "text", "id": "button_label", "label": "Knaptekst", "default": "Tilmeld dig presale" },
+    { "type": "url", "id": "button_link", "label": "Knaplink" },
+    { "type": "text", "id": "link_label", "label": "Linktekst", "default": "Vilkår og FAQ" },
+    { "type": "url", "id": "link", "label": "Link" }
+  ],
+  "presets": [ { "name": "BW · CTA-bjælke" } ]
+}
+{% endschema %}

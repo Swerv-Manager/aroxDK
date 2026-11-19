@@ -1,0 +1,118 @@
+{
+  "type": "footer",
+  "name": "Footer group",
+  "sections": {
+    "bw_usp": {
+      "type": "bw-usp",
+      "blocks": {
+        "usp_1": {
+          "type": "item",
+          "settings": {
+            "icon": "truck",
+            "title": "Fri frakt över 899 kr",
+            "text": "Vi levererar med GLS",
+            "link": ""
+          }
+        },
+        "usp_2": {
+          "type": "item",
+          "settings": {
+            "icon": "store",
+            "title": "Över 50 återförsäljare",
+            "text": "Hitta en butik nära dig",
+            "link": "shopify://pages/store-locator"
+          }
+        },
+        "usp_3": {
+          "type": "item",
+          "settings": {
+            "icon": "phone",
+            "title": "LIVECHATT VARDAGAR 09–15",
+            "text": "VI HJÄLPER DIG GÄRNA",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "usp_1",
+        "usp_2",
+        "usp_3"
+      ],
+      "settings": {
+        "phases": ""
+      }
+    },
+    "bw_footer": {
+      "type": "bw-footer",
+      "blocks": {
+        "link_1": {
+          "type": "link",
+          "settings": {
+            "label": "Single offers",
+            "link": "/collections/black-week-limited-edition"
+          }
+        },
+        "link_2": {
+          "type": "link",
+          "settings": {
+            "label": "3 för 2",
+            "link": "/collections/black-week-3for2"
+          }
+        },
+        "link_3": {
+          "type": "link",
+          "settings": {
+            "label": "4 för 2",
+            "link": "/collections/black-week-4for2"
+          }
+        },
+        "link_4": {
+          "type": "link",
+          "settings": {
+            "label": "Gåvor",
+            "link": "/pages/black-week-presenter"
+          }
+        },
+        "link_5": {
+          "type": "link",
+          "settings": {
+            "label": "Villkor och FAQ",
+            "link": "/pages/black-week-villkor"
+          }
+        }
+      },
+      "block_order": [
+        "link_1",
+        "link_2",
+        "link_3",
+        "link_4",
+        "link_5"
+      ],
+      "settings": {
+        "phases": "",
+        "eyebrow": "Black Week · SMS + mejl",
+        "heading": "Gå med i VIP-nyhetsbrevet",
+        "text": "Få rabattkoder, fri frakt-kampanjer, exklusiva erbjudanden och mycket mer. Under Black Week får du besked när erbjudandena öppnar.",
+        "ph_email": "E-post",
+        "button": "Prenumerera",
+        "consent_sms": "Ja tack till nyheter och erbjudanden via SMS",
+        "legal_small": "Du kan alltid avregistrera dig igen. Läs mer i vår integritetspolicy.",
+        "success": "Tack. Du är med på listan.",
+        "tags": "newsletter",
+        "bw_title": "Black Week",
+        "menu": "footer",
+        "menu_title": "Information",
+        "contact_title": "Kundtjänst",
+        "contact": "<p>support@aroxfitness.com</p><p>Livechatt vardagar kl. 09–15</p>",
+        "logo": "shopify://shop_images/bw26-arox-r-white.png",
+        "logo_width": 126,
+        "payments": "Visa, Mastercard, Klarna, Apple Pay",
+        "copyright": "© 2026, Aroxfitness Sweden · Sai Fitness ApS · CVR 42582735 · Skolegade 7, 8000 Aarhus C, Danmark"
+      }
+    }
+  },
+  "order": [
+    "bw_usp",
+    "bw_footer"
+  ]
+}

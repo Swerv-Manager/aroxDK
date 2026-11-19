@@ -1,0 +1,47 @@
+{%- comment -%}
+BLACK WEEK 2026 · board 08 · breadcrumb above the product page: "Forside / Black Week / 3 for 2 / <produkt>" for
+products in a Black Week offer (links to the Black Week page and the offer collection), else
+"Forside / <kollektion> / <produkt>" when the product is opened from a collection, else "Forside / <produkt>".
+{%- endcomment -%}
+{%- liquid
+  capture bw_key
+    render 'bw-offer', product: product, key: true
+  endcapture
+  assign bw_key = bw_key | strip
+  capture bw_label
+    render 'bw-offer', product: product
+  endcapture
+  assign bw_label = bw_label | strip
+  case bw_key
+    when 'le'
+      assign bw_url = '/collections/black-week-limited-edition'
+    when 's3'
+      assign bw_url = '/collections/black-week-3for2'
+    when 's4'
+      assign bw_url = '/collections/black-week-4for2'
+  endcase
+-%}
+<div class="bw bw-pdp-crumb{% render 'bw-only', phases: section.settings.phases %}">
+  <nav aria-label="Brödsmulor">
+    <a href="{{ routes.root_url }}">Startsida</a> /
+    {%- if bw_key != blank %}
+      <a href="{{ section.settings.bw_url | default: '/pages/black-week' }}">Black Week</a> /
+      <a href="{{ routes.root_url | append: bw_url | replace: '//', '/' }}">{{ bw_label }}</a> /
+    {%- elsif collection != blank %}
+      <a href="{{ collection.url }}">{{ collection.title }}</a> /
+    {%- endif %}
+    <span>{{ product.title }}</span>
+  </nav>
+</div>
+
+{% schema %}
+{
+  "name": "BW · Brødkrumme PDP",
+  "class": "bw-section",
+  "settings": [
+    { "type": "text", "id": "phases", "label": "Vis kun i faser", "info": "pre, early, live, sidste · tom = altid" },
+    { "type": "text", "id": "bw_url", "label": "Link til Black Week", "default": "/pages/black-week" }
+  ],
+  "presets": [ { "name": "BW · Brødkrumme PDP" } ]
+}
+{% endschema %}

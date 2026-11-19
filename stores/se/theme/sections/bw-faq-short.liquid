@@ -1,0 +1,59 @@
+{%- comment -%}BLACK WEEK 2026 · "Black Week. Kort fortalt." – short FAQ on the homepage (board 02 #faq), ported 1:1 from the design. First question open.{%- endcomment -%}
+{%- liquid
+  assign s = section.settings
+  assign G = 'max(clamp(20px,calc((100cqw - 767px)*1000),64px),calc((100cqw - 1312px)/2))'
+  assign PY = 'clamp(48px,calc((100cqw - 767px)*1000),80px)'
+-%}
+<style>
+  #shopify-section-{{ section.id }} summary { list-style: none; }
+  #shopify-section-{{ section.id }} summary::-webkit-details-marker { display: none; }
+  #shopify-section-{{ section.id }} details .bwfq-minus { display: none; }
+  #shopify-section-{{ section.id }} details[open] .bwfq-minus { display: inline; }
+  #shopify-section-{{ section.id }} details[open] .bwfq-plus { display: none; }
+  #shopify-section-{{ section.id }} a:hover { opacity: 1; }
+</style>
+<div class="bw{% render 'bw-only', phases: s.phases %}" style="container-type:inline-size">
+  <div id="faq" style="background:#0a0a0a;color:#fff;padding:{{ PY }} {{ G }};display:grid;grid-template-columns:repeat(auto-fit,minmax(max(300px,calc((100% - 64px)/2)),1fr));gap:24px 64px;align-items:start">
+    <div style="display:grid;gap:14px">
+      <div style="font-size:12px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#c9c9c9">{{ s.eyebrow }}</div>
+      <h2 style="margin:0;font-size:clamp(34px,4.6cqw,68px);font-weight:900;text-transform:uppercase;letter-spacing:-.01em;line-height:1;font-family:inherit;color:#fff">{{ s.heading_1 }}<br>{{ s.heading_2 }}</h2>
+      {%- if s.link_label != blank -%}<a href="{{ s.link_url | default: '#' }}" style="color:#fff;font-size:15px;font-weight:700;text-decoration:underline;text-underline-offset:4px;justify-self:start">{{ s.link_label }}</a>{%- endif -%}
+    </div>
+    <div style="display:grid;border-top:1px solid #fff">
+      {%- for block in section.blocks -%}
+        <details {{ block.shopify_attributes }} style="border-bottom:1px solid #2b2b2b"{% if forloop.first %} open{% endif %}>
+          <summary style="box-sizing:border-box;cursor:pointer;width:100%;min-height:56px;display:flex;justify-content:space-between;align-items:center;gap:16px;font-size:16px;font-weight:700;padding:12px 0">{{ block.settings.question }}<span style="font-size:22px;font-weight:400"><span class="bwfq-plus">+</span><span class="bwfq-minus">–</span></span></summary>
+          <div style="padding:0 0 18px;font-size:15px;line-height:1.55;color:#c9c9c9;max-width:620px">{{ block.settings.answer }}</div>
+        </details>
+      {%- endfor -%}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "BW · FAQ kort",
+  "tag": "section",
+  "class": "bw-section",
+  "max_blocks": 8,
+  "settings": [
+    { "type": "text", "id": "phases", "label": "Vis kun i faser", "info": "pre, early, live, sidste · tom = altid" },
+    { "type": "text", "id": "eyebrow", "label": "Overlinje", "default": "FAQ" },
+    { "type": "text", "id": "heading_1", "label": "Overskrift linje 1", "default": "Black Week." },
+    { "type": "text", "id": "heading_2", "label": "Overskrift linje 2", "default": "Kort fortalt." },
+    { "type": "text", "id": "link_label", "label": "Linktekst", "default": "Se vilkår og alle spørgsmål" },
+    { "type": "url", "id": "link_url", "label": "Link" }
+  ],
+  "blocks": [
+    {
+      "type": "item",
+      "name": "Spørgsmål",
+      "settings": [
+        { "type": "text", "id": "question", "label": "Spørgsmål", "default": "Hvornår er Black Week?" },
+        { "type": "textarea", "id": "answer", "label": "Svar", "default": "Presale for tilmeldte fredag 20.11 kl. 12:00. Åbent for alle søndag 22.11 kl. 20:00. Black Week slutter mandag 30.11 kl. 23:59 (Cyber Monday)." }
+      ]
+    }
+  ],
+  "presets": [ { "name": "BW · FAQ kort" } ]
+}
+{% endschema %}

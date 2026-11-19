@@ -1,0 +1,63 @@
+{
+  "type": "custom.overlay",
+  "name": "Overlay group",
+  "sections": {
+    "newsletter-popup": {
+      "type": "newsletter-popup",
+      "disabled": true,
+      "settings": {
+        "apparition_delay": 5,
+        "show_only_on_index": true,
+        "show_only_for_visitors": true,
+        "show_only_once": true,
+        "title": "Prenumerera på vårt nyhetsbrev",
+        "button_text": "Prenumerera",
+        "subtext": "Describe what your customers will receive when subscribing to your newsletter."
+      }
+    },
+    "privacy-banner": {
+      "type": "privacy-banner",
+      "disabled": true,
+      "settings": {
+        "privacy_bar_title": "Cookiepolicy",
+        "privacy_bar_content": "<p>Vi använder cookies och liknande tekniker för att ge dig den bästa upplevelsen på vår webbplats. Läs mer i vår integritetspolicy.</p>"
+      }
+    },
+    "cart-drawer": {
+      "type": "cart-drawer",
+      "settings": {
+        "show_cart_note": false,
+        "show_shipping_text": false,
+        "show_view_cart_button": false,
+        "show_checkout_button": true,
+        "recommendations_title": "Populärt just nu",
+        "products": [],
+        "product_card_background": "#ffffff",
+        "product_card_text_color": "",
+        "bw_offer_recommendations": true,
+        "bw_progress_phases": "early live sidste",
+        "bw_progress_amounts": "899,1199,1999",
+        "bw_progress_labels": "Fri frakt|Vattenflaska|Strumpor 3-pack",
+        "bw_progress_messages": "[beløb] kvar till fri frakt|[beløb] kvar till en gratis vattenflaska|[beløb] kvar till gratis strumpor 3-pack",
+        "bw_progress_done": "Du har fri frakt och 2 gratis gåvor",
+        "bw_gift_note": "Max 1 per kund",
+        "bw_progress_gift3": "socks-3-pack"
+      }
+    },
+    "search-drawer": {
+      "type": "search-drawer",
+      "settings": {
+        "full_width": false,
+        "show_article_category": true,
+        "search_menu": "",
+        "search_menu_show_title": true
+      }
+    }
+  },
+  "order": [
+    "newsletter-popup",
+    "privacy-banner",
+    "cart-drawer",
+    "search-drawer"
+  ]
+}

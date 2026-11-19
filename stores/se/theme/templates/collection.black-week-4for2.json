@@ -1,0 +1,204 @@
+{
+  "sections": {
+    "bw_header": {
+      "type": "bw-collection-header",
+      "blocks": {
+        "nav_le": {
+          "type": "link",
+          "settings": {
+            "label": "Single offers",
+            "sub": "Fast Black Week-pris",
+            "url": "shopify://collections/black-week-limited-edition"
+          }
+        },
+        "nav_s3": {
+          "type": "link",
+          "settings": {
+            "label": "3 för 2",
+            "sub": "Den billigaste är gratis",
+            "url": "shopify://collections/black-week-3for2"
+          }
+        },
+        "nav_s4": {
+          "type": "link",
+          "settings": {
+            "label": "4 för 2",
+            "sub": "De 2 billigaste är gratis",
+            "url": "shopify://collections/black-week-4for2"
+          }
+        }
+      },
+      "block_order": [
+        "nav_le",
+        "nav_s3",
+        "nav_s4"
+      ],
+      "settings": {
+        "phases": "",
+        "show_crumb": true,
+        "crumb_parent": "Black Week",
+        "crumb_parent_url": "shopify://pages/black-week",
+        "badge": "Black Week",
+        "title": "4 för 2",
+        "line": "Välj 4 produkter bland alla på den här sidan, så är de 2 billigaste gratis.",
+        "padding_bottom": 0,
+        "dark_page": true,
+        "show_toolbar": true,
+        "filter_hide": "Brand, Varumärke",
+        "filter_rename": "Produkttyp=Kategori; Produkttype=Kategori"
+      }
+    },
+    "bw_progress": {
+      "type": "bw-offer-progress",
+      "settings": {
+        "phases": "",
+        "n": "4",
+        "free": "2",
+        "todo": "Välj [n] till så är de 2 billigaste gratis",
+        "done": "Rabatten dras automatiskt i varukorgen.",
+        "note": "De 2 billigaste av de 4 produkterna är gratis. Rabatten dras automatiskt i varukorgen.",
+        "heading": "",
+        "line": "",
+        "link_label": "",
+        "pad_top": 20,
+        "pad_bottom": 0
+      }
+    },
+    "bw_grid": {
+      "type": "bw-collection-grid",
+      "settings": {
+        "phases": "",
+        "heading": "",
+        "badge": "",
+        "pad_top": 24,
+        "pad_bottom": 24
+      }
+    },
+    "bw_note": {
+      "type": "bw-offer-note",
+      "settings": {
+        "phases": "",
+        "note": "Fri frakt vid köp över 899 kr · annars frakt från 75 kr",
+        "note_light": true,
+        "pad_top": 0,
+        "pad_bottom": 48
+      }
+    },
+    "bw_steps": {
+      "type": "bw-offer-steps",
+      "blocks": {
+        "step_0": {
+          "type": "step",
+          "settings": {
+            "title": "Välj 4 produkter",
+            "text": "Blanda SportsTech, tights för herr och damtoppar från 4 för 2."
+          }
+        },
+        "step_1": {
+          "type": "step",
+          "settings": {
+            "title": "Lägg dem i varukorgen",
+            "text": "Rabatten dras automatiskt i varukorgen. Ingen kod behövs."
+          }
+        },
+        "step_2": {
+          "type": "step",
+          "settings": {
+            "title": "Betala för 2",
+            "text": "De 2 billigaste av de 4 produkterna är gratis."
+          }
+        }
+      },
+      "block_order": [
+        "step_0",
+        "step_1",
+        "step_2"
+      ],
+      "settings": {
+        "phases": "",
+        "eyebrow": "Så fungerar 4 för 2"
+      },
+      "disabled": true
+    },
+    "bw_focus": {
+      "type": "bw-focus-split",
+      "blocks": {
+        "tile_1": {
+          "type": "tile",
+          "settings": {
+            "label": "SportsTech t-shirts",
+            "product": "sportstech-unisex-t-shirt-dark-brown-copy"
+          }
+        },
+        "tile_2": {
+          "type": "tile",
+          "settings": {
+            "label": "Tights för herr",
+            "product": "arox-performance-tights"
+          }
+        }
+      },
+      "block_order": [
+        "tile_1",
+        "tile_2"
+      ],
+      "settings": {
+        "phases": "",
+        "image": "shopify://shop_images/Billede-00931_a94195eb-2c88-43e4-aee0-2d53e7bc09c6.jpg",
+        "focal_x": 50,
+        "focal_y": 30,
+        "overlay": 50,
+        "caption": "SportsTech tanktopp dam",
+        "eyebrow": "Fokus i 4 för 2",
+        "heading": "SportsTech.\nTights för herr.",
+        "text": "Vår SportsTech-serie och tights för herr är kärnan i 4 för 2. Blanda fritt i hela kollektionen, för herr och dam.",
+        "button_label": "Shoppa 4 för 2"
+      },
+      "disabled": true
+    },
+    "bw_hero": {
+      "type": "bw-offer-hero",
+      "settings": {
+        "phases": "",
+        "layout": "stacked",
+        "image": "shopify://shop_images/Billede-00921_c753309d-306a-4e08-bc57-5cb9ccfaf11c.jpg",
+        "focal_x": 50,
+        "focal_y": 30,
+        "scrim_top": 0,
+        "scrim_bottom": 55,
+        "min_height": 520,
+        "min_height_mobile": 480,
+        "badge": "4 för 2",
+        "eyebrow": "4 för 2 · SportsTech och tights för herr",
+        "heading": "Ta 4.\nBetala för 2.",
+        "heading_tag": "h2",
+        "text": "Blanda SportsTech-tröjor, långärmat, no sleeves, oversized, tights för herr och damtoppar. De 2 billigaste av de 4 är gratis.",
+        "button_label": "Shoppa 4 för 2"
+      },
+      "disabled": true
+    },
+    "bw_gift": {
+      "type": "bw-gift-reminder",
+      "settings": {
+        "phases": "",
+        "image": "shopify://shop_images/427_496bbe8d-72cc-421a-9db6-f83a5b270081.png",
+        "heading": "Gåva med i paketet. På köpet.",
+        "text": "Gratis stålflaska till de första 100 beställningarna.",
+        "button_label": "Se gåvorna",
+        "button_url": "shopify://pages/black-week-presenter",
+        "line_top": false
+      },
+      "disabled": true
+    }
+  },
+  "order": [
+    "bw_header",
+    "bw_progress",
+    "bw_grid",
+    "bw_note",
+    "bw_steps",
+    "bw_focus",
+    "bw_hero",
+    "bw_gift"
+  ]
+}

@@ -1,0 +1,52 @@
+{%- comment -%}BLACK WEEK 2026 · boards 05/06 · "Sådan virker 3 for 2 / 4 for 2" – numbered steps 01/02/03.{%- endcomment -%}
+<div class="bw bw-sec bw-steps{% render 'bw-only', phases: section.settings.phases %}">
+  <style>
+    .bw-steps__grid { display: grid; gap: 24px; grid-template-columns: minmax(0, 1fr); }
+    @media (min-width: 768px) { .bw-steps__grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+    .bw-steps__it { display: grid; gap: 10px; border-top: 2px solid #fff; padding-top: 18px; align-content: start; }
+    .bw-steps__n { font-size: clamp(44px, 4.4vw, 64px); font-weight: 900; line-height: 1; }
+    .bw-steps__t { font-size: 18px; font-weight: 800; text-transform: uppercase; }
+  </style>
+  {%- if section.settings.eyebrow != blank -%}<div class="bw-eyebrow bw-eyebrow--light" style="margin-bottom:8px">{{ section.settings.eyebrow }}</div>{%- endif -%}
+  <div class="bw-steps__grid">
+    {%- for block in section.blocks -%}
+      <div class="bw-steps__it" {{ block.shopify_attributes }}>
+        <div class="bw-steps__n">{% if forloop.index < 10 %}0{% endif %}{{ forloop.index }}</div>
+        <div class="bw-steps__t">{{ block.settings.title }}</div>
+        <div class="bw-body">{{ block.settings.text }}</div>
+      </div>
+    {%- endfor -%}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "BW · Sådan virker det",
+  "class": "bw-section",
+  "max_blocks": 4,
+  "settings": [
+    { "type": "text", "id": "phases", "label": "Vis kun i faser", "info": "pre, early, live, sidste · tom = altid" },
+    { "type": "text", "id": "eyebrow", "label": "Overskrift", "default": "Sådan virker 3 for 2" }
+  ],
+  "blocks": [
+    {
+      "type": "step",
+      "name": "Trin",
+      "settings": [
+        { "type": "text", "id": "title", "label": "Titel", "default": "Vælg 3 varer" },
+        { "type": "textarea", "id": "text", "label": "Tekst", "default": "Bland pro grips, shorts, hoodies og performance tights fra 3 for 2." }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "BW · Sådan virker det",
+      "blocks": [
+        { "type": "step", "settings": { "title": "Vælg 3 varer", "text": "Bland pro grips, shorts, hoodies og performance tights fra 3 for 2." } },
+        { "type": "step", "settings": { "title": "Læg dem i kurven", "text": "Rabatten trækkes automatisk i kurven – ingen kode nødvendig." } },
+        { "type": "step", "settings": { "title": "Betal for 2", "text": "Den billigste af de 3 varer er gratis." } }
+      ]
+    }
+  ]
+}
+{% endschema %}

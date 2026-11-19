@@ -1,0 +1,47 @@
+{%- comment -%}BLACK WEEK 2026 · Announcement bar med tekst pr. fase (01 Topbar · "Faser · announcement"){%- endcomment -%}
+{%- assign s = section.settings -%}
+<style>
+  #shopify-section-{{ section.id }} .bw-ann { height: 40px; display: flex; align-items: center; justify-content: center; padding: 0 16px; font-size: 13px; font-weight: 600; letter-spacing: .02em; white-space: nowrap; overflow: hidden; background: var(--bw-black); color: #fff; text-decoration: none; }
+  #shopify-section-{{ section.id }} .bw-ann span { overflow: hidden; text-overflow: ellipsis; }
+  @media (max-width: 767px) { #shopify-section-{{ section.id }} .bw-ann { font-size: 12px; white-space: normal; text-align: center; height: auto; min-height: 40px; padding: 8px 16px; line-height: 1.3; } }
+</style>
+{%- assign phases_all = 'pre,early,live,sidste' | split: ',' -%}
+<div class="bw{% render 'bw-only', phases: s.phases %}">
+  {%- for p in phases_all -%}
+    {%- assign k = 'text_' | append: p -%}
+    {%- assign l = 'link_' | append: p -%}
+    {%- assign pp = p -%}{%- if p == 'sidste' -%}{%- assign pp = 'sidste ended' -%}{%- endif -%}
+    {%- if s[k] != blank -%}
+      {%- if s[l] != blank -%}
+        <a href="{{ s[l] }}" class="bw-ann{% render 'bw-only', phases: pp %}"><span>{{ s[k] }}</span></a>
+      {%- else -%}
+        <div class="bw-ann{% render 'bw-only', phases: pp %}"><span>{{ s[k] }}</span></div>
+      {%- endif -%}
+    {%- endif -%}
+  {%- endfor -%}
+</div>
+
+{% schema %}
+{
+  "name": "BW · Announcement",
+  "tag": "aside",
+  "class": "bw-section",
+  "enabled_on": { "groups": ["header"] },
+  "settings": [
+    { "type": "text", "id": "phases", "label": "Vis kun i faser", "info": "pre, early, live, sidste · tom = altid" },
+    { "type": "header", "content": "Presale" },
+    { "type": "text", "id": "text_pre", "label": "Tekst", "default": "BLACK WEEK 20.11–30.11 · Tilmeld dig presale og shop først fredag 20.11 kl. 12:00" },
+    { "type": "url", "id": "link_pre", "label": "Link" },
+    { "type": "header", "content": "Tidlig adgang" },
+    { "type": "text", "id": "text_early", "label": "Tekst", "default": "BLACK WEEK · Tidlig adgang åben til søndag 22.11 kl. 20:00" },
+    { "type": "url", "id": "link_early", "label": "Link" },
+    { "type": "header", "content": "Live" },
+    { "type": "text", "id": "text_live", "label": "Tekst", "default": "BLACK WEEK 20.11–30.11 · Limited edition, 3 for 2 og 4 for 2 på udvalgte varer" },
+    { "type": "url", "id": "link_live", "label": "Link" },
+    { "type": "header", "content": "Sidste chance" },
+    { "type": "text", "id": "text_sidste", "label": "Tekst", "default": "SIDSTE DAG · Black Week slutter i aften, mandag 30.11 kl. 23:59" },
+    { "type": "url", "id": "link_sidste", "label": "Link" }
+  ],
+  "presets": [ { "name": "BW · Announcement" } ]
+}
+{% endschema %}
