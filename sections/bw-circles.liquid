@@ -6,7 +6,7 @@
 <style>#shopify-section-{{ section.id }} a:hover { opacity: 1; }</style>
 <div class="bw{% render 'bw-only', phases: s.phases %}" style="container-type:inline-size">
   <div style="background:#0a0a0a;color:#fff;padding:28px {{ G }} 32px">
-    <div style="display:flex;gap:clamp(16px,2.2cqw,32px);overflow-x:auto;justify-content:safe center">
+    <div class="bw-noscrollbar" style="display:flex;gap:clamp(16px,2.2cqw,32px);overflow-x:auto;justify-content:safe center">
       {%- for block in section.blocks -%}
         {%- assign img = block.settings.image | default: block.settings.product.featured_image -%}
         <a href="{{ block.settings.url | default: block.settings.product.url | default: '#' }}" {{ block.shopify_attributes }} style="flex:none;display:grid;justify-items:center;gap:10px;width:clamp(84px,8.4cqw,120px);text-decoration:none;color:#fff">

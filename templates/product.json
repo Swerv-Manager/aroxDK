@@ -357,7 +357,8 @@
           "type": "liquid",
           "settings": {
             "liquid": "{%- comment -%}BLACK WEEK 2026 · producent- og sikkerhedsinfo (GPSR){%- endcomment -%}{% render 'bw-pdp-gpsr' %}"
-          }
+          },
+          "disabled": true
         },
         "bw_price": {
           "type": "liquid",
@@ -696,6 +697,46 @@
         "phases": "",
         "bw_url": "/pages/black-week"
       }
+    },
+    "bw_row_3for2": {
+      "type": "bw-product-row",
+      "settings": {
+        "phases": "pre early live sidste",
+        "heading_size": "sm",
+        "border_top": true,
+        "eyebrow": "",
+        "heading_1": "Med i 3 for 2",
+        "heading_2": "",
+        "text": "",
+        "link_label": "Se alle",
+        "link_url": "/collections/black-week-3for2",
+        "products": [],
+        "collection": "black-week-3for2",
+        "collection_handle": "black-week-3for2",
+        "limit": 12,
+        "carousel": true,
+        "quick_add": true
+      }
+    },
+    "bw_row_4for2": {
+      "type": "bw-product-row",
+      "settings": {
+        "phases": "pre early live sidste",
+        "heading_size": "sm",
+        "border_top": true,
+        "eyebrow": "",
+        "heading_1": "Med i 4 for 2",
+        "heading_2": "",
+        "text": "",
+        "link_label": "Se alle",
+        "link_url": "/collections/black-week-4for2",
+        "products": [],
+        "collection": "black-week-4for2",
+        "collection_handle": "black-week-4for2",
+        "limit": 12,
+        "carousel": true,
+        "quick_add": true
+      }
     }
   },
   "order": [
@@ -707,6 +748,8 @@
     "ss_product_vidoes_BnfWak",
     "related-products",
     "17347935761a60b3ea",
-    "173581325033b64ae9"
+    "173581325033b64ae9",
+    "bw_row_3for2",
+    "bw_row_4for2"
   ]
 }

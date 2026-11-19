@@ -354,6 +354,14 @@
     cartAdd([{ id: id, quantity: 1, properties: { _bw_gift: key } }], { silent: true }).catch(function () {}).finally(function () { b.removeAttribute('aria-busy'); });
   });
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', function () { syncGifts(); }); else syncGifts();
+  /* ---------- Product row carousel arrows (bw-product-row "carousel") ---------- */
+  document.addEventListener('click', function (e) {
+    var b = e.target.closest && e.target.closest('[data-bw-car-prev], [data-bw-car-next]');
+    if (!b) return;
+    var root = b.closest('.shopify-section') || document, car = root.querySelector('[data-bw-car]');
+    if (!car) return;
+    car.scrollBy({ left: (b.hasAttribute('data-bw-car-prev') ? -1 : 1) * car.clientWidth * 0.9, behavior: 'smooth' });
+  });
 
   /* ---------- Cart drawer: stepped progress bar [data-bw-cart-progress] ----------
      Impact re-renders the drawer from the bundled section HTML but waits 1.25 s before it swaps the line items after a

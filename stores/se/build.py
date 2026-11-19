@@ -235,6 +235,11 @@ for sid in ('17400855959a5312e9', '1757493021311ff98f'):
 o = pr['order']
 o.insert(o.index('main'), 'bw_crumb')
 o.insert(o.index('main') + 1, 'bw_related')
+for sid in ('bw_row_3for2', 'bw_row_4for2'):  # 3 for 2 / 4 for 2 carousels at the bottom (19.11)
+    sec = json.loads(json.dumps(dk['sections'][sid]))
+    translate_section('product.json', sid, sec)
+    pr['sections'][sid] = sec
+    o.append(sid)
 dump_json('templates/product.json', pr)
 
 # settings data: SE's own, with the na-side-cart app embed off (as in DK) and the static collection section in Swedish

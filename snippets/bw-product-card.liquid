@@ -37,8 +37,13 @@ picker on the card; assets/bw.js <bw-quick-add>)
     {%- else -%}
       <div style="position:absolute;inset:0;background:#161616;color:#fff;display:grid;align-content:end;padding:clamp(10px,1.1cqw,16px)"><div style="font-size:clamp(12px,1.25cqw,18px);font-weight:900;text-transform:uppercase;line-height:1.05;text-wrap:pretty;overflow-wrap:anywhere">{{ product.title }}</div></div>
     {%- endif -%}
-    {%- if bw_badge != blank -%}<span style="{{ bw_badge_css }};left:clamp(4px,0.56cqw,8px);background:#c8232c">{{ bw_badge }}</span>{%- endif -%}
-    {%- unless offer_only and bw_badge == blank -%}<span style="{{ bw_badge_css }};right:clamp(4px,0.56cqw,8px);background:#0a0a0a;box-shadow:inset 0 0 0 1px rgba(255,255,255,.2)">Black Week</span>{%- endunless -%}
+    {%- comment -%}Badges in one row that wraps: on narrow cards (2 per row on a phone) "Limited edition" and "Black Week" no
+    longer overlap; the second badge stays right-aligned, also on its own line.{%- endcomment -%}
+    {%- assign bw_badge_css2 = bw_badge_css | remove: 'position:absolute;top:clamp(4px,0.56cqw,8px);' | remove: ';z-index:1' -%}
+    <div style="position:absolute;top:clamp(4px,0.56cqw,8px);left:clamp(4px,0.56cqw,8px);right:clamp(4px,0.56cqw,8px);display:flex;flex-wrap:wrap;gap:4px;z-index:1;pointer-events:none">
+      {%- if bw_badge != blank -%}<span style="{{ bw_badge_css2 }};background:#c8232c">{{ bw_badge }}</span>{%- endif -%}
+      {%- unless offer_only and bw_badge == blank -%}<span style="{{ bw_badge_css2 }};margin-left:auto;background:#0a0a0a;box-shadow:inset 0 0 0 1px rgba(255,255,255,.2)">Black Week</span>{%- endunless -%}
+    </div>
   </a>
   {%- if quick_add and product.available -%}
     {%- liquid

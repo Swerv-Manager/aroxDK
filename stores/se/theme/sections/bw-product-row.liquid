@@ -1,4 +1,7 @@
-{%- comment -%}BLACK WEEK 2026 · Heading + product row (board 02 "Bestsellere lige nu" and "Køb julegaverne i Black Week"), ported 1:1 from the design.{%- endcomment -%}
+{%- comment -%}BLACK WEEK 2026 · Heading + product row (board 02 "Bestsellere lige nu" and "Køb julegaverne i Black Week"), ported 1:1 from the design.
+Carousel (setting, 19.11, used at the bottom of product pages for 3 for 2 / 4 for 2): one scrolling row with snap,
+2.3 cards visible on a phone and 4 on desktop, arrows on desktop (assets/bw.js [data-bw-car-prev/next]). On a product
+page the product itself is left out. Quick add (setting) puts the quick add button on the cards.{%- endcomment -%}
 {%- liquid
   assign s = section.settings
   assign G = 'max(clamp(20px,calc((100cqw - 767px)*1000),64px),calc((100cqw - 1312px)/2))'
@@ -19,7 +22,15 @@
     {%- if s.heading_size == 'sm' -%}
       <div style="margin-bottom:8px;display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap">
         <h2 style="margin:0;font-size:clamp(26px,3cqw,40px);font-weight:900;text-transform:uppercase;letter-spacing:-.005em;line-height:1;font-family:inherit;color:#fff">{{ s.heading_1 }}{% if s.heading_2 != blank %} {{ s.heading_2 }}{% endif %}</h2>
-        {%- if s.link_label != blank -%}<a href="{{ s.link_url | default: '#' }}" style="color:#fff;font-size:15px;font-weight:700;text-decoration:underline;text-underline-offset:4px">{{ s.link_label }}</a>{%- endif -%}
+        <div style="display:flex;gap:16px;align-items:center">
+          {%- if s.link_label != blank -%}<a href="{{ s.link_url | default: '#' }}" style="color:#fff;font-size:15px;font-weight:700;text-decoration:underline;text-underline-offset:4px">{{ s.link_label }}</a>{%- endif -%}
+          {%- if s.carousel -%}
+            <span class="bw-car__arrows">
+              <button type="button" class="bw-car__btn" data-bw-car-prev aria-label="‹"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 18 9 12 15 6"></polyline></svg></button>
+              <button type="button" class="bw-car__btn" data-bw-car-next aria-label="›"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"></polyline></svg></button>
+            </span>
+          {%- endif -%}
+        </div>
       </div>
     {%- else -%}
       <div style="margin-bottom:8px;display:flex;justify-content:space-between;align-items:flex-end;gap:16px 32px;flex-wrap:wrap">
@@ -32,11 +43,16 @@
       </div>
     {%- endif -%}
     {%- assign shown = 0 -%}
+    {%- if s.carousel -%}
+    <div class="bw-car bw-noscrollbar" data-bw-car>
+    {%- else -%}
     <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(max(160px,calc((100% - 48px)/4)),1fr));gap:16px">
+    {%- endif -%}
       {%- for p in plist -%}
         {%- if shown >= s.limit -%}{%- break -%}{%- endif -%}
         {%- if p.available == false -%}{%- continue -%}{%- endif -%}
-        {%- render 'bw-product-card', product: p -%}
+        {%- if product != blank and p.id == product.id -%}{%- continue -%}{%- endif -%}
+        {%- render 'bw-product-card', product: p, quick_add: s.quick_add -%}
         {%- assign shown = shown | plus: 1 -%}
       {%- endfor -%}
     </div>
@@ -61,7 +77,9 @@
     { "type": "product_list", "id": "products", "label": "Produkter", "limit": 12 },
     { "type": "collection", "id": "collection", "label": "…eller kollektion" },
     { "type": "text", "id": "collection_handle", "label": "…eller kollektions-handle" },
-    { "type": "range", "id": "limit", "label": "Antal produkter", "min": 2, "max": 12, "step": 1, "default": 4 }
+    { "type": "range", "id": "limit", "label": "Antal produkter", "min": 2, "max": 12, "step": 1, "default": 4 },
+    { "type": "checkbox", "id": "carousel", "label": "Karrusel (én række der scroller)", "default": false },
+    { "type": "checkbox", "id": "quick_add", "label": "Quick add på kortene", "default": false }
   ],
   "presets": [ { "name": "BW · Produktrække" } ]
 }

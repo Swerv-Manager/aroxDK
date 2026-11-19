@@ -351,7 +351,8 @@
           "type": "liquid",
           "settings": {
             "liquid": "{%- comment -%}BLACK WEEK 2026 · producent- og sikkerhedsinfo (GPSR){%- endcomment -%}{% render 'bw-pdp-gpsr' %}"
-          }
+          },
+          "disabled": true
         },
         "bw_usp": {
           "type": "liquid",
@@ -485,6 +486,46 @@
         "heading": "Relaterade produkter",
         "limit": 4
       }
+    },
+    "bw_row_3for2": {
+      "type": "bw-product-row",
+      "settings": {
+        "phases": "pre early live sidste",
+        "heading_size": "sm",
+        "border_top": true,
+        "eyebrow": "",
+        "heading_1": "Ingår i 3 för 2",
+        "heading_2": "",
+        "text": "",
+        "link_label": "Se alla",
+        "link_url": "/collections/black-week-3for2",
+        "products": [],
+        "collection": "black-week-3for2",
+        "collection_handle": "black-week-3for2",
+        "limit": 12,
+        "carousel": true,
+        "quick_add": true
+      }
+    },
+    "bw_row_4for2": {
+      "type": "bw-product-row",
+      "settings": {
+        "phases": "pre early live sidste",
+        "heading_size": "sm",
+        "border_top": true,
+        "eyebrow": "",
+        "heading_1": "Ingår i 4 för 2",
+        "heading_2": "",
+        "text": "",
+        "link_label": "Se alla",
+        "link_url": "/collections/black-week-4for2",
+        "products": [],
+        "collection": "black-week-4for2",
+        "collection_handle": "black-week-4for2",
+        "limit": 12,
+        "carousel": true,
+        "quick_add": true
+      }
     }
   },
   "order": [
@@ -495,6 +536,8 @@
     "bw_related",
     "related-products",
     "17400855959a5312e9",
-    "1757493021311ff98f"
+    "1757493021311ff98f",
+    "bw_row_3for2",
+    "bw_row_4for2"
   ]
 }

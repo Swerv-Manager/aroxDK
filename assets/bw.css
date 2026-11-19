@@ -255,6 +255,10 @@ html.bw-ended .bw-hide-ended { display: none !important; }
 .bw-ch__lt { font-size: 15px; font-weight: 900; text-transform: uppercase; line-height: 1.1; }
 .bw-ch__ls { font-size: 12px; line-height: 1.3; color: var(--bw-ink-300); }
 .bw-ch__card[aria-current] .bw-ch__ls { color: #fff; }
+/* phones: the three offer cards stack (a row of three ran off the screen) */
+@media (max-width: 767px) { .bw-ch__navrow { flex-direction: column; overflow: visible; } .bw-ch__card { flex: none; } }
+/* horizontal scrollers without a visible scrollbar (circles, carousels) */
+.bw-noscrollbar { scrollbar-width: none; } .bw-noscrollbar::-webkit-scrollbar { display: none; }
 
 /* ---------- Filter + sort bar (board 07 · snippet bw-coll-toolbar) ---------- */
 .bw-tb { padding: 18px var(--bw-gutter) 0; display: grid; gap: 14px; }
@@ -394,3 +398,12 @@ body:has(.shopify-section--main-product) .shopify-section--apps #looxReviews { b
 .bw-gift-pick[data-auto] { display: none; }
 html.bw-gift-removed-g2 .bw-gift-pick[data-key="g2"], html.bw-gift-removed-g3 .bw-gift-pick[data-key="g3"] { display: grid; }
 html.bw-gift-off-g2 .bw-gift-pick[data-key="g2"], html.bw-gift-off-g3 .bw-gift-pick[data-key="g3"] { display: none; }
+
+/* product row as a carousel (bw-product-row "carousel"): 2.3 cards on a phone, 4 on desktop, snap */
+.bw-car { display: grid; grid-auto-flow: column; grid-auto-columns: calc((100% - 16px) / 2.3); gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory; overscroll-behavior-x: contain; }
+.bw-car > * { scroll-snap-align: start; min-width: 0; }
+@media (min-width: 768px) { .bw-car { grid-auto-columns: calc((100% - 48px) / 4); } }
+.bw-car__arrows { display: none; gap: 8px; }
+@media (min-width: 768px) { .bw-car__arrows { display: inline-flex; } }
+.bw-car__btn { width: 40px; height: 40px; border-radius: 999px; display: grid; place-items: center; background: transparent; color: #fff; border: 0; box-shadow: inset 0 0 0 1px #3a3a3a; cursor: pointer; }
+.bw-car__btn:hover { box-shadow: inset 0 0 0 1px #fff; }
