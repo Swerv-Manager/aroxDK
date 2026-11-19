@@ -195,6 +195,7 @@ def bw_only(d, tpl, keep=()):
     for sid in d['order']:
         sec = json.loads(json.dumps(d['sections'][sid]))
         # sub-collection tabs (DK 4 for 2, 19.11) point to DK-only collections: left out here for now
+        sec.get('settings', {}).pop('more_collections', None)
         for bid in [b for b, bl in sec.get('blocks', {}).items() if bl.get('type') == 'sub']:
             sec['blocks'].pop(bid)
             sec['block_order'].remove(bid)

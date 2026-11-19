@@ -8,7 +8,17 @@ Optional heading row ("Med i 3 for 2" + "Se alle" + line) as on the offer pages.
   assign bw_n = section.settings.n | plus: 0
   assign bw_free = section.settings.free | plus: 0
   assign bw_first_free = bw_n | minus: bw_free | plus: 1
-  assign bw_ids = bw_coll.products | map: 'id' | join: ','
+  # a collection's products stop at 50 in Liquid: more_collections (e.g. the 4 for 2 sub-collections) fill in the rest
+  assign bw_ids = bw_coll.products | map: 'id'
+  assign bw_more = section.settings.more_collections | default: '' | split: ','
+  for bw_h in bw_more
+    assign bw_hs = bw_h | strip
+    if bw_hs != blank and collections[bw_hs] != blank
+      assign bw_x = collections[bw_hs].products | map: 'id'
+      assign bw_ids = bw_ids | concat: bw_x
+    endif
+  endfor
+  assign bw_ids = bw_ids | uniq | join: ','
 -%}
 <div class="bw bw-pb-sec{% render 'bw-only', phases: section.settings.phases %}">
   <style>
@@ -74,6 +84,7 @@ Optional heading row ("Med i 3 for 2" + "Se alle" + line) as on the offer pages.
     { "type": "paragraph", "content": "Viser hvor mange varer fra tilbuddet der ligger i kurven. Tælles automatisk ud fra kurven og kollektionen." },
     { "type": "text", "id": "phases", "label": "Vis kun i faser", "info": "pre, early, live, sidste · tom = altid" },
     { "type": "collection", "id": "collection", "label": "Kollektion", "info": "Tom = den aktuelle kollektion" },
+    { "type": "text", "id": "more_collections", "label": "Flere kollektioner (handles)", "info": "Kommasepareret. Shopify læser kun 50 produkter pr. kollektion; har tilbuddet flere, så angiv underkollektionerne her, så alle produkter tæller." },
     { "type": "select", "id": "n", "label": "Antal varer i tilbuddet", "options": [ { "value": "3", "label": "3 for 2" }, { "value": "4", "label": "4 for 2" } ], "default": "3" },
     { "type": "select", "id": "free", "label": "Antal gratis", "options": [ { "value": "1", "label": "1" }, { "value": "2", "label": "2" } ], "default": "1" },
     { "type": "text", "id": "todo", "label": "Tekst før tilbuddet er opfyldt", "info": "[n] = antal varer der mangler", "default": "Vælg [n] mere – få den billigste gratis" },
