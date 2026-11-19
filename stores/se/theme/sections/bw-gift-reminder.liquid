@@ -12,7 +12,7 @@
   </style>
   <div class="bw-gr__l">
     <div class="bw-gr__img">
-      {%- if s.image != blank -%}{{- s.image | image_url: width: 300 | image_tag: loading: 'lazy', sizes: '96px', alt: s.image.alt | default: 'Arox stålflaska 1,06 l' -}}{%- else -%}{{- 'product-1' | placeholder_svg_tag -}}{%- endif -%}
+      {%- if s.image != blank -%}{{- s.image | image_url: width: 300 | image_tag: loading: 'lazy', sizes: '96px', alt: s.image.alt | default: 'AROX vattenflaska 1000 ml' -}}{%- else -%}{{- 'product-1' | placeholder_svg_tag -}}{%- endif -%}
     </div>
     <div class="bw-gr__t">
       {%- if s.heading != blank -%}<div class="bw-gr__h">{{ s.heading }}</div>{%- endif -%}
@@ -30,7 +30,7 @@
     { "type": "text", "id": "phases", "label": "Vis kun i faser", "info": "pre, early, live, sidste · tom = altid" },
     { "type": "image_picker", "id": "image", "label": "Billede" },
     { "type": "text", "id": "heading", "label": "Overskrift", "default": "Gave med hjem. Oveni." },
-    { "type": "text", "id": "text", "label": "Tekst", "default": "Gratis Thermo stålflaske til de første 100 ordrer." },
+    { "type": "text", "id": "text", "label": "Tekst", "default": "Gratis ved køb for mindst 799 kr." },
     { "type": "text", "id": "button_label", "label": "Knaptekst", "default": "Se gaverne" },
     { "type": "url", "id": "button_url", "label": "Knaplink", "info": "Tom = /pages/black-week-presenter" },
     { "type": "checkbox", "id": "line_top", "label": "Streg over", "default": false }

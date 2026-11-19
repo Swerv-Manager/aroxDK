@@ -176,9 +176,9 @@
       "type": "bw-gift-reminder",
       "settings": {
         "phases": "",
-        "image": "shopify://shop_images/427_496bbe8d-72cc-421a-9db6-f83a5b270081.png",
-        "heading": "Gave med hjem. Oveni.",
-        "text": "Gratis Thermo stålflaske til de første 100 ordrer.",
+        "image": "shopify://shop_images/hyrdrationbottle.png",
+        "heading": "Gaver med hjem. Oveni.",
+        "text": "Gratis AROX Hydration Bottle fra 799 kr. og 3-pak strømper fra 1.299 kr. Gælder også med 3 for 2 og 4 for 2.",
         "button_label": "Se gaverne",
         "button_url": "shopify://pages/black-week-gaver",
         "line_top": false

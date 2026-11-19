@@ -6,6 +6,38 @@
 # "Över 50 000 nöjda kunder", "Leverans inom 2–4 dagar", live chat weekdays 09–15 (SE's own site texts).
 
 TEXT = {
+    # ---- gifts 19.11 (Frederik: no Thermo bottle for the first 100 orders; the tier gifts combine with 3 för 2 / 4 för 2)
+    "Gaver i Black Week": "Gåvor under Black Week",
+    "Gaver med hjem.": "Gåvor på köpet.",
+    "Handler du for mindst 799 kr., får du en gratis AROX Hydration Bottle (1000 ml). Ved mindst 1.299 kr. får du også en gratis 3-pak strømper. Gaverne lægges automatisk i kurven.": "Handlar du för minst 1 199 kr får du en gratis AROX vattenflaska (1000 ml). Handlar du för minst 1 999 kr får du även gratis strumpor 3-pack. Gåvorna läggs automatiskt i varukorgen.",
+    "AROX Hydration Bottle 1000 ml": "AROX vattenflaska 1000 ml",
+    "3-pak strømper": "Strumpor 3-pack",
+    "Sådan får du gaverne": "Så får du gåvorna",
+    "To gaver.": "Två gåvor.",
+    "Fra 799 kr.": "Från 1 199 kr.",
+    "Gælder ordrer i Black Week 20.11–30.11.2026. Beløbet regnes efter rabat.": "Gäller beställningar under Black Week 20/11–30/11 2026. Beloppet räknas efter rabatt.",
+    "Gratis AROX Hydration Bottle 1000 ml": "Gratis AROX vattenflaska 1000 ml",
+    "Lægges automatisk i kurven.": "Läggs automatiskt i varukorgen.",
+    "Fra 1.299 kr.": "Från 1 999 kr.",
+    "Også gratis 3-pak strømper": "Även gratis strumpor 3-pack",
+    "Du vælger din størrelse i kurven.": "Du väljer storlek i varukorgen.",
+    "Med 3 for 2 og 4 for 2": "Med 3 för 2 och 4 för 2",
+    "Gaverne gælder også": "Gåvorna gäller också",
+    "Gaverne kan kombineres med 3 for 2 og 4 for 2. Beløbet regnes efter rabat.": "Gåvorna kan kombineras med 3 för 2 och 4 för 2. Beloppet räknas efter rabatt.",
+    "Gave · fra 799 kr.": "Gåva · från 1 199 kr",
+    "Gratis ved køb for mindst 799 kr. i Black Week.": "Gratis vid köp för minst 1 199 kr under Black Week.",
+    "Gave · fra 1.299 kr.": "Gåva · från 1 999 kr",
+    "Gratis ved køb for mindst 1.299 kr. Du vælger størrelse i kurven.": "Gratis vid köp för minst 1 999 kr. Du väljer storlek i varukorgen.",
+    "Baren øverst i kurven viser, hvor langt du er fra næste gave. Gaverne lægges automatisk i kurven, og rabatten på 3 for 2 og 4 for 2 trækkes automatisk.": "Stapeln högst upp i varukorgen visar hur långt du har kvar till nästa gåva. Gåvorna läggs automatiskt i varukorgen och rabatten på 3 för 2 och 4 för 2 dras automatiskt.",
+    "Gratis AROX Hydration Bottle fra 799 kr.": "Gratis AROX vattenflaska från 1 199 kr",
+    "Gratis ved køb for mindst 799 kr.": "Gratis vid köp för minst 1 199 kr.",
+    "Lægges automatisk i kurven. Beløbet regnes efter rabat.": "Läggs automatiskt i varukorgen. Beloppet räknas efter rabatt.",
+    "Vælg din størrelse i kurven. Gælder også med 3 for 2 og 4 for 2.": "Välj storlek i varukorgen. Gäller även med 3 för 2 och 4 för 2.",
+    "Gratis ved køb for mindst 799 kr. Ved 1.299 kr. får du også en 3-pak strømper.": "Gratis vid köp för minst 1 199 kr. Från 1 999 kr får du även strumpor 3-pack.",
+    "Hvordan får jeg gaverne?": "Hur får jag gåvorna?",
+    "Handler du for mindst 799 kr., får du en gratis AROX Hydration Bottle (1000 ml). Ved mindst 1.299 kr. får du også en gratis 3-pak strømper. Gaverne lægges automatisk i kurven og kan kombineres med 3 for 2 og 4 for 2. Beløbet regnes efter rabat.": "Handlar du för minst 1 199 kr får du en gratis AROX vattenflaska (1000 ml). Handlar du för minst 1 999 kr får du även gratis strumpor 3-pack. Gåvorna läggs automatiskt i varukorgen och kan kombineras med 3 för 2 och 4 för 2. Beloppet räknas efter rabatt.",
+    "Gaver med hjem. Oveni.": "Gåvor på köpet.",
+    "Gratis AROX Hydration Bottle fra 799 kr. og 3-pak strømper fra 1.299 kr. Gælder også med 3 for 2 og 4 for 2.": "Gratis AROX vattenflaska från 1 199 kr och strumpor 3-pack från 1 999 kr. Gäller även med 3 för 2 och 4 för 2.",
     # ---- offer navigation / collection heads
     "Single offers": "Single offers",
     "Fast Black Week-pris": "Fast Black Week-pris",
@@ -187,7 +219,6 @@ TEXT = {
     "Black Week 20.11–30.11.2026": "Black Week 20/11–30/11 2026",
     "Tag 3.\nBetal for 2.": "Ta 3.\nBetala för 2.",
     "Bland pro grips, shorts, hoodies og performance tights. Den billigste af de 3 er gratis.": "Blanda pro grips, shorts och hoodies. Den billigaste av de 3 är gratis.",
-    "Gave med hjem. Oveni.": "Gåva med i paketet. På köpet.",
 
     # ---- 4 for 2 page
     "Med i 4 for 2": "Ingår i 4 för 2",

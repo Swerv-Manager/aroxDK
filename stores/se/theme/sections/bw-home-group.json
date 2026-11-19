@@ -134,7 +134,7 @@
         "circle_4": {
           "type": "item",
           "settings": {
-            "image": "shopify://shop_images/427_496bbe8d-72cc-421a-9db6-f83a5b270081.png",
+            "image": "shopify://shop_images/hyrdrationbottle.png",
             "label": "Gåvor",
             "url": "/pages/black-week-presenter"
           }
@@ -393,13 +393,13 @@
       "settings": {
         "phases": "",
         "layout": "card",
-        "eyebrow": "Gåva i Black Week",
-        "heading_1": "Gåva med i paketet.",
+        "eyebrow": "Gåvor under Black Week",
+        "heading_1": "Gåvor på köpet.",
         "heading_2": "På köpet.",
-        "image": "shopify://shop_images/427_496bbe8d-72cc-421a-9db6-f83a5b270081.png",
-        "card_title": "Stålflaska 1,06 l",
-        "card_text": "Gratis stålflaska till de första 100 beställningarna.",
-        "note": "Gäller de första 100 beställningarna under Black Week 20/11–30/11 2026.",
+        "image": "shopify://shop_images/hyrdrationbottle.png",
+        "card_title": "AROX vattenflaska 1000 ml",
+        "card_text": "Gratis vid köp för minst 1 199 kr. Från 1 999 kr får du även strumpor 3-pack.",
+        "note": "Gäller beställningar under Black Week 20/11–30/11 2026. Beloppet räknas efter rabatt.",
         "button_label": "Se gåvorna",
         "button_url": "/pages/black-week-presenter"
       }
@@ -488,8 +488,8 @@
         "q_5": {
           "type": "item",
           "settings": {
-            "question": "Hur får jag gåvan?",
-            "answer": "De första 100 beställningarna under Black Week får en gratis stålflaska (1,06 l). Det finns ingen beloppsgräns."
+            "question": "Hur får jag gåvorna?",
+            "answer": "Handlar du för minst 1 199 kr får du en gratis AROX vattenflaska (1000 ml). Handlar du för minst 1 999 kr får du även gratis strumpor 3-pack. Gåvorna läggs automatiskt i varukorgen och kan kombineras med 3 för 2 och 4 för 2. Beloppet räknas efter rabatt."
           }
         }
       },

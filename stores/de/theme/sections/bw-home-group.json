@@ -238,7 +238,7 @@
         "image": "shopify://shop_images/hyrdrationbottle.png",
         "card_title": "AROX Trinkflasche 1000 ml",
         "card_text": "Gratis ab 109 € Bestellwert in der Black Week.",
-        "note": "Gilt für Bestellungen ab 109 € in der Black Week, 20.11.–30.11.2026.",
+        "note": "Gilt für Bestellungen in der Black Week, 20.11.–30.11.2026. Es zählt der Bestellwert nach Rabatt.",
         "button_label": "Zum Geschenk",
         "button_url": "/pages/black-week-geschenk"
       }
@@ -278,7 +278,7 @@
           "type": "item",
           "settings": {
             "question": "Wie bekomme ich das Geschenk?",
-            "answer": "Ab 109 € Bestellwert (nach Rabatt) kommt eine AROX Trinkflasche (1000 ml) gratis in deinen Warenkorb. Ganz automatisch, solange der Vorrat reicht. 1 pro Bestellung."
+            "answer": "Ab 109 € Bestellwert (nach Rabatt) kommt eine AROX Trinkflasche (1000 ml) gratis in deinen Warenkorb. Ganz automatisch, solange der Vorrat reicht, 1 pro Bestellung. Das gilt auch mit 3 für 2 und 4 für 2."
           }
         }
       },

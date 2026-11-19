@@ -1,6 +1,6 @@
 {%- comment -%}
 BLACK WEEK 2026 · "Gave med hjem. Oveni.", ported 1:1 from the design.
-Layout "card" (02 Forside #gaver): white product card for the Thermo bottle + note + outline button.
+Layout "card" (02 Forside #gaver): white product card for the gift + note + outline button.
 Layout "rules" (03 Landingsside): rule tiles 01/02 (blocks) + bottle thumbnail + outline button.
 {%- endcomment -%}
 {%- liquid
@@ -53,9 +53,9 @@ Layout "rules" (03 Landingsside): rule tiles 01/02 (blocks) + bottle thumbnail +
     { "type": "text", "id": "heading_1", "label": "Overskrift linje 1", "default": "Gave med hjem." },
     { "type": "text", "id": "heading_2", "label": "Overskrift linje 2", "default": "Oveni." },
     { "type": "image_picker", "id": "image", "label": "Billede af gaven" },
-    { "type": "text", "id": "card_title", "label": "Gavens navn", "default": "Thermo stålflaske 1,06 L" },
-    { "type": "text", "id": "card_text", "label": "Gavetekst", "default": "Gratis Thermo stålflaske til de første 100 ordrer." },
-    { "type": "text", "id": "note", "label": "Note", "default": "Gælder de første 100 ordrer i Black Week 20.11–30.11.2026." },
+    { "type": "text", "id": "card_title", "label": "Gavens navn", "default": "AROX Hydration Bottle 1000 ml" },
+    { "type": "text", "id": "card_text", "label": "Gavetekst", "default": "Gratis ved køb for mindst 799 kr." },
+    { "type": "text", "id": "note", "label": "Note", "default": "Gælder ordrer i Black Week 20.11–30.11.2026. Beløbet regnes efter rabat." },
     { "type": "text", "id": "button_label", "label": "Knap", "default": "Se gaverne" },
     { "type": "url", "id": "button_url", "label": "Knaplink" }
   ],
@@ -65,9 +65,9 @@ Layout "rules" (03 Landingsside): rule tiles 01/02 (blocks) + bottle thumbnail +
       "name": "Gaveregel",
       "settings": [
         { "type": "text", "id": "number", "label": "Nummer", "default": "01" },
-        { "type": "text", "id": "kicker", "label": "Overlinje", "default": "De første 100 ordrer" },
-        { "type": "text", "id": "title", "label": "Titel", "default": "Gratis Thermo stålflaske 1,06 L" },
-        { "type": "text", "id": "text", "label": "Tekst", "default": "Gælder de første 100 ordrer i Black Week." }
+        { "type": "text", "id": "kicker", "label": "Overlinje", "default": "Fra 799 kr." },
+        { "type": "text", "id": "title", "label": "Titel", "default": "Gratis AROX Hydration Bottle 1000 ml" },
+        { "type": "text", "id": "text", "label": "Tekst", "default": "Lægges automatisk i kurven." }
       ]
     }
   ],

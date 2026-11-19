@@ -25,7 +25,7 @@ FILES = {
     ],
     # Dawn 6 has no section groups: the ticker is a static section in the layout, so it must not be limited to groups
     'sections/bw-marquee.liquid': [('  "enabled_on": { "groups": ["header"] },\n', '')],
-    'sections/bw-gift-cart.liquid': [("Arox Thermo stålflaske 1,06 L", "AROX Trinkflasche 1000 ml")],
+    'sections/bw-gift-cart.liquid': [("AROX Hydration Bottle 1000 ml", "AROX Trinkflasche 1000 ml")],
     'sections/bw-offer-progress.liquid': [
         ("Du har valgt 0 af {{ bw_n }} produkter", "Du hast 0 von {{ bw_n }} Produkten gewählt"),
         (">Tilføjet<", ">Hinzugefügt<"),

@@ -68,13 +68,6 @@
             "value": "Ved 4 varer fra 4 for 2 er de 2 billigste gratis."
           }
         },
-        "term_9": {
-          "type": "term",
-          "settings": {
-            "key": "Gave",
-            "value": "Gratis Thermo stålflaske (1,06 L) til de første 100 ordrer i Black Week. Ingen beløbsgrænse."
-          }
-        },
         "term_10": {
           "type": "term",
           "settings": {
@@ -106,7 +99,6 @@
         "term_6",
         "term_7",
         "term_8",
-        "term_9",
         "term_12",
         "term_10",
         "term_11"
@@ -147,20 +139,6 @@
             "answer": "<p>Helsorte udgaver af anti slip grips, fusion grips, Elite-bæltet og speedrope elite. De findes kun i Black Week.</p>"
           }
         },
-        "faq_5": {
-          "type": "item",
-          "settings": {
-            "question": "Hvordan får jeg gaven?",
-            "answer": "<p>De første 100 ordrer i Black Week får en gratis Thermo stålflaske (1,06 L) med. Der er ingen beløbsgrænse.</p>"
-          }
-        },
-        "faq_6": {
-          "type": "item",
-          "settings": {
-            "question": "Hvad betyder \"de første 100 ordrer\"?",
-            "answer": "<p>De første 100 ordrer i Black Week får en gratis Thermo stålflaske – uanset hvad ordren koster.</p>"
-          }
-        },
         "faq_7": {
           "type": "item",
           "settings": {
@@ -188,8 +166,6 @@
         "faq_2",
         "faq_3",
         "faq_4",
-        "faq_5",
-        "faq_6",
         "faq_9",
         "faq_7",
         "faq_8"

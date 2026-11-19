@@ -55,6 +55,36 @@ TEXT = {
     "Se gaverne": "Zum Geschenk",
     "Gælder de første 100 ordrer i Black Week 20.11–30.11.2026.": "Gilt für Bestellungen ab 109 € in der Black Week, 20.11.–30.11.2026.",
 
+    # ---- gifts 19.11 (Frederik: no Thermo bottle anywhere; the gift combines with 3 für 2 / 4 für 2). DK has two gifts
+    # (799 / 1.299 kr.), DE one: the AROX Trinkflasche from 109 € (the socks blocks are left out, see DROP_BLOCKS)
+    "Gaver i Black Week": "Geschenk in der Black Week",
+    "Gaver med hjem.": "Geschenk dazu.",
+    "Handler du for mindst 799 kr., får du en gratis AROX Hydration Bottle (1000 ml). Ved mindst 1.299 kr. får du også en gratis 3-pak strømper. Gaverne lægges automatisk i kurven.": "Bestellst du in der Black Week für mindestens 109 €, legen wir dir eine AROX Trinkflasche (1000 ml) gratis dazu. Sie kommt automatisch in den Warenkorb.",
+    "AROX Hydration Bottle 1000 ml": "AROX Trinkflasche 1000 ml",
+    "Sådan får du gaverne": "So bekommst du das Geschenk",
+    "To gaver.": "Ein Geschenk.",
+    "Fra 799 kr.": "Ab 109 €.",
+    "Gælder ordrer i Black Week 20.11–30.11.2026. Beløbet regnes efter rabat.": "Gilt für Bestellungen in der Black Week, 20.11.–30.11.2026. Es zählt der Bestellwert nach Rabatt.",
+    "Gratis AROX Hydration Bottle 1000 ml": "Gratis AROX Trinkflasche 1000 ml",
+    "Lægges automatisk i kurven.": "Kommt automatisch in den Warenkorb, solange der Vorrat reicht. 1 pro Bestellung.",
+    "Med 3 for 2 og 4 for 2": "Mit 3 für 2 und 4 für 2",
+    "Gaverne gælder også": "Das Geschenk gilt auch",
+    "Gaverne kan kombineres med 3 for 2 og 4 for 2. Beløbet regnes efter rabat.": "Das Geschenk lässt sich mit 3 für 2 und 4 für 2 kombinieren. Es zählt der Bestellwert nach Rabatt.",
+    "Gave · fra 799 kr.": "Geschenk · ab 109 €",
+    "Gratis ved køb for mindst 799 kr. i Black Week.": "Gratis ab 109 € Bestellwert in der Black Week.",
+    "Baren øverst i kurven viser, hvor langt du er fra næste gave. Gaverne lægges automatisk i kurven, og rabatten på 3 for 2 og 4 for 2 trækkes automatisk.": "Der Balken oben im Warenkorb zeigt, wie viel dir noch bis zur gratis Trinkflasche fehlt. Sie kommt automatisch in den Warenkorb, und die Rabatte für 3 für 2 und 4 für 2 werden automatisch abgezogen.",
+    "Gratis AROX Hydration Bottle fra 799 kr.": "Gratis AROX Trinkflasche ab 109 €",
+    "Gratis ved køb for mindst 799 kr.": "Gratis ab 109 € Bestellwert.",
+    "Gratis ved køb for mindst 799 kr. Ved 1.299 kr. får du også en 3-pak strømper.": "Gratis ab 109 € Bestellwert in der Black Week.",
+    "Hvordan får jeg gaverne?": "Wie bekomme ich das Geschenk?",
+    "Handler du for mindst 799 kr., får du en gratis AROX Hydration Bottle (1000 ml). Ved mindst 1.299 kr. får du også en gratis 3-pak strømper. Gaverne lægges automatisk i kurven og kan kombineres med 3 for 2 og 4 for 2. Beløbet regnes efter rabat.": "Ab 109 € Bestellwert (nach Rabatt) kommt eine AROX Trinkflasche (1000 ml) gratis in deinen Warenkorb. Ganz automatisch, solange der Vorrat reicht, 1 pro Bestellung. Das gilt auch mit 3 für 2 und 4 für 2.",
+    "Gaver med hjem. Oveni.": "Geschenk dazu. Ab 109 €.",
+    "Gratis AROX Hydration Bottle fra 799 kr. og 3-pak strømper fra 1.299 kr. Gælder også med 3 for 2 og 4 for 2.": "Gratis AROX Trinkflasche ab 109 € Bestellwert. Gilt auch mit 3 für 2 und 4 für 2.",
+    "Gaver ved køb": "Geschenk",
+    "Handler du for mindst 799 kr., får du en gratis AROX Hydration Bottle (1000 ml). Ved mindst 1.299 kr. får du også en gratis 3-pak strømper. Beløbet regnes efter rabat. Gaverne lægges i kurven, så længe lager haves. Kun 1 pr. kunde.": "Ab 109 € Bestellwert (nach Rabatt) legen wir eine AROX Trinkflasche (1000 ml) gratis dazu. Sie kommt automatisch in den Warenkorb, solange der Vorrat reicht. 1 pro Bestellung. Das gilt auch mit 3 für 2 und 4 für 2.",
+    "Får jeg en gave, når jeg handler for mere?": "Bekomme ich ein Geschenk?",
+    "<p>Ja. Handler du for mindst 799 kr., får du en gratis AROX Hydration Bottle (1000 ml). Ved mindst 1.299 kr. får du også en gratis 3-pak strømper, som du vælger i din størrelse i kurven. Beløbet regnes efter rabat. Kun 1 pr. kunde.</p>": "<p>Ja. Ab 109 € Bestellwert (nach Rabatt) kommt eine AROX Trinkflasche (1000 ml) gratis in deinen Warenkorb. Ganz automatisch, solange der Vorrat reicht. 1 pro Bestellung. Das gilt auch mit 3 für 2 und 4 für 2.</p>",
+
     # ---- terms page
     "Kampagnevilkår · Black Week 20.11–30.11.2026": "Aktionsbedingungen · Black Week 20.11.–30.11.2026",
     "Black Week.": "Black Week.",
@@ -182,15 +212,19 @@ OVERRIDES = {
     # the landing page's gift card: one gift (bottle), not the first-100 Thermo bottle
     ("page.black-week.json", "bw_gift", "rule_1", "kicker"): "Ab 109 € Bestellwert",
     ("page.black-week.json", "bw_gift", "rule_1", "title"): "Gratis AROX Trinkflasche 1000 ml",
-    ("page.black-week.json", "bw_gift", "rule_1", "text"): "Es zählt der Bestellwert nach Rabatt.",
+    ("page.black-week.json", "bw_gift", "rule_1", "text"): "Kommt automatisch in den Warenkorb. Es zählt der Bestellwert nach Rabatt.",
+    ("page.black-week.json", "bw_gift", "rule_2", "kicker"): "Mit 3 für 2 und 4 für 2",
+    ("page.black-week.json", "bw_gift", "rule_2", "title"): "Gilt auch mit Rabatt",
+    ("page.black-week.json", "bw_gift", "rule_2", "text"): "Das Geschenk lässt sich mit 3 für 2 und 4 für 2 kombinieren. Solange der Vorrat reicht, 1 pro Bestellung.",
+    ("page.black-week-gaver.json", "rules", "rule_1", "key"): "Ab 109 € Bestellwert",
+    ("page.black-week-vilkaar.json", "terms", "term_12", "key"): "Geschenk",
     ("page.black-week.json", "bw_gift", None, "button_url"): "/pages/black-week-geschenk",
-    ("page.black-week-vilkaar.json", "terms", "term_9", "key"): "Geschenk",
     ("index.json", "bw_hero", None, "cta_url_pre"): "#shopify-section-footer",
 }
 
-# Blocks left out in DE: DK's "gifts at 799/1299" term and FAQs (DE has one gift, covered by term_9 / faq_5) and the
-# first-100-orders FAQ
+# Blocks left out in DE (one gift in DE: the Trinkflasche from 109 €): the socks gift and its 1.299 kr. rule
 DROP_BLOCKS = {
-    ("page.black-week-vilkaar.json", "terms"): ["term_12"],
-    ("page.black-week-vilkaar.json", "faq"): ["faq_6", "faq_9"],
+    ("page.black-week-gaver.json", "hero"): ["gift_2"],
+    ("page.black-week-gaver.json", "card"): ["gift_2"],
+    ("page.black-week-gaver.json", "rules"): ["rule_2"],
 }

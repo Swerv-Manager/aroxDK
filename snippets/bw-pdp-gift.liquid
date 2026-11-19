@@ -1,5 +1,5 @@
 {%- comment -%}
-BLACK WEEK 2026 · PDP gift row ("Gave i Black Week"), rendered inside snippet bw-pdp-mechanic.
+BLACK WEEK 2026 · PDP gift row ("Gaver i Black Week": the 799/1299 kr. gifts; the Thermo bottle was removed 19.11), rendered inside snippet bw-pdp-mechanic.
 Not shown for tape products (design: "ingen gaveblok ved tape"): hidden when the product title, handle or
 product type contains "tape", or when the product has the tag "bw-ingen-gave".
 Params: product
@@ -14,14 +14,14 @@ Params: product
 {%- unless bw_gift_hide -%}
   <div class="bw-pdp-gift">
     <div class="bw-pdp-gift__img">
-      {%- assign bw_gift_img = images['427_496bbe8d-72cc-421a-9db6-f83a5b270081.png'] -%}
+      {%- assign bw_gift_img = images['hyrdrationbottle.png'] -%}
       {%- if bw_gift_img != blank -%}
-        {{ bw_gift_img | image_url: width: 160 | image_tag: loading: 'lazy', alt: 'Thermo stålflaske 1,06 L' }}
+        {{ bw_gift_img | image_url: width: 160 | image_tag: loading: 'lazy', alt: 'AROX Hydration Bottle 1000 ml' }}
       {%- endif -%}
     </div>
     <div class="bw-pdp-gift__txt">
-      <div class="bw-pdp-gift__k">Gave i Black Week</div>
-      <div class="bw-pdp-gift__v">Gratis Thermo stålflaske til de første 100 ordrer.</div>
+      <div class="bw-pdp-gift__k">Gaver i Black Week</div>
+      <div class="bw-pdp-gift__v">Gratis Hydration Bottle fra 799 kr. og 3-pak strømper fra 1.299 kr. Gælder også med 3 for 2 og 4 for 2.</div>
     </div>
   </div>
 {%- endunless -%}

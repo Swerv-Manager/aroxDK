@@ -6,20 +6,28 @@
         "gift_1": {
           "type": "gift",
           "settings": {
-            "image": "shopify://shop_images/427_496bbe8d-72cc-421a-9db6-f83a5b270081.png",
-            "title": "Thermo stålflaske 1,06 L"
+            "image": "shopify://shop_images/hyrdrationbottle.png",
+            "title": "AROX Hydration Bottle 1000 ml"
+          }
+        },
+        "gift_2": {
+          "type": "gift",
+          "settings": {
+            "image": "shopify://shop_images/463.png",
+            "title": "3-pak strømper"
           }
         }
       },
       "block_order": [
-        "gift_1"
+        "gift_1",
+        "gift_2"
       ],
       "settings": {
         "phases": "",
-        "eyebrow": "Gave i Black Week",
-        "heading_1": "Gave med hjem.",
+        "eyebrow": "Gaver i Black Week",
+        "heading_1": "Gaver med hjem.",
         "heading_2": "Oveni.",
-        "text": "Er din ordre blandt de første 100 i Black Week, får du en gratis Thermo stålflaske med. Uanset beløb.",
+        "text": "Handler du for mindst 799 kr., får du en gratis AROX Hydration Bottle (1000 ml). Ved mindst 1.299 kr. får du også en gratis 3-pak strømper. Gaverne lægges automatisk i kurven.",
         "btn1_label": "Se single offers",
         "btn1_url": "/collections/black-week-limited-edition",
         "btn2_label": "Shop 3 for 2",
@@ -32,30 +40,39 @@
         "rule_1": {
           "type": "rule",
           "settings": {
-            "key": "De første 100 ordrer",
-            "value": "Gratis Thermo stålflaske 1,06 L",
-            "text": "Gælder de første 100 ordrer i Black Week."
+            "key": "Fra 799 kr.",
+            "value": "Gratis AROX Hydration Bottle 1000 ml",
+            "text": "Lægges automatisk i kurven."
           }
         },
         "rule_2": {
           "type": "rule",
           "settings": {
-            "key": "Uanset beløb",
-            "value": "Ingen beløbsgrænse",
-            "text": "Det er rækkefølgen, der tæller – ikke beløbet."
+            "key": "Fra 1.299 kr.",
+            "value": "Også gratis 3-pak strømper",
+            "text": "Du vælger din størrelse i kurven."
+          }
+        },
+        "rule_3": {
+          "type": "rule",
+          "settings": {
+            "key": "Med 3 for 2 og 4 for 2",
+            "value": "Gaverne gælder også",
+            "text": "Gaverne kan kombineres med 3 for 2 og 4 for 2. Beløbet regnes efter rabat."
           }
         }
       },
       "block_order": [
         "rule_1",
-        "rule_2"
+        "rule_2",
+        "rule_3"
       ],
       "settings": {
         "phases": "",
-        "eyebrow": "Sådan får du gaven",
-        "heading_1": "Én gave.",
-        "heading_2": "De første 100.",
-        "note": "Gælder ordrer i Black Week 20.11–30.11.2026."
+        "eyebrow": "Sådan får du gaverne",
+        "heading_1": "To gaver.",
+        "heading_2": "Fra 799 kr.",
+        "note": "Gælder ordrer i Black Week 20.11–30.11.2026. Beløbet regnes efter rabat."
       }
     },
     "card": {
@@ -64,16 +81,27 @@
         "gift_1": {
           "type": "gift",
           "settings": {
-            "image_1": "shopify://shop_images/427_496bbe8d-72cc-421a-9db6-f83a5b270081.png",
-            "image_2": "shopify://shop_images/428_720d86b7-f092-4cf7-803c-1e6214e6ae1f.png",
-            "label": "Gave · stål",
-            "title": "Thermo stålflaske 1,06 L",
-            "text": "Gratis Thermo stålflaske til de første 100 ordrer."
+            "image_1": "shopify://shop_images/hyrdrationbottle.png",
+            "image_2": "",
+            "label": "Gave · fra 799 kr.",
+            "title": "AROX Hydration Bottle 1000 ml",
+            "text": "Gratis ved køb for mindst 799 kr. i Black Week."
+          }
+        },
+        "gift_2": {
+          "type": "gift",
+          "settings": {
+            "image_1": "shopify://shop_images/463.png",
+            "image_2": "",
+            "label": "Gave · fra 1.299 kr.",
+            "title": "3-pak strømper",
+            "text": "Gratis ved køb for mindst 1.299 kr. Du vælger størrelse i kurven."
           }
         }
       },
       "block_order": [
-        "gift_1"
+        "gift_1",
+        "gift_2"
       ],
       "settings": {
         "phases": ""
@@ -133,11 +161,11 @@
         "phases": "",
         "eyebrow": "I kurven",
         "heading": "Du kan se det i kurven.",
-        "text": "Kurven minder dig om stålflasken til de første 100 ordrer. Rabatten trækkes automatisk.",
+        "text": "Baren øverst i kurven viser, hvor langt du er fra næste gave. Gaverne lægges automatisk i kurven, og rabatten på 3 for 2 og 4 for 2 trækkes automatisk.",
         "link_label": "Se single offers",
         "link_url": "/collections/black-week-limited-edition",
-        "image": "shopify://shop_images/427_496bbe8d-72cc-421a-9db6-f83a5b270081.png",
-        "line": "Gratis Thermo stålflaske til de første 100 ordrer."
+        "image": "shopify://shop_images/hyrdrationbottle.png",
+        "line": "Gratis AROX Hydration Bottle fra 799 kr."
       }
     }
   },

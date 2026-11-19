@@ -1,6 +1,6 @@
 {%- comment -%}
 BLACK WEEK 2026 · cart drawer ported from board 10 ("Kurv-skuffe"): dark drawer, header "Din kurv · N vare(r)",
-top band with the stepped progress bar (499 fri fragt · 799 gave · 1299 gave) and the Thermo gift line, lines with
+top band with the stepped progress bar (499 fri fragt · 799 gave · 1299 gave) (the Thermo gift line was removed 19.11), lines with
 "Gratis gave" for 0 kr. gifts, two recommendation cards, totals and "Gå til kassen".
 Impact hooks kept: .cart-drawer__inner (re-rendered on cart change), [slot="footer"], .empty-state, line-item JS.
 Styles that reach Impact's shadow parts live in assets/bw.css (.bw-cart, only in html.bw-on).
@@ -205,8 +205,6 @@ Impact re-renders, so cart updates keep working in both.
             {%- render 'free-shipping-bar' -%}
           </div>
         {%- endif -%}
-        {%- comment -%}Gavelinje (info, ikke en vare): Thermo stålflaske til de første 100 ordrer{%- endcomment -%}
-        {%- render 'bw-cart-gift' -%}
       </div>
 
       <div class="cart-drawer__line-items" style="padding:4px 20px">

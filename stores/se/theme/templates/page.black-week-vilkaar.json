@@ -68,13 +68,6 @@
             "value": "Vid 4 produkter från 4 för 2 är de 2 billigaste gratis."
           }
         },
-        "term_9": {
-          "type": "term",
-          "settings": {
-            "key": "Gåva",
-            "value": "Gratis stålflaska (1,06 l) till de första 100 beställningarna under Black Week. Ingen beloppsgräns."
-          }
-        },
         "term_10": {
           "type": "term",
           "settings": {
@@ -106,7 +99,6 @@
         "term_6",
         "term_7",
         "term_8",
-        "term_9",
         "term_12",
         "term_10",
         "term_11"
@@ -147,20 +139,6 @@
             "answer": "<p>Helsvarta versioner av anti slip grips, fusion grips, metcon-lyftarbältet och elite speed rope. De finns bara under Black Week.</p>"
           }
         },
-        "faq_5": {
-          "type": "item",
-          "settings": {
-            "question": "Hur får jag gåvan?",
-            "answer": "<p>De första 100 beställningarna under Black Week får en gratis stålflaska (1,06 l). Det finns ingen beloppsgräns.</p>"
-          }
-        },
-        "faq_6": {
-          "type": "item",
-          "settings": {
-            "question": "Vad betyder \"de första 100 beställningarna\"?",
-            "answer": "<p>De första 100 beställningarna under Black Week får en gratis stålflaska, oavsett vad beställningen kostar.</p>"
-          }
-        },
         "faq_7": {
           "type": "item",
           "settings": {
@@ -188,8 +166,6 @@
         "faq_2",
         "faq_3",
         "faq_4",
-        "faq_5",
-        "faq_6",
         "faq_9",
         "faq_7",
         "faq_8"

@@ -23,8 +23,8 @@ FILES = {
         ("echo '3 for 2'", "echo '3 för 2'"),
         ("echo '4 for 2'", "echo '4 för 2'"),
     ],
-    'sections/bw-gift-cart.liquid': [("Arox Thermo stålflaske 1,06 L", "Arox stålflaska 1,06 l")],
-    'sections/bw-gift-reminder.liquid': [("Arox Thermo stålflaske 1,06 L", "Arox stålflaska 1,06 l")],
+    'sections/bw-gift-cart.liquid': [("AROX Hydration Bottle 1000 ml", "AROX vattenflaska 1000 ml")],
+    'sections/bw-gift-reminder.liquid': [("AROX Hydration Bottle 1000 ml", "AROX vattenflaska 1000 ml")],
     'sections/bw-header.liquid': [
         ('aria-label="Søg"', 'aria-label="Sök"'),
         ('aria-label="Luk menu"', 'aria-label="Stäng meny"'),
@@ -78,9 +78,9 @@ FILES = {
     ],
     'snippets/bw-pdp-favs.liquid': [("Kundernes favoritter", "Kundfavoriter"), ("collections['cross-traeningbestsellers']", "collections['bestsellers']")],
     'snippets/bw-pdp-gift.liquid': [
-        ("Gave i Black Week", "Gåva i Black Week"),
-        ("Gratis Thermo stålflaske til de første 100 ordrer.", "Gratis stålflaska till de första 100 beställningarna."),
-        ("alt: 'Thermo stålflaske 1,06 L'", "alt: 'Stålflaska 1,06 l'"),
+        ("Gaver i Black Week", "Gåvor under Black Week"),
+        ("Gratis Hydration Bottle fra 799 kr. og 3-pak strømper fra 1.299 kr. Gælder også med 3 for 2 og 4 for 2.", "Gratis vattenflaska från 1 199 kr och strumpor 3-pack från 1 999 kr. Gäller även med 3 för 2 och 4 för 2."),
+        ("alt: 'AROX Hydration Bottle 1000 ml'", "alt: 'AROX vattenflaska 1000 ml'"),
     ],
     'snippets/bw-pdp-gpsr.liquid': [
         (">Producent<", ">Tillverkare<"),

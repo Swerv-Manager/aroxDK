@@ -6,6 +6,8 @@
   .bw-gc__imgs { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
   .bw-gc__img { aspect-ratio: 2 / 3; border-radius: 8px; overflow: hidden; background: #f8f8f8; }
   .bw-gc__img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .bw-gc__img:only-child { grid-column: 1 / -1; aspect-ratio: 4 / 3; }
+  .bw-gc__img:only-child img { object-fit: contain; }
   .bw-gc__k { font-size: 12px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; color: #6e6e6e; }
   .bw-gc__t { margin: 0; font-size: clamp(24px, 2.6vw, 36px); font-weight: 900; text-transform: uppercase; letter-spacing: -.005em; line-height: 1; color: #111; }
   .bw-gc__d { font-size: 15px; line-height: 1.5; color: #3a3a3a; }
@@ -45,8 +47,8 @@
         { "type": "image_picker", "id": "image_1", "label": "Billede 1" },
         { "type": "image_picker", "id": "image_2", "label": "Billede 2" },
         { "type": "text", "id": "label", "label": "Overlinje", "default": "Gave · stål" },
-        { "type": "text", "id": "title", "label": "Navn", "default": "Thermo stålflaske 1,06 L" },
-        { "type": "textarea", "id": "text", "label": "Tekst", "default": "Gratis Thermo stålflaske til de første 100 ordrer." }
+        { "type": "text", "id": "title", "label": "Navn", "default": "AROX Hydration Bottle 1000 ml" },
+        { "type": "textarea", "id": "text", "label": "Tekst", "default": "Gratis ved køb for mindst 799 kr." }
       ]
     }
   ],
