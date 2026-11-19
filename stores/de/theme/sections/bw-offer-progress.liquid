@@ -1,0 +1,92 @@
+{%- comment -%}
+BLACK WEEK 2026 · boards 05/06/07 · "Du har valgt 1 af 3 produkter" progress bar for 3 for 2 / 4 for 2.
+Counts cart items from the chosen collection (default: the current collection) via assets/bw.js ([data-bw-progress]).
+Optional heading row ("Med i 3 for 2" + "Se alle" + line) as on the offer pages.
+{%- endcomment -%}
+{%- liquid
+  assign bw_coll = section.settings.collection | default: collection
+  assign bw_n = section.settings.n | plus: 0
+  assign bw_free = section.settings.free | plus: 0
+  assign bw_first_free = bw_n | minus: bw_free | plus: 1
+  assign bw_ids = bw_coll.products | map: 'id' | join: ','
+-%}
+<div class="bw bw-pb-sec{% render 'bw-only', phases: section.settings.phases %}">
+  <style>
+    .bw-pb-sec { padding: {{ section.settings.pad_top }}px var(--bw-gutter) {{ section.settings.pad_bottom }}px; display: grid; gap: 24px; }
+    .bw-pb-head { display: grid; gap: 4px; }
+    .bw-pb-head__row { margin-bottom: 8px; display: flex; justify-content: space-between; align-items: flex-end; gap: 16px; flex-wrap: wrap; }
+    .bw-pb-head h2 { margin: 0; font-size: clamp(24px, 2.6vw, 36px); font-weight: 900; text-transform: uppercase; letter-spacing: -.005em; line-height: 1; }
+    .bw-pb-head__line { font-size: 14px; line-height: 1.45; color: var(--bw-grey-200); }
+    .bw-pb { border: 1px solid #2b2b2b; border-radius: 8px; padding: 18px; display: grid; gap: 20px; color: #fff; background: var(--bw-black); }
+    @media (min-width: 768px) { .bw-pb { padding: 24px; } }
+    .bw-pb__top { display: flex; justify-content: space-between; align-items: baseline; gap: 6px 24px; flex-wrap: wrap; }
+    .bw-pb__a { font-size: clamp(16px, 1.4vw, 20px); font-weight: 900; line-height: 1.2; }
+    .bw-pb__b { font-size: 14px; font-weight: 600; line-height: 1.4; color: var(--bw-grey-200); }
+    .bw-pb__steps { display: grid; grid-auto-flow: column; grid-auto-columns: minmax(0, 1fr); }
+    .bw-pb__st { position: relative; display: grid; justify-items: center; align-content: start; gap: 8px; text-align: center; }
+    .bw-pb__line { position: absolute; top: 17px; left: calc(50% + 26px); width: calc(100% - 52px); height: 2px; background: #333; }
+    .bw-pb__st.is-done .bw-pb__line { background: var(--bw-red); }
+    .bw-pb__dot { width: 36px; height: 36px; border-radius: 999px; border: 2px solid #444; display: grid; place-items: center; font-size: 15px; font-weight: 800; color: var(--bw-grey-200); }
+    .bw-pb__dot svg { display: none; }
+    .bw-pb__st.is-done .bw-pb__dot { background: var(--bw-red); border-color: var(--bw-red); color: #fff; }
+    .bw-pb__st.is-done .bw-pb__dot span { display: none; }
+    .bw-pb__st.is-done .bw-pb__dot svg { display: block; }
+    .bw-pb__lab { display: flex; gap: 4px 6px; align-items: center; justify-content: center; flex-wrap: wrap; }
+    .bw-pb__lab > span:first-child { font-size: 14px; font-weight: 800; line-height: 1.2; }
+    .bw-pb__free { background: var(--bw-red); color: #fff; font-size: 10px; font-weight: 800; letter-spacing: .06em; line-height: 1.2; text-transform: uppercase; padding: 3px 7px; border-radius: 4px; }
+    .bw-pb__added { display: none; font-size: 12px; line-height: 1.2; color: var(--bw-ink-300); margin-top: -4px; }
+    .bw-pb__st.is-done .bw-pb__added { display: block; }
+    .bw-pb__note { border-top: 1px solid #2b2b2b; padding-top: 16px; text-align: center; font-size: 13px; line-height: 1.45; color: var(--bw-ink-300); text-wrap: pretty; }
+  </style>
+  {%- if section.settings.heading != blank or section.settings.line != blank -%}
+    <div class="bw-pb-head">
+      <div class="bw-pb-head__row">
+        {%- if section.settings.heading != blank -%}<h2>{{ section.settings.heading }}</h2>{%- endif -%}
+        {%- if section.settings.link_label != blank -%}<a href="{{ section.settings.link_url | default: bw_coll.url }}" class="bw-link">{{ section.settings.link_label }}</a>{%- endif -%}
+      </div>
+      {%- if section.settings.line != blank -%}<div class="bw-pb-head__line">{{ section.settings.line }}</div>{%- endif -%}
+    </div>
+  {%- endif -%}
+  <div class="bw-pb" data-bw-progress data-ids="{{ bw_ids }}" data-n="{{ bw_n }}" data-todo="{{ section.settings.todo | escape }}" data-done="{{ section.settings.done | escape }}">
+    <div class="bw-pb__top">
+      <div class="bw-pb__a" data-bw-progress-a>Du hast 0 von {{ bw_n }} Produkten gewählt</div>
+      <div class="bw-pb__b" data-bw-progress-b>{{ section.settings.todo | replace: '[n]', bw_n }}</div>
+    </div>
+    <div class="bw-pb__steps">
+      {%- for i in (1..bw_n) -%}
+        <div class="bw-pb__st" data-step="{{ i }}">
+          {%- unless forloop.last -%}<div class="bw-pb__line"></div>{%- endunless -%}
+          <div class="bw-pb__dot"><span>{{ i }}</span>{% render 'bw-icon', name: 'check' %}</div>
+          <div class="bw-pb__lab"><span>Produkt {{ i }}</span>{% if i >= bw_first_free %}<span class="bw-pb__free">Gratis</span>{% endif %}</div>
+          <span class="bw-pb__added">Hinzugefügt</span>
+        </div>
+      {%- endfor -%}
+    </div>
+    {%- if section.settings.note != blank -%}<div class="bw-pb__note">{{ section.settings.note }}</div>{%- endif -%}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "BW · Tilbudsbar",
+  "class": "bw-section",
+  "settings": [
+    { "type": "paragraph", "content": "Viser hvor mange varer fra tilbuddet der ligger i kurven. Tælles automatisk ud fra kurven og kollektionen." },
+    { "type": "text", "id": "phases", "label": "Vis kun i faser", "info": "pre, early, live, sidste · tom = altid" },
+    { "type": "collection", "id": "collection", "label": "Kollektion", "info": "Tom = den aktuelle kollektion" },
+    { "type": "select", "id": "n", "label": "Antal varer i tilbuddet", "options": [ { "value": "3", "label": "3 for 2" }, { "value": "4", "label": "4 for 2" } ], "default": "3" },
+    { "type": "select", "id": "free", "label": "Antal gratis", "options": [ { "value": "1", "label": "1" }, { "value": "2", "label": "2" } ], "default": "1" },
+    { "type": "text", "id": "todo", "label": "Tekst før tilbuddet er opfyldt", "info": "[n] = antal varer der mangler", "default": "Vælg [n] mere – få den billigste gratis" },
+    { "type": "text", "id": "done", "label": "Tekst når tilbuddet er opfyldt", "default": "Rabatten trækkes automatisk i kurven." },
+    { "type": "text", "id": "note", "label": "Note", "default": "Den billigste af de 3 produkter er gratis. Rabatten trækkes automatisk i kurven." },
+    { "type": "header", "content": "Overskrift (valgfri)" },
+    { "type": "text", "id": "heading", "label": "Overskrift" },
+    { "type": "text", "id": "line", "label": "Linje" },
+    { "type": "text", "id": "link_label", "label": "Linktekst" },
+    { "type": "url", "id": "link_url", "label": "Link", "info": "Tom = kollektionen" },
+    { "type": "range", "id": "pad_top", "label": "Afstand top", "min": 0, "max": 80, "step": 4, "unit": "px", "default": 20 },
+    { "type": "range", "id": "pad_bottom", "label": "Afstand bund", "min": 0, "max": 80, "step": 4, "unit": "px", "default": 0 }
+  ],
+  "presets": [ { "name": "BW · Tilbudsbar" } ]
+}
+{% endschema %}

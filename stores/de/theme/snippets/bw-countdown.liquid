@@ -1,0 +1,35 @@
+{%- comment -%}
+BLACK WEEK · countdown, ported 1:1 from the design's BWCountdown (inline styles, cqw sizes).
+Text and target follow the phase (window.BW.countdown in snippet bw-head; bw.js fills them):
+  presale → "Early Access startet in" · tidlig adgang → "Early Access endet in" · live/sidste dag → "Black Week endet in"
+Params: compact (bool) – the slim version in the campaign topbar.
+{%- endcomment -%}
+{%- liquid
+  if compact
+    assign cd_gap = '10px 16px'
+    assign cd_label = '14px'
+    assign cd_boxgap = '6px'
+    assign cd_w = '50px'
+    assign cd_pad = '8px 0'
+    assign cd_num = '22px'
+  else
+    assign cd_gap = '16px 40px'
+    assign cd_label = 'clamp(16px,1.4cqw,20px)'
+    assign cd_boxgap = '8px'
+    assign cd_w = 'clamp(62px,5.4cqw,82px)'
+    assign cd_pad = '12px 0'
+    assign cd_num = 'clamp(30px,2.8cqw,44px)'
+  endif
+  assign bw_units = 'Tage,Std,Min,Sek' | split: ','
+-%}
+<div data-bw-cd style="display:flex;flex-wrap:wrap;gap:{{ cd_gap }};align-items:center;justify-content:space-between">
+  <div style="display:grid;gap:4px">
+    <div data-bw-cd-top style="font-size:12px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#9b9b9b">Black Week endet in</div>
+    <div data-bw-cd-label style="font-size:{{ cd_label }};font-weight:700;color:#fff">Black Week endet am Montag, 30.11., 23:59 Uhr</div>
+  </div>
+  <div role="timer" style="display:flex;gap:{{ cd_boxgap }};contain:layout paint">
+    {%- for u in bw_units -%}
+      <div style="display:grid;justify-items:center;gap:4px;width:{{ cd_w }};box-sizing:border-box;padding:{{ cd_pad }};border:1px solid #333;border-radius:8px;background:#111;color:#fff;contain:layout paint"><span data-bw-cd-num style="display:block;width:1.3em;text-align:center;font-size:{{ cd_num }};font-weight:900;line-height:1;font-variant-numeric:tabular-nums">00</span><div style="font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#9b9b9b">{{ u }}</div></div>
+    {%- endfor -%}
+  </div>
+</div>

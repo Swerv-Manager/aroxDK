@@ -1,0 +1,40 @@
+{%- comment -%}
+BLACK WEEK 2026 · Arox DE (Dawn) · gift bar at the top of Dawn's cart drawer (rendered from snippet cart-drawer, so
+Dawn re-renders it with every cart change). Two steps: free shipping from 69,99 € (the shop's own threshold) and the
+free AROX Trinkflasche 1000 ml from 109 € (gift product bw-gave-hydration-bottle, added by bw.js). Gift lines
+(property _bw_gift) do not count. Shown only when Black Week is on and the offers run (CSS: not in pre/ended).
+{%- endcomment -%}
+{%- liquid
+  assign bw_ship_at = 6999
+  assign bw_gift_at = 10900
+  assign bw_total = 0
+  for item in cart.items
+    unless item.properties._bw_gift
+      assign bw_total = bw_total | plus: item.final_line_price
+    endunless
+  endfor
+  assign bw_pct = bw_total | times: 100 | divided_by: bw_gift_at | at_most: 100
+  assign bw_ship_pct = bw_ship_at | times: 100 | divided_by: bw_gift_at
+-%}
+{%- if cart.item_count > 0 -%}
+  <div class="bw-site bw-dawn-progress" data-bw-dawn-progress>
+    <p class="bw-dawn-progress__msg">
+      {%- if bw_total < bw_ship_at -%}
+        Noch <strong>{{ bw_ship_at | minus: bw_total | money_without_currency }} €</strong> bis zum gratis Versand
+      {%- elsif bw_total < bw_gift_at -%}
+        Gratis Versand ✓ · Noch <strong>{{ bw_gift_at | minus: bw_total | money_without_currency }} €</strong> bis zur gratis Trinkflasche
+      {%- else -%}
+        Du hast gratis Versand und eine gratis Trinkflasche
+      {%- endif -%}
+    </p>
+    <div class="bw-dawn-progress__bar" aria-hidden="true">
+      <span class="bw-dawn-progress__fill" style="width: {{ bw_pct }}%"></span>
+      <span class="bw-dawn-progress__mark{% if bw_total >= bw_ship_at %} is-done{% endif %}" style="left: {{ bw_ship_pct }}%"></span>
+      <span class="bw-dawn-progress__mark{% if bw_total >= bw_gift_at %} is-done{% endif %}" style="left: 100%"></span>
+    </div>
+    <div class="bw-dawn-progress__labels">
+      <span style="left: {{ bw_ship_pct }}%">69,99 € · Gratis Versand</span>
+      <span style="left: 100%">109 € · Trinkflasche</span>
+    </div>
+  </div>
+{%- endif -%}

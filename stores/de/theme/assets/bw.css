@@ -1,0 +1,501 @@
+/* ==========================================================================
+   BLACK WEEK 2026 · Arox Fitness DK · shared styles for bw-* sections/snippets
+   Source: Claude Design handoff "Black Week 2026 ALT I ET" (mobil 390 / desktop 1440)
+   ========================================================================== */
+
+/* ---------- Phase visibility (classes set on <html> by snippet bw-head) ---------- */
+html.bw-pre .bw-hide-pre,
+html.bw-early .bw-hide-early,
+html.bw-live .bw-hide-live,
+html.bw-sidste .bw-hide-sidste,
+html.bw-ended .bw-hide-ended { display: none !important; }
+
+/* ---------- Tokens ---------- */
+.bw {
+  --bw-black: #0a0a0a;
+  --bw-ink: #111111;
+  --bw-ink-700: #3a3a3a;
+  --bw-ink-500: #6e6e6e;
+  --bw-ink-300: #9b9b9b;
+  --bw-grey-200: #e4e4e4;
+  --bw-grey-c9: #c9c9c9;
+  --bw-surface: #111111;
+  --bw-surface-2: #161616;
+  --bw-line: #222222;
+  --bw-line-2: #333333;
+  --bw-red: #c8232c;
+  --bw-font: 'Archivo', 'Helvetica Neue', Arial, sans-serif;
+  /* Design gutter: 20px under 768px, 64px above, and centred at max 1312px content */
+  --bw-gutter: max(20px, calc((100% - 1312px) / 2));
+  --bw-pad-y: 48px;
+  font-family: var(--bw-font);
+  line-height: normal;
+  letter-spacing: normal;
+  -webkit-font-smoothing: antialiased;
+  background: var(--bw-black);
+  color: #fff;
+  box-sizing: border-box;
+}
+@media (min-width: 768px) {
+  .bw { --bw-gutter: max(64px, calc((100% - 1312px) / 2)); --bw-pad-y: 80px; }
+}
+.bw *, .bw *::before, .bw *::after { box-sizing: border-box; }
+.bw a { color: inherit; }
+.bw a:hover { opacity: 1; }
+.bw h1, .bw h2, .bw h3 { font-family: var(--bw-font); color: inherit; }
+.bw img { max-width: 100%; }
+
+/* ---------- Layout ---------- */
+.bw-wrap { padding-inline: var(--bw-gutter); }
+.bw-sec { padding: var(--bw-pad-y) var(--bw-gutter); display: grid; gap: 24px; background: var(--bw-black); color: #fff; }
+.bw-sec--line { border-top: 1px solid var(--bw-line); }
+.bw-sec--line2 { border-top: 1px solid #2b2b2b; }
+.bw-head { display: grid; gap: 12px; margin-bottom: 8px; }
+.bw-head--split { display: flex; justify-content: space-between; align-items: flex-end; gap: 16px; flex-wrap: wrap; }
+
+/* ---------- Type ---------- */
+.bw-eyebrow { font-size: 12px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; color: var(--bw-ink-300); }
+.bw-eyebrow--light { color: var(--bw-grey-c9); }
+.bw-eyebrow--white { color: #fff; }
+.bw-h1 { margin: 0; font-weight: 900; text-transform: uppercase; letter-spacing: -.02em; line-height: .9; font-size: clamp(46px, 7vw, 112px); }
+.bw-h2 { margin: 0; font-weight: 900; text-transform: uppercase; letter-spacing: -.01em; line-height: 1; font-size: clamp(34px, 4.6vw, 68px); }
+.bw-h2--md { font-size: clamp(28px, 3.4vw, 48px); }
+.bw-h2--sm { font-size: clamp(26px, 3vw, 40px); letter-spacing: -.005em; }
+.bw-h2--xl { font-size: clamp(38px, 5.2vw, 76px); line-height: .95; }
+.bw-h3 { margin: 0; font-size: 22px; font-weight: 900; text-transform: uppercase; line-height: 1; }
+.bw-lead { font-size: clamp(15px, 1.25vw, 18px); line-height: 1.5; color: var(--bw-grey-200); max-width: 520px; }
+.bw-body { font-size: 15px; line-height: 1.5; color: var(--bw-grey-c9); }
+.bw-note { font-size: 13px; color: var(--bw-ink-300); }
+.bw-strong { font-size: 16px; font-weight: 600; }
+.bw-rte p { margin: 0 0 .6em; }
+.bw-rte p:last-child { margin-bottom: 0; }
+.bw-rte a { text-decoration: underline; text-underline-offset: 3px; }
+
+/* ---------- Buttons & links ---------- */
+.bw-btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; height: 48px; padding: 0 28px; border-radius: 999px; background: #fff; color: var(--bw-ink) !important; font-family: var(--bw-font); font-size: 15px; font-weight: 700; text-decoration: none; border: 0; cursor: pointer; justify-self: start; transition: background-color .15s ease-out; }
+.bw-btn:hover { background: var(--bw-grey-200); }
+.bw-btn--lg { height: 56px; padding: 0 36px; font-size: 16px; font-weight: 800; }
+.bw-btn--outline { background: transparent; color: #fff !important; border: 1.5px solid #fff; }
+.bw-btn--outline:hover { background: rgba(255,255,255,.08); }
+.bw-btn--dark { background: var(--bw-ink); color: #fff !important; }
+.bw-btn--dark:hover { background: #2b2b2b; }
+.bw-link { display: inline-flex; gap: 8px; align-items: center; color: #fff; font-size: 15px; font-weight: 700; text-decoration: underline; text-underline-offset: 4px; }
+.bw-icon { width: 20px; height: 20px; flex: none; }
+
+/* ---------- Badges ---------- */
+.bw-badge { display: inline-block; justify-self: start; background: var(--bw-red); color: #fff; font-size: 11px; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; padding: 5px 9px; border-radius: 4px; line-height: 1.2; white-space: nowrap; }
+.bw-badge--lg { font-size: 13px; font-weight: 900; letter-spacing: .08em; padding: 7px 12px; }
+.bw-badge--dark { background: var(--bw-black); box-shadow: inset 0 0 0 1px rgba(255,255,255,.2); }
+.bw-badge--abs { position: absolute; top: 14px; left: 14px; z-index: 1; }
+
+/* ---------- Grids ---------- */
+.bw-grid { display: grid; gap: 16px; }
+.bw-grid-2 { display: grid; gap: 32px 48px; align-items: center; grid-template-columns: minmax(0, 1fr); }
+.bw-grid-3 { grid-template-columns: minmax(0, 1fr); }
+.bw-grid-4 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+@media (min-width: 768px) {
+  .bw-grid-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .bw-grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .bw-grid-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+}
+@media (min-width: 560px) and (max-width: 767px) {
+  .bw-grid-3 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+/* ---------- Media ---------- */
+.bw-media { position: relative; overflow: hidden; background: var(--bw-surface); }
+.bw-media > img, .bw-media > picture img, .bw-media__img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.bw-media__ov { position: absolute; inset: 0; background: rgba(10,10,10,var(--ov, .5)); }
+.bw-rounded { border-radius: 8px; }
+
+/* ---------- Product card ---------- */
+.bw-card { background: #fff; border-radius: 8px; overflow: hidden; display: grid; align-content: start; color: var(--bw-ink); text-decoration: none; }
+.bw-card__media { position: relative; aspect-ratio: 1 / 1; background: #f2f2f2; overflow: hidden; display: block; }
+.bw-card__img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; }
+.bw-card__img2 { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity .22s ease-out; }
+@media (hover: hover) { .bw-card:hover .bw-card__img2 { opacity: 1 !important; } }
+.bw-card__txt { position: absolute; inset: 0; background: var(--bw-surface-2); color: #fff; display: grid; align-content: end; padding: 12px; font-size: 14px; font-weight: 900; text-transform: uppercase; line-height: 1.05; }
+.bw-card__badge { position: absolute; top: 4px; z-index: 1; background: var(--bw-red); color: #fff; font-size: 8px; font-weight: 800; letter-spacing: .16px; line-height: 1.2; text-transform: uppercase; padding: 2px 5px; border-radius: 2px; white-space: nowrap; }
+.bw-card__badge--l { left: 4px; }
+.bw-card__badge--r { right: 4px; background: var(--bw-black); box-shadow: inset 0 0 0 1px rgba(255,255,255,.2); }
+@media (min-width: 768px) {
+  .bw-card__badge { top: 8px; font-size: 10px; letter-spacing: .4px; padding: 3px 7px; border-radius: 4px; }
+  .bw-card__badge--l { left: 8px; }
+  .bw-card__badge--r { right: 8px; }
+  .bw-card__txt { padding: 16px; font-size: 18px; }
+}
+.bw-card__body { padding: 14px 10px 18px; display: grid; gap: 6px; justify-items: center; text-align: center; }
+.bw-card__title { font-size: 14px; font-weight: 700; line-height: 1.3; color: var(--bw-ink); text-decoration: none; }
+.bw-card__rv { display: flex; gap: 6px; align-items: center; justify-content: center; flex-wrap: wrap; font-size: 12px; color: var(--bw-ink-700); }
+.bw-card__stars { display: flex; gap: 1px; }
+.bw-card__stars svg { width: 12px; height: 12px; fill: var(--bw-ink); }
+.bw-card__prices { display: flex; gap: 8px; align-items: baseline; justify-content: center; flex-wrap: wrap; }
+.bw-price { font-size: 15px; font-weight: 600; color: var(--bw-ink); }
+.bw-price--sale { font-weight: 700; color: var(--bw-red); }
+.bw-price--compare { font-size: 13px; color: var(--bw-ink-500); }
+.bw-card__sw { display: flex; gap: 6px; align-items: center; justify-content: center; flex-wrap: wrap; padding-top: 2px; }
+.bw-sw { width: 14px; height: 14px; border-radius: 999px; flex: none; background: #888; box-shadow: inset 0 0 0 1px rgba(0,0,0,.2); }
+.bw-sw:first-child { box-shadow: 0 0 0 2px #fff, 0 0 0 3px var(--bw-ink); }
+.bw-sw-more { font-size: 12px; color: var(--bw-ink-700); }
+
+/* ---------- Countdown ---------- */
+.bw-cd { display: flex; flex-wrap: wrap; gap: 16px 40px; align-items: center; justify-content: space-between; }
+.bw-cd__txt { display: grid; gap: 4px; }
+.bw-cd__top { font-size: 12px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; color: var(--bw-ink-300); }
+.bw-cd__label { font-size: clamp(16px, 1.4vw, 20px); font-weight: 700; color: #fff; }
+.bw-cd__boxes { display: flex; gap: 8px; }
+.bw-cd__box { display: grid; justify-items: center; gap: 4px; width: clamp(62px, 5.4vw, 82px); padding: 12px 0; border: 1px solid var(--bw-line-2); border-radius: 8px; background: var(--bw-surface); color: #fff; }
+.bw-cd__num { display: block; width: 1.3em; text-align: center; font-size: clamp(30px, 2.8vw, 44px); font-weight: 900; line-height: 1; font-variant-numeric: tabular-nums; }
+.bw-cd__unit { font-size: 11px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--bw-ink-300); }
+.bw-cd--compact { gap: 10px 16px; }
+.bw-cd--compact .bw-cd__label { font-size: 14px; }
+.bw-cd--compact .bw-cd__boxes { gap: 6px; }
+.bw-cd--compact .bw-cd__box { width: 50px; padding: 8px 0; }
+.bw-cd--compact .bw-cd__num { font-size: 22px; }
+
+/* ---------- Marquee + ping ---------- */
+@keyframes bwMarquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+@keyframes bwPing { 75%, 100% { transform: scale(2.6); opacity: 0; } }
+.bw-marquee { background: var(--bw-black); color: #fff; border-bottom: 1px solid var(--bw-line); overflow: hidden; height: 40px; display: flex; align-items: center; contain: layout paint; }
+.bw-marquee__track { display: flex; width: max-content; animation: bwMarquee 70s linear infinite; will-change: transform; }
+.bw-marquee:hover .bw-marquee__track { animation-play-state: paused; }
+.bw-marquee__item { flex: none; white-space: pre; font-size: 13px; font-weight: 600; letter-spacing: .02em; }
+.bw-ping { position: relative; display: inline-flex; width: 8px; height: 8px; flex: none; }
+.bw-ping::before { content: ''; position: absolute; inset: 0; border-radius: 999px; background: var(--bw-red, #c8232c); animation: bwPing 1.4s cubic-bezier(0,0,.2,1) infinite; }
+.bw-ping::after { content: ''; position: relative; width: 8px; height: 8px; border-radius: 999px; background: var(--bw-red, #c8232c); }
+@media (prefers-reduced-motion: reduce) {
+  .bw-marquee__track, .bw-ping::before { animation: none; }
+}
+
+/* ---------- Offer band (rødt tilbudsbånd) ---------- */
+.bw-band { background: var(--bw-red); color: #fff; padding: 14px var(--bw-gutter); display: flex; flex-wrap: wrap; gap: 6px 22px; align-items: center; justify-content: center; font-size: 13px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; text-align: center; }
+
+/* ---------- Cards on dark (tiles) ---------- */
+.bw-tile { background: var(--bw-surface); border: 1px solid var(--bw-line-2); border-radius: 8px; padding: 24px; display: grid; gap: 8px; align-content: start; }
+.bw-tile--12 { border-radius: 12px; border-color: var(--bw-line); }
+.bw-tile__big { font-size: clamp(30px, 3vw, 44px); font-weight: 900; line-height: 1; }
+
+/* ---------- Offer category card ---------- */
+.bw-cat { background: var(--bw-surface-2); border-radius: 8px; overflow: hidden; display: grid; align-content: start; color: #fff; text-decoration: none; border: 1px solid var(--bw-surface-2); transition: border-color .15s ease-out; }
+.bw-cat:hover { border-color: #fff; }
+.bw-cat__media { position: relative; aspect-ratio: 4 / 3; background: var(--bw-black); overflow: hidden; }
+.bw-cat__body { padding: 20px; display: grid; gap: 10px; }
+.bw-cat .bw-link { justify-self: start; margin-top: 4px; }
+
+/* ---------- Steps 01/02/03 ---------- */
+.bw-step { background: var(--bw-surface); border: 1px solid var(--bw-line); border-radius: 12px; padding: 24px; display: grid; gap: 10px; align-content: start; }
+.bw-step__n { font-size: clamp(36px, 3.4vw, 52px); font-weight: 900; line-height: 1; }
+.bw-step__t { font-size: 20px; font-weight: 900; text-transform: uppercase; line-height: 1.1; }
+
+/* ---------- Forms ---------- */
+.bw-input { flex: 1 1 220px; height: 52px; border-radius: 999px; border: 1px solid var(--bw-grey-200); background: #fff; color: var(--bw-ink); padding: 0 20px; font: inherit; font-size: 16px; }
+.bw-input::placeholder { color: var(--bw-ink-500); }
+.bw-check { display: flex; gap: 12px; align-items: center; min-height: 44px; font-size: 13px; line-height: 1.4; color: var(--bw-grey-200); }
+.bw-check input { width: 20px; height: 20px; accent-color: #fff; flex: none; }
+
+/* ---------- Accordion (FAQ) ---------- */
+.bw-faq { border-top: 1px solid var(--bw-line-2); }
+.bw-faq details { border-bottom: 1px solid var(--bw-line-2); }
+.bw-faq summary { list-style: none; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 16px; min-height: 64px; padding: 16px 0; font-size: clamp(16px, 1.3vw, 19px); font-weight: 800; }
+.bw-faq summary::-webkit-details-marker { display: none; }
+.bw-faq summary::after { content: '+'; font-size: 24px; font-weight: 400; flex: none; }
+.bw-faq details[open] summary::after { content: '–'; }
+.bw-faq__a { padding: 0 0 20px; font-size: 15px; line-height: 1.6; color: var(--bw-grey-200); max-width: 760px; }
+
+/* ---------- Black Week site chrome tweaks (header ping dot injected by bw.js) ---------- */
+.bw-nav-ping { margin-right: 9px; vertical-align: middle; }
+
+/* ---------- Cart drawer (board 10 · sections/cart-drawer.liquid) ---------- */
+/* Impact draws the drawer in shadow parts; its colours and paddings come from these variables. */
+html.bw-on .cart-drawer.bw-cart {
+  --dialog-background: 10 10 10;
+  --background: 10 10 10;
+  --background-primary: 10 10 10;
+  --text-color: 255 255 255;
+  --text-primary: 255 255 255;
+  --border-color: 43 43 43;
+  --drawer-header-padding: 0;
+  --drawer-body-padding: 0;
+  --drawer-footer-padding: 0;
+  padding: 0;
+}
+html.bw-on .cart-drawer.bw-cart::part(content){ border-radius: 0; font-family: 'Archivo', 'Helvetica Neue', Arial, sans-serif; }
+html.bw-on .cart-drawer.bw-cart::part(footer){ border-block-start: 0; }
+@media screen and (min-width: 700px) {
+  html.bw-on .cart-drawer.bw-cart{ width: 440px; }
+  html.bw-on .cart-drawer.bw-cart::part(content){ box-shadow: -20px 0 60px rgba(0, 0, 0, .35); }
+}
+html.bw-on .bw-cart .bw-cart-qty .quantity-input{
+  min-width: 44px; width: 44px; padding: 6px 4px; border: 1px solid #2b2b2b; border-radius: 8px;
+  background: transparent; color: #fff; font-family: inherit; font-size: 12px; font-weight: 600; text-align: center;
+}
+html.bw-on .bw-cart .bw-cart-qty .quantity-input:focus-visible{ border-color: #fff; }
+html.bw-on .bw-cart pill-loader{ background: #fff; color: #111; }
+html.bw-on .bw-cart [is="close-button"]:focus-visible,
+html.bw-on .bw-cart button[name="checkout"]:focus-visible{ outline: 2px solid #fff; outline-offset: 2px; }
+html.bw-on .bw-cart button[name="checkout"]:hover{ background: #e4e4e4 !important; }
+html.bw-on .bw-cart .bw-cart-line a:hover{ opacity: .8; }
+
+/* ---------- Collection head (board 07 / 04–06 · snippet bw-coll-head) ---------- */
+.bw-ch__top { padding: 18px var(--bw-gutter) 0; display: grid; gap: 8px; }
+.bw-ch__crumb { font-size: 13px; color: var(--bw-grey-c9); }
+.bw-ch__crumb a { text-decoration: none; color: inherit; }
+.bw-ch__crumb a:hover { color: #fff; }
+.bw-ch__row { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+.bw-ch__pill { background: var(--bw-black); color: #fff; box-shadow: inset 0 0 0 1px #fff; font-size: 10px; font-weight: 800; letter-spacing: .06em; line-height: 1.2; text-transform: uppercase; padding: 3px 7px; border-radius: 4px; }
+.bw-ch__title { margin: 0; font-size: clamp(26px, 2.8vw, 40px); font-weight: 900; text-transform: uppercase; letter-spacing: -.01em; line-height: 1; }
+.bw-ch__line { font-size: 14px; line-height: 1.45; color: var(--bw-grey-200); }
+.bw-ch__nav { padding: 14px var(--bw-gutter) 0; }
+.bw-ch__navrow { display: flex; gap: 10px; overflow-x: auto; padding-bottom: 2px; scrollbar-width: none; }
+.bw-ch__card { flex: 1 0 200px; min-height: 60px; display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 10px 16px; border-radius: 8px; color: #fff; text-decoration: none; background: var(--bw-surface-2); box-shadow: inset 0 0 0 1px #2b2b2b; transition: box-shadow .15s ease-out; }
+.bw-ch__card:hover { box-shadow: inset 0 0 0 1px #fff; }
+.bw-ch__card[aria-current] { background: var(--bw-red); box-shadow: none; }
+.bw-ch__card .bw-icon { width: 18px; height: 18px; }
+.bw-ch__l { display: grid; gap: 3px; }
+.bw-ch__lt { font-size: 15px; font-weight: 900; text-transform: uppercase; line-height: 1.1; }
+.bw-ch__ls { font-size: 12px; line-height: 1.3; color: var(--bw-ink-300); }
+.bw-ch__card[aria-current] .bw-ch__ls { color: #fff; }
+/* phones: the three offer cards stack (a row of three ran off the screen) */
+@media (max-width: 767px) { .bw-ch__navrow { flex-direction: column; overflow: visible; } .bw-ch__card { flex: none; } }
+/* horizontal scrollers without a visible scrollbar (circles, carousels) */
+.bw-noscrollbar { scrollbar-width: none; } .bw-noscrollbar::-webkit-scrollbar { display: none; }
+
+/* ---------- Filter + sort bar (board 07 · snippet bw-coll-toolbar) ---------- */
+.bw-tb { padding: 18px var(--bw-gutter) 0; display: grid; gap: 14px; }
+.bw-tb__row { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; align-items: center; border-bottom: 1px solid #2b2b2b; padding-bottom: 16px; margin: 0; }
+.bw-tb__pills { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+.bw-tb__right { display: flex; gap: 16px; align-items: center; font-size: 13px; }
+.bw-tb__count { color: var(--bw-grey-c9); }
+.bw-tb__sort { display: inline-flex; gap: 6px; align-items: center; font-weight: 700; cursor: pointer; list-style: none; }
+.bw-tb__clear, .bw-fp__clear { font-size: 13px; font-weight: 600; color: #fff; text-decoration: underline; text-underline-offset: 3px; }
+.bw-fp { position: relative; }
+.bw-fp summary::-webkit-details-marker { display: none; }
+.bw-fp__pill { display: inline-flex; align-items: center; gap: 8px; height: 40px; padding: 0 14px; border: 1px solid #fff; border-radius: 999px; background: var(--bw-black); color: #fff; font-size: 13px; font-weight: 600; cursor: pointer; list-style: none; white-space: nowrap; }
+.bw-fp[open] .bw-fp__pill { background: #fff; color: var(--bw-ink); }
+.bw-fp__panel { position: absolute; top: calc(100% + 8px); left: 0; z-index: 30; min-width: 240px; max-height: 340px; overflow: auto; background: var(--bw-black); border: 1px solid #2b2b2b; border-radius: 8px; padding: 14px; display: grid; gap: 10px; box-shadow: 0 18px 50px rgba(0, 0, 0, .5); }
+.bw-fp__panel--end { left: auto; right: 0; }
+.bw-fp__opt { display: flex; gap: 10px; align-items: center; font-size: 14px; line-height: 1.3; cursor: pointer; }
+.bw-fp__opt input { width: 16px; height: 16px; margin: 0; accent-color: #fff; flex: none; }
+.bw-fp__opt.is-empty { opacity: .4; cursor: default; }
+.bw-fp__n { margin-left: auto; padding-left: 12px; color: var(--bw-ink-300); font-size: 12px; }
+.bw-fp__price { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.bw-fp__price label { display: grid; gap: 4px; font-size: 12px; color: var(--bw-grey-c9); }
+.bw-fp__price input { height: 40px; width: 100%; padding: 0 10px; border: 1px solid #2b2b2b; border-radius: 8px; background: transparent; color: #fff; font: inherit; font-size: 14px; }
+.bw-fp__apply { height: 40px; border: 0; border-radius: 999px; background: #fff; color: var(--bw-ink); font: inherit; font-size: 14px; font-weight: 700; cursor: pointer; }
+@media (max-width: 767px) {
+  .bw-fp__panel { position: fixed; top: auto; bottom: 12px; left: 12px; right: 12px; min-width: 0; max-height: 60vh; }
+}
+
+/* ---------- Collection body (board 07 · static section bw-collection-live) ---------- */
+.bw-cl__body { padding: 20px var(--bw-gutter) 48px; display: grid; gap: 24px; }
+@media (min-width: 768px) { .bw-cl__body { padding-bottom: 80px; } }
+.bw-cl__note { font-size: 13px; color: var(--bw-grey-c9); }
+.bw-pager { display: flex; gap: 16px; justify-content: center; align-items: center; padding-top: 32px; font-size: 15px; font-weight: 700; }
+.bw-pager a { color: #fff; text-decoration: underline; text-underline-offset: 4px; }
+.bw-pager span { color: var(--bw-grey-c9); }
+
+/* ---------- Product page (board 08 · templates/product.json + main-product) ----------
+   Impact's main-product keeps all its logic (variants, add to cart, gallery); this only restyles it to the design:
+   dark page, Archivo, uppercase title, size pills, quantity + "Læg i kurv" on one row, accordions with +/–. */
+html.bw-on body:has(.shopify-section--main-product) { background: #0a0a0a; }
+.bw-pdp-crumb { padding: 16px var(--bw-gutter) 0; font-size: 13px; color: var(--bw-grey-c9); }
+.bw-pdp-crumb a { color: inherit; text-decoration: none; }
+.bw-pdp-crumb a:hover { color: #fff; }
+html.bw-on .shopify-section--main-product{
+  --bw-pdp-font: 'Archivo', 'Helvetica Neue', Arial, sans-serif;
+  --border-color: 43 43 43;
+  font-family: var(--bw-pdp-font);
+  -webkit-font-smoothing: antialiased;
+}
+html.bw-on .shopify-section--main-product .section{ padding-block-start: 20px; }
+@media screen and (min-width: 1000px) { html.bw-on .shopify-section--main-product .product{ column-gap: 64px; } }
+/* gallery: main image 1:1 radius 12 on #f8f8f8, thumbnails 3 per row */
+html.bw-on .shopify-section--main-product .product-gallery__media { background: #f8f8f8; border-radius: 12px; overflow: hidden; }
+html.bw-on .shopify-section--main-product .product-gallery__thumbnail-list-wrapper > button{ display: none; }
+html.bw-on .shopify-section--main-product .product-gallery__thumbnail-list{ grid-auto-flow: row; grid-auto-columns: auto; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+html.bw-on .shopify-section--main-product .product-gallery__thumbnail{ border-radius: 8px; overflow: hidden; background: #f8f8f8; aspect-ratio: 1 / 1; }
+html.bw-on .shopify-section--main-product .product-gallery__thumbnail img{ width: 100%; height: 100%; object-fit: cover; border-radius: 8px; }
+/* info column: 18 px between blocks; quantity + buy button share a row */
+html.bw-on .shopify-section--main-product .product-info { display: flex; flex-wrap: wrap; align-content: flex-start; }
+html.bw-on .shopify-section--main-product .product-info > *{ flex: 0 0 100%; min-width: 0; margin-block-end: 0; --product-info-block-spacing: 18px; }
+html.bw-on .shopify-section--main-product .product-info > [data-block-type="quantity-selector"]{ flex: 0 0 auto; }
+html.bw-on .shopify-section--main-product .product-info > [data-block-type="buy-buttons"]{ flex: 1 1 0; margin-inline-start: 12px; }
+html.bw-on .shopify-section--main-product .product-info__title{ font-family: var(--bw-pdp-font); font-size: clamp(28px, 2.6vw, 40px); font-weight: 900; text-transform: uppercase; letter-spacing: -.01em; line-height: 1; margin: 0; }
+html.bw-on .shopify-section--main-product .product-info__badge-list{ gap: 6px; }
+html.bw-on .shopify-section--main-product .product-info__badge-list .badge{ font-size: 11px; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; padding: 5px 9px; border-radius: 4px; line-height: 1.2; }
+html.bw-on .shopify-section--main-product .bw-blackout-badge{ background: #0a0a0a; color: #fff; box-shadow: inset 0 0 0 1px #fff; }
+.bw-pdp-price { display: grid; gap: 4px; }
+.bw-pdp-price__row { display: flex; gap: 12px; align-items: baseline; flex-wrap: wrap; }
+.bw-pdp-price__p { font-size: 28px; font-weight: 900; color: #fff; }
+.bw-pdp-price__p.is-sale { color: #c8232c; }
+.bw-pdp-price__n { font-size: 15px; color: #c9c9c9; }
+.bw-pdp-price__t { font-size: 13px; color: #c9c9c9; }
+.bw-pdp-usp { margin: 0; padding-left: 18px; display: grid; gap: 6px; font-size: 14px; line-height: 1.45; }
+.bw-pdp-trust { font-size: 13px; font-weight: 600; }
+.bw-pdp-ship { display: flex; gap: 10px; align-items: flex-start; font-size: 14px; line-height: 1.5; }
+/* variant picker: "Størrelse" + size pills */
+html.bw-on .shopify-section--main-product .variant-picker__option-info .text-subdued { color: #fff; font-size: 13px; font-weight: 700; }
+html.bw-on .shopify-section--main-product .variant-picker__option-info .h-stack > span{ display: none; }
+html.bw-on .shopify-section--main-product .variant-picker__option-values{ gap: 8px; }
+html.bw-on .shopify-section--main-product .block-swatch{ min-width: 48px; height: 44px; padding: 0 14px; justify-content: center; border: 1px solid #fff; border-radius: 8px; background: transparent; color: #fff; font-size: 14px; font-weight: 600; }
+html.bw-on .shopify-section--main-product :checked + .block-swatch{ background: #fff; color: #111; }
+html.bw-on .shopify-section--main-product .block-swatch.is-disabled{ opacity: .45; }
+/* quantity pill + white "Læg i kurv" pill */
+html.bw-on .shopify-section--main-product .product-info__quantity-selector .block-label { display: none; }
+html.bw-on .shopify-section--main-product .quantity-selector{ height: 52px; border: 1px solid #fff; border-radius: 999px; background: transparent; color: #fff; font-size: 16px; font-weight: 600; }
+html.bw-on .shopify-section--main-product .quantity-selector__button{ width: 44px; padding: 0; justify-content: center; }
+html.bw-on .shopify-section--main-product .quantity-selector__input{ min-width: 28px; font-weight: 600; }
+html.bw-on .shopify-section--main-product .product-info__buy-buttons .button{ height: 52px; min-height: 52px; width: 100%; border-radius: 999px; background: #fff; color: #111; border: 0; font-family: var(--bw-pdp-font); font-size: 15px; font-weight: 700; letter-spacing: 0; text-transform: none; }
+/* "Andre farver" (theme liquid block): its heading is styled black inline */
+html.bw-on .shopify-section--main-product .product-single__colors .VariantHeading,
+html.bw-on .shopify-section--main-product .product-single__colors .VariantHeading span{ color: #fff !important; font-family: var(--bw-pdp-font); font-size: 13px; font-weight: 700; }
+/* accordions: Beskrivelse / Levering & returnering / Kundernes favoritter, "+" and "–" instead of the circle chevron */
+html.bw-on .shopify-section--main-product .accordion { border-color: #2b2b2b; }
+html.bw-on .shopify-section--main-product .accordion__toggle{ min-height: 52px; padding-block: 14px; font-size: 15px; font-weight: 700; }
+html.bw-on .shopify-section--main-product .accordion__toggle .circle-chevron{ display: none; }
+html.bw-on .shopify-section--main-product .accordion__toggle::after{ content: "+"; font-weight: 400; margin-inline-start: auto; }
+html.bw-on .shopify-section--main-product details[open] > summary .accordion__toggle::after{ content: "–"; }
+html.bw-on .shopify-section--main-product .accordion__content, html.bw-on .shopify-section--main-product .accordion__content .prose{ font-size: 14px; line-height: 1.55; color: #c9c9c9; }
+.bw-pdp-favs { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; container-type: inline-size; background: transparent; padding-bottom: 14px; }
+.bw-pdp-usp li { list-style: disc; }
+html.bw-on .shopify-section--main-product .quantity-selector__button{ display: grid; place-items: center; flex: none; }
+html.bw-on .shopify-section--main-product .quantity-selector__input{ width: 28px; flex: none; }
+html.bw-on .shopify-section--main-product .sizebox .sizeinfoheadline{ font-family: var(--bw-pdp-font); font-size: 13px; font-weight: 700; color: #fff; }
+html.bw-on .shopify-section--main-product .sizebox .sizeinfo{ font-size: 12px; color: #c9c9c9; }
+/* Loox reviews (app section under related products): Loox draws the widget in its own colours, so it sits in a white
+   rounded card on the dark page, like the Black Week product cards. */
+html.bw-on body:has(.shopify-section--main-product) .shopify-section--apps #looxReviews { background: #fff; color: #111; border-radius: 12px; padding: 24px 20px; box-sizing: border-box; max-width: 1080px !important; margin: 0 auto !important; }
+/* Kiwi "Størrelsesguide" is moved here by bw.js (it would otherwise push "Læg i kurv" onto a new line) */
+html.bw-on .shopify-section--main-product .bw-pdp-extra:empty { display: none; }
+html.bw-on .shopify-section--main-product .bw-pdp-extra{ font-size: 13px; }
+
+/* ---------- Quick add on Black Week product cards (snippet bw-product-card quick_add, <bw-quick-add> in bw.js) ---------- */
+.bw-qa { position: absolute; inset: 0; z-index: 2; pointer-events: none; display: block; }
+.bw-qa__btn { pointer-events: auto; position: absolute; right: 8px; bottom: 8px; width: 40px; height: 40px; padding: 0; border: 0; border-radius: 999px; background: #0a0a0a; color: #fff; display: grid; place-items: center; cursor: pointer; box-shadow: 0 4px 14px rgba(0, 0, 0, .25); transition: transform .15s ease-out, opacity .15s; }
+.bw-qa__btn:hover { transform: scale(1.06); }
+.bw-qa__btn[aria-busy="true"], .bw-qa__opt[aria-busy="true"] { opacity: .5; cursor: progress; }
+.bw-qa__ok { display: none; }
+.bw-qa.is-added .bw-qa__ok { display: block; }
+.bw-qa.is-added .bw-qa__plus { display: none; }
+.bw-qa.is-open .bw-qa__btn { display: none; }
+.bw-qa__panel { pointer-events: auto; position: absolute; left: 0; right: 0; bottom: 0; max-height: 100%; overflow: auto; box-sizing: border-box; background: rgba(10, 10, 10, .94); color: #fff; padding: 10px; display: grid; gap: 8px; font-family: 'Archivo', 'Helvetica Neue', Arial, sans-serif; text-align: left; }
+.bw-qa__panel[hidden] { display: none; }
+.bw-qa__head { display: flex; justify-content: space-between; align-items: center; gap: 8px; font-size: 11px; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; }
+.bw-qa__close { background: none; border: 0; padding: 0 2px; color: #fff; font-size: 20px; line-height: 1; cursor: pointer; }
+.bw-qa__opts { display: flex; flex-wrap: wrap; gap: 6px; }
+.bw-qa__opt { min-width: 40px; height: 32px; padding: 0 10px; border: 1px solid #fff; border-radius: 6px; background: transparent; color: #fff; font-family: inherit; font-size: 12px; font-weight: 600; line-height: 1; cursor: pointer; }
+.bw-qa__opt:hover:not(:disabled) { background: #fff; color: #111; }
+.bw-qa__opt:disabled { opacity: .35; text-decoration: line-through; cursor: default; }
+.bw-qa__msg { font-size: 12px; line-height: 1.35; color: #ffb4b4; }
+.bw-qa__msg:empty { display: none; }
+
+/* ---------- Free gifts in the cart drawer (snippet bw-cart-progress, syncGifts in bw.js) ---------- */
+.bw-gift-pick { display: grid; gap: 8px; padding: 12px; border: 1px solid #2b2b2b; border-radius: 8px; background: #161616; font-size: 13px; }
+.bw-gift-pick__row { display: flex; gap: 8px; }
+.bw-gift-pick select { flex: 1; min-width: 0; height: 40px; padding: 0 10px; border: 1px solid #2b2b2b; border-radius: 8px; background: #0a0a0a; color: #fff; font: inherit; font-size: 13px; }
+.bw-gift-pick button { height: 40px; padding: 0 16px; border: 0; border-radius: 999px; background: #fff; color: #111; font: inherit; font-size: 13px; font-weight: 700; cursor: pointer; white-space: nowrap; }
+.bw-gift-pick button[aria-busy="true"] { opacity: .5; }
+.bw-gift-pick[data-auto] { display: none; }
+html.bw-gift-removed-g2 .bw-gift-pick[data-key="g2"], html.bw-gift-removed-g3 .bw-gift-pick[data-key="g3"] { display: grid; }
+html.bw-gift-off-g2 .bw-gift-pick[data-key="g2"], html.bw-gift-off-g3 .bw-gift-pick[data-key="g3"] { display: none; }
+
+/* product row as a carousel (bw-product-row "carousel"): 2.3 cards on a phone, 4 on desktop, snap */
+.bw-car { display: grid; grid-auto-flow: column; grid-auto-columns: calc((100% - 16px) / 2.3); gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory; overscroll-behavior-x: contain; }
+.bw-car > * { scroll-snap-align: start; min-width: 0; }
+@media (min-width: 768px) { .bw-car { grid-auto-columns: calc((100% - 48px) / 4); } }
+.bw-car__arrows { display: none; gap: 8px; }
+@media (min-width: 768px) { .bw-car__arrows { display: inline-flex; } }
+.bw-car__btn { width: 40px; height: 40px; border-radius: 999px; display: grid; place-items: center; background: transparent; color: #fff; border: 0; box-shadow: inset 0 0 0 1px #3a3a3a; cursor: pointer; }
+.bw-car__btn:hover { box-shadow: inset 0 0 0 1px #fff; }
+
+/* ---------- Black Week on/off (snippet bw-head, client decision 19.11) ----------
+   bw-off: the normal shop. Black Week sections (class bw-section) and Black Week-only bits (bw-site) are hidden.
+   bw-on: Black Week everywhere. The normal shop's own pieces are hidden: header/announcement/footer/USP sections,
+   the original homepage template sections (the Black Week homepage is the section group bw-home-group), the
+   original product page blocks/sections, and anything marked bw-norm. */
+html.bw-off .shopify-section.bw-section, html.bw-off .bw-site { display: none !important; }
+html.bw-on .bw-norm,
+html.bw-on .shopify-section[id*="__cs_announcement_bar_"],
+html.bw-on .shopify-section[id$="__header"],
+html.bw-on .shopify-section[id$="__text-with-icons"],
+html.bw-on .shopify-section[id$="__footer"]:not(.bw-section),
+html.bw-on.bw-tpl-index main > .shopify-section[id^="shopify-section-template--"],
+html.bw-on .shopify-section[id*="__ss_product_vidoes_"],
+html.bw-on .shopify-section[id*="__ss_product_page_videos_"],
+html.bw-on .shopify-section[id$="__related-products"],
+html.bw-on .product-info__block-item[data-block-id="price"],
+html.bw-on .product-info__block-item[data-block-id="product_info_block_QP8x6U"],
+html.bw-on .product-info__block-item[data-block-id="liquid_AprAYw"],
+html.bw-on .product-info__block-item[data-block-id="liquid_QTG6BY"],
+html.bw-on .product-info__block-item[data-block-type="payment-icons"],
+html.bw-on .product-info__block-item[data-block-id="collapsible_text_9FQbce"],
+html.bw-on .product-info__block-item[data-block-id*="loox_reviews_loox_rating"] { display: none !important; }
+html.bw-off .product-info__block-item[data-block-id^="bw_"],
+html.bw-off .product-info__block-item[data-block-id^="liquid_bw_"] { display: none !important; }
+/* Black Week product page colours (the template keeps Impact's own colours for the normal shop) */
+html.bw-on body:has(.shopify-section--main-product) { background: #0a0a0a; }
+html.bw-on .shopify-section--main-product > .section,
+html.bw-on body:has(.shopify-section--main-product) .shopify-section--apps > .section { --background: 10 10 10; --text-color: 255 255 255; --input-text-color: 255 255 255; background: rgb(10 10 10); color: rgb(255 255 255); }
+@media screen and (min-width: 1000px) { html.bw-on .shopify-section--main-product { --product-grid: auto / minmax(0, 1fr) minmax(0, 1fr); } }
+html.bw-on .shopify-section--main-product .product-info__buy-buttons .button { --button-background: 255 255 255; --button-text-color: 17 17 17; }
+/* Black Week order of the product page blocks (board 08); the template keeps the normal shop's order */
+html.bw-on .shopify-section--main-product .product-info > * { order: 200; }
+html.bw-on .product-info > [data-block-id="badges"] { order: 10; }
+html.bw-on .product-info > [data-block-id="title"] { order: 20; }
+html.bw-on .product-info > [data-block-id="bw_price"] { order: 30; }
+html.bw-on .product-info > [data-block-id="bw_usp"] { order: 40; }
+html.bw-on .product-info > [data-block-id="liquid_rpCmtK"] { order: 50; }
+html.bw-on .product-info > [data-block-id="liquid_BEj3hB"] { order: 50; } /* SE: Andra färger */
+html.bw-on .product-info > [data-block-id="variant_picker"] { order: 60; }
+html.bw-on .product-info > .bw-pdp-extra { order: 65; }
+html.bw-on .product-info > [data-block-id="liquid_QymwME"] { order: 70; }
+html.bw-on .product-info > [data-block-id="liquid_A6qm7G"] { order: 70; } /* SE: pasform */
+html.bw-on .product-info > [data-block-id*="kaching_bundles"] { order: 80; }
+html.bw-on .product-info > [data-block-id="quantity_selector"] { order: 90; }
+html.bw-on .product-info > [data-block-id="buy_buttons"] { order: 100; }
+html.bw-on .product-info > [data-block-id="liquid_bw_mechanic"] { order: 110; }
+html.bw-on .product-info > [data-block-id="bw_trust"] { order: 120; }
+html.bw-on .product-info > [data-block-id="bw_ship"] { order: 130; }
+html.bw-on .product-info > [data-block-id="description"] { order: 140; }
+html.bw-on .product-info > [data-block-id="bw_collapsible_ship"] { order: 150; }
+html.bw-on .product-info > [data-block-id="collapsible_text_XW6A4G"] { order: 150; } /* SE: Frakt & leverans */
+html.bw-on .product-info > [data-block-id="bw_favs"] { order: 160; }
+html.bw-on .product-info > [data-block-id*="loox_reviews_loox_snippets_widget"] { order: 170; }
+html.bw-on .product-info > [data-block-id="payment_terms"] { order: 180; }
+
+/* ==================================================================================================================
+   Arox DE (Dawn 6.0.2) · Black Week additions. Dawn keeps its own header, footer, product page and cart drawer;
+   Black Week adds the ticker, the homepage group, the gift bar in the drawer and the offer box on product pages.
+   ================================================================================================================== */
+/* Dawn's html font-size is 62.5 %; the Black Week sections are set in px, their font is Archivo */
+html.bw-pre .bw-dawn-progress, html.bw-ended .bw-dawn-progress,
+html.bw-pre .bw-dawn-pdp, html.bw-ended .bw-dawn-pdp { display: none !important; }
+
+/* gift bar in the cart drawer */
+.bw-dawn-progress { margin: 0 0 1.6rem; padding: 1.2rem 1.4rem 2.6rem; background: #0a0a0a; color: #fff; font-family: Archivo, sans-serif; }
+.bw-dawn-progress__msg { margin: 0 0 1rem; font-size: 1.3rem; line-height: 1.35; letter-spacing: .01em; }
+.bw-dawn-progress__msg strong { font-weight: 800; }
+.bw-dawn-progress__bar { position: relative; height: 6px; background: rgba(255,255,255,.18); border-radius: 3px; margin: 0 6px; }
+.bw-dawn-progress__fill { position: absolute; left: 0; top: 0; bottom: 0; background: #fff; border-radius: 3px; transition: width .4s ease; }
+.bw-dawn-progress__mark { position: absolute; top: 50%; width: 12px; height: 12px; margin: -6px 0 0 -6px; border-radius: 50%; background: #3a3a3a; border: 2px solid #0a0a0a; }
+.bw-dawn-progress__mark.is-done { background: #fff; }
+.bw-dawn-progress__labels { position: relative; height: 0; margin: 0 6px; }
+.bw-dawn-progress__labels span { position: absolute; top: 8px; transform: translateX(-50%); white-space: nowrap; font-size: 1.05rem; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; color: rgba(255,255,255,.75); }
+.bw-dawn-progress__labels span:last-child { transform: translateX(-100%); }
+
+/* gift line in Dawn's cart drawer and cart page: label, no quantity input (bw.js keeps it at 1) */
+.bw-dawn-gift-tag { margin: .4rem 0 0; display: inline-block; padding: .2rem .8rem; background: #0a0a0a; color: #fff; font-size: 1.1rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; }
+.cart-item.bw-gift-line quantity-input { display: none; }
+
+/* offer box on product pages, under the price */
+.bw-dawn-pdp { margin: 1.6rem 0; padding: 1.6rem 1.8rem; background: #0a0a0a; color: #fff; font-family: Archivo, sans-serif; }
+.bw-dawn-pdp p { margin: 0; }
+.bw-dawn-pdp__badge { font-size: 1.1rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; color: rgba(255,255,255,.7); }
+.bw-dawn-pdp__title { margin-top: .4rem !important; font-size: 2.2rem; font-weight: 900; line-height: 1.1; text-transform: uppercase; letter-spacing: -.01em; }
+.bw-dawn-pdp__text { margin-top: .8rem !important; font-size: 1.4rem; line-height: 1.5; color: rgba(255,255,255,.85); }
+.bw-dawn-pdp__link { display: inline-block; margin-top: 1rem; color: #fff; font-size: 1.3rem; font-weight: 800; letter-spacing: .04em; text-transform: uppercase; text-decoration: underline; text-underline-offset: 3px; }
+.bw-dawn-pdp__gift { margin-top: 1.2rem !important; padding-top: 1.2rem; border-top: 1px solid rgba(255,255,255,.15); font-size: 1.3rem; line-height: 1.45; }
+
+/* Black Week sections inside Dawn: no Dawn heading/link/list styles leaking in */
+.bw-section h1, .bw-section h2, .bw-section h3, .bw-section h4 { letter-spacing: normal; }
+.bw-section a:not([class]) { text-decoration: none; }

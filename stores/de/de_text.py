@@ -1,0 +1,196 @@
+# Black Week 2026 · Arox DE · German values for the template and section-group settings (DE build).
+# Key = the exact Danish value in the DK templates (or the Danish schema default), value = the German value.
+# Written from the copy agent arox-fitness-de-copy (du-form, sachlich, konkret; brand line "Gemacht, um zu halten.";
+# deadlines with date, time and time zone), approved by Claude on Frederik's instruction 19.11.
+# DE facts (checked 19.11): DHL 2,99 €, free shipping from 69,99 € (shipping rates in Shopify; the Lieferung page still
+# says 129 €), delivery 2–4 Werktage, 30 Tage Widerrufsrecht with the Retourenportal (DE's own pages), one gift: the
+# AROX Trinkflasche 1000 ml from 109 € (no Thermo bottle for the first 100 orders in DE), contact support@aroxfitness.com.
+
+TEXT = {
+    # ---- offer navigation / collection heads and notes
+    "Single offers": "Einzelangebote",
+    "Fast Black Week-pris": "Fester Black-Week-Preis",
+    "3 for 2": "3 für 2",
+    "Den billigste er gratis": "Das günstigste ist gratis",
+    "4 for 2": "4 für 2",
+    "De 2 billigste er gratis": "Die 2 günstigsten sind gratis",
+    "Black Week": "Black Week",
+    "Vælg 3 produkter blandt alle på denne side, og den billigste er gratis.": "Wähle 3 Produkte von dieser Seite, das günstigste ist gratis.",
+    "Vælg [n] mere – få den billigste gratis": "Noch [n] wählen, dann ist das günstigste gratis",
+    "Rabatten trækkes automatisk i kurven.": "Der Rabatt wird automatisch im Warenkorb abgezogen.",
+    "Den billigste af de 3 produkter er gratis. Rabatten trækkes automatisk i kurven.": "Das günstigste der 3 Produkte ist gratis. Der Rabatt wird automatisch im Warenkorb abgezogen.",
+    "Fri fragt v. køb over 499 kr. · ellers fragt fra 35 kr.": "Gratis Versand ab 69,99 € · sonst DHL für 2,99 €",
+    "Vælg 4 produkter blandt alle på denne side, og de 2 billigste er gratis.": "Wähle 4 Produkte von dieser Seite, die 2 günstigsten sind gratis.",
+    "Vælg [n] mere – de 2 billigste er gratis": "Noch [n] wählen, dann sind die 2 günstigsten gratis",
+    "De 2 billigste af de 4 produkter er gratis. Rabatten trækkes automatisk i kurven.": "Die 2 günstigsten der 4 Produkte sind gratis. Der Rabatt wird automatisch im Warenkorb abgezogen.",
+    "Limited edition": "Limited Edition",
+    "Brand": "Brand, Marke, Hersteller, Anbieter",
+    "Produkttype=Kategori": "Produkttyp=Kategorie; Produkttype=Kategorie; Product type=Kategorie",
+    "Fast Black Week-pris til og med mandag 30.11 kl. 23:59.": "Fester Black-Week-Preis bis Montag, 30.11., 23:59 Uhr (MEZ).",
+    "Til og med mandag 30.11 kl. 23:59": "Bis Montag, 30.11., 23:59 Uhr (MEZ)",
+
+    # ---- gift (DE: AROX Trinkflasche 1000 ml from 109 €, instead of DK's Thermo bottle for the first 100 orders)
+    "Thermo stålflaske 1,06 L": "AROX Trinkflasche 1000 ml",
+    "Gave i Black Week": "Geschenk in der Black Week",
+    "Gave med hjem.": "Geschenk dazu.",
+    "Oveni.": "Ab 109 €.",
+    "Er din ordre blandt de første 100 i Black Week, får du en gratis Thermo stålflaske med. Uanset beløb.": "Bestellst du in der Black Week für mindestens 109 €, legen wir dir eine AROX Trinkflasche (1000 ml) gratis dazu. Sie kommt automatisch in den Warenkorb.",
+    "Se single offers": "Einzelangebote ansehen",
+    "Shop 3 for 2": "3 für 2 shoppen",
+    "De første 100 ordrer": "Ab 109 € Bestellwert",
+    "Gratis Thermo stålflaske 1,06 L": "Gratis AROX Trinkflasche 1000 ml",
+    "Gælder de første 100 ordrer i Black Week.": "Es zählt der Bestellwert nach Rabatt.",
+    "Uanset beløb": "Automatisch",
+    "Ingen beløbsgrænse": "Kein Code nötig",
+    "Det er rækkefølgen, der tæller – ikke beløbet.": "Die Flasche kommt von selbst in den Warenkorb, solange der Vorrat reicht. 1 pro Bestellung.",
+    "Sådan får du gaven": "So bekommst du das Geschenk",
+    "Én gave.": "Ein Geschenk.",
+    "De første 100.": "Ab 109 €.",
+    "Gælder ordrer i Black Week 20.11–30.11.2026.": "Gilt für Bestellungen in der Black Week, 20.11.–30.11.2026.",
+    "Gave · stål": "Geschenk · Trinkflasche",
+    "Gratis Thermo stålflaske til de første 100 ordrer.": "Gratis ab 109 € Bestellwert in der Black Week.",
+    "I kurven": "Im Warenkorb",
+    "Du kan se det i kurven.": "Du siehst es im Warenkorb.",
+    "Kurven minder dig om stålflasken til de første 100 ordrer. Rabatten trækkes automatisk.": "Ab 109 € liegt die Trinkflasche automatisch im Warenkorb. Die Rabatte für 3 für 2 und 4 für 2 werden ebenfalls automatisch abgezogen.",
+    "Se gaverne": "Zum Geschenk",
+    "Gælder de første 100 ordrer i Black Week 20.11–30.11.2026.": "Gilt für Bestellungen ab 109 € in der Black Week, 20.11.–30.11.2026.",
+
+    # ---- terms page
+    "Kampagnevilkår · Black Week 20.11–30.11.2026": "Aktionsbedingungen · Black Week 20.11.–30.11.2026",
+    "Black Week.": "Black Week.",
+    "Vilkår og FAQ.": "Bedingungen und FAQ.",
+    "Kampagneperiode": "Aktionszeitraum",
+    "Black Week 20.11–30.11.2026.": "Black Week, 20.11.–30.11.2026.",
+    "Presale": "Early Access",
+    "For tilmeldte fra fredag 20.11 kl. 12:00.": "Für Angemeldete ab Freitag, 20.11., 12:00 Uhr (MEZ).",
+    "Åbent for alle": "Für alle",
+    "Søndag 22.11 kl. 20:00.": "Ab Sonntag, 22.11., 20:00 Uhr (MEZ).",
+    "Slut": "Ende",
+    "Mandag 30.11 kl. 23:59 (Cyber Monday).": "Montag, 30.11., 23:59 Uhr (MEZ, Cyber Monday).",
+    "Rabat": "Rabatt",
+    "Trækkes automatisk i kurven. Ingen kode.": "Wird automatisch im Warenkorb abgezogen. Kein Code nötig.",
+    "Fast Black Week-pris. Limited-varer findes kun i Black Week.": "Fester Black-Week-Preis. Die Limited-Produkte gibt es nur in der Black Week.",
+    "Ved 3 varer fra 3 for 2 er den billigste gratis.": "Bei 3 Produkten aus 3 für 2 ist das günstigste gratis.",
+    "Ved 4 varer fra 4 for 2 er de 2 billigste gratis.": "Bei 4 Produkten aus 4 für 2 sind die 2 günstigsten gratis.",
+    "Gave": "Geschenk",
+    "Gratis Thermo stålflaske (1,06 L) til de første 100 ordrer i Black Week. Ingen beløbsgrænse.": "Ab 109 € Bestellwert (nach Rabatt) legen wir eine AROX Trinkflasche (1000 ml) gratis dazu. Sie kommt automatisch in den Warenkorb, solange der Vorrat reicht. 1 pro Bestellung.",
+    "Fortrydelse": "Widerruf",
+    "14 dages fortrydelsesret via Returportal eller \"Fortryd ordre\".": "30 Tage Widerrufsrecht. Rücksendungen über unser Retourenportal, siehe Rückgabe und Umtausch.",
+    "Arrangør": "Veranstalter",
+    "Sai Fitness ApS · CVR 42582735 · Skolegade 7, 8000 Aarhus C · support@aroxfitness.com": "Sai Fitness ApS · USt-IdNr. DK42582735 · Skolegade 7, 8000 Aarhus C, Dänemark · support@aroxfitness.com",
+    "Kampagnevilkår": "Aktionsbedingungen",
+    "Hvornår er Black Week?": "Wann ist Black Week?",
+    "<p>Presale for tilmeldte fredag 20.11 kl. 12:00. Åbent for alle søndag 22.11 kl. 20:00. Black Week slutter mandag 30.11 kl. 23:59 (Cyber Monday).</p>": "<p>Early Access für Angemeldete ab Freitag, 20.11., 12:00 Uhr. Für alle ab Sonntag, 22.11., 20:00 Uhr. Black Week endet am Montag, 30.11., 23:59 Uhr (Cyber Monday). Alle Zeiten MEZ.</p>",
+    "Hvordan får jeg rabatten?": "Wie bekomme ich den Rabatt?",
+    "<p>Rabatten trækkes automatisk i kurven – ingen kode nødvendig. Ved 3 for 2 er den billigste af 3 varer gratis. Ved 4 for 2 er de 2 billigste af 4 varer gratis.</p>": "<p>Der Rabatt wird automatisch im Warenkorb abgezogen, du brauchst keinen Code. Bei 3 für 2 ist das günstigste von 3 Produkten gratis. Bei 4 für 2 sind die 2 günstigsten von 4 Produkten gratis.</p>",
+    "Hvilke varer er med?": "Welche Produkte sind dabei?",
+    "<p>Varer markeret med Limited edition, 3 for 2 eller 4 for 2. Du finder dem samlet i de tre Black Week-kollektioner.</p>": "<p>Produkte mit Limited Edition, 3 für 2 oder 4 für 2. Du findest sie gesammelt in den drei Black-Week-Kollektionen.</p>",
+    "Hvad er Limited Blackout?": "Was ist Limited Blackout?",
+    "<p>Helsorte udgaver af anti slip grips, fusion grips, Elite-bæltet og speedrope elite. De findes kun i Black Week.</p>": "<p>Komplett schwarze Editionen der Anti Slip Grips Pro, der Fusion Grips Pro, des Metcon Gewichthebergürtels und des Elite Speed Rope. Es gibt sie nur in der Black Week.</p>",
+    "Hvordan får jeg gaven?": "Wie bekomme ich das Geschenk?",
+    "<p>De første 100 ordrer i Black Week får en gratis Thermo stålflaske (1,06 L) med. Der er ingen beløbsgrænse.</p>": "<p>Ab 109 € Bestellwert (nach Rabatt) kommt eine AROX Trinkflasche (1000 ml) gratis in deinen Warenkorb. Ganz automatisch, solange der Vorrat reicht. 1 pro Bestellung.</p>",
+    "Hvad koster fragt?": "Was kostet der Versand?",
+    "<p>Levering: Gratis for ordrer over 499 kr. med GLS pakkeshop. For ordrer under 499 kr. fås levering fra 35 kr.</p>": "<p>Ab 69,99 € versenden wir gratis. Darunter kostet der Versand mit DHL 2,99 €. Die Lieferzeit beträgt in der Regel 2–4 Werktage.</p>",
+    "Kan jeg fortryde eller returnere?": "Kann ich widerrufen oder zurücksenden?",
+    "<p>Ja. Du har 14 dages fortrydelsesret. Brug Returportal eller \"Fortryd ordre\" nederst på siden. Læs mere i vores handelsbetingelser.</p>": "<p>Ja. Du hast 30 Tage Widerrufsrecht. Melde deine Rücksendung über unser Retourenportal an. Mehr dazu unter <a href=\"/pages/return-policy\">Rückgabe und Umtausch</a>.</p>",
+    "Black Week.<br>Kort fortalt.": "Black Week.<br>Kurz erklärt.",
+    "<p>Mangler du et svar? Skriv til support@aroxfitness.com eller ring på +45 21716275, hverdage 10:00–13:00.</p>": "<p>Noch eine Frage offen? Schreib uns an support@aroxfitness.com.</p>",
+
+    # ---- landing page
+    "Black Week 20.11–30.11.2026": "Black Week 20.11.–30.11.2026",
+    "Sådan virker det.": "So funktioniert's.",
+    "Limited edition, 3 for 2 og 4 for 2 på udvalgte varer. Rabatten trækkes automatisk i kurven – ingen kode nødvendig.": "Limited Edition, 3 für 2 und 4 für 2 auf ausgewählte Produkte. Der Rabatt wird automatisch im Warenkorb abgezogen, du brauchst keinen Code.",
+    "FRE 20.11": "FR 20.11.",
+    "KL. 12:00": "12:00 UHR",
+    "Presale for tilmeldte": "Early Access für Angemeldete",
+    "SØN 22.11": "SO 22.11.",
+    "KL. 20:00": "20:00 UHR",
+    "MAN 30.11": "MO 30.11.",
+    "KL. 23:59": "23:59 UHR",
+    "Slutter · Cyber Monday": "Ende · Cyber Monday",
+    "Black Week 20.11–30.11": "Black Week 20.11.–30.11.",
+    "Datoer du": "Diese Termine",
+    "skal kende.": "solltest du kennen.",
+    "Datoer du skal kende": "Diese Termine solltest du kennen",
+    "LIMITED BLACKOUT.": "LIMITED BLACKOUT.",
+    "Limited blackout og udvalgte favoritter til fast Black Week-pris. Limited findes kun i Black Week.": "Limited Blackout und ausgewählte Favoriten zum festen Black-Week-Preis. Limited gibt es nur in der Black Week.",
+    "TAG 3. BETAL FOR 2.": "NIMM 3. ZAHL 2.",
+    "Læg 3 varer fra 3 for 2 i kurven, og betal for de 2 dyreste. Den billigste er gratis.": "Lege 3 Produkte aus 3 für 2 in den Warenkorb und zahl nur die 2 teuersten. Das günstigste ist gratis.",
+    "TAG 4. BETAL FOR 2.": "NIMM 4. ZAHL 2.",
+    "Læg 4 varer fra 4 for 2 i kurven, og betal for de 2 dyreste. De 2 billigste er gratis.": "Lege 4 Produkte aus 4 für 2 in den Warenkorb und zahl nur die 2 teuersten. Die 2 günstigsten sind gratis.",
+    "Shop 4 for 2": "4 für 2 shoppen",
+    "Sådan virker Black Week": "So funktioniert die Black Week",
+    "Tre tilbud.": "Drei Angebote.",
+    "Én kurv.": "Ein Warenkorb.",
+    "Rabatten trækkes automatisk i kurven – ingen kode nødvendig.": "Der Rabatt wird automatisch im Warenkorb abgezogen, du brauchst keinen Code.",
+
+    # ---- homepage
+    "Blackout-udgaver og favoritter til fast Black Week-pris.": "Blackout-Editionen und Favoriten zum festen Black-Week-Preis.",
+    "Tag 3, betal for 2. Den billigste er gratis.": "Nimm 3, zahl 2. Das günstigste ist gratis.",
+    "Tag 4, betal for 2. De 2 billigste er gratis.": "Nimm 4, zahl 2. Die 2 günstigsten sind gratis.",
+    "20.11–30.11": "20.11.–30.11.",
+    "DU SHOPPER FØRST.": "DU SHOPPST ZUERST.",
+    "ALLE ANDRE BAGEFTER.": "ALLE ANDEREN DANACH.",
+    "BLACK WEEK ER I GANG.": "BLACK WEEK LÄUFT.",
+    "SHOP BLACK WEEK.": "SHOP BLACK WEEK.",
+    "SIDSTE DAG.": "LETZTER TAG.",
+    "SLUTTER KL. 23:59.": "ENDET UM 23:59 UHR.",
+    "Tilmeld dig presale": "Zum Newsletter anmelden",
+    "Shop Black Week": "Black Week shoppen",
+    "Limited edition|3 for 2|4 for 2|Rabatten trækkes automatisk i kurven": "Limited Edition|3 für 2|4 für 2|Der Rabatt wird automatisch abgezogen",
+    "Limited": "Limited",
+    "Limited edition · Limited blackout": "Limited Edition · Limited Blackout",
+    "Limited blackout.": "Limited Blackout.",
+    "Kun i Black Week.": "Nur in der Black Week.",
+    "Helsort udgave af anti slip grips, fusion grips, Elite-bæltet og speedrope elite. Kun i Black Week.": "Komplett schwarze Editionen der Anti Slip Grips Pro, der Fusion Grips Pro, des Metcon Gewichthebergürtels und des Elite Speed Rope. Nur in der Black Week.",
+    "Tag 3.": "Nimm 3.",
+    "Betal for 2.": "Zahl 2.",
+    "Læg 3 varer fra 3 for 2 i kurven, og betal for de 2 dyreste. Den billigste er gratis. Rabatten trækkes automatisk i kurven – ingen kode nødvendig.": "Lege 3 Produkte aus 3 für 2 in den Warenkorb und zahl nur die 2 teuersten. Das günstigste ist gratis. Der Rabatt wird automatisch abgezogen, du brauchst keinen Code.",
+    "4 for 2 · SportsTech og herre tights": "4 für 2 · SportsTech und Herren-Tights",
+    "Tag 4.": "Nimm 4.",
+    "Læg 4 varer fra 4 for 2 i kurven, og betal for de 2 dyreste. De 2 billigste er gratis. Rabatten trækkes automatisk i kurven – ingen kode nødvendig.": "Lege 4 Produkte aus 4 für 2 in den Warenkorb und zahl nur die 2 teuersten. Die 2 günstigsten sind gratis. Der Rabatt wird automatisch abgezogen, du brauchst keinen Code.",
+    "Se alle": "Alle ansehen",
+    "Presale for tilmeldte fredag 20.11 kl. 12:00. Åbent for alle søndag 22.11 kl. 20:00. Black Week slutter mandag 30.11 kl. 23:59 (Cyber Monday).": "Early Access für Angemeldete ab Freitag, 20.11., 12:00 Uhr. Für alle ab Sonntag, 22.11., 20:00 Uhr. Black Week endet am Montag, 30.11., 23:59 Uhr (Cyber Monday). Alle Zeiten MEZ.",
+    "Rabatten trækkes automatisk i kurven – ingen kode nødvendig. Ved 3 for 2 er den billigste af 3 varer gratis. Ved 4 for 2 er de 2 billigste af 4 varer gratis.": "Der Rabatt wird automatisch im Warenkorb abgezogen, du brauchst keinen Code. Bei 3 für 2 ist das günstigste von 3 Produkten gratis. Bei 4 für 2 sind die 2 günstigsten von 4 Produkten gratis.",
+    "Varer markeret med Limited edition, 3 for 2 eller 4 for 2. Du finder dem samlet i de tre Black Week-kollektioner.": "Produkte mit Limited Edition, 3 für 2 oder 4 für 2. Du findest sie gesammelt in den drei Black-Week-Kollektionen.",
+    "Helsorte udgaver af anti slip grips, fusion grips, Elite-bæltet og speedrope elite. De findes kun i Black Week.": "Komplett schwarze Editionen der Anti Slip Grips Pro, der Fusion Grips Pro, des Metcon Gewichthebergürtels und des Elite Speed Rope. Es gibt sie nur in der Black Week.",
+    "De første 100 ordrer i Black Week får en gratis Thermo stålflaske (1,06 L) med. Der er ingen beløbsgrænse.": "Ab 109 € Bestellwert (nach Rabatt) kommt eine AROX Trinkflasche (1000 ml) gratis in deinen Warenkorb. Ganz automatisch, solange der Vorrat reicht. 1 pro Bestellung.",
+    "FAQ": "FAQ",
+    "Kort fortalt.": "Kurz erklärt.",
+    "Se vilkår og alle spørgsmål": "Bedingungen und alle Fragen",
+
+    # ---- ticker
+    "BLACK WEEK 20.11–30.11 · Limited edition, 3 for 2 og 4 for 2 på udvalgte varer · BLACK WEEK 20.11–30.11 · 1-3 dages levering med GLS · Over 30.000 glade kunder · Fri fragt v. køb over 499 kr.": "BLACK WEEK 20.11.–30.11. · Limited Edition, 3 für 2 und 4 für 2 auf ausgewählte Produkte · BLACK WEEK 20.11.–30.11. · Lieferung in 2–4 Werktagen mit DHL · Über 30.000 zufriedene Kunden · Gratis Versand ab 69,99 €",
+}
+
+# DK page/collection URLs and DK images → DE
+URLS = [
+    ("/pages/black-week-gaver", "/pages/black-week-geschenk"),
+    ("/pages/black-week-vilkaar", "/pages/black-week-bedingungen"),
+    ("/collections/traeningstoj", "/collections/all-clothing"),
+    ("/collections/cross-traening-udstyr", "/collections/crossfit-equipment"),
+    # gift images: DK's Thermo bottle → DE's AROX Trinkflasche (product image, in DE's Files)
+    ("shopify://shop_images/427_496bbe8d-72cc-421a-9db6-f83a5b270081.png", "shopify://shop_images/hyrdrationbottle.png"),
+    ("shopify://shop_images/428_720d86b7-f092-4cf7-803c-1e6214e6ae1f.png", "shopify://shop_images/hyrdrationbottle.png"),
+]
+
+# DK product handle → DE product handle(s) (by SKU, 19.11); the DE templates use collections, so this is only a fallback
+PRODUCTS = {}
+
+# Section/block specific overrides: (template, section id, block id or None, setting) → value
+OVERRIDES = {
+    # the landing page's gift card: one gift (bottle), not the first-100 Thermo bottle
+    ("page.black-week.json", "bw_gift", "rule_1", "kicker"): "Ab 109 € Bestellwert",
+    ("page.black-week.json", "bw_gift", "rule_1", "title"): "Gratis AROX Trinkflasche 1000 ml",
+    ("page.black-week.json", "bw_gift", "rule_1", "text"): "Es zählt der Bestellwert nach Rabatt.",
+    ("page.black-week.json", "bw_gift", None, "button_url"): "/pages/black-week-geschenk",
+    ("page.black-week-vilkaar.json", "terms", "term_9", "key"): "Geschenk",
+    ("index.json", "bw_hero", None, "cta_url_pre"): "#shopify-section-footer",
+}
+
+# Blocks left out in DE: DK's "gifts at 799/1299" term and FAQs (DE has one gift, covered by term_9 / faq_5) and the
+# first-100-orders FAQ
+DROP_BLOCKS = {
+    ("page.black-week-vilkaar.json", "terms"): ["term_12"],
+    ("page.black-week-vilkaar.json", "faq"): ["faq_6", "faq_9"],
+}

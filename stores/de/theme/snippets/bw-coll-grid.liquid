@@ -1,0 +1,25 @@
+{%- comment -%}
+BLACK WEEK 2026 · boards 04–07 · product grid of a collection as Black Week product cards (white, title + price +
+swatches), 4 per row on desktop and 2 on mobile, 16 px gap, 48 per page with a simple pager. Only products that are
+available for sale are shown. Cards have quick add (bw-product-card quick_add). Filters and sorting from the URL apply (Shopify does that for collection.products).
+Params: coll (collection, default the current one) · badge (override for every card) · offer_only (true = the
+"Black Week" badge only on products that are in a Black Week offer, for ordinary collections)
+{%- endcomment -%}
+{%- assign bw_coll = coll | default: collection -%}
+{%- if bw_coll != blank -%}
+  {%- paginate bw_coll.products by 48 -%}
+    <div class="bw-grid bw-grid-4">
+      {%- for p in bw_coll.products -%}
+        {%- if p.available == false -%}{%- continue -%}{%- endif -%}
+        {%- render 'bw-product-card', product: p, badge: badge, offer_only: offer_only, quick_add: true -%}
+      {%- endfor -%}
+    </div>
+    {%- if paginate.pages > 1 -%}
+      <nav class="bw-pager" aria-label="Seiten">
+        {%- if paginate.previous -%}<a href="{{ paginate.previous.url }}">Zurück</a>{%- endif -%}
+        <span>Seite {{ paginate.current_page }} von {{ paginate.pages }}</span>
+        {%- if paginate.next -%}<a href="{{ paginate.next.url }}">Weiter</a>{%- endif -%}
+      </nav>
+    {%- endif -%}
+  {%- endpaginate -%}
+{%- endif -%}

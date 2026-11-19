@@ -1,0 +1,190 @@
+{
+  "sections": {
+    "hero": {
+      "type": "bw-terms-hero",
+      "settings": {
+        "phases": "",
+        "eyebrow": "Aktionsbedingungen · Black Week 20.11.–30.11.2026",
+        "heading_1": "Black Week.",
+        "heading_2": "Bedingungen und FAQ."
+      }
+    },
+    "terms": {
+      "type": "bw-terms",
+      "blocks": {
+        "term_1": {
+          "type": "term",
+          "settings": {
+            "key": "Aktionszeitraum",
+            "value": "Black Week, 20.11.–30.11.2026."
+          }
+        },
+        "term_2": {
+          "type": "term",
+          "settings": {
+            "key": "Early Access",
+            "value": "Für Angemeldete ab Freitag, 20.11., 12:00 Uhr (MEZ)."
+          }
+        },
+        "term_3": {
+          "type": "term",
+          "settings": {
+            "key": "Für alle",
+            "value": "Ab Sonntag, 22.11., 20:00 Uhr (MEZ)."
+          }
+        },
+        "term_4": {
+          "type": "term",
+          "settings": {
+            "key": "Ende",
+            "value": "Montag, 30.11., 23:59 Uhr (MEZ, Cyber Monday)."
+          }
+        },
+        "term_5": {
+          "type": "term",
+          "settings": {
+            "key": "Rabatt",
+            "value": "Wird automatisch im Warenkorb abgezogen. Kein Code nötig."
+          }
+        },
+        "term_6": {
+          "type": "term",
+          "settings": {
+            "key": "Limited Edition",
+            "value": "Fester Black-Week-Preis. Die Limited-Produkte gibt es nur in der Black Week."
+          }
+        },
+        "term_7": {
+          "type": "term",
+          "settings": {
+            "key": "3 für 2",
+            "value": "Bei 3 Produkten aus 3 für 2 ist das günstigste gratis."
+          }
+        },
+        "term_8": {
+          "type": "term",
+          "settings": {
+            "key": "4 für 2",
+            "value": "Bei 4 Produkten aus 4 für 2 sind die 2 günstigsten gratis."
+          }
+        },
+        "term_9": {
+          "type": "term",
+          "settings": {
+            "key": "Geschenk",
+            "value": "Ab 109 € Bestellwert (nach Rabatt) legen wir eine AROX Trinkflasche (1000 ml) gratis dazu. Sie kommt automatisch in den Warenkorb, solange der Vorrat reicht. 1 pro Bestellung."
+          }
+        },
+        "term_10": {
+          "type": "term",
+          "settings": {
+            "key": "Widerruf",
+            "value": "30 Tage Widerrufsrecht. Rücksendungen über unser Retourenportal, siehe Rückgabe und Umtausch."
+          }
+        },
+        "term_11": {
+          "type": "term",
+          "settings": {
+            "key": "Veranstalter",
+            "value": "Sai Fitness ApS · USt-IdNr. DK42582735 · Skolegade 7, 8000 Aarhus C, Dänemark · support@aroxfitness.com"
+          }
+        }
+      },
+      "block_order": [
+        "term_1",
+        "term_2",
+        "term_3",
+        "term_4",
+        "term_5",
+        "term_6",
+        "term_7",
+        "term_8",
+        "term_9",
+        "term_10",
+        "term_11"
+      ],
+      "settings": {
+        "phases": "",
+        "heading": "Aktionsbedingungen"
+      }
+    },
+    "faq": {
+      "type": "bw-faq",
+      "blocks": {
+        "faq_1": {
+          "type": "item",
+          "settings": {
+            "question": "Wann ist Black Week?",
+            "answer": "<p>Early Access für Angemeldete ab Freitag, 20.11., 12:00 Uhr. Für alle ab Sonntag, 22.11., 20:00 Uhr. Black Week endet am Montag, 30.11., 23:59 Uhr (Cyber Monday). Alle Zeiten MEZ.</p>"
+          }
+        },
+        "faq_2": {
+          "type": "item",
+          "settings": {
+            "question": "Wie bekomme ich den Rabatt?",
+            "answer": "<p>Der Rabatt wird automatisch im Warenkorb abgezogen, du brauchst keinen Code. Bei 3 für 2 ist das günstigste von 3 Produkten gratis. Bei 4 für 2 sind die 2 günstigsten von 4 Produkten gratis.</p>"
+          }
+        },
+        "faq_3": {
+          "type": "item",
+          "settings": {
+            "question": "Welche Produkte sind dabei?",
+            "answer": "<p>Produkte mit Limited Edition, 3 für 2 oder 4 für 2. Du findest sie gesammelt in den drei Black-Week-Kollektionen.</p>"
+          }
+        },
+        "faq_4": {
+          "type": "item",
+          "settings": {
+            "question": "Was ist Limited Blackout?",
+            "answer": "<p>Komplett schwarze Editionen der Anti Slip Grips Pro, der Fusion Grips Pro, des Metcon Gewichthebergürtels und des Elite Speed Rope. Es gibt sie nur in der Black Week.</p>"
+          }
+        },
+        "faq_5": {
+          "type": "item",
+          "settings": {
+            "question": "Wie bekomme ich das Geschenk?",
+            "answer": "<p>Ab 109 € Bestellwert (nach Rabatt) kommt eine AROX Trinkflasche (1000 ml) gratis in deinen Warenkorb. Ganz automatisch, solange der Vorrat reicht. 1 pro Bestellung.</p>"
+          }
+        },
+        "faq_7": {
+          "type": "item",
+          "settings": {
+            "question": "Was kostet der Versand?",
+            "answer": "<p>Ab 69,99 € versenden wir gratis. Darunter kostet der Versand mit DHL 2,99 €. Die Lieferzeit beträgt in der Regel 2–4 Werktage.</p>"
+          }
+        },
+        "faq_8": {
+          "type": "item",
+          "settings": {
+            "question": "Kann ich widerrufen oder zurücksenden?",
+            "answer": "<p>Ja. Du hast 30 Tage Widerrufsrecht. Melde deine Rücksendung über unser Retourenportal an. Mehr dazu unter <a href=\"/pages/return-policy\">Rückgabe und Umtausch</a>.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "faq_1",
+        "faq_2",
+        "faq_3",
+        "faq_4",
+        "faq_5",
+        "faq_7",
+        "faq_8"
+      ],
+      "settings": {
+        "phases": "",
+        "eyebrow": "",
+        "heading": "Black Week.<br>Kurz erklärt.",
+        "limit": 12,
+        "open_first": true,
+        "note": "<p>Noch eine Frage offen? Schreib uns an support@aroxfitness.com.</p>",
+        "link_label": "",
+        "link_url": ""
+      }
+    }
+  },
+  "order": [
+    "hero",
+    "terms",
+    "faq"
+  ]
+}

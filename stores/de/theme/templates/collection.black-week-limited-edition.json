@@ -1,0 +1,97 @@
+{
+  "sections": {
+    "bw_header": {
+      "type": "bw-collection-header",
+      "blocks": {
+        "nav_le": {
+          "type": "link",
+          "settings": {
+            "label": "Einzelangebote",
+            "sub": "Fester Black-Week-Preis",
+            "url": "shopify://collections/black-week-limited-edition"
+          }
+        },
+        "nav_s3": {
+          "type": "link",
+          "settings": {
+            "label": "3 für 2",
+            "sub": "Das günstigste ist gratis",
+            "url": "shopify://collections/black-week-3for2"
+          }
+        },
+        "nav_s4": {
+          "type": "link",
+          "settings": {
+            "label": "4 für 2",
+            "sub": "Die 2 günstigsten sind gratis",
+            "url": "shopify://collections/black-week-4for2"
+          }
+        }
+      },
+      "block_order": [
+        "nav_le",
+        "nav_s3",
+        "nav_s4"
+      ],
+      "settings": {
+        "phases": "",
+        "show_crumb": true,
+        "crumb_parent": "Black Week",
+        "crumb_parent_url": "shopify://pages/black-week",
+        "badge": "Black Week",
+        "title": "Limited Edition",
+        "line": "Fester Black-Week-Preis bis Montag, 30.11., 23:59 Uhr (MEZ).",
+        "padding_bottom": 0,
+        "dark_page": true,
+        "show_toolbar": true,
+        "filter_hide": "Brand, Marke, Hersteller, Anbieter",
+        "filter_rename": "Produkttyp=Kategorie; Produkttype=Kategorie; Product type=Kategorie"
+      }
+    },
+    "bw_grid": {
+      "type": "bw-collection-grid",
+      "settings": {
+        "phases": "",
+        "heading": "",
+        "badge": "",
+        "pad_top": 20,
+        "pad_bottom": 24
+      }
+    },
+    "bw_note": {
+      "type": "bw-offer-note",
+      "settings": {
+        "phases": "",
+        "note": "Gratis Versand ab 69,99 € · sonst DHL für 2,99 €",
+        "note_light": true,
+        "pad_top": 0,
+        "pad_bottom": 48
+      },
+      "blocks": {
+        "band_0": {
+          "type": "item",
+          "settings": {
+            "text": "Fester Black-Week-Preis"
+          },
+          "disabled": true
+        },
+        "band_1": {
+          "type": "item",
+          "settings": {
+            "text": "Bis Montag, 30.11., 23:59 Uhr (MEZ)"
+          },
+          "disabled": true
+        }
+      },
+      "block_order": [
+        "band_0",
+        "band_1"
+      ]
+    }
+  },
+  "order": [
+    "bw_header",
+    "bw_grid",
+    "bw_note"
+  ]
+}

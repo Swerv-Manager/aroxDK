@@ -1,0 +1,29 @@
+{%- comment -%}
+BLACK WEEK 2026 · Arox DE (Dawn) · offer box on product pages that are in a Black Week offer (collections
+black-week-limited-edition / -3for2 / -4for2, see snippet bw-offer). Rendered from layout/theme.liquid; bw.js moves it
+under Dawn's price. Shown only when Black Week is on (class bw-site) and not before the offers start (CSS: not in pre).
+{%- endcomment -%}
+{%- capture bw_key -%}{%- render 'bw-offer', product: product, key: true -%}{%- endcapture -%}
+{%- assign bw_key = bw_key | strip -%}
+{%- if bw_key != blank -%}
+  <div class="bw-site bw-dawn-pdp" data-bw-pdp hidden>
+    {%- case bw_key -%}
+      {%- when 's3' -%}
+        <p class="bw-dawn-pdp__badge">Black Week · 3 für 2</p>
+        <p class="bw-dawn-pdp__title">Nimm 3. Zahl 2.</p>
+        <p class="bw-dawn-pdp__text">Lege 3 Produkte aus 3 für 2 in den Warenkorb und zahl nur die 2 teuersten. Das günstigste ist gratis. Der Rabatt wird automatisch im Warenkorb abgezogen, du brauchst keinen Code.</p>
+        <a class="bw-dawn-pdp__link" href="/collections/black-week-3for2">Alle Produkte in 3 für 2 →</a>
+      {%- when 's4' -%}
+        <p class="bw-dawn-pdp__badge">Black Week · 4 für 2</p>
+        <p class="bw-dawn-pdp__title">Nimm 4. Zahl 2.</p>
+        <p class="bw-dawn-pdp__text">Lege 4 Produkte aus 4 für 2 in den Warenkorb und zahl nur die 2 teuersten. Die 2 günstigsten sind gratis. Der Rabatt wird automatisch im Warenkorb abgezogen, du brauchst keinen Code.</p>
+        <a class="bw-dawn-pdp__link" href="/collections/black-week-4for2">Alle Produkte in 4 für 2 →</a>
+      {%- else -%}
+        <p class="bw-dawn-pdp__badge">Black Week · Einzelangebot</p>
+        <p class="bw-dawn-pdp__title">Fester Black-Week-Preis.</p>
+        <p class="bw-dawn-pdp__text">Gilt bis Montag, 30.11.2026, 23:59 Uhr (MEZ). Kein Code nötig.</p>
+        <a class="bw-dawn-pdp__link" href="/collections/black-week-limited-edition">Alle Einzelangebote →</a>
+    {%- endcase -%}
+    <p class="bw-dawn-pdp__gift">Ab 109 € Bestellwert legen wir dir eine AROX Trinkflasche (1000 ml) gratis dazu.</p>
+  </div>
+{%- endif -%}

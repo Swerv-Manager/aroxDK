@@ -1,0 +1,37 @@
+
+/* ==================================================================================================================
+   Arox DE (Dawn 6.0.2) · Black Week additions. Dawn keeps its own header, footer, product page and cart drawer;
+   Black Week adds the ticker, the homepage group, the gift bar in the drawer and the offer box on product pages.
+   ================================================================================================================== */
+/* Dawn's html font-size is 62.5 %; the Black Week sections are set in px, their font is Archivo */
+html.bw-pre .bw-dawn-progress, html.bw-ended .bw-dawn-progress,
+html.bw-pre .bw-dawn-pdp, html.bw-ended .bw-dawn-pdp { display: none !important; }
+
+/* gift bar in the cart drawer */
+.bw-dawn-progress { margin: 0 0 1.6rem; padding: 1.2rem 1.4rem 2.6rem; background: #0a0a0a; color: #fff; font-family: Archivo, sans-serif; }
+.bw-dawn-progress__msg { margin: 0 0 1rem; font-size: 1.3rem; line-height: 1.35; letter-spacing: .01em; }
+.bw-dawn-progress__msg strong { font-weight: 800; }
+.bw-dawn-progress__bar { position: relative; height: 6px; background: rgba(255,255,255,.18); border-radius: 3px; margin: 0 6px; }
+.bw-dawn-progress__fill { position: absolute; left: 0; top: 0; bottom: 0; background: #fff; border-radius: 3px; transition: width .4s ease; }
+.bw-dawn-progress__mark { position: absolute; top: 50%; width: 12px; height: 12px; margin: -6px 0 0 -6px; border-radius: 50%; background: #3a3a3a; border: 2px solid #0a0a0a; }
+.bw-dawn-progress__mark.is-done { background: #fff; }
+.bw-dawn-progress__labels { position: relative; height: 0; margin: 0 6px; }
+.bw-dawn-progress__labels span { position: absolute; top: 8px; transform: translateX(-50%); white-space: nowrap; font-size: 1.05rem; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; color: rgba(255,255,255,.75); }
+.bw-dawn-progress__labels span:last-child { transform: translateX(-100%); }
+
+/* gift line in Dawn's cart drawer and cart page: label, no quantity input (bw.js keeps it at 1) */
+.bw-dawn-gift-tag { margin: .4rem 0 0; display: inline-block; padding: .2rem .8rem; background: #0a0a0a; color: #fff; font-size: 1.1rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; }
+.cart-item.bw-gift-line quantity-input { display: none; }
+
+/* offer box on product pages, under the price */
+.bw-dawn-pdp { margin: 1.6rem 0; padding: 1.6rem 1.8rem; background: #0a0a0a; color: #fff; font-family: Archivo, sans-serif; }
+.bw-dawn-pdp p { margin: 0; }
+.bw-dawn-pdp__badge { font-size: 1.1rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; color: rgba(255,255,255,.7); }
+.bw-dawn-pdp__title { margin-top: .4rem !important; font-size: 2.2rem; font-weight: 900; line-height: 1.1; text-transform: uppercase; letter-spacing: -.01em; }
+.bw-dawn-pdp__text { margin-top: .8rem !important; font-size: 1.4rem; line-height: 1.5; color: rgba(255,255,255,.85); }
+.bw-dawn-pdp__link { display: inline-block; margin-top: 1rem; color: #fff; font-size: 1.3rem; font-weight: 800; letter-spacing: .04em; text-transform: uppercase; text-decoration: underline; text-underline-offset: 3px; }
+.bw-dawn-pdp__gift { margin-top: 1.2rem !important; padding-top: 1.2rem; border-top: 1px solid rgba(255,255,255,.15); font-size: 1.3rem; line-height: 1.45; }
+
+/* Black Week sections inside Dawn: no Dawn heading/link/list styles leaking in */
+.bw-section h1, .bw-section h2, .bw-section h3, .bw-section h4 { letter-spacing: normal; }
+.bw-section a:not([class]) { text-decoration: none; }

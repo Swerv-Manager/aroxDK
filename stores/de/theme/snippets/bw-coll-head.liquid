@@ -1,0 +1,57 @@
+{%- comment -%}
+BLACK WEEK 2026 · board 07 (and 04–06 pages) · collection page head: breadcrumb, "Black Week" outline badge + H1,
+short offer line and the Black Week offer navigation (cards; the card whose link matches the page, or that is set
+active, is red). Styles: .bw-ch* in assets/bw.css.
+Params: title · show_crumb · crumb_parent · crumb_parent_url · badge · line · blocks (nav cards: label, sub, url,
+active) or nav (text: 'Label|Undertekst|/url; …', used by the static section) · padding_bottom (px under the nav)
+{%- endcomment -%}
+{%- assign bw_here = request.path -%}
+<div class="bw-ch__top">
+  {%- if show_crumb -%}
+    <nav class="bw-ch__crumb" aria-label="Brotkrümelnavigation">
+      <a href="{{ routes.root_url }}">Startseite</a> /
+      {%- if crumb_parent != blank %}
+        {% if crumb_parent_url != blank %}<a href="{{ crumb_parent_url }}">{{ crumb_parent }}</a>{% else %}{{ crumb_parent }}{% endif %} /
+      {%- endif %}
+      <span>{{ title }}</span>
+    </nav>
+  {%- endif -%}
+  <div class="bw-ch__row">
+    {%- if badge != blank -%}<span class="bw-ch__pill">{{ badge }}</span>{%- endif -%}
+    <h1 class="bw-ch__title">{{ title }}</h1>
+  </div>
+  {%- if line != blank -%}<div class="bw-ch__line">{{ line }}</div>{%- endif -%}
+</div>
+{%- if nav != blank -%}
+  <div class="bw-ch__nav" style="padding-bottom:{{ padding_bottom | default: 0 }}px">
+    <div class="bw-ch__navrow">
+      {%- assign bw_rows = nav | split: ';' -%}
+      {%- for row in bw_rows -%}
+        {%- assign bw_c = row | split: '|' -%}
+        {%- assign bw_url = bw_c[2] | default: '#' | strip -%}
+        <a href="{{ bw_url }}" class="bw-ch__card" {% if bw_url == bw_here %}aria-current="page"{% endif %}>
+          <span class="bw-ch__l"><span class="bw-ch__lt">{{ bw_c[0] | strip }}</span>{% if bw_c[1] != blank %}<span class="bw-ch__ls">{{ bw_c[1] | strip }}</span>{% endif %}</span>
+          {%- render 'bw-icon', name: 'chevron' -%}
+        </a>
+      {%- endfor -%}
+    </div>
+  </div>
+{%- elsif blocks.size > 0 -%}
+  <div class="bw-ch__nav" style="padding-bottom:{{ padding_bottom | default: 0 }}px">
+    <div class="bw-ch__navrow">
+      {%- for block in blocks -%}
+        {%- liquid
+          assign bw_url = block.settings.url | default: '#'
+          assign bw_cur = block.settings.active
+          if bw_url == bw_here or bw_url == collection.url or bw_url == page.url
+            assign bw_cur = true
+          endif
+        -%}
+        <a href="{{ bw_url }}" class="bw-ch__card" {% if bw_cur %}aria-current="page"{% endif %} {{ block.shopify_attributes }}>
+          <span class="bw-ch__l"><span class="bw-ch__lt">{{ block.settings.label }}</span>{% if block.settings.sub != blank %}<span class="bw-ch__ls">{{ block.settings.sub }}</span>{% endif %}</span>
+          {%- render 'bw-icon', name: 'chevron' -%}
+        </a>
+      {%- endfor -%}
+    </div>
+  </div>
+{%- endif -%}

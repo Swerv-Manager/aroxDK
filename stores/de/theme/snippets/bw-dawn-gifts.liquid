@@ -1,0 +1,7 @@
+{%- comment -%}
+BLACK WEEK 2026 · Arox DE (Dawn) · gift configuration for bw.js (syncGifts), rendered once from layout/theme.liquid.
+One gift in DE (Frederik 19.11): the AROX Trinkflasche 1000 ml (0 € bundle bw-gave-hydration-bottle → the real
+bottle's stock) from 109 € (cart value without gift lines), only in the phases early, live and sidste.
+{%- endcomment -%}
+{%- assign bw_gift = all_products['bw-gave-hydration-bottle'] -%}
+<script type="application/json" data-bw-gifts>{"on":{% if bw_gift.id %}true{% else %}false{% endif %},"phases":["early","live","sidste"],"tiers":[{"key":"g2","min":10900,"product":{{ bw_gift.id | default: 0 }},"variant":{{ bw_gift.selected_or_first_available_variant.id | default: 0 }},"auto":true}]}</script>

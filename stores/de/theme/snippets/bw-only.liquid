@@ -1,0 +1,17 @@
+{%- comment -%}
+BLACK WEEK · outputs CSS classes that show an element only in the given phases.
+Usage: <div class="{% render 'bw-only', phases: 'pre' %}"> · phases: space/comma separated list of pre, early, live, sidste, ended
+(ended = after mandag 30.11 kl. 23:59; anything with a phase list is hidden then unless it lists ended).
+Empty phases = always shown.
+{%- endcomment -%}
+{%- liquid
+  assign bw_list = phases | default: '' | replace: ',', ' ' | split: ' '
+  assign bw_all = 'pre,early,live,sidste,ended' | split: ','
+  if bw_list.size > 0
+    for bw_p in bw_all
+      unless bw_list contains bw_p
+        echo ' bw-hide-' | append: bw_p
+      endunless
+    endfor
+  endif
+-%}

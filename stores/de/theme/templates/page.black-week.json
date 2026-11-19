@@ -1,0 +1,160 @@
+{
+  "sections": {
+    "bw_hero": {
+      "type": "bw-landing-hero",
+      "settings": {
+        "phases": "",
+        "image": "shopify://shop_images/bw26-landing-hero-studio.jpg",
+        "eyebrow": "Black Week 20.11.–30.11.2026",
+        "heading_1": "Black Week.",
+        "heading_2": "So funktioniert's.",
+        "text": "Limited Edition, 3 für 2 und 4 für 2 auf ausgewählte Produkte. Der Rabatt wird automatisch im Warenkorb abgezogen, du brauchst keinen Code.",
+        "button_label": "Einzelangebote ansehen",
+        "button_url": "/collections/black-week-limited-edition",
+        "focal_x": 22,
+        "focal_y": 25
+      }
+    },
+    "bw_dates": {
+      "type": "bw-countdown-dates",
+      "blocks": {
+        "date_1": {
+          "type": "date",
+          "settings": {
+            "date": "FR 20.11.",
+            "time": "12:00 UHR",
+            "label": "Early Access für Angemeldete"
+          }
+        },
+        "date_2": {
+          "type": "date",
+          "settings": {
+            "date": "SO 22.11.",
+            "time": "20:00 UHR",
+            "label": "Für alle"
+          }
+        },
+        "date_3": {
+          "type": "date",
+          "settings": {
+            "date": "MO 30.11.",
+            "time": "23:59 UHR",
+            "label": "Ende · Cyber Monday"
+          }
+        }
+      },
+      "block_order": [
+        "date_1",
+        "date_2",
+        "date_3"
+      ],
+      "settings": {
+        "phases": "",
+        "layout": "split",
+        "show_countdown": true,
+        "eyebrow": "Black Week 20.11.–30.11.",
+        "heading_1": "Diese Termine",
+        "heading_2": "solltest du kennen."
+      }
+    },
+    "bw_offer_cats": {
+      "type": "bw-offer-cats",
+      "blocks": {
+        "cat_1": {
+          "type": "category",
+          "settings": {
+            "image": "shopify://shop_images/Billede-08011.jpg",
+            "overlay": 20,
+            "badge": "Einzelangebote",
+            "heading": "LIMITED BLACKOUT.",
+            "text": "Limited Blackout und ausgewählte Favoriten zum festen Black-Week-Preis. Limited gibt es nur in der Black Week.",
+            "cta": "Einzelangebote ansehen",
+            "url": "/collections/black-week-limited-edition"
+          }
+        },
+        "cat_2": {
+          "type": "category",
+          "settings": {
+            "image": "shopify://shop_images/Billede-08431_c2413a7b-6dfc-42df-9b99-e1990905d132.jpg",
+            "overlay": 30,
+            "badge": "3 für 2",
+            "heading": "NIMM 3. ZAHL 2.",
+            "text": "Lege 3 Produkte aus 3 für 2 in den Warenkorb und zahl nur die 2 teuersten. Das günstigste ist gratis.",
+            "cta": "3 für 2 shoppen",
+            "url": "/collections/black-week-3for2"
+          }
+        },
+        "cat_3": {
+          "type": "category",
+          "settings": {
+            "image": "shopify://shop_images/Billede-00931.jpg",
+            "overlay": 50,
+            "badge": "4 für 2",
+            "heading": "NIMM 4. ZAHL 2.",
+            "text": "Lege 4 Produkte aus 4 für 2 in den Warenkorb und zahl nur die 2 teuersten. Die 2 günstigsten sind gratis.",
+            "cta": "4 für 2 shoppen",
+            "url": "/collections/black-week-4for2"
+          }
+        }
+      },
+      "block_order": [
+        "cat_1",
+        "cat_2",
+        "cat_3"
+      ],
+      "settings": {
+        "phases": "",
+        "eyebrow": "So funktioniert die Black Week",
+        "heading_1": "Drei Angebote.",
+        "heading_2": "Ein Warenkorb.",
+        "note": "Der Rabatt wird automatisch im Warenkorb abgezogen, du brauchst keinen Code."
+      }
+    },
+    "bw_gift": {
+      "type": "bw-gift-block",
+      "blocks": {
+        "rule_1": {
+          "type": "rule",
+          "settings": {
+            "number": "01",
+            "kicker": "Ab 109 € Bestellwert",
+            "title": "Gratis AROX Trinkflasche 1000 ml",
+            "text": "Es zählt der Bestellwert nach Rabatt."
+          }
+        },
+        "rule_2": {
+          "type": "rule",
+          "settings": {
+            "number": "02",
+            "kicker": "Automatisch",
+            "title": "Kein Code nötig",
+            "text": "Die Flasche kommt von selbst in den Warenkorb, solange der Vorrat reicht. 1 pro Bestellung."
+          }
+        }
+      },
+      "block_order": [
+        "rule_1",
+        "rule_2"
+      ],
+      "settings": {
+        "phases": "",
+        "layout": "rules",
+        "eyebrow": "Geschenk in der Black Week",
+        "heading_1": "Geschenk dazu.",
+        "heading_2": "Ab 109 €.",
+        "image": "shopify://shop_images/hyrdrationbottle.png",
+        "card_title": "AROX Trinkflasche 1000 ml",
+        "card_text": "Gratis ab 109 € Bestellwert in der Black Week.",
+        "note": "",
+        "button_label": "Zum Geschenk",
+        "button_url": "/pages/black-week-geschenk"
+      }
+    }
+  },
+  "order": [
+    "bw_hero",
+    "bw_dates",
+    "bw_offer_cats",
+    "bw_gift"
+  ]
+}
