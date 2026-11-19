@@ -140,6 +140,25 @@ Go-live list (client / Frederik):
 10. After 30.11 kl. 23:59 the theme still shows the offers (phase `ended` hides only a few elements): publish the
     normal theme again right after, or build an ended state first.
 
+## SE and DE (started 19.11)
+
+Decisions (Frederik 19.11): same offers and dates as DK; amounts = DKK converted and rounded to whole amounts
+(SEK at 1,49 per DKK, XE 18.11; EUR at 7,46 DKK, the peg): 799 → 1.191 kr / 107 €, 1.299 → 1.936 kr / 174 €;
+Claude writes and approves the SE/DE texts from the copy agents (`arox-fitness-copy`, `arox-fitness-de-copy`);
+Trustpilot and customer counts may be used in all markets (clients.trustpilot_allowed = true).
+Network: aroxfitness.se and aroxfitness.de are allowed since 19.11.
+
+- SE: aroxfitness.se = `aroxfitnesscom.myshopify.com`, live theme "Impact Theme | Markets" (Impact 6.6.0,
+  171481301321), locale sv, SEK, money format `{{amount_no_decimals}} kr`. Apps on the homepage: Kaching, Klaviyo,
+  na-side-cart, Pandectes, ProfitMetrics, Clarity. Free shipping is stated twice and differently: "Fri frakt över 899
+  kr" (announcement bar) and "Fri frakt över 749 kr" (USP row); converted 499 DKK = 744 kr. The bar's first step must
+  match what checkout really charges.
+- DE: aroxfitness.de = `aroxfitness-se.myshopify.com` (sic), live theme **Dawn 6.0.2** (131330343099), not Impact:
+  the Impact changes (cart drawer, product page, gallery, collection integration) cannot be copied; the bw-* sections
+  themselves are mostly self-contained. "Versandkostenfrei ab 69,99 €" (converted 499 DKK = 67 €).
+- Same stock numbers as DK for shared products (one warehouse); SE/DE have their own prices and partly other handles.
+- Connector: switching store needs a new Shopify sign-in on claude.ai (Connectors); verify with get-shop-info first.
+
 ## Fast workflow (needs network access to aroxfitness.myshopify.com and aroxfitness.dk)
 
 The environment's network policy now allows the store (added 16.11); `cdn.shopify.com` is still blocked, which only
