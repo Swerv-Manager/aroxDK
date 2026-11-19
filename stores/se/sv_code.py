@@ -114,6 +114,7 @@ FILES = {
         ('aria-label="Læg {{ product.title | escape }} i kurven"', 'aria-label="Lägg {{ product.title | escape }} i varukorgen"'),
         ('<span>Vælg {% if', '<span>Välj {% if'),
         ('aria-label="Luk"', 'aria-label="Stäng"'),
+        ('{% if bw_count == 1 %}anmeldelse{% else %}anmeldelser{% endif %}', '{% if bw_count == 1 %}recension{% else %}recensioner{% endif %}'),
         ("when 'sort', 'black'", "when 'sort', 'black', 'svart'"),
         ("when 'light grey', 'lysegrå'", "when 'light grey', 'lysegrå', 'ljusgrå'"),
         ("when 'ranger green'", "when 'ranger green', 'mörkgrön', 'dusty olive', 'olivgrön'"),
